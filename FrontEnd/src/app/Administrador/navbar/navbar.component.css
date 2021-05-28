@@ -2,12 +2,37 @@ img {
   height: 60px;
   width: 40px;
 }
+
 nav{
   background: linear-gradient(65deg, #000000, #641303);
   color: white;
 }
 
-.backG{
-  height: 100vh;
-  background: linear-gradient(65deg, #909090, #f6f1e8);
+.dropdown-menu{
+  background: linear-gradient(65deg, #000000, #641303);
+}
+
+.dropdown-menu:hover{
+  background: linear-gradient(65deg, #000000, #641303);
+}
+
+.dropdown-item{
+  color: white;
+}
+
+.dropdown-item:hover{
+  color: white;
+}
+
+a:hover{
+  color: white;
+  background: linear-gradient(65deg, #991C06, #E52200);
+}
+
+.btn{
+  color: white;
+}
+
+.posicion{
+
 }

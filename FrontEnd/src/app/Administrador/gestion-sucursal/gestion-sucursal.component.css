@@ -1,3 +1,15 @@
-.contenedorPantalla{
-  margin-top: 500px;
+.contenerDeInformacion{
+  margin-left: 15%;
+  margin-top: 5vh;
+  width: 70%;
+  height: 16vh;
+  background: wheat;
 }
+
+img {
+  width: 230px;
+}
+
+.columna1{
+}
+
