@@ -1,0 +1,49 @@
+.aux{
+  height: 100vh;
+  background: linear-gradient(65deg, #000000, #4C0D00);
+  padding-top: 30vh;
+}
+
+.container{
+  background: linear-gradient(65deg, #909090, #f6f1e8);
+  border-radius: 20px;
+  padding: 2%;
+  width: 50%;
+  align-items: center;
+  color: #051821;
+}
+
+.columna1{
+  width: 40%;
+}
+img {
+  margin-left: 30%;
+  width: 40%;
+}
+
+input{
+  margin-top: 10px;
+  background-color: #f6f1e8;
+  border-radius: 15px;
+  width: 90%;
+}
+
+.entradas{
+  margin-top: 40px;
+}
+
+button {
+  margin-top: 25px;
+  width: 90%;
+  height: 48px;
+  font-size: 18px;
+  text-transform: initial;
+  border-radius: 50px;
+  background-color: #051821;
+  color: white;
+}
+
+button:hover{
+  color: white;
+  background-color: #1e2f37;
+}
