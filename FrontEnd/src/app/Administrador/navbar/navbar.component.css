@@ -33,6 +33,7 @@ a:hover{
   color: white;
 }
 
-.posicion{
-
+.btnSalir{
+  position: absolute;
+  right: 10px;
 }
