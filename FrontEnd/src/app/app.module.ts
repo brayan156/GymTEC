@@ -13,6 +13,9 @@ import { GestionDePuestosComponent } from './Administrador/gestion-de-puestos/ge
 import { GestionTipoPlanillaComponent } from './Administrador/gestion-tipo-planilla/gestion-tipo-planilla.component';
 import { GestionEmpleadoComponent } from './Administrador/gestion-empleado/gestion-empleado.component';
 import { GeneracionPlanillaComponent } from './Administrador/generacion-planilla/generacion-planilla.component';
+import { GestionTipoEquiposComponent } from './Administrador/gestion-tipo-equipos/gestion-tipo-equipos.component';
+import { GestionServiciosComponent } from './Administrador/gestion-servicios/gestion-servicios.component';
+import { GestionInventarioComponent } from './Administrador/gestion-inventario/gestion-inventario.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +27,9 @@ import { GeneracionPlanillaComponent } from './Administrador/generacion-planilla
     GestionTipoPlanillaComponent,
     GestionEmpleadoComponent,
     GeneracionPlanillaComponent,
+    GestionTipoEquiposComponent,
+    GestionServiciosComponent,
+    GestionInventarioComponent,
   ],
   imports: [
     BrowserModule,

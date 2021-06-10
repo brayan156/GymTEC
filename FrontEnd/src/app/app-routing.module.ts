@@ -8,6 +8,9 @@ import {GestionDePuestosComponent} from './Administrador/gestion-de-puestos/gest
 import {GestionTipoPlanillaComponent} from './Administrador/gestion-tipo-planilla/gestion-tipo-planilla.component';
 import {GestionEmpleadoComponent} from './Administrador/gestion-empleado/gestion-empleado.component';
 import {GeneracionPlanillaComponent} from './Administrador/generacion-planilla/generacion-planilla.component';
+import {GestionServiciosComponent} from './Administrador/gestion-servicios/gestion-servicios.component';
+import {GestionTipoEquiposComponent} from './Administrador/gestion-tipo-equipos/gestion-tipo-equipos.component';
+import {GestionInventarioComponent} from './Administrador/gestion-inventario/gestion-inventario.component';
 
 const routes: Routes = [{path: '', component: LoginComponent},
   { path: 'administrador', component: NavbarComponent,
@@ -17,6 +20,9 @@ const routes: Routes = [{path: '', component: LoginComponent},
       {path: 'GestionPlanilla' , component: GestionTipoPlanillaComponent},
       {path: 'GestionEmpleados' , component: GestionEmpleadoComponent},
       {path: 'GeneracionPlanilla' , component: GeneracionPlanillaComponent},
+      {path: 'GestionServicios' , component: GestionServiciosComponent},
+      {path: 'TipoEquipo' , component: GestionTipoEquiposComponent},
+      {path: 'GestionInventario' , component: GestionInventarioComponent},
 
     ]},
 ];

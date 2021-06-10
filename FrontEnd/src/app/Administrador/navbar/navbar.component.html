@@ -20,6 +20,10 @@
             <a class="nav-link active btn" (click)="navigate('GestionSpa')">Gestion de Tratamiendo del Spa</a>
           </li>
 
+          <li class="nav-item">
+            <a class="nav-link active btn" (click)="navigate('GestionServicios')">Gestion de servicios</a>
+          </li>
+
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle"  id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -41,9 +45,9 @@
               Inventario
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
-              <li><a class="dropdown-item btn" >Gestión de Tipos Equipo</a></li>
+              <li><a class="dropdown-item btn" (click)="navigate('TipoEquipo')">Gestión de Tipos Equipo</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item btn" >Gestión de inventario</a></li>
+              <li><a class="dropdown-item btn" (click)="navigate('GestionInventario')">Gestión de inventario</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item btn" > Gestión de productos</a></li>
             </ul>
