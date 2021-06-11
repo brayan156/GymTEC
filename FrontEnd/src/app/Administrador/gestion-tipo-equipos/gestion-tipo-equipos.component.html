@@ -1,4 +1,4 @@
-<button class="btn btn-dark largo">Generar un nuevo tipo de equipo</button>
+<button class="btn btn-dark largo" data-bs-toggle="modal" data-bs-target="#crearEquipo">Generar un nuevo tipo de equipo</button>
 <div class="container row">
   <div class="col margnes">
     <div class="card" style="width: 18rem;">
@@ -8,10 +8,85 @@
         <label class="row letras">Tipo</label>
       </div>
       <div class="card-footer">
-        <button class="btn btn-primary margen">Editar</button>
-        <button class="btn btn-danger margen">Eliminar</button>
+        <button class="btn btn-primary margen" data-bs-toggle="modal" data-bs-target="#editarEquipo">Editar</button>
+        <button class="btn btn-danger margen" data-bs-toggle="modal" data-bs-target="#eliminarEquipo">Eliminar</button>
       </div>
     </div>
   </div>
 </div>
 
+<div class="modal fade" id="crearEquipo" tabindex="-1" aria-labelledby="crearEquipoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="crearEquipoLabel">Agregar Equipo</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+
+        <div class="tamano3">
+          <label>Tipo:</label>
+          <input type="text" class="form-control" name="nombre" id="TipoEquipo" required="">
+        </div>
+
+        <div class="tamano3">
+          <label>Descripcion:</label>
+          <input type="text" class="form-control" name="nombre" id="descripcionEquipo" required="">
+        </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" name="7">Aceptar</button>
+
+        <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="editarEquipo" tabindex="-1" aria-labelledby="editarPlanillaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="editarPlanillaLabel">Editar Equipo</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="tamano3">
+          <label>Tipo:</label>
+          <input type="text" class="form-control" name="nombre" required="">
+        </div>
+
+        <div class="tamano3">
+          <label>Descripcion:</label>
+          <input type="text" class="form-control" name="nombre"  required="">
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" name="7">Aceptar</button>
+
+        <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="eliminarEquipo" tabindex="-1" aria-labelledby="eliminarPlanillaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="eliminarPlanillaLabel">Esta Seguro que desea eliminar el equipo: Nombre</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" name="7">Aceptar</button>
+
+        <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>

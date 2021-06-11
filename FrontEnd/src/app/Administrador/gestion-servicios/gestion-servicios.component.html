@@ -1,4 +1,4 @@
-<button class="btn btn-dark largo">Agregar un nuevo servicio</button>
+<button class="btn btn-dark largo" data-bs-toggle="modal" data-bs-target="#agregarServicio">Agregar un nuevo servicio</button>
 
 
 <div class="container">
@@ -7,14 +7,94 @@
       <img src="https://www.tiovivocreativo.com/wp-content/uploads/2020/02/interiorismo-dise%C3%B1o-gimnasios-planificar-espacios.jpg" alt="">
     </div>
     <div class="col col2">
-      <div class="row"><h3><b>Numero de indentificador</b></h3></div>
+      <div class="row"><h3><b>Indentificador</b></h3></div>
       <div class="row"><label>Descripcion:</label></div>
-      <div class="row"><label>Tipo/Nombre</label></div>
       <div class="row btn2">
-        <div class="col"><button class="btn btn-primary btn1">Editar puesto</button></div>
-        <div class="col"><button class="btn btn-danger btn2">Eliminar puesto</button></div>
+        <div class="col"><button class="btn btn-primary btn1" data-bs-toggle="modal" data-bs-target="#editarServicio">
+          Editar Servicio</button></div>
+        <div class="col"><button class="btn btn-danger btn2"  data-bs-toggle="modal" data-bs-target="#eliminarServicio">
+          Eliminar Serivicio</button></div>
       </div>
     </div>
   </div>
 </div>
 
+<div class="modal fade" id="agregarServicio" tabindex="-1" aria-labelledby="agregarServicioLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="agregarServicioLabel">Agregar Serivicio</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="tamano3">
+          <label>Imagen Del Servicio:</label>
+          <input type="text" class="form-control" name="nombre" id="imageServicio" required="">
+        </div>
+
+        <div class="tamano3">
+          <label>Identificador:</label>
+          <input type="text" class="form-control" name="nombre" id="nombreServicio" required="">
+        </div>
+
+        <div class="tamano3">
+          <label>Descripcion:</label>
+          <input type="text" class="form-control" name="nombre" id="descripcionSerivicio" required="">
+        </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" name="7">Aceptar</button>
+
+        <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="editarServicio" tabindex="-1" aria-labelledby="editarSerivioLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="editarPuestoLabel">Editar Servicio</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="tamano3">
+          <label>Imagen Del Puesto:</label>
+          <input type="text" class="form-control" name="nombre" id="imagenServicio" required="">
+        </div>
+
+        <div class="tamano3">
+          <label>Descripcion:</label>
+          <input type="text" class="form-control" name="nombre" id="descripcionServicio" required="">
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" name="7">Aceptar</button>
+
+        <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="eliminarServicio" tabindex="-1" aria-labelledby="eliminarPuestoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="eliminarPuestoLabel">Esta Seguro que desea eliminar el Servicio: Identificador</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" name="7">Aceptar</button>
+
+        <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>

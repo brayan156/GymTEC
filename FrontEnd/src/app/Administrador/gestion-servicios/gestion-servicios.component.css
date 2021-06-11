@@ -30,3 +30,8 @@ img{
   background: #f6f1e8;
   margin-top: 20px;
 }
+
+.modal{
+  background: linear-gradient(65deg, #000000, #641303);
+}
+
