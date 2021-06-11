@@ -14,7 +14,7 @@
         <EntityTypeShape EntityType="gymtecdatabaseModel.Producto" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
         <EntityTypeShape EntityType="gymtecdatabaseModel.Puesto" Width="1.5" PointX="3" PointY="12.625" IsExpanded="true" />
         <EntityTypeShape EntityType="gymtecdatabaseModel.Servicio" Width="1.5" PointX="5.25" PointY="14.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="gymtecdatabaseModel.Sucursal" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="gymtecdatabaseModel.Sucursal" Width="1.5" PointX="0.625" PointY="11.375" IsExpanded="true" />
         <EntityTypeShape EntityType="gymtecdatabaseModel.Telefono" Width="1.5" PointX="5.25" PointY="17.25" IsExpanded="true" />
         <EntityTypeShape EntityType="gymtecdatabaseModel.TipoEquipo" Width="1.5" PointX="6" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="gymtecdatabaseModel.Tratamiento" Width="1.5" PointX="5.25" PointY="19.625" IsExpanded="true" />
