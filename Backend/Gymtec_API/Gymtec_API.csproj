@@ -173,6 +173,9 @@
     <Compile Include="Controllers\EmpleadoController.cs" />
     <Compile Include="Controllers\EquipoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\mostrar_clasesController.cs" />
+    <Compile Include="Controllers\mostrar_clientesController.cs" />
+    <Compile Include="Controllers\mostrar_inventarioController.cs" />
     <Compile Include="Controllers\PermisoController.cs" />
     <Compile Include="Controllers\PlanillaController.cs" />
     <Compile Include="Controllers\ProductoController.cs" />
@@ -182,6 +185,7 @@
     <Compile Include="Controllers\TelefonoController.cs" />
     <Compile Include="Controllers\TipoEquipoController.cs" />
     <Compile Include="Controllers\TratamientoController.cs" />
+    <Compile Include="Controllers\tratamientos_asociadosController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Empleado.cs">
       <DependentUpon>Model1.tt</DependentUpon>
