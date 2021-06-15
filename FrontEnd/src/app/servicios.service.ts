@@ -6,6 +6,12 @@ import {Cliente} from './Clases/cliente';
 import {Empleado} from './Clases/empleado';
 import {Equipo} from './Clases/equipo';
 import {Planilla} from './Clases/planilla';
+import {Producto} from './Clases/producto';
+import {Puesto} from './Clases/puesto';
+import {Servicio} from './Clases/servicio';
+import {Sucursal} from './Clases/sucursal';
+import {TipoEquipo} from './Clases/tipo-equipo';
+import {Tratamiento} from './Clases/tratamiento';
 
 @Injectable({
   providedIn: 'root'
@@ -142,9 +148,164 @@ export class ServiciosService {
     return this.htpp.delete(this.Url + 'Planilla/' + id);
   }
 
+  // DUDAS SOBRE ESTOS METODOS
+  // tslint:disable-next-line:typedef
+  public obtenerProducto(id: number){
+    return this.htpp.get<Producto>(this.Url + 'Producto/' + id);
+  }
+
+  // tslint:disable-next-line:typedef
+  public obtenerListasProducto(){
+    return this.htpp.get<Producto[]>(this.Url + 'Producto');
+  }
+
+  // tslint:disable-next-line:typedef
+  public agregarProducto(producto: Producto){
+    return this.htpp.post(this.Url + 'Producto', producto);
+  }
+
+  // tslint:disable-next-line:typedef
+  public editarProducto(id: number, producto: Producto){
+    return this.htpp.put(this.Url + 'Producto/' + id, producto);
+  }
+
+  // tslint:disable-next-line:typedef
+  public eliminarProducto(id: number){
+    return this.htpp.delete(this.Url + 'Producto/' + id);
+  }
 
 
+  // DUDAS SOBRE ESTOS METODOS
+  // tslint:disable-next-line:typedef
+  public obtenerPuesto(id: number){
+    return this.htpp.get<Puesto>(this.Url + 'Puesto/' + id);
+  }
 
+  // tslint:disable-next-line:typedef
+  public obtenerListasPuesto(){
+    return this.htpp.get<Puesto[]>(this.Url + 'Puesto');
+  }
+
+  // tslint:disable-next-line:typedef
+  public agregarPuesto(puesto: Puesto){
+    return this.htpp.post(this.Url + 'Puesto', puesto);
+  }
+
+  // tslint:disable-next-line:typedef
+  public editarPuesto(id: number, puesto: Puesto){
+    return this.htpp.put(this.Url + 'Puesto/' + id, puesto);
+  }
+
+  // tslint:disable-next-line:typedef
+  public eliminarPuesto(id: number){
+    return this.htpp.delete(this.Url + 'Puesto/' + id);
+  }
+
+
+  // DUDAS SOBRE ESTOS METODOS
+  // tslint:disable-next-line:typedef
+  public obtenerServicio(id: number){
+    return this.htpp.get<Servicio>(this.Url + 'Servicio/' + id);
+  }
+
+  // tslint:disable-next-line:typedef
+  public obtenerListasServicio(){
+    return this.htpp.get<Servicio[]>(this.Url + 'Servicio');
+  }
+
+  // tslint:disable-next-line:typedef
+  public agregarServicio(servicio: Servicio){
+    return this.htpp.post(this.Url + 'Servicio', servicio);
+  }
+
+  // tslint:disable-next-line:typedef
+  public editarServicio(id: number, servicio: Servicio){
+    return this.htpp.put(this.Url + 'Servicio/' + id, servicio);
+  }
+
+  // tslint:disable-next-line:typedef
+  public eliminarServicio(id: number){
+    return this.htpp.delete(this.Url + 'Servicio/' + id);
+  }
+
+
+// DUDAS SOBRE ESTOS METODOS
+  // tslint:disable-next-line:typedef
+  public obtenerSucursal(id: number){
+    return this.htpp.get<Sucursal>(this.Url + 'Sucursal/' + id);
+  }
+
+  // tslint:disable-next-line:typedef
+  public obtenerListasSucursal(){
+    return this.htpp.get<Sucursal[]>(this.Url + 'Sucursal');
+  }
+
+  // tslint:disable-next-line:typedef
+  public agregarSucursal(sucursal: Sucursal){
+    return this.htpp.post(this.Url + 'Sucursal', sucursal);
+  }
+
+  // tslint:disable-next-line:typedef
+  public editarSucursal(id: number, sucursal: Sucursal){
+    return this.htpp.put(this.Url + 'Sucursal/' + id, sucursal);
+  }
+
+  // tslint:disable-next-line:typedef
+  public eliminarSucursal(id: number){
+    return this.htpp.delete(this.Url + 'TipoEquipo/' + id);
+  }
+
+  // DUDAS SOBRE ESTOS METODOS
+  // tslint:disable-next-line:typedef
+  public obtenerTipoEquipo(id: number){
+    return this.htpp.get<TipoEquipo>(this.Url + 'TipoEquipo/' + id);
+  }
+
+  // tslint:disable-next-line:typedef
+  public obtenerListasTipoEquipo(){
+    return this.htpp.get<TipoEquipo[]>(this.Url + 'TipoEquipo');
+  }
+
+  // tslint:disable-next-line:typedef
+  public agregarTipoEquipo(tipoEquipo: TipoEquipo){
+    return this.htpp.post(this.Url + 'TipoEquipo', tipoEquipo);
+  }
+
+  // tslint:disable-next-line:typedef
+  public editarTipoEquipo(id: number, tipoEquipo: TipoEquipo){
+    return this.htpp.put(this.Url + 'TipoEquipo/' + id, tipoEquipo);
+  }
+
+  // tslint:disable-next-line:typedef
+  public eliminarTipoEquipo(id: number){
+    return this.htpp.delete(this.Url + 'TipoEquipo/' + id);
+  }
+
+  // DUDAS SOBRE ESTOS METODOS
+  // tslint:disable-next-line:typedef
+  public obtenerTratamiento(id: number){
+    return this.htpp.get<Tratamiento>(this.Url + 'Tratamiento/' + id);
+  }
+
+  // tslint:disable-next-line:typedef
+  public obtenerListasTratamiento(){
+    return this.htpp.get<Tratamiento[]>(this.Url + 'Tratamiento');
+  }
+
+  // tslint:disable-next-line:typedef
+  public agregarTratamiento(tratamiento: Tratamiento){
+    return this.htpp.post(this.Url + 'Tratamiento', tratamiento);
+  }
+
+  // tslint:disable-next-line:typedef
+  public editarTratamiento(id: number, tratamiento: Tratamiento){
+    return this.htpp.put(this.Url + 'Tratamiento/' + id, tratamiento);
+  }
+
+  // tslint:disable-next-line:typedef
+  public eliminarTratamiento(id: number){
+    return this.htpp.delete(this.Url + 'Tratamiento/' + id);
+  }
 
 
 }

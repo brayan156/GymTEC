@@ -1,4 +1,4 @@
-export class Productos {
+export class Producto {
   constructor(codigoBarras: number, nombre: string, costo: number, descripcion: string, imagen: string) {
     this.codigoBarras = codigoBarras;
     this.nombre = nombre;
