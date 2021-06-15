@@ -1,39 +1,56 @@
-<!-- Page Content -->
-<html>
-<body>
-<div class="container">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+</head>
 
-  <div class="row">
-    <div class="col-md-offset-5 col-md-4 text-center">
-      <h1 class='text-white'>Unique Login Form</h1>
-      <div class="form-login"><br>
-        <h4>Secure Login</h4>
-        <br>
-        <input type="text" id="userName" class="form-control input-sm chat-input" placeholder="username"/>
-        <br><br>
-        <input type="text" id="userPassword" class="form-control input-sm chat-input" placeholder="password"/>
-        <br><br>
-        <div class="wrapper">
-                        <span class="group-btn">
-                            <a href="#" class="btn btn-danger btn-md">login <i class="fa fa-sign-in"></i></a>
-                        </span>
+<html>
+
+<body>
+  <div class="container">
+    <div class="row">
+
+      <div class="col-sm">
+        <div class="header-text">
+          <h2>Bienvenido</h2>
+          
+        </div>
+        <div class="LoginForm">
+          <form id="form">
+            <div class="form-group input-group">
+              <span class="marginLeft">
+                <i class="bi bi-envelope"></i>
+              </span>
+              <input type="email" name="email" class="form-control" [(ngModel)]="usuario.correo" id="myEmail"
+                placeholder="E-mail">
+            </div>
+            <div class="form-group input-group">
+              <span class="marginLeft">
+                <i class="bi bi-file-lock2-fill"></i> </span>
+              <input type="password" #myPassword name="password" class="form-control" [(ngModel)]="usuario.password"
+                id="myPassword" placeholder="Contraseña">
+              <span class="marginRight">
+                <i (click)="this.showPassword()" class="bi bi-eye"></i>
+              </span>
+            </div>
+            <button type="submit" (click)="this.login()" class="btn btn-primary">Entrar</button>
+          </form>
         </div>
       </div>
-    </div>
-    <div class="col-md-offset-5 col-md-4 text-center">
 
-      <img class="logo" src="https://user-images.githubusercontent.com/38998436/120532907-6cf1cd80-c39d-11eb-8dab-b2aa2a442bd9.png">
+      <div class="col-sm">
+        <div class="InfoContainer">
+          <img class="logo" src="/assets/Asset 5@4x-8.png">
+          <p>¿Estás listo para sentir tu cuerpo arder y renacer de las cenizas? Tenemos las actividades, los
+            entrenadores y todos los recursos necesarios para mejorar tu vida al máximo.</p>
+          <small></small>
+        </div>
+      </div>
 
     </div>
   </div>
-  <br><br><br>
-
-  <!--footer-->
-  <div class="footer text-white text-center">
-    <p>© 2020 Unique Login Form. All rights reserved | Design by <a href="https://freecss.tech">Free Css</a></p>
-  </div>
-  <!--//footer-->
-</div>
 </body>
 
 </html>
+
+<script>
+
+</script>
