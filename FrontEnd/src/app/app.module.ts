@@ -5,7 +5,6 @@ import { AppComponent } from './AppComponent/app.component';
 import { LoginComponent } from './Login/login/login.component';
 import { NavbarComponent } from './Administrador/navbar/navbar.component';
 import { GestionSucursalComponent } from './Administrador/gestion-sucursal/gestion-sucursal.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { GestionSpaComponent } from './Administrador/gestion-spa/gestion-spa.component';
@@ -18,6 +17,10 @@ import { AsociacionProductosComponent } from './Dashboard/asociacion-productos/a
 import { AsociacionInventarioComponent } from './Dashboard/asociacion-inventario/asociacion-inventario.component';
 import { CrearClaseComponent } from './Dashboard/crear-clase/crear-clase.component';
 import { FormsModule } from '@angular/forms';
+import { GestionTipoEquiposComponent } from './Administrador/gestion-tipo-equipos/gestion-tipo-equipos.component';
+import { GestionServiciosComponent } from './Administrador/gestion-servicios/gestion-servicios.component';
+import { GestionInventarioComponent } from './Administrador/gestion-inventario/gestion-inventario.component';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +36,9 @@ import { FormsModule } from '@angular/forms';
     AsociacionProductosComponent,
     AsociacionInventarioComponent,
     CrearClaseComponent,
+    GestionTipoEquiposComponent,
+    GestionServiciosComponent,
+    GestionInventarioComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +46,7 @@ import { FormsModule } from '@angular/forms';
     MatButtonModule,
     MatSlideToggleModule,
     FormsModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

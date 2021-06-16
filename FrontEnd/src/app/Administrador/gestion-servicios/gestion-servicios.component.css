@@ -1,0 +1,37 @@
+.largo{
+  width: 70%;
+  margin-left: 15%;
+  margin-top: 10px;
+  border-radius: 20px;
+}
+.letras{
+  margin-left: 10px;
+}
+
+img{
+  height: 150px;
+}
+.btn1{
+  margin-left: 10px;
+  width: 150px;
+}
+.btn2{
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 150px;
+}
+
+.container{
+
+  width: 600px;
+  height: auto;
+  border-radius: 40px;
+  padding: 20px;
+  background: #f6f1e8;
+  margin-top: 20px;
+}
+
+.modal{
+  background: linear-gradient(65deg, #000000, #641303);
+}
+

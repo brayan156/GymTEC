@@ -1,4 +1,4 @@
-<button class="btn btn-dark largo">Agregar un nuevo puesto</button>
+<button class="btn btn-dark largo" data-bs-toggle="modal" data-bs-target="#crearPuesto">Agregar un nuevo puesto</button>
 
 
 <div class="container">
@@ -7,13 +7,98 @@
           <img src="https://www.tiovivocreativo.com/wp-content/uploads/2020/02/interiorismo-dise%C3%B1o-gimnasios-planificar-espacios.jpg" alt="">
       </div>
       <div class="col col2">
-        <div class="row"><h3>Numero de indentificador</h3></div>
+        <div class="row"><h3><b>Numero de indentificador</b></h3></div>
         <div class="row"><label>Dirrecion:</label></div>
         <div class="row"><label>Texto</label></div>
         <div class="row btn2">
-        <div class="col"><button class="btn btn-primary btn1">Editar puesto</button></div>
-        <div class="col"><button class="btn btn-danger btn2">Eliminar puesto</button></div>
+        <div class="col"><button class="btn btn-primary btn1" data-bs-toggle="modal" data-bs-target="#editarPuesto">Editar Puesto</button></div>
+        <div class="col"><button class="btn btn-danger btn2" data-bs-toggle="modal" data-bs-target="#eliminarPuesto">Eliminar Puesto</button></div>
         </div>
       </div>
     </div>
+</div>
+
+<div class="modal fade" id="crearPuesto" tabindex="-1" aria-labelledby="crearPuestoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="crearPuestoLabel">Agregar Puesto</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="tamano3">
+          <label>Imagen Del Puesto:</label>
+          <input type="text" class="form-control" name="nombre" id="imagePuesto" required="">
+        </div>
+
+        <div class="tamano3">
+          <label>Nombre Del Puesto:</label>
+          <input type="text" class="form-control" name="nombre" id="nombrePuesto" required="">
+        </div>
+
+        <div class="tamano3">
+          <label>Descripcion:</label>
+          <input type="text" class="form-control" name="nombre" id="descripcionPuesto" required="">
+        </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" name="7">Aceptar</button>
+
+        <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="editarPuesto" tabindex="-1" aria-labelledby="editarPuestoLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 class="modal-title" id="editarPuestoLabel">Editar Tratamiento</h2>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+
+      <div class="tamano3">
+        <label>Imagen Del Puesto:</label>
+        <input type="text" class="form-control" name="nombre" id="imagePuesto1" required="">
+      </div>
+
+      <div class="tamano3">
+        <label>Nombre Del Puesto:</label>
+        <input type="text" class="form-control" name="nombre" id="nombrePuesto1" required="">
+      </div>
+
+      <div class="tamano3">
+        <label>Descripcion:</label>
+        <input type="text" class="form-control" name="nombre" id="descripcionPuesto1" required="">
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-primary" name="7">Aceptar</button>
+
+      <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="modal fade" id="eliminarPuesto" tabindex="-1" aria-labelledby="eliminarPuestoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="eliminarPuestoLabel">Esta Seguro que desea eliminar el Puesto: Nombre</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" name="7">Aceptar</button>
+
+        <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
+      </div>
+    </div>
+  </div>
 </div>

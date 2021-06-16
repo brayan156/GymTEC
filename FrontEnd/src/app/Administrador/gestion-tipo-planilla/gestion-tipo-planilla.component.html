@@ -1,4 +1,4 @@
-<button class="btn btn-dark largo">Agregar un nuevo tratamiento al SPA</button>
+<button class="btn btn-dark largo" data-bs-toggle="modal" data-bs-target="#crearPlanilla">Generar un nuevo tipo de planilla</button>
 <div class="container row">
   <div class="col margnes">
     <div class="card" style="width: 18rem;">
@@ -8,8 +8,84 @@
         <label class="row letras">Tipo Pago</label>
       </div>
       <div class="card-footer">
-        <button class="btn btn-primary margen">Editar</button>
-        <button class="btn btn-danger margen">Eliminar</button>
+        <button class="btn btn-primary margen" data-bs-toggle="modal" data-bs-target="#editarPlanilla">Editar</button>
+        <button class="btn btn-danger margen" data-bs-toggle="modal" data-bs-target="#eliminarPlanilla">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="crearPlanilla" tabindex="-1" aria-labelledby="crearPlanillaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="crearPlanillaLabel">Agregar Tipo de Planilla</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+
+        <div class="tamano3">
+          <label>Tipo de Pago:</label>
+          <input type="text" class="form-control" name="nombre" id="TipoPago" required="">
+        </div>
+
+        <div class="tamano3">
+          <label>Descripcion:</label>
+          <input type="text" class="form-control" name="nombre" id="descripcion" required="">
+        </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" name="7">Aceptar</button>
+
+        <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="editarPlanilla" tabindex="-1" aria-labelledby="editarPlanillaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="editarPlanillaLabel">Editar Planilla</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="tamano3">
+          <label>Tipo de Pago:</label>
+          <input type="text" class="form-control" name="nombre" required="">
+        </div>
+
+        <div class="tamano3">
+          <label>Descripcion:</label>
+          <input type="text" class="form-control" name="nombre"  required="">
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" name="7">Aceptar</button>
+
+        <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="eliminarPlanilla" tabindex="-1" aria-labelledby="eliminarPlanillaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="eliminarPlanillaLabel">Esta Seguro que desea eliminar TIPO de pago: Nombre , Numero de identifiacador</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" name="7">Aceptar</button>
+
+        <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
       </div>
     </div>
   </div>

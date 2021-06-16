@@ -27,7 +27,11 @@ img {
   margin-left: 170px;
 }
 .btn2{
-  margin-top: 80px;
+  margin-top: 70px;
+  border-radius: 5px;
+}
+.btn3{
+  margin-top: 5px;
   border-radius: 5px;
 
 }
@@ -37,5 +41,9 @@ img {
   margin-left: 15%;
   margin-top: 10px;
   border-radius: 20px;
+}
+
+.modal{
+  background: linear-gradient(65deg, #000000, #641303);
 }
 
