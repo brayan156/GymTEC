@@ -1,3 +1,45 @@
-.contenedorPantalla{
-  margin-top: 500px;
+.contenerDeInformacion{
+  margin-left: 15%;
+  margin-top: 5vh;
+  width: 70%;
+  height: 16vh;
 }
+
+.container{
+  margin-top: 5vh;
+  background: #641303;
+  color: white;
+  padding: 20px;
+  border-radius: 20px
+;
+}
+img {
+  width: 230px;
+}
+
+.image2{
+  width: 150px;
+}
+
+.tamano{
+  width: 50px;
+  height: 25px;
+  margin-left: 170px;
+}
+.btn2{
+  margin-top: 80px;
+  border-radius: 5px;
+
+}
+
+.largo{
+  width: 70%;
+  margin-left: 15%;
+  margin-top: 10px;
+  border-radius: 20px;
+}
+
+.modal{
+  background: linear-gradient(65deg, #000000, #641303);
+}
+

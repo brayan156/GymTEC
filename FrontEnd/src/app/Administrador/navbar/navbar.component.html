@@ -3,7 +3,7 @@
     <div class="container-fluid">
 
       <img src="https://media.discordapp.net/attachments/824372507015643159/847678323861487616/Asset_54x-8.png?width=457&height=676">
-      <a class="navbar-brand">Tipo de Administrador</a>
+      <label class="navbar-brand">Tipo de Administrador</label>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -13,17 +13,16 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" (click)="navigate('GestionSucursales')">Gestion Sucursales</a>
+            <a class="nav-link active btn" (click)="navigate('GestionSucursales')">Gestion Sucursales</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link active">Gestion de Spa</a>
+            <a class="nav-link active btn" (click)="navigate('GestionSpa')">Gestion de Tratamiendo del Spa</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link active">Gestion de servicios</a>
+            <a class="nav-link active btn" (click)="navigate('GestionServicios')">Gestion de servicios</a>
           </li>
-
 
 
           <li class="nav-item dropdown">
@@ -31,13 +30,13 @@
               Planilla
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
-              <li><a class="dropdown-item" >Gestión de puestos</a></li>
+              <li><a class="dropdown-item btn" (click)="navigate('GestionPuestos')" >Gestión de puestos</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" >Gestión de tipos de planilla</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" >Gestión de empleados</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" >Generación de planilla</a></li>
+              <li><a class="dropdown-item btn" (click)="navigate('GestionPlanilla')" >Gestión de tipos de planilla</a></li>
+              <li><hr class="dropdown-divider btn"></li>
+              <li><a class="dropdown-item btn" (click)="navigate('GestionEmpleados')">Gestión de empleados </a></li>
+              <li><hr class="dropdown-divider" ></li>
+              <li><a class="dropdown-item btn" (click)="navigate('GeneracionPlanilla')">Generación de planilla</a></li>
             </ul>
           </li>
 
@@ -46,11 +45,11 @@
               Inventario
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
-              <li><a class="dropdown-item" >Gestión de Tipos Equipo</a></li>
+              <li><a class="dropdown-item btn" (click)="navigate('TipoEquipo')">Gestión de Tipos Equipo</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" >Gestión de inventario</a></li>
+              <li><a class="dropdown-item btn" (click)="navigate('GestionInventario')">Gestión de inventario</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" > Gestión de productos</a></li>
+              <li><a class="dropdown-item btn" > Gestión de productos</a></li>
             </ul>
           </li>
 
@@ -59,16 +58,22 @@
               Configuracion del Gimnasio
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
-              <li><a class="dropdown-item" >Asociación de tratamientos al Spa del gimnasio</a></li>
+              <li><a class="dropdown-item btn" >Asociación de tratamientos al Spa del gimnasio</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" >Asociación de productos a la tienda del gimnasio</a></li>
+              <li><a class="dropdown-item btn" >Asociación de productos a la tienda del gimnasio</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" > Asociación de inventario</a></li>
+              <li><a class="dropdown-item btn" > Asociación de inventario</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" >Crear clases</a></li>
+              <li><a class="dropdown-item btn" >Crear clases</a></li>
             </ul>
           </li>
-
+          <button class="btn btnSalir">
+            Salir
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+              <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+            </svg>
+          </button>
         </ul>
       </div>
     </div>

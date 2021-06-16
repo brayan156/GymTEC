@@ -1,0 +1,94 @@
+<button class="btn btn-dark largo" data-bs-toggle="modal" data-bs-target="#crearTratamiento">Agregar un nuevo tratamiento al SPA</button>
+<div class="container row">
+
+  <div class="col margnes">
+    <div class="card" style="width: 18rem;">
+      <img src="https://www.tiovivocreativo.com/wp-content/uploads/2020/02/interiorismo-dise%C3%B1o-gimnasios-planificar-espacios.jpg">
+      <div class="card-body">
+        <h2 class="card-title">Nombre</h2>
+        <label class="row letras">Identificador</label>
+      </div>
+      <div class="card-footer">
+
+        <button class="btn btn-primary margen" data-bs-toggle="modal" data-bs-target="#editarTratamiento">Editar</button>
+        <button class="btn btn-danger margen" data-bs-toggle="modal" data-bs-target="#eliminarTratamiento" >Eliminar</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="modal fade" id="crearTratamiento" tabindex="-1" aria-labelledby="crearTratamientoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">Agregar Tratamiento</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="tamano3">
+          <label>Imagen del Tratamiento:</label>
+          <input type="text" class="form-control" name="nombre" id="imageTratamiento" required="">
+        </div>
+
+        <div class="tamano3">
+          <label>Nombre Tratamiento:</label>
+          <input type="text" class="form-control" name="nombre" id="imagenSucursal1" required="">
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" name="7">Aceptar</button>
+
+        <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="editarTratamiento" tabindex="-1" aria-labelledby="editarTratamientoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="editarTratamientoLabel">Editar Tratamiento</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="tamano3">
+          <label>Imagen del Tratamiento:</label>
+          <input type="text" class="form-control" name="nombre" id="EditarimageTratamiento" required="">
+        </div>
+
+        <div class="tamano3">
+          <label>Nombre Tratamiento:</label>
+          <input type="text" class="form-control" name="nombre" id="EditarimagenSucursal1" required="">
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" name="7">Aceptar</button>
+
+        <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="eliminarTratamiento" tabindex="-1" aria-labelledby="eliminarTratamientoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="eliminarTratamientoLabel">Esta Seguro que desea eliminar el tratamiento: Nombre</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" name="7">Aceptar</button>
+
+        <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
