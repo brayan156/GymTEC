@@ -36,7 +36,23 @@ export class GestionSucursalComponent implements OnInit {
     this.ngOnInit();
   }
 
-  public eliminarSucursal(): void{
+  public eliminarSucursal(sucursal: Sucursal): void{
+    this.service.eliminarSucursal(sucursal.id).subscribe(a =>
+      console.log(a));
+    this.ngOnInit();
+  }
 
+  public ActivarDesactivarSpa(sucursal: Sucursal): void{
+    sucursal.spaActivo = !sucursal.spaActivo;
+    this.service.editarSucursal(sucursal.id , sucursal).subscribe(a =>
+      console.log(a));
+    this.ngOnInit();
+  }
+
+  public ActivarDesactivarTienda(sucursal: Sucursal): void{
+    sucursal.tiendaActiva = !sucursal.tiendaActiva;
+    this.service.editarSucursal(sucursal.id , sucursal).subscribe(a =>
+      console.log(a));
+    this.ngOnInit();
   }
 }
