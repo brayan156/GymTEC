@@ -54,13 +54,13 @@
               Configuracion del Gimnasio
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
-              <li><a class="dropdown-item btn" >Asociación de tratamientos al Spa del gimnasio</a></li>
+              <li><a class="dropdown-item btn" (click)="navigate('AsociacionTratamientos')" >Asociación de tratamientos al Spa del gimnasio</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item btn" >Asociación de productos a la tienda del gimnasio</a></li>
+              <li><a class="dropdown-item btn" (click)="navigate('AsociacionProductos')" >Asociación de productos a la tienda del gimnasio</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item btn" > Asociación de inventario</a></li>
+              <li><a class="dropdown-item btn" (click)="navigate('AsociacionInventario')"> Asociación de inventario</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item btn" >Crear clases</a></li>
+              <li><a class="dropdown-item btn" (click)="navigate('CrearClase')" >Crear clases</a></li>
             </ul>
           </li>
           <button class="btn btnSalir">
