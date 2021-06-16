@@ -1,8 +1,4 @@
-export class ClaseCliente {
-  constructor(idClase: string, cedulaCliente: number) {
-    this.idClase = idClase;
-    this.cedulaCliente = cedulaCliente;
-  }
+export class claseCliente {
   idClase: string;
   cedulaCliente: number;
 }

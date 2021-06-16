@@ -5,7 +5,6 @@ import { AppComponent } from './AppComponent/app.component';
 import { LoginComponent } from './Login/login/login.component';
 import { NavbarComponent } from './Administrador/navbar/navbar.component';
 import { GestionSucursalComponent } from './Administrador/gestion-sucursal/gestion-sucursal.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { GestionSpaComponent } from './Administrador/gestion-spa/gestion-spa.component';
@@ -16,6 +15,7 @@ import { GeneracionPlanillaComponent } from './Administrador/generacion-planilla
 import { GestionTipoEquiposComponent } from './Administrador/gestion-tipo-equipos/gestion-tipo-equipos.component';
 import { GestionServiciosComponent } from './Administrador/gestion-servicios/gestion-servicios.component';
 import { GestionInventarioComponent } from './Administrador/gestion-inventario/gestion-inventario.component';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +36,7 @@ import { GestionInventarioComponent } from './Administrador/gestion-inventario/g
     AppRoutingModule,
     MatButtonModule,
     MatSlideToggleModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
