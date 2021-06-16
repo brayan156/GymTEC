@@ -246,7 +246,7 @@ export class ServiciosService {
   }
 
   // tslint:disable-next-line:typedef
-  public editarSucursal(id: number, sucursal: Sucursal){
+  public editarSucursal(id: string, sucursal: Sucursal){
     return this.htpp.put(this.Url + 'Sucursal/' + id, sucursal);
   }
 
