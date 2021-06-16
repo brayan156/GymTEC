@@ -480,9 +480,6 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
     <Parameter Name="email" Type="varchar" Mode="In" />
     <Parameter Name="contrasena" Type="varchar(max)" Mode="In" />
   </Function>
-  <Function Name="mostrar_clases_gimnacio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="id_sucursal" Type="int" Mode="In" />
-  </Function>
   <Function Name="mostrar_clases_gimnasio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id_sucursal" Type="int" Mode="In" />
   </Function>

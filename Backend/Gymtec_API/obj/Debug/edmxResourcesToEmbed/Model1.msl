@@ -289,6 +289,7 @@
           <ScalarProperty Name="idPlanilla" ColumnName="idPlanilla" />
           <ScalarProperty Name="cantidad" ColumnName="cantidad" />
           <ScalarProperty Name="pago" ColumnName="pago" />
+          <ScalarProperty Name="Tipo_de_pago" ColumnName="Tipo_de_pago" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
@@ -320,22 +321,6 @@
           <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
           <ScalarProperty Name="idPuesto" ColumnName="idPuesto" />
           <ScalarProperty Name="idPlanilla" ColumnName="idPlanilla" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="mostrar_clases_gimnacio" FunctionName="gymtecdatabaseModel.Store.mostrar_clases_gimnacio">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="gymtecdatabaseModel.mostrar_clases_gimnacio_Result">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="horaInicio" ColumnName="horaInicio" />
-          <ScalarProperty Name="horaFin" ColumnName="horaFin" />
-          <ScalarProperty Name="fecha" ColumnName="fecha" />
-          <ScalarProperty Name="capacidad" ColumnName="capacidad" />
-          <ScalarProperty Name="nombreServicio" ColumnName="nombreServicio" />
-          <ScalarProperty Name="nombreInstructor" ColumnName="nombreInstructor" />
-          <ScalarProperty Name="primer_apellido" ColumnName="primer_apellido" />
-          <ScalarProperty Name="segundo_apellido" ColumnName="segundo_apellido" />
-          <ScalarProperty Name="nombreSucursal" ColumnName="nombreSucursal" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

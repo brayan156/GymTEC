@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="gymtecdatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="gymtecdatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Clase">
           <Key>
             <PropertyRef Name="id" />
@@ -485,9 +485,6 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
           <Parameter Name="email" Type="varchar" Mode="In" />
           <Parameter Name="contrasena" Type="varchar(max)" Mode="In" />
         </Function>
-        <Function Name="mostrar_clases_gimnacio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="id_sucursal" Type="int" Mode="In" />
-        </Function>
         <Function Name="mostrar_clases_gimnasio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_sucursal" Type="int" Mode="In" />
         </Function>
@@ -647,8 +644,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
             <End Role="TratamientoSucursal" EntitySet="TratamientoSucursal" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="gymtecdatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1090,7 +1086,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
             <Parameter Name="provincia" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="filtro_clase_cliente" ReturnType="Collection(gymtecdatabaseModel.filtro_clase_cliente_Result)">
-            <Parameter Name="id_cliente" Mode="In" Type="Int32" />
+          <Parameter Name="id_cliente" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="filtro_clases" ReturnType="Collection(gymtecdatabaseModel.filtro_clases_Result)">
             <Parameter Name="id_sucursal" Mode="In" Type="Int32" />
@@ -1099,10 +1095,10 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
             <Parameter Name="fechafin" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="generar_planilla" ReturnType="Collection(gymtecdatabaseModel.generar_planilla_Result)">
-            <Parameter Name="idsucursal" Mode="In" Type="Int32" />
+          <Parameter Name="idsucursal" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="inventario_gimnasio" ReturnType="Collection(gymtecdatabaseModel.inventario_gimnasio_Result)">
-            <Parameter Name="id_sucursal" Mode="In" Type="Int32" />
+          <Parameter Name="id_sucursal" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="login_admin" ReturnType="Collection(gymtecdatabaseModel.login_admin_Result)">
             <Parameter Name="email" Mode="In" Type="String" />
@@ -1112,16 +1108,16 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
             <Parameter Name="id_sucursal" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="mostrar_clases_gimnasio" ReturnType="Collection(gymtecdatabaseModel.mostrar_clases_gimnasio_Result)">
-            <Parameter Name="id_sucursal" Mode="In" Type="Int32" />
+          <Parameter Name="id_sucursal" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="productos_gimnasio" ReturnType="Collection(gymtecdatabaseModel.productos_gimnasio_Result)">
-            <Parameter Name="id_sucursal" Mode="In" Type="Int32" />
+          <Parameter Name="id_sucursal" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="servicios_gimnasio" ReturnType="Collection(gymtecdatabaseModel.servicios_gimnasio_Result)">
-            <Parameter Name="id_sucursal" Mode="In" Type="Int32" />
+          <Parameter Name="id_sucursal" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="tratamientos_gimnasio" ReturnType="Collection(gymtecdatabaseModel.tratamientos_gimnasio_Result)">
-            <Parameter Name="id_sucursal" Mode="In" Type="Int32" />
+          <Parameter Name="id_sucursal" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="filtro_clase_cliente_Result">
@@ -1156,6 +1152,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
           <Property Type="Int32" Name="idPlanilla" Nullable="true" />
           <Property Type="Int32" Name="cantidad" Nullable="true" />
           <Property Type="Int32" Name="pago" Nullable="true" />
+          <Property Type="String" Name="Tipo_de_pago" Nullable="false" MaxLength="50" />
         </ComplexType>
         <ComplexType Name="inventario_gimnasio_Result">
           <Property Type="Int32" Name="nSerie" Nullable="false" />
@@ -1519,6 +1516,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
                 <ScalarProperty Name="idPlanilla" ColumnName="idPlanilla" />
                 <ScalarProperty Name="cantidad" ColumnName="cantidad" />
                 <ScalarProperty Name="pago" ColumnName="pago" />
+                <ScalarProperty Name="Tipo_de_pago" ColumnName="Tipo_de_pago" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -1550,22 +1548,6 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
                 <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
                 <ScalarProperty Name="idPuesto" ColumnName="idPuesto" />
                 <ScalarProperty Name="idPlanilla" ColumnName="idPlanilla" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="mostrar_clases_gimnacio" FunctionName="gymtecdatabaseModel.Store.mostrar_clases_gimnacio">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="gymtecdatabaseModel.mostrar_clases_gimnacio_Result">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="horaInicio" ColumnName="horaInicio" />
-                <ScalarProperty Name="horaFin" ColumnName="horaFin" />
-                <ScalarProperty Name="fecha" ColumnName="fecha" />
-                <ScalarProperty Name="capacidad" ColumnName="capacidad" />
-                <ScalarProperty Name="nombreServicio" ColumnName="nombreServicio" />
-                <ScalarProperty Name="nombreInstructor" ColumnName="nombreInstructor" />
-                <ScalarProperty Name="primer_apellido" ColumnName="primer_apellido" />
-                <ScalarProperty Name="segundo_apellido" ColumnName="segundo_apellido" />
-                <ScalarProperty Name="nombreSucursal" ColumnName="nombreSucursal" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

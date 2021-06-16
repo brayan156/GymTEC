@@ -287,7 +287,7 @@ namespace Gymtec_API {
             
             private global::System.Data.DataColumn columnnombre;
             
-            private global::System.Data.DataColumn columnidPlanilla;
+            private global::System.Data.DataColumn columnTipo_de_pago;
             
             private global::System.Data.DataColumn columncantidad;
             
@@ -360,9 +360,9 @@ namespace Gymtec_API {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn idPlanillaColumn {
+            public global::System.Data.DataColumn Tipo_de_pagoColumn {
                 get {
-                    return this.columnidPlanilla;
+                    return this.columnTipo_de_pago;
                 }
             }
             
@@ -419,14 +419,14 @@ namespace Gymtec_API {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public generar_planillaRow Addgenerar_planillaRow(int cedula, string primer_apellido, string segundo_apellido, string nombre, int idPlanilla, int cantidad, int pago) {
+            public generar_planillaRow Addgenerar_planillaRow(int cedula, string primer_apellido, string segundo_apellido, string nombre, string Tipo_de_pago, int cantidad, int pago) {
                 generar_planillaRow rowgenerar_planillaRow = ((generar_planillaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         cedula,
                         primer_apellido,
                         segundo_apellido,
                         nombre,
-                        idPlanilla,
+                        Tipo_de_pago,
                         cantidad,
                         pago};
                 rowgenerar_planillaRow.ItemArray = columnValuesArray;
@@ -462,7 +462,7 @@ namespace Gymtec_API {
                 this.columnprimer_apellido = base.Columns["primer_apellido"];
                 this.columnsegundo_apellido = base.Columns["segundo_apellido"];
                 this.columnnombre = base.Columns["nombre"];
-                this.columnidPlanilla = base.Columns["idPlanilla"];
+                this.columnTipo_de_pago = base.Columns["Tipo_de_pago"];
                 this.columncantidad = base.Columns["cantidad"];
                 this.columnpago = base.Columns["pago"];
             }
@@ -478,8 +478,8 @@ namespace Gymtec_API {
                 base.Columns.Add(this.columnsegundo_apellido);
                 this.columnnombre = new global::System.Data.DataColumn("nombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnombre);
-                this.columnidPlanilla = new global::System.Data.DataColumn("idPlanilla", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnidPlanilla);
+                this.columnTipo_de_pago = new global::System.Data.DataColumn("Tipo_de_pago", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTipo_de_pago);
                 this.columncantidad = new global::System.Data.DataColumn("cantidad", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncantidad);
                 this.columnpago = new global::System.Data.DataColumn("pago", typeof(int), null, global::System.Data.MappingType.Element);
@@ -492,6 +492,8 @@ namespace Gymtec_API {
                 this.columnsegundo_apellido.MaxLength = 50;
                 this.columnnombre.AllowDBNull = false;
                 this.columnnombre.MaxLength = 50;
+                this.columnTipo_de_pago.AllowDBNull = false;
+                this.columnTipo_de_pago.MaxLength = 50;
                 this.columncantidad.ReadOnly = true;
                 this.columnpago.ReadOnly = true;
             }
@@ -692,17 +694,12 @@ namespace Gymtec_API {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int idPlanilla {
+            public string Tipo_de_pago {
                 get {
-                    try {
-                        return ((int)(this[this.tablegenerar_planilla.idPlanillaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'idPlanilla\' de la tabla \'generar_planilla\' es DBNull.", e);
-                    }
+                    return ((string)(this[this.tablegenerar_planilla.Tipo_de_pagoColumn]));
                 }
                 set {
-                    this[this.tablegenerar_planilla.idPlanillaColumn] = value;
+                    this[this.tablegenerar_planilla.Tipo_de_pagoColumn] = value;
                 }
             }
             
@@ -760,18 +757,6 @@ namespace Gymtec_API {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Setsegundo_apellidoNull() {
                 this[this.tablegenerar_planilla.segundo_apellidoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsidPlanillaNull() {
-                return this.IsNull(this.tablegenerar_planilla.idPlanillaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetidPlanillaNull() {
-                this[this.tablegenerar_planilla.idPlanillaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -963,6 +948,7 @@ namespace Gymtec_API.gymtecdatabaseDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("segundo_apellido", "segundo_apellido");
             tableMapping.ColumnMappings.Add("nombre", "nombre");
             tableMapping.ColumnMappings.Add("idPlanilla", "idPlanilla");
+            tableMapping.ColumnMappings.Add("Tipo_de_pago", "Tipo_de_pago");
             tableMapping.ColumnMappings.Add("cantidad", "cantidad");
             tableMapping.ColumnMappings.Add("pago", "pago");
             this._adapter.TableMappings.Add(tableMapping);

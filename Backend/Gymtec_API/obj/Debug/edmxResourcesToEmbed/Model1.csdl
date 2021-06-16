@@ -504,6 +504,7 @@
     <Property Type="Int32" Name="idPlanilla" Nullable="true" />
     <Property Type="Int32" Name="cantidad" Nullable="true" />
     <Property Type="Int32" Name="pago" Nullable="true" />
+    <Property Type="String" Name="Tipo_de_pago" Nullable="false" MaxLength="50" />
   </ComplexType>
   <ComplexType Name="inventario_gimnasio_Result">
     <Property Type="Int32" Name="nSerie" Nullable="false" />
