@@ -1,5 +1,5 @@
 export class Tratamiento {
-  id: string;
+  id: number;
   nombre: string;
   imagen: string;
 }
