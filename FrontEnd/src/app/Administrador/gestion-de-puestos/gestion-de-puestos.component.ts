@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ServiciosService} from '../../servicios.service';
+import {Puesto} from '../../Clases/puesto';
 
 @Component({
   selector: 'app-gestion-de-puestos',
@@ -7,9 +9,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GestionDePuestosComponent implements OnInit {
 
-  constructor() { }
+  puesto: Puesto = new Puesto();
+  listaPuesto: Puesto[] = [];
+  PuestoActual: Puesto = new Puesto();
+
+  constructor(private service: ServiciosService) { }
+
 
   ngOnInit(): void {
+    this.service.obtenerListasPuesto().subscribe(lista => {
+      this.listaPuesto = lista;
+      console.log(this.listaPuesto);
+    });
+  }
+  public crearPuesto(puesto: Puesto): void{
+    this.service.agregarPuesto(puesto).subscribe(respuesta =>
+      console.log(respuesta));
+    this.ngOnInit();
+  }
+
+  public editarPuesto(puesto: Puesto): void{
+    this.service.editarPuesto(puesto.id , puesto).subscribe(a =>
+      console.log(a));
+    this.ngOnInit();
+  }
+
+  public eliminarPuesto(puesto: Puesto): void{
+    this.service.eliminarPuesto(puesto.id).subscribe(a =>
+      console.log(a));
+    this.ngOnInit();
   }
 
 }

@@ -251,7 +251,7 @@ export class ServiciosService {
   }
 
   // tslint:disable-next-line:typedef
-  public eliminarSucursal(id: number){
+  public eliminarSucursal(id: string){
     return this.htpp.delete(this.Url + 'TipoEquipo/' + id);
   }
 
