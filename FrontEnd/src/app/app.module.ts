@@ -17,6 +17,7 @@ import { GestionServiciosComponent } from './Administrador/gestion-servicios/ges
 import { GestionInventarioComponent } from './Administrador/gestion-inventario/gestion-inventario.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import { GestionProductosComponent } from './Administrador/gestion-productos/gestion-productos.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,14 +32,15 @@ import {FormsModule} from '@angular/forms';
     GestionTipoEquiposComponent,
     GestionServiciosComponent,
     GestionInventarioComponent,
+    GestionProductosComponent,
   ],
     imports: [
-        BrowserModule,
-        AppRoutingModule,
-        MatButtonModule,
-        MatSlideToggleModule,
-        HttpClientModule,
-        FormsModule,
+      BrowserModule,
+      AppRoutingModule,
+      MatButtonModule,
+      MatSlideToggleModule,
+      HttpClientModule,
+      FormsModule,
     ],
   providers: [],
   bootstrap: [AppComponent]

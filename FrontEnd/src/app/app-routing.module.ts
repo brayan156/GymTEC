@@ -11,6 +11,7 @@ import {GeneracionPlanillaComponent} from './Administrador/generacion-planilla/g
 import {GestionServiciosComponent} from './Administrador/gestion-servicios/gestion-servicios.component';
 import {GestionTipoEquiposComponent} from './Administrador/gestion-tipo-equipos/gestion-tipo-equipos.component';
 import {GestionInventarioComponent} from './Administrador/gestion-inventario/gestion-inventario.component';
+import {GestionProductosComponent} from './Administrador/gestion-productos/gestion-productos.component';
 
 const routes: Routes = [{path: '', component: LoginComponent},
   { path: 'administrador', component: NavbarComponent,
@@ -23,7 +24,7 @@ const routes: Routes = [{path: '', component: LoginComponent},
       {path: 'GestionServicios' , component: GestionServiciosComponent},
       {path: 'TipoEquipo' , component: GestionTipoEquiposComponent},
       {path: 'GestionInventario' , component: GestionInventarioComponent},
-
+      {path: 'GestionProductos' , component: GestionProductosComponent},
     ]},
 ];
 

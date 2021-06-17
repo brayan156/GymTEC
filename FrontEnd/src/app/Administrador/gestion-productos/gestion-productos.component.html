@@ -1,0 +1,131 @@
+<button class="btn btn-dark largo" data-bs-toggle="modal" data-bs-target="#crearProducto">
+  Agregar un Producto</button>
+
+<div class="container">
+  <div class="row">
+    <div class="col col1">
+      <img src="https://www.tiovivocreativo.com/wp-content/uploads/2020/02/interiorismo-dise%C3%B1o-gimnasios-planificar-espacios.jpg" alt="">
+    </div>
+
+
+    <div class="col">
+      <div class="row"><label>Nombre:</label></div>
+      <div class="row"><label>Tipo:</label></div>
+      <div class="row"><label>Descripcion:</label></div>
+
+    </div>
+    <div class="col">
+      <div class="row">
+        <div class="col"><button class="btn btn-primary btn1" data-bs-toggle="modal" data-bs-target="#editarProducto">
+          Editar Maquina</button></div>
+        <div class="col"><button class="btn btn-danger btn2" data-bs-toggle="modal" data-bs-target="#eliminarProducto">Eliminar Maquina</button></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="modal fade" id="crearProducto" tabindex="-1" aria-labelledby="crearMaquinaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="crearMaquinaLabel">Nuevo Producto</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="row">
+
+          <div class="tamano3">
+            <label>Nombre:</label>
+            <input type="text" class="form-control" name="nombre" id="ENombre" required="">
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <label>Descripcion:</label>
+              <input type="text" class="form-control" name="Marca" id="EMarca" required="">
+            </div>
+          </div>
+
+          <div class="tamano3">
+            <label>Tipo de equipo:</label>
+            <select class="form-select" id="Etipo" name="6" required="">
+              <optgroup label="">
+                <option> </option>
+              </optgroup>
+            </select>
+          </div>
+
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" name="7">Aceptar</button>
+            <button class="btn btn-danger" name="7"  data-bs-dismiss="modal">Cancelar</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="editarProducto" tabindex="-1" aria-labelledby="editarMaquinaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="editarMaquinaLabel">Editar Empleado</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="row">
+          <div class="tamano3">
+            <label>Nombre:</label>
+            <input type="text" class="form-control" name="nombre" id="Nombre" required="">
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <label>Descripcion:</label>
+              <input type="text" class="form-control" name="Marca" id="Marca" required="">
+            </div>
+          </div>
+
+          <div class="tamano3">
+            <label>Tipo de equipo:</label>
+            <select class="form-select" id="tipo" name="6" required="">
+              <optgroup label="">
+                <option> </option>
+              </optgroup>
+            </select>
+          </div>
+          
+
+          <div class="modal-footer">
+
+            <button type="submit" class="btn btn-primary" name="7">Aceptar</button>
+
+            <button class="btn btn-danger" name="7"  data-bs-dismiss="modal">Cancelar</button>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="eliminarProducto" tabindex="-1" aria-labelledby="eliminarMaquinaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="eliminarMaquinaLabel">Esta Seguro que desea eliminar el producto: Nombre:</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" name="7">Aceptar</button>
+
+        <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>

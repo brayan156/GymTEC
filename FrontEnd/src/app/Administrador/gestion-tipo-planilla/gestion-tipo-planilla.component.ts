@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Puesto} from '../../Clases/puesto';
 import {ServiciosService} from '../../servicios.service';
 import {Planilla} from '../../Clases/planilla';
+import {Sucursal} from '../../Clases/sucursal';
 
 @Component({
   selector: 'app-gestion-tipo-planilla',
@@ -12,7 +13,7 @@ export class GestionTipoPlanillaComponent implements OnInit {
 
   planilla: Planilla = new Planilla();
   listaPlanilla: Planilla[] = [];
-  PlanillaActual: Planilla = new Planilla();
+  planillaActual: Planilla = new Planilla();
 
   constructor(private service: ServiciosService) { }
 
@@ -41,4 +42,7 @@ export class GestionTipoPlanillaComponent implements OnInit {
     this.ngOnInit();
   }
 
+  public obtenerInformacionItem(planilla: Planilla): void{
+    this.planillaActual = planilla;
+  }
 }
