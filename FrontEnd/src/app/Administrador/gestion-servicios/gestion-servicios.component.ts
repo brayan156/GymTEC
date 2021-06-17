@@ -12,7 +12,7 @@ export class GestionServiciosComponent implements OnInit {
 
   servicio: Servicio = new Servicio();
   listaServicio: Servicio[] = [];
-  ServicioActual: Servicio = new Servicio();
+  servicioActual: Servicio = new Servicio();
 
   constructor(private service: ServiciosService) { }
 
@@ -39,5 +39,9 @@ export class GestionServiciosComponent implements OnInit {
     this.service.eliminarServicio(servicio.id).subscribe(a =>
       console.log(a));
     this.ngOnInit();
+  }
+
+  public obtenerInformacionItem(servicio: Servicio): void{
+    this.servicioActual = servicio;
   }
 }

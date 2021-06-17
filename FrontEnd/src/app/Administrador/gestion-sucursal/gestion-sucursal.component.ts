@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {ServiciosService} from '../../servicios.service';
 import {Sucursal} from '../../Clases/sucursal';
+import {Servicio} from '../../Clases/servicio';
 
 @Component({
   selector: 'app-gestion-sucursal',
@@ -54,5 +55,9 @@ export class GestionSucursalComponent implements OnInit {
     this.service.editarSucursal(sucursal.id , sucursal).subscribe(a =>
       console.log(a));
     this.ngOnInit();
+  }
+
+  public obtenerInformacionItem(sucursal: Sucursal): void{
+    this.sucursalActual = sucursal;
   }
 }

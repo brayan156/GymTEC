@@ -12,4 +12,7 @@ export class Sucursal {
   spaActivo: boolean;
   tiendaActiva: boolean;
   horaFinal: number;
+  nombreAdministrador: string;
+  imagenSpaActivo: string;
+  imagenTiendaActiva: string;
 }
