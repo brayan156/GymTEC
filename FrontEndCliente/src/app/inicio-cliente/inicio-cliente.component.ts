@@ -24,6 +24,62 @@ export class InicioClienteComponent {
     }
   ]
 
+  tiposClase = [
+    {
+      tipo: "Indoor Cycling"
+    },
+    {
+      tipo: "Pilates"
+    },
+    {
+      tipo: "Yoga"
+    },
+    {
+      tipo: "Zumba"
+    },
+    {
+      tipo: "Natación"
+    }
+  ];
+
+  clases = [
+    {
+      imagen: "https://static01.nyt.com/images/2016/12/02/well/move/yoga_body_images-slide-HNVD/yoga_body_images-slide-HNVD-superJumbo.jpg",
+      horaFin: "19:30",
+      horaInicio: "17:30",
+      fecha: "2021-06-24",
+      capacidad: 8,
+      id: 1,
+      idServicio: 2,
+      idEmpleado: 2,
+      tipo: "Yoga",
+      sucursal: 'San Marcos'
+    },
+    {
+      imagen: "https://static01.nyt.com/images/2016/12/02/well/move/yoga_body_images-slide-HNVD/yoga_body_images-slide-HNVD-superJumbo.jpg",
+      horaFin: "19:30",
+      horaInicio: "17:30",
+      fecha: "2021-06-24",
+      capacidad: 8,
+      id: 1,
+      idServicio: 2,
+      idEmpleado: 2,
+      tipo: "Yoga",
+      sucursal: 'San Marcos'
+    }
+  ]
+
+  clase = {
+    tipo: "",
+    instructor: "",
+    grupal: false,
+    capacidad: 0,
+    fecha: "",
+    inicio: "",
+    final: "",
+    sucursal: ""
+  };
+
   calendarVisible = true;
   calendarOptions: CalendarOptions = {
     headerToolbar: {
@@ -40,7 +96,8 @@ export class InicioClienteComponent {
     dayMaxEvents: true,
     select: this.handleDateSelect.bind(this),
     eventClick: this.handleEventClick.bind(this),
-    eventsSet: this.handleEvents.bind(this)
+    eventsSet: this.handleEvents.bind(this),
+    events: [],
     /* you can update a remote database when these fire:
     eventAdd:
     eventChange:
@@ -76,12 +133,30 @@ export class InicioClienteComponent {
   }
 
   handleEventClick(clickInfo: EventClickArg) {
-    if (confirm(`Are you sure you want to delete the event '${clickInfo.event.title}'`)) {
+    if (confirm(`¿Seguro que deseas eliminar '${clickInfo.event.title}'?`)) {
       clickInfo.event.remove();
     }
   }
 
   handleEvents(events: EventApi[]) {
     this.currentEvents = events;
+  }
+
+  buscarClase() {
+    this.handleDateSelect.bind(this);
+
+  }
+
+  inscribirme(clase:any) {
+
+    let resp = confirm("Press a button!");
+    if (resp == true) {
+      this.calendarOptions.events = [{
+        title: clase.tipo,
+        date: clase.fecha
+      }] 
+    } else {
+      //doSomething
+    }
   }
 }
