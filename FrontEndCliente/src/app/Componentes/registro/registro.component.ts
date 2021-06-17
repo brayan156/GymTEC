@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Cliente } from 'src/app/Clases/cliente';
 
 @Component({
   selector: 'app-registro',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistroComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    this.cliente = new Cliente();
+   }
+
+  cliente: Cliente;
 
   ngOnInit(): void {
+  }
+
+  register() {
+    console.log(this.cliente)
   }
 
 }

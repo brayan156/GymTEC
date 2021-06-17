@@ -1,7 +1,7 @@
 export class Cliente {
   cedula: number;
   peso: number;
-  img: number;
+  imc: number;
   contrasena: string;
   email: string;
   edad: number;
@@ -10,6 +10,6 @@ export class Cliente {
   canton: string;
   provincia: string;
   primerApellido: string;
-  segudoApellido: string;
-  nacimiento: number;
+  segundoApellido: string;
+  nacimiento: string;
 }
