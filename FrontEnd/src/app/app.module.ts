@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { NgxBarcodeModule } from 'ngx-barcode';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './AppComponent/app.component';
@@ -33,12 +34,13 @@ import {FormsModule} from '@angular/forms';
     GestionInventarioComponent,
   ],
     imports: [
-        BrowserModule,
-        AppRoutingModule,
-        MatButtonModule,
-        MatSlideToggleModule,
-        HttpClientModule,
-        FormsModule,
+      BrowserModule,
+      AppRoutingModule,
+      MatButtonModule,
+      MatSlideToggleModule,
+      HttpClientModule,
+      FormsModule,
+      NgxBarcodeModule,
     ],
   providers: [],
   bootstrap: [AppComponent]
