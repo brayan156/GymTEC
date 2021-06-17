@@ -15,6 +15,7 @@ import { AsociacionTratamientosComponent } from './Dashboard/asociacion-tratamie
 import { AsociacionProductosComponent } from './Dashboard/asociacion-productos/asociacion-productos.component';
 import { AsociacionInventarioComponent } from './Dashboard/asociacion-inventario/asociacion-inventario.component';
 import { CrearClaseComponent } from './Dashboard/crear-clase/crear-clase.component';
+import {GestionProductosComponent} from './Administrador/gestion-productos/gestion-productos.component';
 
 const routes: Routes = [{path: '', component: LoginComponent},
   { path: 'administrador', component: NavbarComponent,
@@ -32,7 +33,7 @@ const routes: Routes = [{path: '', component: LoginComponent},
       {path: 'GestionServicios' , component: GestionServiciosComponent},
       {path: 'TipoEquipo' , component: GestionTipoEquiposComponent},
       {path: 'GestionInventario' , component: GestionInventarioComponent},
-
+      {path: 'GestionProductos' , component: GestionProductosComponent},
     ]},
 ];
 
