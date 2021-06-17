@@ -1,15 +1,18 @@
 <button class="btn btn-dark largo" data-bs-toggle="modal" data-bs-target="#crearEquipo">Generar un nuevo tipo de equipo</button>
-<div class="container row">
+
+<div class="container row" *ngFor="let item of listatipoEquipo">
   <div class="col margnes">
     <div class="card" style="width: 18rem;">
       <div class="card-body">
-        <h2 class="card-title">Numero de Identificador</h2>
-        <label class="row letras">Descripcion</label>
-        <label class="row letras">Tipo</label>
+        <h2 class="card-title">Numero de Identificador: {{item.id}}</h2>
+        <label class="row letras">Descripcion: {{item.descripcion}}</label>
+        <label class="row letras">Nombre: {{item.nombre}}</label>
       </div>
       <div class="card-footer">
-        <button class="btn btn-primary margen" data-bs-toggle="modal" data-bs-target="#editarEquipo">Editar</button>
-        <button class="btn btn-danger margen" data-bs-toggle="modal" data-bs-target="#eliminarEquipo">Eliminar</button>
+        <button class="btn btn-primary margen" data-bs-toggle="modal" data-bs-target="#editarEquipo"
+        (click)="obtenerInformacionItem(item)">Editar</button>
+        <button class="btn btn-danger margen" data-bs-toggle="modal" data-bs-target="#eliminarEquipo"
+        (click)="obtenerInformacionItem(item)">Eliminar</button>
       </div>
     </div>
   </div>
@@ -26,19 +29,21 @@
 
 
         <div class="tamano3">
-          <label>Tipo:</label>
-          <input type="text" class="form-control" name="nombre" id="TipoEquipo" required="">
+          <label>Nombre:</label>
+          <input type="text" class="form-control" name="nombre" id="TipoEquipo" required=""
+                 #nombre="ngModel" [(ngModel)]="tipoEquipo.nombre">
         </div>
 
         <div class="tamano3">
           <label>Descripcion:</label>
-          <input type="text" class="form-control" name="nombre" id="descripcionEquipo" required="">
+          <input type="text" class="form-control" name="nombre" id="descripcionEquipo" required=""
+                 #descripcion="ngModel" [(ngModel)]="tipoEquipo.descripcion">
         </div>
 
 
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" name="7">Aceptar</button>
+        <button type="submit" class="btn btn-primary" name="7" (click)="creaTipoEquipo(tipoEquipo)">Aceptar</button>
 
         <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
       </div>
@@ -56,18 +61,20 @@
       <div class="modal-body">
 
         <div class="tamano3">
-          <label>Tipo:</label>
-          <input type="text" class="form-control" name="nombre" required="">
+          <label>Nombre:</label>
+          <input type="text" class="form-control" name="nombre" id="TipoEquipoA" required=""
+                 #nombre="ngModel" [(ngModel)]="tipoEquipoActual.nombre">
         </div>
 
         <div class="tamano3">
           <label>Descripcion:</label>
-          <input type="text" class="form-control" name="nombre"  required="">
+          <input type="text" class="form-control" name="nombre" id="descripcionEquipoA" required=""
+                 #descripcion="ngModel" [(ngModel)]="tipoEquipoActual.descripcion">
         </div>
 
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" name="7">Aceptar</button>
+        <button type="submit" class="btn btn-primary" name="7" (click)="editarTipoEquipo(tipoEquipoActual)">Aceptar</button>
 
         <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
       </div>
@@ -79,11 +86,11 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 class="modal-title" id="eliminarPlanillaLabel">Esta Seguro que desea eliminar el equipo: Nombre</h3>
+        <h3 class="modal-title" id="eliminarPlanillaLabel">Esta Seguro que desea eliminar el equipo: {{tipoEquipoActual.nombre}}</h3>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" name="7">Aceptar</button>
+        <button type="submit" class="btn btn-primary" name="7" (click)="eliminartipoEquipo(tipoEquipoActual)">Aceptar</button>
 
         <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
       </div>
