@@ -13,6 +13,7 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
 import interactionPlugin from '@fullcalendar/interaction';
 import { AppComponent } from './app.component';
+import { RegistroComponent } from './Componentes/registro/registro.component';
 
 
 
@@ -28,7 +29,8 @@ FullCalendarModule.registerPlugins([
   declarations: [
     AppComponent,
     LoginComponent,
-    InicioClienteComponent
+    InicioClienteComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
