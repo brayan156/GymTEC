@@ -12,7 +12,7 @@ namespace Gymtec_API
     using System;
     using System.Collections.Generic;
     
-    public partial class mostrar_clientes
+    public partial class mostrar_empleados
     {
         public int cedula { get; set; }
         public string email { get; set; }

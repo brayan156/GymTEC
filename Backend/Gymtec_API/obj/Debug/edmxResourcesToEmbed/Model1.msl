@@ -161,26 +161,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="mostrar_clientes">
-      <EntityTypeMapping TypeName="gymtecdatabaseModel.mostrar_clientes">
-        <MappingFragment StoreEntitySet="mostrar_clientes">
-          <ScalarProperty Name="cedula" ColumnName="cedula" />
-          <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="contrasena" ColumnName="contrasena" />
-          <ScalarProperty Name="primer_apellido" ColumnName="primer_apellido" />
-          <ScalarProperty Name="segundo_apellido" ColumnName="segundo_apellido" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="distrito" ColumnName="distrito" />
-          <ScalarProperty Name="canton" ColumnName="canton" />
-          <ScalarProperty Name="provincia" ColumnName="provincia" />
-          <ScalarProperty Name="salario" ColumnName="salario" />
-          <ScalarProperty Name="puesto" ColumnName="puesto" />
-          <ScalarProperty Name="tipoPlanilla" ColumnName="tipoPlanilla" />
-          <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
-          <ScalarProperty Name="nombreSucursal" ColumnName="nombreSucursal" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="mostrar_inventario">
       <EntityTypeMapping TypeName="gymtecdatabaseModel.mostrar_inventario">
         <MappingFragment StoreEntitySet="mostrar_inventario">
@@ -373,5 +353,25 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="mostrar_empleados">
+      <EntityTypeMapping TypeName="gymtecdatabaseModel.mostrar_empleados">
+        <MappingFragment StoreEntitySet="mostrar_empleados">
+          <ScalarProperty Name="nombreSucursal" ColumnName="nombreSucursal" />
+          <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
+          <ScalarProperty Name="tipoPlanilla" ColumnName="tipoPlanilla" />
+          <ScalarProperty Name="puesto" ColumnName="puesto" />
+          <ScalarProperty Name="salario" ColumnName="salario" />
+          <ScalarProperty Name="provincia" ColumnName="provincia" />
+          <ScalarProperty Name="canton" ColumnName="canton" />
+          <ScalarProperty Name="distrito" ColumnName="distrito" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="segundo_apellido" ColumnName="segundo_apellido" />
+          <ScalarProperty Name="primer_apellido" ColumnName="primer_apellido" />
+          <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="cedula" ColumnName="cedula" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

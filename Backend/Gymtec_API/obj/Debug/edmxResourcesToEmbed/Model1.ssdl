@@ -184,8 +184,8 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_clases' no tiene 
     <Property Name="nombreSucursal" Type="varchar" MaxLength="50" />
   </EntityType>
   <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_clientes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
-  <EntityType Name="mostrar_clientes">
+advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_empleados' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="mostrar_empleados">
     <Key>
       <PropertyRef Name="cedula" />
       <PropertyRef Name="email" />
@@ -194,7 +194,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_clientes' no tien
     </Key>
     <Property Name="cedula" Type="int" Nullable="false" />
     <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="contrasena" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="contrasena" Type="varchar(max)" Nullable="false" />
     <Property Name="primer_apellido" Type="varchar" MaxLength="50" />
     <Property Name="segundo_apellido" Type="varchar" MaxLength="50" />
     <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
@@ -524,23 +524,23 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
     [mostrar_clases].[nombreSucursal] AS [nombreSucursal]
     FROM [dbo].[mostrar_clases] AS [mostrar_clases]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="mostrar_clientes" EntityType="Self.mostrar_clientes" store:Type="Views" store:Schema="dbo">
+    <EntitySet Name="mostrar_empleados" EntityType="Self.mostrar_empleados" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
-    [mostrar_clientes].[cedula] AS [cedula], 
-    [mostrar_clientes].[email] AS [email], 
-    [mostrar_clientes].[contrasena] AS [contrasena], 
-    [mostrar_clientes].[primer_apellido] AS [primer_apellido], 
-    [mostrar_clientes].[segundo_apellido] AS [segundo_apellido], 
-    [mostrar_clientes].[nombre] AS [nombre], 
-    [mostrar_clientes].[distrito] AS [distrito], 
-    [mostrar_clientes].[canton] AS [canton], 
-    [mostrar_clientes].[provincia] AS [provincia], 
-    [mostrar_clientes].[salario] AS [salario], 
-    [mostrar_clientes].[puesto] AS [puesto], 
-    [mostrar_clientes].[tipoPlanilla] AS [tipoPlanilla], 
-    [mostrar_clientes].[idSucursal] AS [idSucursal], 
-    [mostrar_clientes].[nombreSucursal] AS [nombreSucursal]
-    FROM [dbo].[mostrar_clientes] AS [mostrar_clientes]</DefiningQuery>
+    [mostrar_empleados].[cedula] AS [cedula], 
+    [mostrar_empleados].[email] AS [email], 
+    [mostrar_empleados].[contrasena] AS [contrasena], 
+    [mostrar_empleados].[primer_apellido] AS [primer_apellido], 
+    [mostrar_empleados].[segundo_apellido] AS [segundo_apellido], 
+    [mostrar_empleados].[nombre] AS [nombre], 
+    [mostrar_empleados].[distrito] AS [distrito], 
+    [mostrar_empleados].[canton] AS [canton], 
+    [mostrar_empleados].[provincia] AS [provincia], 
+    [mostrar_empleados].[salario] AS [salario], 
+    [mostrar_empleados].[puesto] AS [puesto], 
+    [mostrar_empleados].[tipoPlanilla] AS [tipoPlanilla], 
+    [mostrar_empleados].[idSucursal] AS [idSucursal], 
+    [mostrar_empleados].[nombreSucursal] AS [nombreSucursal]
+    FROM [dbo].[mostrar_empleados] AS [mostrar_empleados]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="mostrar_inventario" EntityType="Self.mostrar_inventario" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
