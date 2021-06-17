@@ -17,12 +17,8 @@ namespace Gymtec_API.Controllers
     {
 
         private gymtecdatabaseEntities1 db = new gymtecdatabaseEntities1();
-        // GET: api/PDF
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
+       
+        // GET: api/PDF/5
         [HttpGet]
         [Route("api/PDF/{idSucursal}")]
         public HttpResponseMessage GenerateReport(int idSucursal)
@@ -59,21 +55,5 @@ namespace Gymtec_API.Controllers
             return result;
         }
 
-
-
-        // POST: api/PDF
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT: api/PDF/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE: api/PDF/5
-        public void Delete(int id)
-        {
-        }
     }
 }
