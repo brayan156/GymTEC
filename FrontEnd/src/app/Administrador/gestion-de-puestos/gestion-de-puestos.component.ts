@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ServiciosService} from '../../servicios.service';
 import {Puesto} from '../../Clases/puesto';
+import {Servicio} from '../../Clases/servicio';
 
 @Component({
   selector: 'app-gestion-de-puestos',
@@ -11,7 +12,7 @@ export class GestionDePuestosComponent implements OnInit {
 
   puesto: Puesto = new Puesto();
   listaPuesto: Puesto[] = [];
-  PuestoActual: Puesto = new Puesto();
+  puestoActual: Puesto = new Puesto();
 
   constructor(private service: ServiciosService) { }
 
@@ -38,6 +39,10 @@ export class GestionDePuestosComponent implements OnInit {
     this.service.eliminarPuesto(puesto.id).subscribe(a =>
       console.log(a));
     this.ngOnInit();
+  }
+
+  public obtenerInformacionItem(puesto: Puesto): void{
+    this.puestoActual = puesto;
   }
 
 }

@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { NgxBarcodeModule } from 'ngx-barcode';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './AppComponent/app.component';
@@ -21,6 +22,7 @@ import { GestionTipoEquiposComponent } from './Administrador/gestion-tipo-equipo
 import { GestionServiciosComponent } from './Administrador/gestion-servicios/gestion-servicios.component';
 import { GestionInventarioComponent } from './Administrador/gestion-inventario/gestion-inventario.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,14 +42,15 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
     GestionServiciosComponent,
     GestionInventarioComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    MatButtonModule,
-    MatSlideToggleModule,
-    FormsModule
-    HttpClientModule,
-  ],
+    imports: [
+      BrowserModule,
+      AppRoutingModule,
+      MatButtonModule,
+      MatSlideToggleModule,
+      HttpClientModule,
+      FormsModule,
+      NgxBarcodeModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

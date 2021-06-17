@@ -40,5 +40,7 @@ export class GestionSpaComponent implements OnInit {
       console.log(a));
     this.ngOnInit();
   }
-
+  public obtenerInformacionItem(tratamiento: Tratamiento): void{
+    this.tratamientoActual = tratamiento;
+  }
 }

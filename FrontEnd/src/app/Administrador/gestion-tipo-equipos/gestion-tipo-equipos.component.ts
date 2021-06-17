@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Tratamiento} from '../../Clases/tratamiento';
 import {ServiciosService} from '../../servicios.service';
 import {TipoEquipo} from '../../Clases/tipo-equipo';
+import {Sucursal} from '../../Clases/sucursal';
 
 @Component({
   selector: 'app-gestion-tipo-equipos',
@@ -12,7 +13,7 @@ export class GestionTipoEquiposComponent implements OnInit {
 
   tipoEquipo: TipoEquipo = new TipoEquipo();
   listatipoEquipo: TipoEquipo[] = [];
-  TipoEquipo: TipoEquipo = new TipoEquipo();
+  tipoEquipoActual: TipoEquipo = new TipoEquipo();
   constructor(private service: ServiciosService) {
   }
 
@@ -39,5 +40,9 @@ export class GestionTipoEquiposComponent implements OnInit {
     this.service.eliminarTipoEquipo(tipoEquipo.id).subscribe(a =>
       console.log(a));
     this.ngOnInit();
+  }
+
+  public obtenerInformacionItem(tipoEquipo: TipoEquipo): void{
+    this.tipoEquipoActual = tipoEquipo;
   }
 }
