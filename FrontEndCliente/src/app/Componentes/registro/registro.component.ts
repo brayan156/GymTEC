@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+
 import { Cliente } from 'src/app/Clases/cliente';
 
 @Component({
@@ -10,7 +11,7 @@ export class RegistroComponent implements OnInit {
 
   constructor() {
     this.cliente = new Cliente();
-   }
+  }
 
   cliente: Cliente;
 
@@ -21,4 +22,12 @@ export class RegistroComponent implements OnInit {
     console.log(this.cliente)
   }
 
+
+  @ViewChild('pdfTable', { static: true }) pdfTable: ElementRef;
+
+
+
+
 }
+
+
