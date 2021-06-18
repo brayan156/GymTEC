@@ -15,6 +15,8 @@ import {Tratamiento} from './Clases/tratamiento';
 import { GenerarPlanilla } from './Clases/generar_planilla';
 import { FiltroClase } from './Clases/filtro_clase';
 import { FiltroClaseCliente } from './Clases/filtro_clase_cliente';
+import {MostrarEmpleado} from './Clases/mostrar-empleado';
+import {MostrarInventario} from './Clases/mostrar-inventario';
 
 @Injectable({
   providedIn: 'root'
@@ -361,6 +363,40 @@ export class ServiciosService {
 
   public copiar_calendario(fechainicio:string, fechaFinal:string) {
     return this.htpp.get<void>(this.Url + 'api/StoreProcedures/copiar_calendario/' + fechainicio + '/' + fechaFinal);
+  }
+
+  // Mostrar empleados
+
+  // tslint:disable-next-line:typedef
+  public obtenerMostrarEmpleado(id: number){
+    return this.htpp.get<MostrarEmpleado>(this.Url + 'mostrar_empleados/' + id);
+  }
+
+  // tslint:disable-next-line:typedef
+  public obtenerListasMostrarEmpleado(){
+    return this.htpp.get<MostrarEmpleado[]>(this.Url + 'mostrar_empleados');
+  }
+
+  // tslint:disable-next-line:typedef
+  public agregarMostrarEmpleado(mostrarEmpleado: MostrarEmpleado){
+    return this.htpp.post(this.Url + 'mostrar_empleados', mostrarEmpleado);
+  }
+
+  // tslint:disable-next-line:typedef
+  public editarMostrarEmpleado(id: number, mostrarEmpleado: MostrarEmpleado){
+    return this.htpp.put(this.Url + 'mostrar_empleados/' + id, mostrarEmpleado);
+  }
+
+  // tslint:disable-next-line:typedef
+  public eliminarMostrarEmpleado(id: number){
+    return this.htpp.delete(this.Url + 'mostrar_empleados/' + id);
+  }
+
+  // Mostrar Inventario
+
+  // tslint:disable-next-line:typedef
+  public obtenerListaMostrarInventario(){
+    return this.htpp.get<MostrarInventario[]>(this.Url + 'mostrar_inventario/');
   }
 
 
