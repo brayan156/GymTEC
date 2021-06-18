@@ -307,5 +307,34 @@ export class ServiciosService {
     return this.htpp.delete(this.Url + 'Tratamiento/' + id);
   }
 
+  //Stored Procedures
+
+  public getTratamientosGym(idSucursal:number){
+    return this.htpp.get<Tratamiento[]>(this.Url + 'api/StoreProcedures/tratamientos_gimnasio/' + idSucursal);
+  }
+
+  public getServGym(idSucursal:number){
+    return this.htpp.get<Servicio[]>(this.Url + 'api/StoreProcedures/servicios_gimnasio/' + idSucursal);
+  }
+
+  public getProductos_gimnasio(idSucursal:number){
+    return this.htpp.get<Producto[]>(this.Url + 'api/StoreProcedures/productos_gimnasio/' + idSucursal);
+  }
+
+  public getClasesGym(idSucursal:number){
+    return this.htpp.get<Clase[]>(this.Url + 'api/StoreProcedures/mostrar_clases_gimnasio/' + idSucursal);
+  }
+
+  public loginAdmin(contrasena:string, correo: string){
+    return this.htpp.get<Empleado[]>(this.Url + 'api/StoreProcedures/login_admin/' + contrasena + '/' + correo);
+  }
+
+  public getInventarioGym(idSucursal:number){
+    return this.htpp.get<Equipo[]>(this.Url + 'api/StoreProcedures/inventario_gimnasio/' + idSucursal);
+  }
+
+  public generarPlanilla(idSucursal:number){
+    return this.htpp.get<Planilla[]>(this.Url + 'api/StoreProcedures/generar_planilla/' + idSucursal);
+  }
 
 }
