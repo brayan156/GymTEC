@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="gymtecdatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="gymtecdatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Clase">
           <Key>
             <PropertyRef Name="id" />
@@ -189,8 +189,8 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_clases' no tiene 
           <Property Name="nombreSucursal" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_clientes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
-        <EntityType Name="mostrar_clientes">
+advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_empleados' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="mostrar_empleados">
           <Key>
             <PropertyRef Name="cedula" />
             <PropertyRef Name="email" />
@@ -199,7 +199,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_clientes' no tien
           </Key>
           <Property Name="cedula" Type="int" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="contrasena" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="contrasena" Type="varchar(max)" Nullable="false" />
           <Property Name="primer_apellido" Type="varchar" MaxLength="50" />
           <Property Name="segundo_apellido" Type="varchar" MaxLength="50" />
           <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
@@ -485,9 +485,6 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
           <Parameter Name="email" Type="varchar" Mode="In" />
           <Parameter Name="contrasena" Type="varchar(max)" Mode="In" />
         </Function>
-        <Function Name="mostrar_clases_gimnacio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="id_sucursal" Type="int" Mode="In" />
-        </Function>
         <Function Name="mostrar_clases_gimnasio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_sucursal" Type="int" Mode="In" />
         </Function>
@@ -532,23 +529,23 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
     [mostrar_clases].[nombreSucursal] AS [nombreSucursal]
     FROM [dbo].[mostrar_clases] AS [mostrar_clases]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="mostrar_clientes" EntityType="Self.mostrar_clientes" store:Type="Views" store:Schema="dbo">
+          <EntitySet Name="mostrar_empleados" EntityType="Self.mostrar_empleados" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [mostrar_clientes].[cedula] AS [cedula], 
-    [mostrar_clientes].[email] AS [email], 
-    [mostrar_clientes].[contrasena] AS [contrasena], 
-    [mostrar_clientes].[primer_apellido] AS [primer_apellido], 
-    [mostrar_clientes].[segundo_apellido] AS [segundo_apellido], 
-    [mostrar_clientes].[nombre] AS [nombre], 
-    [mostrar_clientes].[distrito] AS [distrito], 
-    [mostrar_clientes].[canton] AS [canton], 
-    [mostrar_clientes].[provincia] AS [provincia], 
-    [mostrar_clientes].[salario] AS [salario], 
-    [mostrar_clientes].[puesto] AS [puesto], 
-    [mostrar_clientes].[tipoPlanilla] AS [tipoPlanilla], 
-    [mostrar_clientes].[idSucursal] AS [idSucursal], 
-    [mostrar_clientes].[nombreSucursal] AS [nombreSucursal]
-    FROM [dbo].[mostrar_clientes] AS [mostrar_clientes]</DefiningQuery>
+    [mostrar_empleados].[cedula] AS [cedula], 
+    [mostrar_empleados].[email] AS [email], 
+    [mostrar_empleados].[contrasena] AS [contrasena], 
+    [mostrar_empleados].[primer_apellido] AS [primer_apellido], 
+    [mostrar_empleados].[segundo_apellido] AS [segundo_apellido], 
+    [mostrar_empleados].[nombre] AS [nombre], 
+    [mostrar_empleados].[distrito] AS [distrito], 
+    [mostrar_empleados].[canton] AS [canton], 
+    [mostrar_empleados].[provincia] AS [provincia], 
+    [mostrar_empleados].[salario] AS [salario], 
+    [mostrar_empleados].[puesto] AS [puesto], 
+    [mostrar_empleados].[tipoPlanilla] AS [tipoPlanilla], 
+    [mostrar_empleados].[idSucursal] AS [idSucursal], 
+    [mostrar_empleados].[nombreSucursal] AS [nombreSucursal]
+    FROM [dbo].[mostrar_empleados] AS [mostrar_empleados]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="mostrar_inventario" EntityType="Self.mostrar_inventario" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -647,8 +644,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
             <End Role="TratamientoSucursal" EntitySet="TratamientoSucursal" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="gymtecdatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -827,28 +823,6 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
           <Property Name="segundo_apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="nombreSucursal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="mostrar_clientes">
-          <Key>
-            <PropertyRef Name="cedula" />
-            <PropertyRef Name="email" />
-            <PropertyRef Name="contrasena" />
-            <PropertyRef Name="nombre" />
-          </Key>
-          <Property Name="cedula" Type="Int32" Nullable="false" />
-          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="contrasena" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="primer_apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="segundo_apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="distrito" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="canton" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="provincia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="salario" Type="Int32" />
-          <Property Name="puesto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="tipoPlanilla" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="idSucursal" Type="Int32" />
-          <Property Name="nombreSucursal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="mostrar_inventario">
           <Key>
             <PropertyRef Name="nserie" />
@@ -1022,7 +996,6 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
           <EntitySet Name="TipoEquipo" EntityType="Self.TipoEquipo" />
           <EntitySet Name="Tratamiento" EntityType="Self.Tratamiento" />
           <EntitySet Name="mostrar_clases" EntityType="Self.mostrar_clases" />
-          <EntitySet Name="mostrar_clientes" EntityType="Self.mostrar_clientes" />
           <EntitySet Name="mostrar_inventario" EntityType="Self.mostrar_inventario" />
           <EntitySet Name="tratamientos_asociados" EntityType="Self.tratamientos_asociados" />
           <AssociationSet Name="FK__Clase__idEmplead__51851410" Association="Self.FK__Clase__idEmplead__51851410">
@@ -1090,7 +1063,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
             <Parameter Name="provincia" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="filtro_clase_cliente" ReturnType="Collection(gymtecdatabaseModel.filtro_clase_cliente_Result)">
-            <Parameter Name="id_cliente" Mode="In" Type="Int32" />
+          <Parameter Name="id_cliente" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="filtro_clases" ReturnType="Collection(gymtecdatabaseModel.filtro_clases_Result)">
             <Parameter Name="id_sucursal" Mode="In" Type="Int32" />
@@ -1099,30 +1072,28 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
             <Parameter Name="fechafin" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="generar_planilla" ReturnType="Collection(gymtecdatabaseModel.generar_planilla_Result)">
-            <Parameter Name="idsucursal" Mode="In" Type="Int32" />
+          <Parameter Name="idsucursal" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="inventario_gimnasio" ReturnType="Collection(gymtecdatabaseModel.inventario_gimnasio_Result)">
-            <Parameter Name="id_sucursal" Mode="In" Type="Int32" />
+          <Parameter Name="id_sucursal" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="login_admin" ReturnType="Collection(gymtecdatabaseModel.login_admin_Result)">
             <Parameter Name="email" Mode="In" Type="String" />
             <Parameter Name="contrasena" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="mostrar_clases_gimnacio" ReturnType="Collection(gymtecdatabaseModel.mostrar_clases_gimnacio_Result)">
-            <Parameter Name="id_sucursal" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="mostrar_clases_gimnasio" ReturnType="Collection(gymtecdatabaseModel.mostrar_clases_gimnasio_Result)">
-            <Parameter Name="id_sucursal" Mode="In" Type="Int32" />
+          <Parameter Name="id_sucursal" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="productos_gimnasio" ReturnType="Collection(gymtecdatabaseModel.productos_gimnasio_Result)">
-            <Parameter Name="id_sucursal" Mode="In" Type="Int32" />
+          <Parameter Name="id_sucursal" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="servicios_gimnasio" ReturnType="Collection(gymtecdatabaseModel.servicios_gimnasio_Result)">
-            <Parameter Name="id_sucursal" Mode="In" Type="Int32" />
+          <Parameter Name="id_sucursal" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="tratamientos_gimnasio" ReturnType="Collection(gymtecdatabaseModel.tratamientos_gimnasio_Result)">
-            <Parameter Name="id_sucursal" Mode="In" Type="Int32" />
+          <Parameter Name="id_sucursal" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="mostrar_empleados" EntityType="gymtecdatabaseModel.mostrar_empleados" />
         </EntityContainer>
         <ComplexType Name="filtro_clase_cliente_Result">
           <Property Type="Int32" Name="id" Nullable="false" />
@@ -1156,6 +1127,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
           <Property Type="Int32" Name="idPlanilla" Nullable="true" />
           <Property Type="Int32" Name="cantidad" Nullable="true" />
           <Property Type="Int32" Name="pago" Nullable="true" />
+          <Property Type="String" Name="Tipo_de_pago" Nullable="false" MaxLength="50" />
         </ComplexType>
         <ComplexType Name="inventario_gimnasio_Result">
           <Property Type="Int32" Name="nSerie" Nullable="false" />
@@ -1225,6 +1197,28 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
           <Property Type="String" Name="imagen" Nullable="true" />
           <Property Type="String" Name="Column1" Nullable="false" MaxLength="11" />
         </ComplexType>
+        <EntityType Name="mostrar_empleados">
+          <Key>
+            <PropertyRef Name="cedula" />
+            <PropertyRef Name="email" />
+            <PropertyRef Name="contrasena" />
+            <PropertyRef Name="nombre" />
+          </Key>
+          <Property Name="cedula" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="contrasena" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="primer_apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="segundo_apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="distrito" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="canton" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="provincia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="salario" Type="Int32" />
+          <Property Name="puesto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tipoPlanilla" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idSucursal" Type="Int32" />
+          <Property Name="nombreSucursal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1391,26 +1385,6 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="mostrar_clientes">
-            <EntityTypeMapping TypeName="gymtecdatabaseModel.mostrar_clientes">
-              <MappingFragment StoreEntitySet="mostrar_clientes">
-                <ScalarProperty Name="cedula" ColumnName="cedula" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
-                <ScalarProperty Name="primer_apellido" ColumnName="primer_apellido" />
-                <ScalarProperty Name="segundo_apellido" ColumnName="segundo_apellido" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="distrito" ColumnName="distrito" />
-                <ScalarProperty Name="canton" ColumnName="canton" />
-                <ScalarProperty Name="provincia" ColumnName="provincia" />
-                <ScalarProperty Name="salario" ColumnName="salario" />
-                <ScalarProperty Name="puesto" ColumnName="puesto" />
-                <ScalarProperty Name="tipoPlanilla" ColumnName="tipoPlanilla" />
-                <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
-                <ScalarProperty Name="nombreSucursal" ColumnName="nombreSucursal" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="mostrar_inventario">
             <EntityTypeMapping TypeName="gymtecdatabaseModel.mostrar_inventario">
               <MappingFragment StoreEntitySet="mostrar_inventario">
@@ -1519,6 +1493,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
                 <ScalarProperty Name="idPlanilla" ColumnName="idPlanilla" />
                 <ScalarProperty Name="cantidad" ColumnName="cantidad" />
                 <ScalarProperty Name="pago" ColumnName="pago" />
+                <ScalarProperty Name="Tipo_de_pago" ColumnName="Tipo_de_pago" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -1550,22 +1525,6 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
                 <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
                 <ScalarProperty Name="idPuesto" ColumnName="idPuesto" />
                 <ScalarProperty Name="idPlanilla" ColumnName="idPlanilla" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="mostrar_clases_gimnacio" FunctionName="gymtecdatabaseModel.Store.mostrar_clases_gimnacio">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="gymtecdatabaseModel.mostrar_clases_gimnacio_Result">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="horaInicio" ColumnName="horaInicio" />
-                <ScalarProperty Name="horaFin" ColumnName="horaFin" />
-                <ScalarProperty Name="fecha" ColumnName="fecha" />
-                <ScalarProperty Name="capacidad" ColumnName="capacidad" />
-                <ScalarProperty Name="nombreServicio" ColumnName="nombreServicio" />
-                <ScalarProperty Name="nombreInstructor" ColumnName="nombreInstructor" />
-                <ScalarProperty Name="primer_apellido" ColumnName="primer_apellido" />
-                <ScalarProperty Name="segundo_apellido" ColumnName="segundo_apellido" />
-                <ScalarProperty Name="nombreSucursal" ColumnName="nombreSucursal" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -1618,6 +1577,26 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="mostrar_empleados">
+            <EntityTypeMapping TypeName="gymtecdatabaseModel.mostrar_empleados">
+              <MappingFragment StoreEntitySet="mostrar_empleados">
+                <ScalarProperty Name="nombreSucursal" ColumnName="nombreSucursal" />
+                <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
+                <ScalarProperty Name="tipoPlanilla" ColumnName="tipoPlanilla" />
+                <ScalarProperty Name="puesto" ColumnName="puesto" />
+                <ScalarProperty Name="salario" ColumnName="salario" />
+                <ScalarProperty Name="provincia" ColumnName="provincia" />
+                <ScalarProperty Name="canton" ColumnName="canton" />
+                <ScalarProperty Name="distrito" ColumnName="distrito" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="segundo_apellido" ColumnName="segundo_apellido" />
+                <ScalarProperty Name="primer_apellido" ColumnName="primer_apellido" />
+                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="cedula" ColumnName="cedula" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
