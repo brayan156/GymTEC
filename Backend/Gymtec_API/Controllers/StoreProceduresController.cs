@@ -4,6 +4,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web.Http;
 
 namespace Gymtec_API.Controllers
@@ -57,7 +59,18 @@ namespace Gymtec_API.Controllers
         public IEnumerable<login_admin_Result> login_admin(string contrasena,string correo)
         {
             Debug.WriteLine("en el store");
-            return db.login_admin(correo,contrasena);
+
+            string hash = "holanosoyelhash";
+            byte[] data = Encoding.UTF8.GetBytes(contrasena);
+            MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
+            TripleDESCryptoServiceProvider tripDES = new TripleDESCryptoServiceProvider();
+            tripDES.Key = md5.ComputeHash(Encoding.UTF8.GetBytes(hash));
+            tripDES.Mode = CipherMode.ECB;
+            ICryptoTransform transform = tripDES.CreateEncryptor();
+            byte[] result = transform.TransformFinalBlock(data, 0, data.Length);
+            var encriptado = Convert.ToBase64String(result);
+
+            return db.login_admin(correo,encriptado);
         }
 
 

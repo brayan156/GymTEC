@@ -27,6 +27,7 @@
               <Mapping SourceColumn="segundo_apellido" DataSetColumn="segundo_apellido" />
               <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
               <Mapping SourceColumn="idPlanilla" DataSetColumn="idPlanilla" />
+              <Mapping SourceColumn="Tipo_de_pago" DataSetColumn="Tipo_de_pago" />
               <Mapping SourceColumn="cantidad" DataSetColumn="cantidad" />
               <Mapping SourceColumn="pago" DataSetColumn="pago" />
             </Mappings>
@@ -65,7 +66,13 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="idPlanilla" msprop:Generator_ColumnVarNameInTable="columnidPlanilla" msprop:Generator_ColumnPropNameInRow="idPlanilla" msprop:Generator_ColumnPropNameInTable="idPlanillaColumn" msprop:Generator_UserColumnName="idPlanilla" type="xs:int" minOccurs="0" />
+              <xs:element name="Tipo_de_pago" msprop:Generator_ColumnVarNameInTable="columnTipo_de_pago" msprop:Generator_ColumnPropNameInRow="Tipo_de_pago" msprop:Generator_ColumnPropNameInTable="Tipo_de_pagoColumn" msprop:Generator_UserColumnName="Tipo_de_pago">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="cantidad" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columncantidad" msprop:Generator_ColumnPropNameInRow="cantidad" msprop:Generator_ColumnPropNameInTable="cantidadColumn" msprop:Generator_UserColumnName="cantidad" type="xs:int" minOccurs="0" />
               <xs:element name="pago" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnpago" msprop:Generator_ColumnPropNameInRow="pago" msprop:Generator_ColumnPropNameInTable="pagoColumn" msprop:Generator_UserColumnName="pago" type="xs:int" minOccurs="0" />
             </xs:sequence>

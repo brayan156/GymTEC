@@ -19,7 +19,6 @@
         <EntityTypeShape EntityType="gymtecdatabaseModel.TipoEquipo" Width="1.5" PointX="6" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="gymtecdatabaseModel.Tratamiento" Width="1.5" PointX="5.25" PointY="19.625" IsExpanded="true" />
         <EntityTypeShape EntityType="gymtecdatabaseModel.mostrar_clases" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="gymtecdatabaseModel.mostrar_clientes" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="gymtecdatabaseModel.mostrar_inventario" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="gymtecdatabaseModel.tratamientos_asociados" Width="1.5" PointX="10.75" PointY="5.75" IsExpanded="true" />
         <AssociationConnector Association="gymtecdatabaseModel.FK__Clase__idEmplead__51851410" ManuallyRouted="false" />
@@ -35,6 +34,7 @@
         <AssociationConnector Association="gymtecdatabaseModel.ProductoSucursal" ManuallyRouted="false" />
         <AssociationConnector Association="gymtecdatabaseModel.PuestoPermiso" ManuallyRouted="false" />
         <AssociationConnector Association="gymtecdatabaseModel.TratamientoSucursal" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="gymtecdatabaseModel.mostrar_empleados" Width="1.5" PointX="10.375" PointY="10.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -41,9 +41,9 @@ namespace Gymtec_API
         public virtual DbSet<TipoEquipo> TipoEquipo { get; set; }
         public virtual DbSet<Tratamiento> Tratamiento { get; set; }
         public virtual DbSet<mostrar_clases> mostrar_clases { get; set; }
-        public virtual DbSet<mostrar_clientes> mostrar_clientes { get; set; }
         public virtual DbSet<mostrar_inventario> mostrar_inventario { get; set; }
         public virtual DbSet<tratamientos_asociados> tratamientos_asociados { get; set; }
+        public virtual DbSet<mostrar_empleados> mostrar_empleados { get; set; }
     
         public virtual int copiar_calendario(Nullable<System.DateTime> fechainicio, Nullable<System.DateTime> fechanuevo)
         {
@@ -146,15 +146,6 @@ namespace Gymtec_API
                 new ObjectParameter("contrasena", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<login_admin_Result>("login_admin", emailParameter, contrasenaParameter);
-        }
-    
-        public virtual ObjectResult<mostrar_clases_gimnacio_Result> mostrar_clases_gimnacio(Nullable<int> id_sucursal)
-        {
-            var id_sucursalParameter = id_sucursal.HasValue ?
-                new ObjectParameter("id_sucursal", id_sucursal) :
-                new ObjectParameter("id_sucursal", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<mostrar_clases_gimnacio_Result>("mostrar_clases_gimnacio", id_sucursalParameter);
         }
     
         public virtual ObjectResult<mostrar_clases_gimnasio_Result> mostrar_clases_gimnasio(Nullable<int> id_sucursal)

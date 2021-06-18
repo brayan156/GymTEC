@@ -20,5 +20,6 @@ namespace Gymtec_API
         public Nullable<int> idPlanilla { get; set; }
         public Nullable<int> cantidad { get; set; }
         public Nullable<int> pago { get; set; }
+        public string Tipo_de_pago { get; set; }
     }
 }
