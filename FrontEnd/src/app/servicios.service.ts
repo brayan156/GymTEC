@@ -17,7 +17,7 @@ import {Tratamiento} from './Clases/tratamiento';
   providedIn: 'root'
 })
 export class ServiciosService {
-  Url = 'https://localhost:44341/api/';
+  Url = 'https://localhost:44388/api/';
   private valores = new BehaviorSubject('');
   public valoresActuales = this.valores.asObservable();
 

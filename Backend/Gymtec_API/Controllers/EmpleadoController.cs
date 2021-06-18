@@ -6,6 +6,8 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
@@ -80,6 +82,16 @@ namespace Gymtec_API.Controllers
                 return BadRequest(ModelState);
             }
 
+            string hash = "holanosoyelhash";
+            byte[] data = Encoding.UTF8.GetBytes(empleado.contrasena);
+            MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
+            TripleDESCryptoServiceProvider tripDES = new TripleDESCryptoServiceProvider();
+            tripDES.Key = md5.ComputeHash(Encoding.UTF8.GetBytes(hash));
+            tripDES.Mode = CipherMode.ECB;
+            ICryptoTransform transform = tripDES.CreateEncryptor();
+            byte[] result = transform.TransformFinalBlock(data, 0, data.Length);
+            var encriptado = Convert.ToBase64String(result);
+            empleado.contrasena = encriptado;
             db.Empleado.Add(empleado);
 
             try

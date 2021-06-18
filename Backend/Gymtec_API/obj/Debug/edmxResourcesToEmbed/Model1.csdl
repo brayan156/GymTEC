@@ -175,28 +175,6 @@
     <Property Name="segundo_apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="nombreSucursal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityType Name="mostrar_clientes">
-    <Key>
-      <PropertyRef Name="cedula" />
-      <PropertyRef Name="email" />
-      <PropertyRef Name="contrasena" />
-      <PropertyRef Name="nombre" />
-    </Key>
-    <Property Name="cedula" Type="Int32" Nullable="false" />
-    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="contrasena" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="primer_apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="segundo_apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="distrito" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="canton" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="provincia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="salario" Type="Int32" />
-    <Property Name="puesto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="tipoPlanilla" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="idSucursal" Type="Int32" />
-    <Property Name="nombreSucursal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-  </EntityType>
   <EntityType Name="mostrar_inventario">
     <Key>
       <PropertyRef Name="nserie" />
@@ -370,7 +348,6 @@
     <EntitySet Name="TipoEquipo" EntityType="Self.TipoEquipo" />
     <EntitySet Name="Tratamiento" EntityType="Self.Tratamiento" />
     <EntitySet Name="mostrar_clases" EntityType="Self.mostrar_clases" />
-    <EntitySet Name="mostrar_clientes" EntityType="Self.mostrar_clientes" />
     <EntitySet Name="mostrar_inventario" EntityType="Self.mostrar_inventario" />
     <EntitySet Name="tratamientos_asociados" EntityType="Self.tratamientos_asociados" />
     <AssociationSet Name="FK__Clase__idEmplead__51851410" Association="Self.FK__Clase__idEmplead__51851410">
@@ -456,9 +433,6 @@
       <Parameter Name="email" Mode="In" Type="String" />
       <Parameter Name="contrasena" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="mostrar_clases_gimnacio" ReturnType="Collection(gymtecdatabaseModel.mostrar_clases_gimnacio_Result)">
-      <Parameter Name="id_sucursal" Mode="In" Type="Int32" />
-    </FunctionImport>
     <FunctionImport Name="mostrar_clases_gimnasio" ReturnType="Collection(gymtecdatabaseModel.mostrar_clases_gimnasio_Result)">
       <Parameter Name="id_sucursal" Mode="In" Type="Int32" />
     </FunctionImport>
@@ -471,6 +445,7 @@
     <FunctionImport Name="tratamientos_gimnasio" ReturnType="Collection(gymtecdatabaseModel.tratamientos_gimnasio_Result)">
       <Parameter Name="id_sucursal" Mode="In" Type="Int32" />
     </FunctionImport>
+    <EntitySet Name="mostrar_empleados" EntityType="gymtecdatabaseModel.mostrar_empleados" />
   </EntityContainer>
   <ComplexType Name="filtro_clase_cliente_Result">
     <Property Type="Int32" Name="id" Nullable="false" />
@@ -504,6 +479,7 @@
     <Property Type="Int32" Name="idPlanilla" Nullable="true" />
     <Property Type="Int32" Name="cantidad" Nullable="true" />
     <Property Type="Int32" Name="pago" Nullable="true" />
+    <Property Type="String" Name="Tipo_de_pago" Nullable="false" MaxLength="50" />
   </ComplexType>
   <ComplexType Name="inventario_gimnasio_Result">
     <Property Type="Int32" Name="nSerie" Nullable="false" />
@@ -573,4 +549,26 @@
     <Property Type="String" Name="imagen" Nullable="true" />
     <Property Type="String" Name="Column1" Nullable="false" MaxLength="11" />
   </ComplexType>
+  <EntityType Name="mostrar_empleados">
+    <Key>
+      <PropertyRef Name="cedula" />
+      <PropertyRef Name="email" />
+      <PropertyRef Name="contrasena" />
+      <PropertyRef Name="nombre" />
+    </Key>
+    <Property Name="cedula" Type="Int32" Nullable="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="contrasena" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="primer_apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="segundo_apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="distrito" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="canton" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="provincia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="salario" Type="Int32" />
+    <Property Name="puesto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tipoPlanilla" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idSucursal" Type="Int32" />
+    <Property Name="nombreSucursal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>
