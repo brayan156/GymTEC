@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { ClienteService } from 'src/app/services/cliente.service';
 
 @Component({
   selector: 'app-login',
@@ -15,17 +16,20 @@ export class LoginComponent implements OnInit {
 
   @ViewChild("myPassword")
   myPassword!: ElementRef;
-  constructor(private router: Router) {
+  constructor(private router: Router, private service:ClienteService) {
   }
 
   ngOnInit(): void {
-    // const form = document.getElementById('form');
-    // form.addEventListener('submit', this.login);
+
   }
 
   login() {
-    console.log("puta", this.usuario.correo, this.usuario.password);
-    this.router.navigateByUrl("/inicio")
+    console.log("el cliente", this.usuario.correo, this.usuario.password);
+    this.service.login(this.usuario.password, this.usuario.correo).subscribe(resp => {
+      if (resp.length != 0) { this.router.navigateByUrl("/inicio") }
+      else {alert("Sus datos son incorrectos.")};
+    })
+    
   }
 
   showPassword() {
