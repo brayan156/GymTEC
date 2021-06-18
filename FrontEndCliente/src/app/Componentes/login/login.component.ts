@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
   login() {
     console.log("el cliente", this.usuario.correo, this.usuario.password);
     this.service.login(this.usuario.password, this.usuario.correo).subscribe(resp => {
-      if (resp.length != 0) { this.router.navigateByUrl("/inicio") }
+      if (resp.length != 0) { this.router.navigateByUrl("/inicio"); this.service.user = resp.pop()! }
       else {alert("Sus datos son incorrectos.")};
     })
     

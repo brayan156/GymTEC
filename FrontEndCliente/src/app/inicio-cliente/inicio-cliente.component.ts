@@ -1,8 +1,11 @@
-import { Component, ElementRef, ViewChild, } from '@angular/core';
-import { CalendarOptions, DateSelectArg, EventClickArg, EventApi } from '@fullcalendar/angular';
-import { FullCalendarComponent } from "@fullcalendar/angular";
-import { FullCalendarModule } from "@fullcalendar/angular";
-import { INITIAL_EVENTS, createEventId } from './event-utils';
+import { Component, } from '@angular/core';
+import { CalendarOptions, DateSelectArg, EventClickArg, EventApi, EventInput } from '@fullcalendar/angular';
+import { FiltroClase } from '../Clases/filtro_clase';
+import { FiltroClaseCliente } from '../Clases/filtro_clase_cliente';
+import { Servicio } from '../Clases/servicio';
+import { Sucursal } from '../Clases/sucursal';
+import { ClienteService } from '../services/cliente.service';
+import { createEventId } from './event-utils';
 
 
 @Component({
@@ -12,73 +15,42 @@ import { INITIAL_EVENTS, createEventId } from './event-utils';
 })
 export class InicioClienteComponent {
 
-  SucursalesDisponibles = [
-    {
-      nombre: "Tibas"
-    },
-    {
-      nombre: "Su mama"
-    },
-    {
-      nombre: "Critobal Colon"
-    }
-  ]
-
-  tiposClase = [
-    {
-      tipo: "Indoor Cycling"
-    },
-    {
-      tipo: "Pilates"
-    },
-    {
-      tipo: "Yoga"
-    },
-    {
-      tipo: "Zumba"
-    },
-    {
-      tipo: "Natación"
-    }
-  ];
-
-  clases = [
-    {
-      imagen: "https://static01.nyt.com/images/2016/12/02/well/move/yoga_body_images-slide-HNVD/yoga_body_images-slide-HNVD-superJumbo.jpg",
-      horaFin: "19:30",
-      horaInicio: "17:30",
-      fecha: "2021-06-24",
-      capacidad: 8,
-      id: 1,
-      idServicio: 2,
-      idEmpleado: 2,
-      tipo: "Yoga",
-      sucursal: 'San Marcos'
-    },
-    {
-      imagen: "https://static01.nyt.com/images/2016/12/02/well/move/yoga_body_images-slide-HNVD/yoga_body_images-slide-HNVD-superJumbo.jpg",
-      horaFin: "19:30",
-      horaInicio: "17:30",
-      fecha: "2021-06-24",
-      capacidad: 8,
-      id: 1,
-      idServicio: 2,
-      idEmpleado: 2,
-      tipo: "Yoga",
-      sucursal: 'San Marcos'
-    }
-  ]
-
+  SucursalesDisponibles: Sucursal[];
+  ServiciosDisponibles: Servicio[];
+  clasesBusqueda: FiltroClase[];
+  misClases: FiltroClaseCliente[];
   clase = {
-    tipo: "",
-    instructor: "",
-    grupal: false,
-    capacidad: 0,
-    fecha: "",
+    servicio: "",
     inicio: "",
     final: "",
-    sucursal: ""
+    idSucursal: 0
   };
+  myEvents: EventInput[] = [];
+
+  constructor(private service: ClienteService) {
+
+  }
+  ngOnInit() {
+    this.service.obtenerListasSucursal().subscribe(sucursales => {
+      this.SucursalesDisponibles = sucursales;
+      this.service.obtenerListasServicio().subscribe(servicios => {
+        this.ServiciosDisponibles = servicios;
+        
+        this.service.filtro_clases_cliente(this.service.user.cedula).subscribe(clases => {
+          clases.forEach(clase => {
+            this.myEvents.push({
+              id: String(clase.id),
+              title: clase.nombreServicio,
+              start: clase.fecha 
+            })
+          })
+        })
+      })
+    });
+  }
+
+
+
 
   calendarVisible = true;
   calendarOptions: CalendarOptions = {
@@ -88,7 +60,7 @@ export class InicioClienteComponent {
       right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
     },
     initialView: 'dayGridMonth',
-    initialEvents: INITIAL_EVENTS, // alternatively, use the `events` setting to fetch from a feed
+    initialEvents: this.myEvents, // alternatively, use the `events` setting to fetch from a feed
     weekends: true,
     editable: true,
     selectable: true,
@@ -144,17 +116,26 @@ export class InicioClienteComponent {
 
   buscarClase() {
     this.handleDateSelect.bind(this);
-
+    this.service.filtro_clases(this.clase.idSucursal, this.clase.servicio, this.clase.inicio, this.clase.final).subscribe(resp => {
+      this.clasesBusqueda = resp;
+    })
   }
 
-  inscribirme(clase:any) {
+  todasClases() {
+    this.handleDateSelect.bind(this);
+    this.service.filtro_clases(0, "", "", "").subscribe(resp => {
+      this.clasesBusqueda = resp;
+    })
+  }
 
-    let resp = confirm("Press a button!");
+  inscribirme(clase: FiltroClase) {
+
+    let resp = confirm("Confirma para inscribirte :)");
     if (resp == true) {
       this.calendarOptions.events = [{
-        title: clase.tipo,
+        title: clase.nombreServicio,
         date: clase.fecha
-      }] 
+      }]
     } else {
       //doSomething
     }
