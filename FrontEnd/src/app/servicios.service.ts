@@ -12,6 +12,9 @@ import {Servicio} from './Clases/servicio';
 import {Sucursal} from './Clases/sucursal';
 import {TipoEquipo} from './Clases/tipo-equipo';
 import {Tratamiento} from './Clases/tratamiento';
+import { GenerarPlanilla } from './Clases/generar_planilla';
+import { FiltroClase } from './Clases/filtro_clase';
+import { FiltroClaseCliente } from './Clases/filtro_clase_cliente';
 
 @Injectable({
   providedIn: 'root'
@@ -334,7 +337,29 @@ export class ServiciosService {
   }
 
   public generarPlanilla(idSucursal:number){
-    return this.htpp.get<Planilla[]>(this.Url + 'api/StoreProcedures/generar_planilla/' + idSucursal);
+    return this.htpp.get<GenerarPlanilla[]>(this.Url + 'api/StoreProcedures/generar_planilla/' + idSucursal);
+  }
+
+  public filtro_clases(idsucursal: number, nombre_servicio: string, fechainicio: string, fechafin: string) {
+    let datos = {
+      "idSucursal": idsucursal,
+      "nombre_servicio":nombre_servicio,
+      "fechainicio":fechainicio,
+      "fechafin":fechafin
+    }
+    return this.htpp.get<FiltroClase[]>(this.Url + 'api/StoreProcedures/filtro_clases/' + datos);
+  }
+
+  public filtro_clases_cliente(idCliente:number) {
+    return this.htpp.get<FiltroClaseCliente[]>(this.Url + 'api/StoreProcedures/filtro_clases_cliente/' + idCliente);
+  }
+
+  public copiar_gimnasio(sucursal:Sucursal) {
+    return this.htpp.get<void>(this.Url + 'api/StoreProcedures/copiar_gimnasio/' + sucursal);
+  }
+
+  public copiar_calendario(fechainicio:string, fechaFinal:string) {
+    return this.htpp.get<void>(this.Url + 'api/StoreProcedures/copiar_calendario/' + fechainicio + '/' + fechaFinal);
   }
 
 
