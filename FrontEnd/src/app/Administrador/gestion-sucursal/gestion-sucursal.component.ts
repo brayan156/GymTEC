@@ -26,37 +26,46 @@ export class GestionSucursalComponent implements OnInit {
   }
 
   public creaSucursal(sucursal: Sucursal): void{
-    this.service.agregarSucursal(sucursal).subscribe(respuesta =>
-    console.log(respuesta));
-    this.ngOnInit();
+    this.service.agregarSucursal(sucursal).subscribe(respuesta => {
+      console.log(respuesta);
+      this.ngOnInit();
+    });
   }
 
   public editarSucursal(sucursal: Sucursal): void{
-    this.service.editarSucursal(this.sucursalActual.id , sucursal).subscribe(a =>
-    console.log(a));
-    this.ngOnInit();
+    this.service.editarSucursal(this.sucursalActual.id , sucursal).subscribe(a => {
+      console.log(a);
+      this.ngOnInit();
+    });
   }
 
   public eliminarSucursal(sucursal: Sucursal): void{
-    this.service.eliminarSucursal(sucursal.id).subscribe(a =>
-      console.log(a));
-    this.ngOnInit();
+    this.service.eliminarSucursal(sucursal.id).subscribe(a => {
+      console.log(a);
+      this.ngOnInit();
+    });
   }
 
   public ActivarDesactivarSpa(sucursal: Sucursal): void{
     sucursal.spaActivo = !sucursal.spaActivo;
-    this.service.editarSucursal(sucursal.id , sucursal).subscribe(a =>
-      console.log(a));
-    this.ngOnInit();
+    this.service.editarSucursal(sucursal.id , sucursal).subscribe(a =>{
+      console.log(a);
+      this.ngOnInit();
+    });
   }
 
   public ActivarDesactivarTienda(sucursal: Sucursal): void{
     sucursal.tiendaActiva = !sucursal.tiendaActiva;
-    this.service.editarSucursal(sucursal.id , sucursal).subscribe(a =>
-      console.log(a));
-    this.ngOnInit();
+    this.service.editarSucursal(sucursal.id , sucursal).subscribe(a => {
+      console.log(a);
+      this.ngOnInit();
+    });
   }
 
+  public copiarSucursal(sucursal: Sucursal): void{
+    this.service.copiarGimnasio(sucursal).subscribe(respuesta =>
+    console.log(respuesta));
+  }
   public obtenerInformacionItem(sucursal: Sucursal): void{
     this.sucursalActual = sucursal;
   }

@@ -8,7 +8,7 @@
           <img src="{{item.imagen}}">
         </div>
         <div class="col columna2">
-          <div class="row"><h5>Nombre de la sucursal: {{item.nombre}}</h5></div>
+          <div class="row"><h3>Nombre de la sucursal: {{item.nombre}}</h3></div>
           <div class="row"><label>Dirrecion: {{item.provincia}}, {{item.canton}}, {{item.distrito}}</label></div>
           <div class="row"><label>Fecha de Apertura {{item.fechaApertura}}</label></div>
           <div class="row"><label>Horario de Atencion {{item.horaInicio}}/ {{item.horaFinal}}</label></div>
@@ -17,17 +17,14 @@
         <div class="col">
           <div class="row"><label>Empleado Administrador: {{item.nombreAdministrador}}</label></div>
           <div class="row"><label>Capacidad Maxima: {{item.capacidad}}</label></div>
-          <div class="row"><label>Numero de telefono:{{item.telefono}} </label></div>
 
         </div>
         <div class="col columna4">
-          <img class="image2  row" src="{{item.imagenSpaActivo}}">
-          <mat-slide-toggle class="row">SPA</mat-slide-toggle>
+          <mat-slide-toggle class="row" [(ngModel)]="item.spaActivo" (click)="ActivarDesactivarSpa(item)">SPA</mat-slide-toggle>
         </div>
 
         <div class="col columna4">
-          <img class="image2" src="{{item.imagenTiendaActiva}}">
-          <mat-slide-toggle class="row">Tienda</mat-slide-toggle>
+          <mat-slide-toggle class="row" [(ngModel)]="item.tiendaActiva" (click)="ActivarDesactivarTienda(item)">Tienda</mat-slide-toggle>
         </div>
 
         <div class="col">
@@ -40,8 +37,8 @@
             </button>
           </div>
           <div class="row">
-            <button class="btn btn-dark btn2" data-bs-toggle="modal" data-bs-target="#CopiarSucursal" (click)="obtenerInformacionItem(item)">Copiar Sucursal</button>
-            <button class="btn btn-dark btn3" data-bs-toggle="modal" data-bs-target="#EliminarSucursal" (click)="obtenerInformacionItem(item)">Eliminar Sucursal</button>
+            <button class="btn btn-dark btn2" data-bs-toggle="modal" data-bs-target="#CopiarSucursal"
+                    (click)="obtenerInformacionItem(item)">Copiar Sucursal</button>
           </div>
         </div>
       </div>
@@ -91,7 +88,7 @@
 
           <div class="tamano3">
             <label>Fecha de apertura:</label>
-            <input type="date" class="form-control" name="fechaA" id="fechaA"#fechaA="ngModel"
+            <input type="text" class="form-control" name="fechaA" id="fechaA"#fechaA="ngModel"
                    [(ngModel)]="sucursal.fechaApertura" >
           </div>
 
@@ -99,12 +96,12 @@
           <div class="tamano3 row">
             <div class="col">
               <label>Abrimos:</label>
-              <input type="time" class="form-control"  name="horaI" id="horaI" #horaI="ngModel"
+              <input type="text" class="form-control"  name="horaI" id="horaI" #horaI="ngModel"
                      [(ngModel)]="sucursal.horaInicio">
             </div>
             <div class="col">
               <label>Cerramos:</label>
-              <input type="time" class="form-control" name="horaF" id="horaF" #horaF="ngModel"
+              <input type="text" class="form-control" name="horaF" id="horaF" #horaF="ngModel"
                      [(ngModel)]="sucursal.horaFinal">
             </div>
           </div>
@@ -121,15 +118,11 @@
                    [(ngModel)]="sucursal.capacidad">
           </div>
 
-          <div class="tamano3">
-            <label>Numero de Telefoo:</label>
-            <input type="number" class="form-control" name="telefono" id="telefono" #telefono="ngModel"
-                   [(ngModel)]="sucursal.telefono" >
-          </div>
+
 
 
           <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" (click)="creaSucursal(sucursal)">Aceptar</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="creaSucursal(sucursal)">Aceptar</button>
 
             <button class="btn btn-danger" name="7"  data-bs-dismiss="modal">Cancelar</button>
           </div>
@@ -154,28 +147,28 @@
           <div class="tamano3">
             <label>Nombre de la Sucursal:</label>
             <input type="text" class="form-control" name="nombre" id="EdnombreSucursal" required="" #nombre="ngModel"
-                   [(ngModel)]="sucursal.nombre">
+                   [(ngModel)]="sucursalActual.nombre">
           </div>
 
           <div class="tamano3">
             <label>Imagen de la Sucursal:</label>
-            <input type="text" class="form-control" name="nombre" id="EdimagenSucursal" required="" #imagen="ngModel"
-                   [(ngModel)]="sucursal.imagen">
+            <input type="text" class="form-control" name="imagen" id="EdimagenSucursal" required="" #imagen="ngModel"
+                   [(ngModel)]="sucursalActual.imagen">
           </div>
 
           <div class="row">
             <label>Dirrecion de sucursal:</label>
             <div class="col">
               <input type="text" class="form-control" name="pronvincia" id="Edpronvincia" required="" #provinca="ngModel"
-                     [(ngModel)]="sucursal.provincia">
+                     [(ngModel)]="sucursalActual.provincia">
             </div>
             <div class="col">
               <input type="text" class="form-control" name="canton" id="Edcanton" required="" #canton="ngModel"
-                     [(ngModel)]="sucursal.canton">
+                     [(ngModel)]="sucursalActual.canton">
             </div>
             <div class="col">
               <input type="text" class="form-control" name="distrito" id="Eddistrito" required="" #distrito="ngModel"
-                     [(ngModel)]="sucursal.distrito">
+                     [(ngModel)]="sucursalActual.distrito">
             </div>
           </div>
 
@@ -183,7 +176,7 @@
 
           <div class="tamano3">
             <label>Fecha de apertura:</label>
-            <input type="date" class="form-control" name="fechaA" id="EdfechaA"#fechaA="ngModel"
+            <input type="text" class="form-control" name="fechaA" id="EdfechaA"#fechaA="ngModel"
                    [(ngModel)]="sucursalActual.fechaApertura" >
           </div>
 
@@ -191,12 +184,12 @@
           <div class="tamano3 row">
             <div class="col">
               <label>Abrimos:</label>
-              <input type="time" class="form-control"  name="horaI" id="EdhoraI" #horaI="ngModel"
+              <input type="text" class="form-control"  name="horaI" id="EdhoraI" #horaI="ngModel"
                      [(ngModel)]="sucursalActual.horaInicio">
             </div>
             <div class="col">
               <label>Cerramos:</label>
-              <input type="time" class="form-control" name="horaF" id="EdhoraF" #horaF="ngModel"
+              <input type="text" class="form-control" name="horaF" id="EdhoraF" #horaF="ngModel"
                      [(ngModel)]="sucursalActual.horaFinal">
             </div>
           </div>
@@ -213,15 +206,12 @@
                    [(ngModel)]="sucursalActual.capacidad">
           </div>
 
-          <div class="tamano3">
-            <label>Numero de Telefoo:</label>
-            <input type="number" class="form-control" name="telefono" id="Edtelefono" #telefono="ngModel"
-                   [(ngModel)]="sucursalActual.telefono" >
-          </div>
+
 
 
           <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" (click)="creaSucursal(sucursalActual)">Aceptar</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="creaSucursal(sucursalActual)">
+              Aceptar</button>
 
             <button class="btn btn-danger" name="7"  data-bs-dismiss="modal">Cancelar</button>
           </div>
@@ -243,6 +233,13 @@
       <div class="modal-body">
         <form class="row">
           <div class="row">
+
+            <div class="tamano3">
+              <label>Nombre de la Sucursal:</label>
+              <input type="text" class="form-control" name="nombre" id="ConombreSucursal" required="" #nombre="ngModel"
+                     [(ngModel)]="sucursalActual.nombre">
+            </div>
+
             <label>Dirrecion de sucursal:</label>
             <div class="col">
               <input type="text" class="form-control" name="pronvincia" id="Copronvincia" required="" #provinca="ngModel"
@@ -268,7 +265,7 @@
 
 
           <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" name="7" (click)="creaSucursal(sucursalActual)">Aceptar</button>
+            <button type="submit" class="btn btn-primary" name="7" (click)="copiarSucursal(sucursalActual)">Aceptar</button>
 
             <button data-bs-dismiss="modal" class="btn btn-danger" name="7">Cancelar</button>
           </div>
@@ -278,3 +275,4 @@
     </div>
   </div>
 </div>
+

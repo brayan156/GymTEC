@@ -5,7 +5,7 @@
     <div class="card" style="width: 18rem;">
       <div class="card-body">
         <h2 class="card-title">Numero de Identificador: {{item.id}}</h2>
-        <label class="row letras">Descripcion {{item.descripcion}}</label>
+        <label class="row letras">Descripcion {{item.descripicion}}</label>
         <label class="row letras">Tipo Pago {{item.tipo}}</label>
       </div>
       <div class="card-footer">
@@ -37,7 +37,7 @@
         <div class="tamano3">
           <label>Descripcion:</label>
           <input type="text" class="form-control" name="nombre" id="descripcion" required=""
-                 #descripcion="ngModel" [(ngModel)]="planilla.descripcion">
+                 #descripcion="ngModel" [(ngModel)]="planilla.descripicion">
         </div>
 
 
@@ -68,7 +68,7 @@
         <div class="tamano3">
           <label>Descripcion:</label>
           <input type="text" class="form-control" name="nombre"  required=""
-                 #descripcion="ngModel" [(ngModel)]="planillaActual.descripcion">
+                 #descripcion="ngModel" [(ngModel)]="planillaActual.descripicion">
         </div>
 
       </div>

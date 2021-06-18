@@ -211,27 +211,27 @@ export class ServiciosService {
   // DUDAS SOBRE ESTOS METODOS
   // tslint:disable-next-line:typedef
   public obtenerServicio(id: number){
-    return this.htpp.get<Servicio>(this.Url + 'Servicio/' + id);
+    return this.htpp.get<Servicio>(this.Url + 'Servicios/' + id);
   }
 
   // tslint:disable-next-line:typedef
   public obtenerListasServicio(){
-    return this.htpp.get<Servicio[]>(this.Url + 'Servicio');
+    return this.htpp.get<Servicio[]>(this.Url + 'Servicios');
   }
 
   // tslint:disable-next-line:typedef
   public agregarServicio(servicio: Servicio){
-    return this.htpp.post(this.Url + 'Servicio', servicio);
+    return this.htpp.post(this.Url + 'Servicios', servicio);
   }
 
   // tslint:disable-next-line:typedef
   public editarServicio(id: number, servicio: Servicio){
-    return this.htpp.put(this.Url + 'Servicio/' + id, servicio);
+    return this.htpp.put(this.Url + 'Servicios/' + id, servicio);
   }
 
   // tslint:disable-next-line:typedef
   public eliminarServicio(id: number){
-    return this.htpp.delete(this.Url + 'Servicio/' + id);
+    return this.htpp.delete(this.Url + 'Servicios/' + id);
   }
 
 
@@ -252,12 +252,12 @@ export class ServiciosService {
   }
 
   // tslint:disable-next-line:typedef
-  public editarSucursal(id: string, sucursal: Sucursal){
+  public editarSucursal(id: number, sucursal: Sucursal){
     return this.htpp.put(this.Url + 'Sucursal/' + id, sucursal);
   }
 
   // tslint:disable-next-line:typedef
-  public eliminarSucursal(id: string){
+  public eliminarSucursal(id: number){
     return this.htpp.delete(this.Url + 'TipoEquipo/' + id);
   }
 
@@ -358,12 +358,15 @@ export class ServiciosService {
     return this.htpp.get<FiltroClaseCliente[]>(this.Url + 'api/StoreProcedures/filtro_clases_cliente/' + idCliente);
   }
 
-  public copiar_gimnasio(sucursal: Sucursal) {
-    return this.htpp.get<void>(this.Url + 'api/StoreProcedures/copiar_gimnasio/' + sucursal);
-  }
+
 
   public copiar_calendario(fechainicio:string, fechaFinal:string) {
     return this.htpp.get<void>(this.Url + 'api/StoreProcedures/copiar_calendario/' + fechainicio + '/' + fechaFinal);
+  }
+
+  // tslint:disable-next-line:typedef
+  public copiarGimnasio(sucursal: Sucursal){
+    return this.htpp.post(this.Url + '/StoreProcedures/copiar_gimnasio/', sucursal);
   }
 
   // Mostrar empleados

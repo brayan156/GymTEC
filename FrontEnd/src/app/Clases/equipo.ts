@@ -5,5 +5,5 @@ export class Equipo {
   costo: string;
   imagen: string;
   idTipoEquipo: number;
-  idSucursal: string;
+  idSucursal: number;
 }

@@ -11,7 +11,6 @@ import {GeneracionPlanillaComponent} from './Administrador/generacion-planilla/g
 import {GestionServiciosComponent} from './Administrador/gestion-servicios/gestion-servicios.component';
 import {GestionTipoEquiposComponent} from './Administrador/gestion-tipo-equipos/gestion-tipo-equipos.component';
 import {GestionInventarioComponent} from './Administrador/gestion-inventario/gestion-inventario.component';
-import { AsociacionTratamientosComponent } from './Dashboard/asociacion-tratamientos/asociacion-tratamientos.component';
 import { AsociacionProductosComponent } from './Dashboard/asociacion-productos/asociacion-productos.component';
 import { AsociacionInventarioComponent } from './Dashboard/asociacion-inventario/asociacion-inventario.component';
 import { CrearClaseComponent } from './Dashboard/crear-clase/crear-clase.component';
@@ -25,7 +24,6 @@ const routes: Routes = [{path: '', component: LoginComponent},
       {path: 'GestionPlanilla' , component: GestionTipoPlanillaComponent},
       {path: 'GestionEmpleados' , component: GestionEmpleadoComponent},
       { path: 'GeneracionPlanilla', component: GeneracionPlanillaComponent },
-      { path: 'AsociacionTratamientos', component: AsociacionTratamientosComponent },
       { path: 'AsociacionProductos', component: AsociacionProductosComponent },
       { path: 'AsociacionInventario', component: AsociacionInventarioComponent },
       {path: 'CrearClase' , component: CrearClaseComponent},
