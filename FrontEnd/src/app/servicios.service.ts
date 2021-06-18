@@ -50,6 +50,10 @@ export class ServiciosService {
     return this.htpp.put(this.Url + 'Clase/' + id , clase);
   }
 
+  public agregarClase(clase: Clase){
+    return this.htpp.post(this.Url + 'Clase/', clase);
+  }
+
   // DUDAS SOBRE ESTOS METODOS
   // tslint:disable-next-line:typedef
   public obtenerCliente(id: number){

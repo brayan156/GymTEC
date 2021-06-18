@@ -11,21 +11,24 @@
             <form id="form">
                 <div class="form-group">
                     
-                    <select class="form-select input-group" id="tipo" [(ngModel)]="clase.tipo" name="tipo" required>
+                    <select class="form-select input-group" id="tipo" [(ngModel)]="clase.idServicio" name="tipo" required>
                         <!-- <optgroup label=""> -->
-                        <option *ngFor="let tipo of tiposClase"> {{tipo.tipo}}</option>
+                        <option *ngFor="let tipo of tiposClase" value="{{tipo.id}}"> {{tipo.nombre}}</option>
                         <!-- </optgroup> -->
                     </select>
                 </div>
 
-                <div class="form-group input-group">
-                    <input type="text" name="instructor" class="form-control" [(ngModel)]="clase.instructor"
-                        id="instructor" placeholder="Instructor">
+                <div class="form-group">
+                    <select class="form-select input-group" id="instructor" [(ngModel)]="clase.idEmpleado" name="instructor" required>
+                        <!-- <optgroup label=""> -->
+                        <option *ngFor="let instructor of instructores" value="{{instructor.cedula}}"> {{instructor.nombre}}</option>
+                        <!-- </optgroup> -->
+                    </select>
                 </div>
 
 
                 <div class="form-group">
-                    <select class="form-select input-group" id="grupal" [(ngModel)]="clase.grupal" name="grupal" required>
+                    <select class="form-select input-group" id="grupal"  name="grupal" required>
                         <!-- <optgroup label=""> -->
                         <option value="true"> Grupal</option>
                         <option value="false"> Individual</option>
@@ -53,12 +56,12 @@
 
                 <div class="form-group input-group">
                     <label for="inicio">Hora de inicio</label>
-                    <input type="time" name="inicio" class="form-control" [(ngModel)]="clase.inicio" id="inicio"
+                    <input type="time" name="inicio" class="form-control" [(ngModel)]="clase.horaInicio" id="inicio"
                         placeholder="Inicio">
                 </div>
                 <div class="form-group input-group">
                     <label for="final">Hora final</label>
-                    <input type="time" name="final" class="form-control" [(ngModel)]="clase.final" id="final"
+                    <input type="time" name="final" class="form-control" [(ngModel)]="clase.horaFin" id="final"
                         placeholder="Final">
                 </div>
 
