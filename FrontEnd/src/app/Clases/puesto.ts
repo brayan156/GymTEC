@@ -1,6 +1,6 @@
 export class Puesto{
   id: number;
   nombre: string;
-  descripcion: string;
+  descripicion: string;
   imagen: string;
 }

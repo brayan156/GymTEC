@@ -1,8 +1,8 @@
 export class Sucursal {
-  id: string;
-  imagen: string;
-  telefono: number;
+  id: number;
   horaInicio: number;
+  horaFinal: number;
+  imagen: string;
   capacidad: string;
   nombre: string;
   fechaApertura: string;
@@ -11,8 +11,6 @@ export class Sucursal {
   provincia: string;
   spaActivo: boolean;
   tiendaActiva: boolean;
-  horaFinal: number;
   nombreAdministrador: string;
-  imagenSpaActivo: string;
-  imagenTiendaActiva: string;
+
 }

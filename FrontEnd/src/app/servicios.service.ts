@@ -312,11 +312,12 @@ export class ServiciosService {
 
   //Stored Procedures
 
-  public getTratamientosGym(idSucursal:number){
+  // tslint:disable-next-line:typedef
+  public getTratamientosGym(idSucursal: number){
     return this.htpp.get<Tratamiento[]>(this.Url + 'api/StoreProcedures/tratamientos_gimnasio/' + idSucursal);
   }
 
-  public getServGym(idSucursal:number){
+  public getServGym(idSucursal: number){
     return this.htpp.get<Servicio[]>(this.Url + 'api/StoreProcedures/servicios_gimnasio/' + idSucursal);
   }
 
@@ -354,7 +355,7 @@ export class ServiciosService {
     return this.htpp.get<FiltroClaseCliente[]>(this.Url + 'api/StoreProcedures/filtro_clases_cliente/' + idCliente);
   }
 
-  public copiar_gimnasio(sucursal:Sucursal) {
+  public copiar_gimnasio(sucursal: Sucursal) {
     return this.htpp.get<void>(this.Url + 'api/StoreProcedures/copiar_gimnasio/' + sucursal);
   }
 
