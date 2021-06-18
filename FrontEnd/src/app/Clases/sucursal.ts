@@ -1,5 +1,5 @@
 export class Sucursal {
-  id: string;
+  id: number;
   imagen: string;
   telefono: number;
   horaInicio: number;
