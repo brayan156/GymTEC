@@ -25,21 +25,24 @@ export class GestionTipoPlanillaComponent implements OnInit {
     });
   }
   public crearPlanilla(planilla: Planilla): void{
-    this.service.agregarPlanilla(planilla).subscribe(respuesta =>
-      console.log(respuesta));
-    this.ngOnInit();
+    this.service.agregarPlanilla(planilla).subscribe(respuesta => {
+      console.log(respuesta);
+      this.ngOnInit();
+    });
   }
 
   public editarPlanilla(planilla: Planilla): void{
-    this.service.editarPlanilla(planilla.id , planilla).subscribe(a =>
-      console.log(a));
-    this.ngOnInit();
+    this.service.editarPlanilla(planilla.id , planilla).subscribe(a => {
+      console.log(a);
+      this.ngOnInit();
+    });
   }
 
   public eliminarPlanilla(planilla: Planilla): void{
-    this.service.eliminarPlanilla(planilla.id).subscribe(a =>
-      console.log(a));
-    this.ngOnInit();
+    this.service.eliminarPlanilla(planilla.id).subscribe(a => {
+      console.log(a);
+      this.ngOnInit();
+    });
   }
 
   public obtenerInformacionItem(planilla: Planilla): void{

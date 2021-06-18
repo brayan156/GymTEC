@@ -1,5 +1,5 @@
 export class Planilla {
   id: number;
-  tipo: string;
+  Tipo: string;
   descripicion: string;
 }

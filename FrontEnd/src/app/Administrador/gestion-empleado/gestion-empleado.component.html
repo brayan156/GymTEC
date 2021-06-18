@@ -1,21 +1,23 @@
 <button class="btn btn-dark largo" data-bs-toggle="modal" data-bs-target="#crearEmpleado">Agregar un nuevo Empleado</button>
 <div class="container row">
-  <div class="col margnes">
+  <div class="col margnes" *ngFor="let item of listaEmpleado">
     <div class="card" style="width: 18rem;">
-      <img src="https://www.tiovivocreativo.com/wp-content/uploads/2020/02/interiorismo-dise%C3%B1o-gimnasios-planificar-espacios.jpg">
       <div class="card-body">
-        <h2 class="card-title">Nombre Completo</h2>
-        <label class="row letras">Numero de cedula</label>
-        <label class="row letras">Correo Electronico</label>
-        <label class="row letras">Dirrecion</label>
-        <label class="row letras">Puesto</label>
-        <label class="row letras">Gimnasio Asignado</label>
-        <label class="row letras">Tipo de Planilla</label>
-        <label class="row letras">Salario</label>
+        <h2 class="card-title">Nombre Completo: {{item.nombre}} {{item.primer_apellido}} {{item.segundo_apellido}}</h2>
+        <label class="row letras">Numero de cedula: {{item.cedula}}</label>
+        <label class="row letras">Correo Electronico: {{item.email}}</label>
+        <label class="row letras">Dirrecion: {{item.provincia}} {{item.canton}} {{item.distrito}}</label>
+        <label class="row letras">Puesto: {{item.puesto}}</label>
+        <label class="row letras">Planilla: {{item.tipoPlanilla}}</label>
+        <label class="row letras">Gimnasio Asignado: {{item.nombreSucursal}}</label>
+
+        <label class="row letras">Salario: {{item.salario}}</label>
       </div>
       <div class="card-footer">
-        <button class="btn btn-primary margen"  data-bs-toggle="modal" data-bs-target="#editarEmpleado">Editar</button>
-        <button class="btn btn-danger margen"  data-bs-toggle="modal" data-bs-target="#eliminarEmpleado">Eliminar</button>
+        <button class="btn btn-primary margen"  data-bs-toggle="modal" data-bs-target="#editarEmpleado"
+        >Editar</button>
+        <button class="btn btn-danger margen"  data-bs-toggle="modal" data-bs-target="#eliminarEmpleado"
+        >Eliminar</button>
       </div>
     </div>
   </div>
