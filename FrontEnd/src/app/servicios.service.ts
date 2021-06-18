@@ -12,6 +12,9 @@ import {Servicio} from './Clases/servicio';
 import {Sucursal} from './Clases/sucursal';
 import {TipoEquipo} from './Clases/tipo-equipo';
 import {Tratamiento} from './Clases/tratamiento';
+import { GenerarPlanilla } from './Clases/generar_planilla';
+import { FiltroClase } from './Clases/filtro_clase';
+import { FiltroClaseCliente } from './Clases/filtro_clase_cliente';
 
 @Injectable({
   providedIn: 'root'
@@ -306,6 +309,59 @@ export class ServiciosService {
   public eliminarTratamiento(id: number){
     return this.htpp.delete(this.Url + 'Tratamiento/' + id);
   }
+
+  //Stored Procedures
+
+  public getTratamientosGym(idSucursal:number){
+    return this.htpp.get<Tratamiento[]>(this.Url + 'api/StoreProcedures/tratamientos_gimnasio/' + idSucursal);
+  }
+
+  public getServGym(idSucursal:number){
+    return this.htpp.get<Servicio[]>(this.Url + 'api/StoreProcedures/servicios_gimnasio/' + idSucursal);
+  }
+
+  public getProductos_gimnasio(idSucursal:number){
+    return this.htpp.get<Producto[]>(this.Url + 'api/StoreProcedures/productos_gimnasio/' + idSucursal);
+  }
+
+  public getClasesGym(idSucursal:number){
+    return this.htpp.get<Clase[]>(this.Url + 'api/StoreProcedures/mostrar_clases_gimnasio/' + idSucursal);
+  }
+
+  public loginAdmin(contrasena:string, correo: string){
+    return this.htpp.get<Empleado[]>(this.Url + 'api/StoreProcedures/login_admin/' + contrasena + '/' + correo);
+  }
+
+  public getInventarioGym(idSucursal:number){
+    return this.htpp.get<Equipo[]>(this.Url + 'api/StoreProcedures/inventario_gimnasio/' + idSucursal);
+  }
+
+  public generarPlanilla(idSucursal:number){
+    return this.htpp.get<GenerarPlanilla[]>(this.Url + 'api/StoreProcedures/generar_planilla/' + idSucursal);
+  }
+
+  public filtro_clases(idsucursal: number, nombre_servicio: string, fechainicio: string, fechafin: string) {
+    let datos = {
+      "idSucursal": idsucursal,
+      "nombre_servicio":nombre_servicio,
+      "fechainicio":fechainicio,
+      "fechafin":fechafin
+    }
+    return this.htpp.get<FiltroClase[]>(this.Url + 'api/StoreProcedures/filtro_clases/' + datos);
+  }
+
+  public filtro_clases_cliente(idCliente:number) {
+    return this.htpp.get<FiltroClaseCliente[]>(this.Url + 'api/StoreProcedures/filtro_clases_cliente/' + idCliente);
+  }
+
+  public copiar_gimnasio(sucursal:Sucursal) {
+    return this.htpp.get<void>(this.Url + 'api/StoreProcedures/copiar_gimnasio/' + sucursal);
+  }
+
+  public copiar_calendario(fechainicio:string, fechaFinal:string) {
+    return this.htpp.get<void>(this.Url + 'api/StoreProcedures/copiar_calendario/' + fechainicio + '/' + fechaFinal);
+  }
+
 
 
 }

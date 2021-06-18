@@ -1,0 +1,11 @@
+Colores de GymTEC
+
+red: #E01F28 rgb(224, 31, 40)
+orange: #F5881F rgb(245, 136, 31)
+yellow: #F0BF2B rgb(240, 191, 43)
+yellow-green: #C4CE8D rgb(196, 206, 141)
+light-green: #6DA98F rgb(109, 169, 143)
+green2: #2A7B6B rgb(42, 123, 107)
+green3: #1B584F rgb(27, 88, 79)
+dark-green: #1F393A rgb(31, 57, 58)
+dark-mode: #293233 rgb(41, 50, 51)
