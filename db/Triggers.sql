@@ -61,8 +61,7 @@ create or alter trigger evitar_nombres_iguales_servicios_sucursal
     for insert ,update
     as
     begin
-        if (exists(select * from inserted join deleted on inserted.id=deleted.id join Servicio on inserted.id=Servicio.id where inserted.nombre=Servicio.nombre))
-            or exists(select * from inserted join Servicio on inserted.idSucursal=Servicio.idSucursal where inserted.id!=Servicio.id and inserted.nombre=Servicio.nombre)
+        if exists(select * from inserted join Servicio on inserted.idSucursal=Servicio.idSucursal where inserted.id!=Servicio.id and inserted.nombre=Servicio.nombre)
             begin rollback transaction end
     end;
 GO
