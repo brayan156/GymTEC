@@ -454,6 +454,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_inventario' no ti
           <Parameter Name="nombre_servicio" Type="varchar" Mode="In" />
           <Parameter Name="fechainicio" Type="date" Mode="In" />
           <Parameter Name="fechafin" Type="date" Mode="In" />
+          <Parameter Name="id_cliente" Type="int" Mode="In" />
         </Function>
         <Function Name="generar_planilla" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idsucursal" Type="int" Mode="In" />
@@ -1014,6 +1015,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_inventario' no ti
             <Parameter Name="nombre_servicio" Mode="In" Type="String" />
             <Parameter Name="fechainicio" Mode="In" Type="DateTime" />
             <Parameter Name="fechafin" Mode="In" Type="DateTime" />
+            <Parameter Name="id_cliente" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="generar_planilla" ReturnType="Collection(gymtecdatabaseModel.generar_planilla_Result)">
           <Parameter Name="idsucursal" Mode="In" Type="Int32" />
