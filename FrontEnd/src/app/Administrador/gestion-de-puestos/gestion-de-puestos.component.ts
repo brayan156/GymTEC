@@ -24,21 +24,24 @@ export class GestionDePuestosComponent implements OnInit {
     });
   }
   public crearPuesto(puesto: Puesto): void{
-    this.service.agregarPuesto(puesto).subscribe(respuesta =>
-      console.log(respuesta));
-    this.ngOnInit();
+    this.service.agregarPuesto(puesto).subscribe(respuesta => {
+      console.log(respuesta);
+      this.ngOnInit();
+    });
   }
 
   public editarPuesto(puesto: Puesto): void{
-    this.service.editarPuesto(puesto.id , puesto).subscribe(a =>
-      console.log(a));
-    this.ngOnInit();
+    this.service.editarPuesto(puesto.id , puesto).subscribe(a => {
+      console.log(a);
+      this.ngOnInit();
+    });
   }
 
   public eliminarPuesto(puesto: Puesto): void{
-    this.service.eliminarPuesto(puesto.id).subscribe(a =>
-      console.log(a));
-    this.ngOnInit();
+    this.service.eliminarPuesto(puesto.id).subscribe(a => {
+      console.log(a);
+      this.ngOnInit();
+    });
   }
 
   public obtenerInformacionItem(puesto: Puesto): void{

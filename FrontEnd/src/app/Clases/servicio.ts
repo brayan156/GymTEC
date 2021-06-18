@@ -1,7 +1,7 @@
 export class Servicio {
  id: number;
  nombre: string;
- descripcion: string;
+ descripicion: string;
  imagen: string;
  idSucursal: string;
 }

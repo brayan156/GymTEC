@@ -50,7 +50,7 @@
 
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" name="7" (click)="crearPuesto(puesto)">Aceptar</button>
+        <button data-bs-dismiss="modal" type="submit" class="btn btn-primary" name="7" (click)="crearPuesto(puesto)">Aceptar</button>
 
         <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
       </div>
@@ -76,18 +76,18 @@
       <div class="tamano3">
         <label>Nombre Del Puesto:</label>
         <input type="text" class="form-control" name="nombre" id="nombrePuesto1" required=""
-               #nombre="ngModel" [(ngModel)]="puestoActual.nombre">>
+               #nombre="ngModel" [(ngModel)]="puestoActual.nombre">
       </div>
 
       <div class="tamano3">
         <label>Descripcion:</label>
         <input type="text" class="form-control" name="nombre" id="descripcionPuesto1" required=""
-               #descripcion="ngModel" [(ngModel)]="puestoActual.descripicion">>
+               #descripcion="ngModel" [(ngModel)]="puestoActual.descripicion">
       </div>
 
     </div>
     <div class="modal-footer">
-      <button type="submit" class="btn btn-primary" name="7" (click)="editarPuesto(puestoActual)">Aceptar</button>
+      <button data-bs-dismiss="modal" type="submit" class="btn btn-primary" name="7" (click)="editarPuesto(puestoActual)">Aceptar</button>
 
       <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
     </div>
@@ -103,7 +103,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" name="7" (click)="eliminarPuesto(puestoActual)">Aceptar</button>
+        <button data-bs-dismiss="modal" type="submit" class="btn btn-primary" name="7" (click)="eliminarPuesto(puestoActual)">Aceptar</button>
 
         <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
       </div>
