@@ -24,7 +24,7 @@ namespace MongoGymtecAPI.Controllers
 
         public ClientController(IMongoClient client)
         {
-            var cliente =new MongoClient("mongodb+srv://admingymtec:12345@cluster0.q4x2d.mongodb.net/Mongodbgymtecdatabase?retryWrites=true&w=majority");
+            var cliente =new MongoClient("mongodb+srv://User:11111@cluster0.q4x2d.mongodb.net/Mongodbgymtecdatabase?retryWrites=true&w=majority");
             var database = cliente.GetDatabase(databasename);
             collection = database.GetCollection<Client>(modelname);
 

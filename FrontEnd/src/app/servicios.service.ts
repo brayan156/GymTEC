@@ -17,6 +17,7 @@ import { FiltroClase } from './Clases/filtro_clase';
 import { FiltroClaseCliente } from './Clases/filtro_clase_cliente';
 import {MostrarEmpleado} from './Clases/mostrar-empleado';
 import {MostrarInventario} from './Clases/mostrar-inventario';
+import { TratamientosGym } from './Clases/tratamiento_gym';
 
 @Injectable({
   providedIn: 'root'
@@ -316,7 +317,7 @@ export class ServiciosService {
 
   // tslint:disable-next-line:typedef
   public getTratamientosGym(idSucursal: number){
-    return this.htpp.get<Tratamiento[]>(this.Url + 'api/StoreProcedures/tratamientos_gimnasio/' + idSucursal);
+    return this.htpp.get<TratamientosGym[]>(this.Url + 'api/StoreProcedures/tratamientos_gimnasio/' + idSucursal);
   }
 
   public getServGym(idSucursal: number){
