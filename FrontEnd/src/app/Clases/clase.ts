@@ -1,7 +1,7 @@
 export class Clase {
   imagen: string;
-  horaFin: number;
-  horaInicio: number;
+  horaFin: string;
+  horaInicio: string;
   fecha: string;
   capacidad: number;
   id: string;
