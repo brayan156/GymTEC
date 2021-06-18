@@ -16,6 +16,7 @@ import { GenerarPlanilla } from './Clases/generar_planilla';
 import { FiltroClase } from './Clases/filtro_clase';
 import { FiltroClaseCliente } from './Clases/filtro_clase_cliente';
 import { TratamientosGym } from './Clases/tratamiento_gym';
+import { InventarioGym } from './Clases/inventario-gym';
 
 @Injectable({
   providedIn: 'root'
@@ -335,7 +336,7 @@ export class ServiciosService {
   }
 
   public getInventarioGym(idSucursal:number){
-    return this.htpp.get<Equipo[]>(this.Url + 'api/StoreProcedures/inventario_gimnasio/' + idSucursal);
+    return this.htpp.get<InventarioGym[]>(this.Url + 'api/StoreProcedures/inventario_gimnasio/' + idSucursal);
   }
 
   public generarPlanilla(idSucursal:number){
