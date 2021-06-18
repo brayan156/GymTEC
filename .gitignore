@@ -1,3 +1,4 @@
 
 #Ignorar carpetas del API
 \Backend\Gymtec_API\bin
+\Backend\Gymtec_API\.vs
