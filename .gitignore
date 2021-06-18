@@ -1,0 +1,10 @@
+
+#Ignorar carpetas del API
+\Backend\Gymtec_API\bin
+\Backend\Gymtec_API\.vs
+\Backend\Gymtec_API\obj
+
+\Backend\Gymtec_MongoAPI\MongoGymtecAPI\bin
+\Backend\Gymtec_MongoAPI\MongoGymtecAPI\.vs
+\Backend\Gymtec_MongoAPI\MongoGymtecAPI\obj
+Backend/Gymtec_API/.vs/
