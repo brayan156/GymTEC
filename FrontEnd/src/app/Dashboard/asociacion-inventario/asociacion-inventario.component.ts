@@ -14,7 +14,7 @@ export class AsociacionInventarioComponent implements OnInit {
 
   ListaSucursales: Sucursal[] = [];
   misTratamientos: TratamientosGym[] = [];
-  superLista:object[] = [];
+  superLista:{Sucursal : Sucursal, tratamientos:TratamientosGym[]}[] = [];
 
 
   ngOnInit(): void {
@@ -22,10 +22,10 @@ export class AsociacionInventarioComponent implements OnInit {
       this.ListaSucursales = lista;
       console.log(this.ListaSucursales);
       lista.forEach(sucursal => {
-        this.service.getTratamientosGym(sucursal.id).subscribe(tratamiento => {
+        this.service.getTratamientosGym(sucursal.id).subscribe(tratamientos => {
           this.superLista.push({
             Sucursal: sucursal,
-            tratamientos: tratamiento
+            tratamientos: tratamientos
           })
         })
       })
