@@ -1,43 +1,31 @@
 <div class="contenedorPantalla">
 
     <div class="container">
-        <div class="row">
+        <div class="row" *ngFor="let asociacion of superLista">
 
             <div class="col columna1">
-                <img
-                    src="https://www.tiovivocreativo.com/wp-content/uploads/2020/02/interiorismo-dise%C3%B1o-gimnasios-planificar-espacios.jpg">
+                <img src={{asociacion.Sucursal.imagen}}>
             </div>
             <div class="col columna2">
                 <div class="row">
-                    <h5>Nombre de la sucursal</h5>
+                    <h2>Nombre de la sucursal: {{asociacion.Sucursal.nombre}}</h2>
                 </div>
-                <div class="row"><label>Dirección:</label></div>
+                <div class="row"><label>Dirección: {{asociacion.Sucursal.provincia}}, {{asociacion.Sucursal.canton}},
+                        {{asociacion.Sucursal.distrito}}</label></div>
 
             </div>
             <div class="col-4">
 
                 <h2>Productos asociados</h2>
-                <div class="list-group">
+                <div class="list-group" *ngFor="let producto of asociacion.productos">
                     <a class="list-group-item list-group-item-action active">
-                        <button href="#" type="button"  class="btn" data-bs-toggle="modal" data-bs-target="#DesacocieModal">
-                            Productos
+                        <button href="#" type="button" class="btn" data-bs-toggle="modal"
+                        (click)="borrarProducto(producto, asociacion.Sucursal)"    
+                        data-bs-target="#DesacocieModal">
+                            {{producto.nombre}}
                         </button>
                     </a>
-                    <a class="list-group-item list-group-item-action active">
-                        <button href="#" type="button"  class="btn" data-bs-toggle="modal" data-bs-target="#DesacocieModal">
-                            Productos
-                        </button>
-                    </a>
-                    <a class="list-group-item list-group-item-action active">
-                        <button href="#" type="button"  class="btn" data-bs-toggle="modal" data-bs-target="#DesacocieModal">
-                            Productos
-                        </button>
-                    </a>
-                    <a class="list-group-item list-group-item-action active">
-                        <button href="#" type="button"  class="btn" data-bs-toggle="modal" data-bs-target="#DesacocieModal">
-                            Productos
-                        </button>
-                    </a>
+
                 </div>
 
             </div>
@@ -45,69 +33,56 @@
 
                 <h2>Productos disponibles</h2>
                 <div class="list-group">
-                    <a class="list-group-item list-group-item-action active">
-                        <button href="#" type="button"  class="btn" data-bs-toggle="modal" data-bs-target="#AsocieModal">
-                            Productos
-                        </button>
-                    </a>
-                    <a class="list-group-item list-group-item-action active">
-                        <button href="#" type="button"  class="btn" data-bs-toggle="modal" data-bs-target="#AsocieModal">
-                            Productos
-                        </button>
-                    </a>
-                    <a class="list-group-item list-group-item-action active">
-                        <button href="#" type="button"  class="btn" data-bs-toggle="modal" data-bs-target="#AsocieModal">
-                            Productos
-                        </button>
-                    </a>
-                    <a class="list-group-item list-group-item-action active">
-                        <button href="#" type="button"  class="btn" data-bs-toggle="modal" data-bs-target="#AsocieModal">
-                            Productos
+                    <a class="list-group-item list-group-item-action active"
+                        *ngFor="let productoNo of asociacion.productosNo">
+                        <button type="button" class="btn" data-bs-toggle="modal"
+                            (click)="agregarProducto(productoNo, asociacion.Sucursal)"
+                            data-bs-target="#AsocieModal">
+                            {{productoNo.nombre}}
                         </button>
                     </a>
                 </div>
-
-
+            </div>
         </div>
-    </div>
-
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="DesacocieModal" tabindex="-1" aria-labelledby="eliminarFilaLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title" id="eliminarFilaLabel">Desasociar un Tratamiento</h2>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <!-- Modal -->
+    <div class="modal fade" id="DesacocieModal" tabindex="-1" aria-labelledby="eliminarFilaLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="eliminarFilaLabel">Desasociar un Tratamiento</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Se eliminará el tratamiento: {{this.productoModal.nombre}} de la sucursal
+                        {{this.sucursalModal.nombre}} ¿Deseas continuar?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="DesacocieProducto()">Aceptar</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-          <label >Se eliminira la fila del distribuidor</label>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" >Aceptar</button>
-        </div>
-      </div>
     </div>
-  </div>
 
-  <!-- Modal -->
-<div class="modal fade" id="AsocieModal" tabindex="-1" aria-labelledby="eliminarFilaLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title" id="eliminarFilaLabel">Asociar un Tratamiento</h2>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <!-- Modal -->
+    <div class="modal fade" id="AsocieModal" tabindex="-1" aria-labelledby="eliminarFilaLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="eliminarFilaLabel">Asociar un Producto</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Se agregará el producto: {{this.productoModal.nombre}} a la sucursal
+                        {{this.sucursalModal.nombre}} ¿Deseas continuar?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="asociarProducto()">Aceptar</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-          <label >Se eliminira la fila del distribuidor</label>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" >Aceptar</button>
-        </div>
-      </div>
     </div>
-  </div>
 

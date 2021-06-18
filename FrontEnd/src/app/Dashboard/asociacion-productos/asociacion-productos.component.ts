@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InventarioGym } from 'src/app/Clases/inventario-gym';
+import { Producto } from 'src/app/Clases/producto';
+import { ProductoGym } from 'src/app/Clases/productos-gym';
 import { Sucursal } from 'src/app/Clases/sucursal';
 import { ServiciosService } from 'src/app/servicios.service';
 
@@ -10,11 +12,11 @@ import { ServiciosService } from 'src/app/servicios.service';
 })
 export class AsociacionProductosComponent implements OnInit {
 
-  constructor(private service:ServiciosService) { }
+  constructor(private service: ServiciosService) { }
 
   ListaSucursales: Sucursal[] = [];
-  superLista: { Sucursal: Sucursal, equipos: InventarioGym[], equiposNo: InventarioGym[] }[] = [];
-  inventariooModal: InventarioGym;
+  superLista: { Sucursal: Sucursal, productos: ProductoGym[], productosNo: ProductoGym[] }[] = [];
+  productoModal: ProductoGym;
   sucursalModal: Sucursal;
 
   ngOnInit(): void {
@@ -22,40 +24,38 @@ export class AsociacionProductosComponent implements OnInit {
       this.ListaSucursales = lista;
       console.log(this.ListaSucursales);
       lista.forEach(sucursal => {
-        this.service.getInventarioGym(sucursal.id).subscribe(inventario => {
+        this.service.getProductos_gimnasio(sucursal.id).subscribe(productos => {
           this.superLista.push({
             Sucursal: sucursal,
-            equipos: inventario.filter(t => t.column1 == 'asociado'),
-            equiposNo: inventario.filter(t => t.column1 == 'no asociado'),
+            productos: productos.filter(t => t.column1 == 'asociado'),
+            productosNo: productos.filter(t => t.column1 == 'no asociado'),
           })
         })
       })
     });
   }
 
-  agregarInventario(inventario: InventarioGym, sucursal: Sucursal) {
-    this.inventariooModal = inventario;
+  agregarProducto(producto: ProductoGym, sucursal: Sucursal) {
+    this.productoModal = producto;
     this.sucursalModal = sucursal;
   }
 
-  asociarInventario() {
-    this.service.postTratamientoSucursal(this.sucursalModal.id, this.tratamientoModal.id).subscribe(() => {
+  asociarProducto() {
+    this.service.postProductoSucursal(this.sucursalModal.id, this.productoModal.codigoBarras).subscribe(() => {
       this.sucursalModal = new Sucursal();
-      this. = new TratamientosGym();
+      this.productoModal = new ProductoGym();
     });
-
   }
 
-  borrarTratamiento(tratamiento: TratamientosGym, sucursal: Sucursal) {
-    this.tratamientoModal = tratamiento;
+  borrarProducto(producto: ProductoGym, sucursal: Sucursal) {
+    this.productoModal = producto;
     this.sucursalModal = sucursal;
   }
 
-  DesacocieTratamiento() {
-    this.service.deleteTratamientoSucursal(this.sucursalModal.id, this.tratamientoModal.id).subscribe(() => {
+  DesacocieProducto() {
+    this.service.deleteProductoSucursal(this.sucursalModal.id, this.productoModal.codigoBarras).subscribe(() => {
       this.sucursalModal = new Sucursal();
-      this.tratamientoModal = new TratamientosGym();
+      this.productoModal = new ProductoGym();
     });
   }
-
 }

@@ -17,6 +17,7 @@ import { FiltroClase } from './Clases/filtro_clase';
 import { FiltroClaseCliente } from './Clases/filtro_clase_cliente';
 import { TratamientosGym } from './Clases/tratamiento_gym';
 import { InventarioGym } from './Clases/inventario-gym';
+import { ProductoGym } from './Clases/productos-gym';
 
 @Injectable({
   providedIn: 'root'
@@ -324,7 +325,7 @@ export class ServiciosService {
   }
 
   public getProductos_gimnasio(idSucursal:number){
-    return this.htpp.get<Producto[]>(this.Url + 'api/StoreProcedures/productos_gimnasio/' + idSucursal);
+    return this.htpp.get<ProductoGym[]>(this.Url + 'api/StoreProcedures/productos_gimnasio/' + idSucursal);
   }
 
   public getClasesGym(idSucursal:number){
@@ -371,6 +372,14 @@ export class ServiciosService {
 
   public deleteTratamientoSucursal(idSucursal: number, idTratamiento: number) {
     return this.htpp.delete(this.Url + "api/TratamientoSucursal/"+ idTratamiento +'/'+ idSucursal);
+  }
+
+  public postProductoSucursal(idSucursal: number, idProducto: number) {
+    return this.htpp.post(this.Url + "api/ProductoSucursal/"+ idProducto, idSucursal);
+  }
+
+  public deleteProductoSucursal(idSucursal: number, idProducto: number) {
+    return this.htpp.delete(this.Url + "api/ProductoSucursal/"+ idProducto +'/'+ idSucursal);
   }
 
 
