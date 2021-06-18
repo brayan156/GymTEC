@@ -208,7 +208,9 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_empleados' no tie
           <Property Name="canton" Type="varchar" MaxLength="50" />
           <Property Name="provincia" Type="varchar" MaxLength="50" />
           <Property Name="salario" Type="int" />
+          <Property Name="idPuesto" Type="int" />
           <Property Name="puesto" Type="varchar" MaxLength="50" />
+          <Property Name="idPlanilla" Type="int" />
           <Property Name="tipoPlanilla" Type="varchar" MaxLength="50" />
           <Property Name="idSucursal" Type="int" />
           <Property Name="nombreSucursal" Type="varchar" MaxLength="50" />
@@ -228,7 +230,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_inventario' no ti
           <Property Name="idsucursal" Type="int" />
           <Property Name="tipoEquipo" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Clase__idEmplead__7E22B05D">
+        <Association Name="FK__Clase__idEmplead__123EB7A3">
           <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
           <End Role="Clase" Type="Self.Clase" Multiplicity="*" />
           <ReferentialConstraint>
@@ -240,7 +242,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_inventario' no ti
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Clase__idServici__7D2E8C24">
+        <Association Name="FK__Clase__idServici__114A936A">
           <End Role="Servicio" Type="Self.Servicio" Multiplicity="1" />
           <End Role="Clase" Type="Self.Clase" Multiplicity="*" />
           <ReferentialConstraint>
@@ -252,7 +254,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_inventario' no ti
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ClaseClie__cedul__01F34141">
+        <Association Name="FK__ClaseClie__cedul__160F4887">
           <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
           <End Role="ClaseCliente" Type="Self.ClaseCliente" Multiplicity="*" />
           <ReferentialConstraint>
@@ -264,7 +266,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_inventario' no ti
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ClaseClie__idCla__00FF1D08">
+        <Association Name="FK__ClaseClie__idCla__151B244E">
           <End Role="Clase" Type="Self.Clase" Multiplicity="1" />
           <End Role="ClaseCliente" Type="Self.ClaseCliente" Multiplicity="*" />
           <ReferentialConstraint>
@@ -276,7 +278,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_inventario' no ti
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Empleado__idPlan__795DFB40">
+        <Association Name="FK__Empleado__idPlan__0D7A0286">
           <End Role="Planilla" Type="Self.Planilla" Multiplicity="0..1" />
           <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
           <ReferentialConstraint>
@@ -288,7 +290,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_inventario' no ti
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Empleado__idPues__7869D707">
+        <Association Name="FK__Empleado__idPues__0C85DE4D">
           <End Role="Puesto" Type="Self.Puesto" Multiplicity="0..1" />
           <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
           <ReferentialConstraint>
@@ -300,7 +302,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_inventario' no ti
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Empleado__idSucu__7775B2CE">
+        <Association Name="FK__Empleado__idSucu__0B91BA14">
           <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="0..1" />
           <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
           <ReferentialConstraint>
@@ -312,7 +314,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_inventario' no ti
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Equipo__idSucurs__5708E33C">
+        <Association Name="FK__Equipo__idSucurs__6B24EA82">
           <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="0..1" />
           <End Role="Equipo" Type="Self.Equipo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -324,7 +326,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_inventario' no ti
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Equipo__idTipoEq__5614BF03">
+        <Association Name="FK__Equipo__idTipoEq__6A30C649">
           <End Role="TipoEquipo" Type="Self.TipoEquipo" Multiplicity="0..1" />
           <End Role="Equipo" Type="Self.Equipo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -336,7 +338,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_inventario' no ti
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ProductoS__codig__65570293">
+        <Association Name="FK__ProductoS__codig__797309D9">
           <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
           <End Role="ProductoSucursal" Type="Self.ProductoSucursal" Multiplicity="*" />
           <ReferentialConstraint>
@@ -348,7 +350,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_inventario' no ti
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ProductoS__idSuc__6462DE5A">
+        <Association Name="FK__ProductoS__idSuc__787EE5A0">
           <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="1" />
           <End Role="ProductoSucursal" Type="Self.ProductoSucursal" Multiplicity="*" />
           <ReferentialConstraint>
@@ -360,7 +362,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_inventario' no ti
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PuestoPer__idPue__08A03ED0">
+        <Association Name="FK__PuestoPer__idPue__1CBC4616">
           <End Role="Puesto" Type="Self.Puesto" Multiplicity="1" />
           <End Role="PuestoPermiso" Type="Self.PuestoPermiso" Multiplicity="*" />
           <ReferentialConstraint>
@@ -372,7 +374,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_inventario' no ti
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PuestoPer__nombr__07AC1A97">
+        <Association Name="FK__PuestoPer__nombr__1BC821DD">
           <End Role="Permiso" Type="Self.Permiso" Multiplicity="1" />
           <End Role="PuestoPermiso" Type="Self.PuestoPermiso" Multiplicity="*" />
           <ReferentialConstraint>
@@ -384,7 +386,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_inventario' no ti
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Servicio__idSucu__6FD49106">
+        <Association Name="FK__Servicio__idSucu__03F0984C">
           <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="0..1" />
           <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
           <ReferentialConstraint>
@@ -396,7 +398,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_inventario' no ti
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Telefono__id__4E739D3B">
+        <Association Name="FK__Telefono__id__628FA481">
           <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="1" />
           <End Role="Telefono" Type="Self.Telefono" Multiplicity="*" />
           <ReferentialConstraint>
@@ -408,7 +410,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_inventario' no ti
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Tratamien__idSuc__5DB5E0CB">
+        <Association Name="FK__Tratamien__idSuc__71D1E811">
           <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="1" />
           <End Role="TratamientoSucursal" Type="Self.TratamientoSucursal" Multiplicity="*" />
           <ReferentialConstraint>
@@ -420,7 +422,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_inventario' no ti
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Tratamien__idTra__5EAA0504">
+        <Association Name="FK__Tratamien__idTra__72C60C4A">
           <End Role="Tratamiento" Type="Self.Tratamiento" Multiplicity="1" />
           <End Role="TratamientoSucursal" Type="Self.TratamientoSucursal" Multiplicity="*" />
           <ReferentialConstraint>
@@ -519,7 +521,9 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_inventario' no ti
     [mostrar_empleados].[canton] AS [canton], 
     [mostrar_empleados].[provincia] AS [provincia], 
     [mostrar_empleados].[salario] AS [salario], 
+    [mostrar_empleados].[idPuesto] AS [idPuesto], 
     [mostrar_empleados].[puesto] AS [puesto], 
+    [mostrar_empleados].[idPlanilla] AS [idPlanilla], 
     [mostrar_empleados].[tipoPlanilla] AS [tipoPlanilla], 
     [mostrar_empleados].[idSucursal] AS [idSucursal], 
     [mostrar_empleados].[nombreSucursal] AS [nombreSucursal]
@@ -536,71 +540,71 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_inventario' no ti
     [mostrar_inventario].[tipoEquipo] AS [tipoEquipo]
     FROM [dbo].[mostrar_inventario] AS [mostrar_inventario]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__Clase__idEmplead__7E22B05D" Association="Self.FK__Clase__idEmplead__7E22B05D">
+          <AssociationSet Name="FK__Clase__idEmplead__123EB7A3" Association="Self.FK__Clase__idEmplead__123EB7A3">
             <End Role="Empleado" EntitySet="Empleado" />
             <End Role="Clase" EntitySet="Clase" />
           </AssociationSet>
-          <AssociationSet Name="FK__Clase__idServici__7D2E8C24" Association="Self.FK__Clase__idServici__7D2E8C24">
+          <AssociationSet Name="FK__Clase__idServici__114A936A" Association="Self.FK__Clase__idServici__114A936A">
             <End Role="Servicio" EntitySet="Servicio" />
             <End Role="Clase" EntitySet="Clase" />
           </AssociationSet>
-          <AssociationSet Name="FK__ClaseClie__cedul__01F34141" Association="Self.FK__ClaseClie__cedul__01F34141">
+          <AssociationSet Name="FK__ClaseClie__cedul__160F4887" Association="Self.FK__ClaseClie__cedul__160F4887">
             <End Role="Cliente" EntitySet="Cliente" />
             <End Role="ClaseCliente" EntitySet="ClaseCliente" />
           </AssociationSet>
-          <AssociationSet Name="FK__ClaseClie__idCla__00FF1D08" Association="Self.FK__ClaseClie__idCla__00FF1D08">
+          <AssociationSet Name="FK__ClaseClie__idCla__151B244E" Association="Self.FK__ClaseClie__idCla__151B244E">
             <End Role="Clase" EntitySet="Clase" />
             <End Role="ClaseCliente" EntitySet="ClaseCliente" />
           </AssociationSet>
-          <AssociationSet Name="FK__Empleado__idPlan__795DFB40" Association="Self.FK__Empleado__idPlan__795DFB40">
+          <AssociationSet Name="FK__Empleado__idPlan__0D7A0286" Association="Self.FK__Empleado__idPlan__0D7A0286">
             <End Role="Planilla" EntitySet="Planilla" />
             <End Role="Empleado" EntitySet="Empleado" />
           </AssociationSet>
-          <AssociationSet Name="FK__Empleado__idPues__7869D707" Association="Self.FK__Empleado__idPues__7869D707">
+          <AssociationSet Name="FK__Empleado__idPues__0C85DE4D" Association="Self.FK__Empleado__idPues__0C85DE4D">
             <End Role="Puesto" EntitySet="Puesto" />
             <End Role="Empleado" EntitySet="Empleado" />
           </AssociationSet>
-          <AssociationSet Name="FK__Empleado__idSucu__7775B2CE" Association="Self.FK__Empleado__idSucu__7775B2CE">
+          <AssociationSet Name="FK__Empleado__idSucu__0B91BA14" Association="Self.FK__Empleado__idSucu__0B91BA14">
             <End Role="Sucursal" EntitySet="Sucursal" />
             <End Role="Empleado" EntitySet="Empleado" />
           </AssociationSet>
-          <AssociationSet Name="FK__Equipo__idSucurs__5708E33C" Association="Self.FK__Equipo__idSucurs__5708E33C">
+          <AssociationSet Name="FK__Equipo__idSucurs__6B24EA82" Association="Self.FK__Equipo__idSucurs__6B24EA82">
             <End Role="Sucursal" EntitySet="Sucursal" />
             <End Role="Equipo" EntitySet="Equipo" />
           </AssociationSet>
-          <AssociationSet Name="FK__Equipo__idTipoEq__5614BF03" Association="Self.FK__Equipo__idTipoEq__5614BF03">
+          <AssociationSet Name="FK__Equipo__idTipoEq__6A30C649" Association="Self.FK__Equipo__idTipoEq__6A30C649">
             <End Role="TipoEquipo" EntitySet="TipoEquipo" />
             <End Role="Equipo" EntitySet="Equipo" />
           </AssociationSet>
-          <AssociationSet Name="FK__ProductoS__codig__65570293" Association="Self.FK__ProductoS__codig__65570293">
+          <AssociationSet Name="FK__ProductoS__codig__797309D9" Association="Self.FK__ProductoS__codig__797309D9">
             <End Role="Producto" EntitySet="Producto" />
             <End Role="ProductoSucursal" EntitySet="ProductoSucursal" />
           </AssociationSet>
-          <AssociationSet Name="FK__ProductoS__idSuc__6462DE5A" Association="Self.FK__ProductoS__idSuc__6462DE5A">
+          <AssociationSet Name="FK__ProductoS__idSuc__787EE5A0" Association="Self.FK__ProductoS__idSuc__787EE5A0">
             <End Role="Sucursal" EntitySet="Sucursal" />
             <End Role="ProductoSucursal" EntitySet="ProductoSucursal" />
           </AssociationSet>
-          <AssociationSet Name="FK__PuestoPer__idPue__08A03ED0" Association="Self.FK__PuestoPer__idPue__08A03ED0">
+          <AssociationSet Name="FK__PuestoPer__idPue__1CBC4616" Association="Self.FK__PuestoPer__idPue__1CBC4616">
             <End Role="Puesto" EntitySet="Puesto" />
             <End Role="PuestoPermiso" EntitySet="PuestoPermiso" />
           </AssociationSet>
-          <AssociationSet Name="FK__PuestoPer__nombr__07AC1A97" Association="Self.FK__PuestoPer__nombr__07AC1A97">
+          <AssociationSet Name="FK__PuestoPer__nombr__1BC821DD" Association="Self.FK__PuestoPer__nombr__1BC821DD">
             <End Role="Permiso" EntitySet="Permiso" />
             <End Role="PuestoPermiso" EntitySet="PuestoPermiso" />
           </AssociationSet>
-          <AssociationSet Name="FK__Servicio__idSucu__6FD49106" Association="Self.FK__Servicio__idSucu__6FD49106">
+          <AssociationSet Name="FK__Servicio__idSucu__03F0984C" Association="Self.FK__Servicio__idSucu__03F0984C">
             <End Role="Sucursal" EntitySet="Sucursal" />
             <End Role="Servicio" EntitySet="Servicio" />
           </AssociationSet>
-          <AssociationSet Name="FK__Telefono__id__4E739D3B" Association="Self.FK__Telefono__id__4E739D3B">
+          <AssociationSet Name="FK__Telefono__id__628FA481" Association="Self.FK__Telefono__id__628FA481">
             <End Role="Sucursal" EntitySet="Sucursal" />
             <End Role="Telefono" EntitySet="Telefono" />
           </AssociationSet>
-          <AssociationSet Name="FK__Tratamien__idSuc__5DB5E0CB" Association="Self.FK__Tratamien__idSuc__5DB5E0CB">
+          <AssociationSet Name="FK__Tratamien__idSuc__71D1E811" Association="Self.FK__Tratamien__idSuc__71D1E811">
             <End Role="Sucursal" EntitySet="Sucursal" />
             <End Role="TratamientoSucursal" EntitySet="TratamientoSucursal" />
           </AssociationSet>
-          <AssociationSet Name="FK__Tratamien__idTra__5EAA0504" Association="Self.FK__Tratamien__idTra__5EAA0504">
+          <AssociationSet Name="FK__Tratamien__idTra__72C60C4A" Association="Self.FK__Tratamien__idTra__72C60C4A">
             <End Role="Tratamiento" EntitySet="Tratamiento" />
             <End Role="TratamientoSucursal" EntitySet="TratamientoSucursal" />
           </AssociationSet>
@@ -1158,6 +1162,8 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_inventario' no ti
           <Property Name="tipoPlanilla" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="idSucursal" Type="Int32" />
           <Property Name="nombreSucursal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idPuesto" Type="Int32" />
+          <Property Name="idPlanilla" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1502,6 +1508,8 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_inventario' no ti
           <EntitySetMapping Name="mostrar_empleados">
             <EntityTypeMapping TypeName="gymtecdatabaseModel.mostrar_empleados">
               <MappingFragment StoreEntitySet="mostrar_empleados">
+                <ScalarProperty Name="idPlanilla" ColumnName="idPlanilla" />
+                <ScalarProperty Name="idPuesto" ColumnName="idPuesto" />
                 <ScalarProperty Name="nombreSucursal" ColumnName="nombreSucursal" />
                 <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
                 <ScalarProperty Name="tipoPlanilla" ColumnName="tipoPlanilla" />

@@ -1,7 +1,4 @@
-SP_CONFIGURE 'nested_triggers',1
-GO
-RECONFIGURE
-GO
+
 
 
 
@@ -27,7 +24,6 @@ create  or alter trigger bloquear_tratamientos_default
     begin
         if exists(select * from deleted where deleted.id<=4)
         begin rollback transaction end
-
     end;
 GO
 create or alter trigger bloquear_eliminar_tratamiento_asociado
@@ -54,8 +50,7 @@ create or alter trigger bloquear_puesto_default
     as
     begin
         if exists(select * from deleted where deleted.id<=4)
-        begin rollback transaction end
-
+        begin raiserror ('no no no, puesto no',16,1) rollback transaction end
     end;
 GO
 create or alter trigger evitar_nombres_iguales_servicios_sucursal

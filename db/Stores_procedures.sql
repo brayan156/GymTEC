@@ -122,7 +122,7 @@ end
 GO
 
 create or alter procedure tratamientos_gimnasio @id_sucursal int as begin
-    select Tratamiento.id, Tratamiento.nombre,Tratamiento.imagen, iif(Ts.idSucursal is not null,'asociado','no asociado') from Tratamiento
+    select Tratamiento.id, Tratamiento.nombre,Tratamiento.imagen, iif(Ts.idSucursal is not null or Ts.idSucursal!=0,'asociado','no asociado') from Tratamiento
     cross join Sucursal
     left join TratamientoSucursal TS on Sucursal.id = TS.idSucursal and Tratamiento.id=Ts.idTratamiento
     where @id_sucursal=Sucursal.id
@@ -130,7 +130,7 @@ create or alter procedure tratamientos_gimnasio @id_sucursal int as begin
 GO
 
  create or alter procedure productos_gimnasio @id_sucursal int as begin
-    select Producto.codigoBarras, Producto.nombre, Producto.imagen, costo, descripcion, iif(PS.idSucursal is not null,'asociado','no asociado') from Producto
+    select Producto.codigoBarras, Producto.nombre, Producto.imagen, costo, descripcion, iif(PS.idSucursal is not null or PS.idSucursal!=0,'asociado','no asociado') from Producto
     cross join Sucursal
     left join ProductoSucursal PS on Sucursal.id = PS.idSucursal and Producto.codigoBarras=PS.codigoBarras
     where @id_sucursal=Sucursal.id
@@ -138,7 +138,7 @@ GO
 GO
 
  create or alter procedure inventario_gimnasio @id_sucursal int as begin
-    select nSerie, marca, Equipo.descripcion, Equipo.imagen, TE.nombre as tipo, iif(Equipo.idSucursal is not null,'asociado','no asociado') from Equipo
+    select nSerie, marca, Equipo.descripcion, Equipo.imagen, TE.nombre as tipo, iif(Equipo.idSucursal is not null or Equipo.idSucursal!=0,'asociado','no asociado') from Equipo
     join TipoEquipo TE on TE.id = Equipo.idTipoEquipo
     where @id_sucursal=Equipo.idSucursal or Equipo.idSucursal is null
     end

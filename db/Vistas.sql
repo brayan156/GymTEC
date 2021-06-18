@@ -1,12 +1,12 @@
 create or alter view mostrar_empleados as
-    select cedula, email, contrasena, primer_apellido, segundo_apellido, Empleado.nombre, Empleado.distrito, Empleado.canton, Empleado.provincia, salario,p2.nombre as puesto,P.Tipo as tipoPlanilla, S.id as idSucursal, S.nombre as nombreSucursal from Empleado
+    select cedula, email, contrasena, primer_apellido, segundo_apellido, Empleado.nombre, Empleado.distrito, Empleado.canton, Empleado.provincia, salario,p2.id as idPuesto,p2.nombre as puesto,p.id as idPlanilla,P.Tipo as tipoPlanilla, S.id as idSucursal, S.nombre as nombreSucursal from Empleado
     left join Sucursal S on Empleado.idSucursal = S.id
     left join Planilla P on Empleado.idPlanilla = P.id
     left join Puesto P2 on Empleado.idPuesto = P2.id
 go
 
 create or alter view mostrar_inventario as
-    select Equipo.nserie, Equipo.marca, Equipo.descripcion, Equipo.imagen, Equipo.idsucursal, TE.nombre as tipoEquipo from Equipo
+    select Equipo.nserie, Equipo.marca, Equipo.descripcion, Equipo.imagen, Equipo.costo,Equipo.idsucursal, TE.nombre as tipoEquipo from Equipo
     join TipoEquipo TE on TE.id = Equipo.idTipoEquipo
 go
 

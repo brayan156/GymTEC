@@ -28,5 +28,7 @@ namespace Gymtec_API
         public string tipoPlanilla { get; set; }
         public Nullable<int> idSucursal { get; set; }
         public string nombreSucursal { get; set; }
+        public Nullable<int> idPuesto { get; set; }
+        public Nullable<int> idPlanilla { get; set; }
     }
 }
