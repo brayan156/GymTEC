@@ -1,5 +1,5 @@
 export class FiltroClaseCliente {
-  int id: number;
+  id: number;
   horaInicio: number;
   horaFin: number;
   fecha: string;
