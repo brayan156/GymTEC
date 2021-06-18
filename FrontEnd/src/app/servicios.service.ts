@@ -364,6 +364,14 @@ export class ServiciosService {
     return this.htpp.get<void>(this.Url + 'api/StoreProcedures/copiar_calendario/' + fechainicio + '/' + fechaFinal);
   }
 
+  public postTratamientoSucursal(idSucursal: number, idTratamiento: number) {
+    return this.htpp.post(this.Url + "api/TratamientoSucursal/"+ idTratamiento, idSucursal);
+  }
+
+  public deleteTratamientoSucursal(idSucursal: number, idTratamiento: number) {
+    return this.htpp.delete(this.Url + "api/TratamientoSucursal/"+ idTratamiento +'/'+ idSucursal);
+  }
+
 
 
 }

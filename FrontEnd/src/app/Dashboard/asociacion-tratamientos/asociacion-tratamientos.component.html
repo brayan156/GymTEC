@@ -14,17 +14,18 @@
                         {{asociacion.Sucursal.distrito}}</label></div>
 
             </div>
-            <div class="col-4" >
+            <div class="col-4">
 
                 <h2>Tratamientos asociados</h2>
                 <div class="list-group" *ngFor="let tratamiento of asociacion.tratamientos">
                     <a class="list-group-item list-group-item-action active">
                         <button href="#" type="button" class="btn" data-bs-toggle="modal"
-                            data-bs-target="#DesacocieModal">
+                        (click)="borrarTratamiento(tratamiento, asociacion.Sucursal)"    
+                        data-bs-target="#DesacocieModal">
                             {{tratamiento.nombre}}
                         </button>
                     </a>
-                    
+
                 </div>
 
             </div>
@@ -32,32 +33,17 @@
 
                 <h2>Tratamientos disponibles</h2>
                 <div class="list-group">
-                    <a class="list-group-item list-group-item-action active">
-                        <button href="#" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#AsocieModal">
-                            Tratamiento
-                        </button>
-                    </a>
-                    <a class="list-group-item list-group-item-action active">
-                        <button href="#" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#AsocieModal">
-                            Tratamiento
-                        </button>
-                    </a>
-                    <a class="list-group-item list-group-item-action active">
-                        <button href="#" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#AsocieModal">
-                            Tratamiento
-                        </button>
-                    </a>
-                    <a class="list-group-item list-group-item-action active">
-                        <button href="#" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#AsocieModal">
-                            Tratamiento
+                    <a class="list-group-item list-group-item-action active"
+                        *ngFor="let tratamientoNo of asociacion.tratamientoNo">
+                        <button type="button" class="btn" data-bs-toggle="modal"
+                            (click)="agregarTratamiento(tratamientoNo, asociacion.Sucursal)"
+                            data-bs-target="#AsocieModal">
+                            {{tratamientoNo.nombre}}
                         </button>
                     </a>
                 </div>
-
-
             </div>
         </div>
-
     </div>
 
     <!-- Modal -->
@@ -69,11 +55,12 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <label>Se eliminira la fila del distribuidor</label>
+                    <p>Se eliminará el tratamiento: {{this.tratamientoModal.nombre}} de la sucursal
+                        {{this.sucursalModal.nombre}} ¿Deseas continuar?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Aceptar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="DesacocieTratamiento()">Aceptar</button>
                 </div>
             </div>
         </div>
@@ -88,11 +75,12 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <label>Se eliminira la fila del distribuidor</label>
+                    <p>Se agregará el tratamiento: {{this.tratamientoModal.nombre}} a la sucursal
+                        {{this.sucursalModal.nombre}} ¿Deseas continuar?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Aceptar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="asociarTratamiento()">Aceptar</button>
                 </div>
             </div>
         </div>
