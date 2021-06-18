@@ -7,15 +7,14 @@ create or alter procedure copiar_calendario @fechainicio date, @fechanuevo date 
         insert into Clase (horaInicio, horaFin, fecha, capacidad, idServicio, idEmpleado)  select * from #temp;
         print 'realizado';
     end;
-
-exec copiar_calendario '2021-05-31','2021-06-14'
+GO
 
 create or alter procedure copiar_gimnasio @idsucursal int,
     @imagen varchar (max),
     @nombre varchar (50),
     @distrito varchar(50),
     @canton varchar(50),
-    @provincia varchar(50) as begin
+    @provincia varchar(50) as begin 
         select  horaInicio, horaFinal, imagen, capacidad, nombre, distrito, canton, provincia into #nueva_sucursal from Sucursal
             where id=@idsucursal;
 
@@ -67,6 +66,7 @@ create or alter procedure copiar_gimnasio @idsucursal int,
         insert Clase (horaInicio, horaFin, fecha, capacidad, idServicio, idEmpleado) select * from #nuevas_clases
 
     end;
+GO
 
 create or alter procedure generar_planilla @idsucursal int as begin
 
@@ -82,9 +82,12 @@ create or alter procedure generar_planilla @idsucursal int as begin
         from Empleado join Clase C2 on Empleado.cedula = C2.idEmpleado
         where  idSucursal=@idsucursal
         group by cedula,primer_apellido,segundo_apellido,nombre,salario,idPlanilla)
-        select cedula, primer_apellido, segundo_apellido, nombre,idPlanilla, cantidad, cantidad*salario as pago
-        from cte
+        select cedula, primer_apellido, segundo_apellido, nombre,idPlanilla,Planilla.Tipo as Tipo_de_pago, cantidad, cantidad*salario as pago
+        from cte join Planilla on cte.idPlanilla=Planilla.id
     end
+
+    exec generar_planilla 1
+GO
 
 create or alter procedure filtro_clases @id_sucursal int,@nombre_servicio varchar(50), @fechainicio date, @fechafin date as begin
     select Clase.id, Clase.horaInicio, Clase.horaFin, fecha, Clase.capacidad, Clase.capacidad-COUNT(CC.idClase) as Cupos,S3.nombre as nombreServicio, E.nombre as nombreInstructor,E.primer_apellido,E.segundo_apellido,S2.nombre as nombreSucursal from Clase
@@ -95,18 +98,19 @@ create or alter procedure filtro_clases @id_sucursal int,@nombre_servicio varcha
     where (S2.id=@id_sucursal or @id_sucursal=0) and (S3.nombre=@nombre_servicio or @nombre_servicio is null) and (Clase.fecha>=@fechainicio or @fechainicio IS NULL) and (Clase.fecha<=@fechafin or @fechafin is null) and Clase.fecha>=getdate()
     group by Clase.id, Clase.horaInicio, Clase.horaFin, fecha, Clase.capacidad, S3.nombre, E.nombre, E.primer_apellido, E.segundo_apellido,S2.nombre
     end;
-
-exec filtro_clases 1,null,'2021-05-31','2021-06-14'
+GO
 
 create or alter procedure login_admin @email varchar(100),@contrasena varchar(max) as begin
     select * from Empleado
     where email=@email and contrasena=@contrasena
 end
+GO
 
 create or alter procedure servicios_gimnasio @id_sucursal int as begin
         select * from Servicio
     where @id_sucursal=Servicio.idSucursal
 end
+GO
 
 create or alter procedure mostrar_clases_gimnasio @id_sucursal int as begin
     select Clase.id, Clase.horaInicio, Clase.horaFin, fecha, Clase.capacidad,S3.nombre as nombreServicio, E.nombre as nombreInstructor,E.primer_apellido,E.segundo_apellido, S2.nombre as nombreSucursal from Clase
@@ -115,6 +119,7 @@ create or alter procedure mostrar_clases_gimnasio @id_sucursal int as begin
     join Servicio S3 on Clase.idServicio = S3.id
     where S3.id=@id_sucursal
 end
+GO
 
 create or alter procedure tratamientos_gimnasio @id_sucursal int as begin
     select Tratamiento.id, Tratamiento.nombre,Tratamiento.imagen, iif(Ts.idSucursal is not null,'asociado','no asociado') from Tratamiento
@@ -122,6 +127,7 @@ create or alter procedure tratamientos_gimnasio @id_sucursal int as begin
     left join TratamientoSucursal TS on Sucursal.id = TS.idSucursal and Tratamiento.id=Ts.idTratamiento
     where @id_sucursal=Sucursal.id
     end
+GO
 
  create or alter procedure productos_gimnasio @id_sucursal int as begin
     select Producto.codigoBarras, Producto.nombre, Producto.imagen, costo, descripcion, iif(PS.idSucursal is not null,'asociado','no asociado') from Producto
@@ -129,12 +135,14 @@ create or alter procedure tratamientos_gimnasio @id_sucursal int as begin
     left join ProductoSucursal PS on Sucursal.id = PS.idSucursal and Producto.codigoBarras=PS.codigoBarras
     where @id_sucursal=Sucursal.id
     end
+GO
 
  create or alter procedure inventario_gimnasio @id_sucursal int as begin
     select nSerie, marca, Equipo.descripcion, Equipo.imagen, TE.nombre as tipo, iif(Equipo.idSucursal is not null,'asociado','no asociado') from Equipo
     join TipoEquipo TE on TE.id = Equipo.idTipoEquipo
     where @id_sucursal=Equipo.idSucursal or Equipo.idSucursal is null
     end
+GO
 
  create or alter procedure filtro_clase_cliente @id_cliente int as begin
     select Clase.id, Clase.horaInicio, Clase.horaFin, fecha,S3.nombre as nombreServicio, E.nombre as nombreInstructor,E.primer_apellido,E.segundo_apellido,S2.nombre as nombreSucursal from Clase
@@ -144,6 +152,6 @@ create or alter procedure tratamientos_gimnasio @id_sucursal int as begin
     join Servicio S3 on Clase.idServicio = S3.id
     where   Clase.fecha>=getdate() and Clase.horaInicio>DATEPART(HOUR, GETDATE()) and ClaseCliente.idClase=@id_cliente
  end;
-
+GO
 
 
