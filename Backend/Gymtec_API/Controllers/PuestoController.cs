@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
-using System.Data.SqlClient;
-using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -90,27 +88,19 @@ namespace Gymtec_API.Controllers
 
         // DELETE: api/Puesto/5
         [ResponseType(typeof(Puesto))]
-        public async Task<Exception> DeletePuesto(int id)
+        public async Task<IHttpActionResult> DeletePuesto(int id)
         {
-            try
+            Puesto puesto = await db.Puesto.FindAsync(id);
+            if (puesto == null)
             {
-                Puesto puesto = await db.Puesto.FindAsync(id);
-                if (puesto == null)
-                {
-                    return null;
-                }
+                return NotFound();
+            }
 
-                db.Puesto.Remove(puesto);
-                await db.SaveChangesAsync();
+            db.Puesto.Remove(puesto);
+            await db.SaveChangesAsync();
 
-                return null;
-            }
-            catch(Exception e)
-            {
-                Debug.WriteLine("hola");
-                return e;
-            }
-            }
+            return Ok(puesto);
+        }
 
         protected override void Dispose(bool disposing)
         {

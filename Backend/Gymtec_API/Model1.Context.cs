@@ -42,7 +42,6 @@ namespace Gymtec_API
         public virtual DbSet<Tratamiento> Tratamiento { get; set; }
         public virtual DbSet<mostrar_clases> mostrar_clases { get; set; }
         public virtual DbSet<mostrar_inventario> mostrar_inventario { get; set; }
-        public virtual DbSet<tratamientos_asociados> tratamientos_asociados { get; set; }
         public virtual DbSet<mostrar_empleados> mostrar_empleados { get; set; }
     
         public virtual int copiar_calendario(Nullable<System.DateTime> fechainicio, Nullable<System.DateTime> fechanuevo)

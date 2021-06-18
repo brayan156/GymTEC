@@ -20,6 +20,7 @@ namespace Gymtec_API
         public string imagen { get; set; }
         public Nullable<int> idTipoEquipo { get; set; }
         public Nullable<int> idSucursal { get; set; }
+        public Nullable<int> costo { get; set; }
     
         public virtual Sucursal Sucursal { get; set; }
         public virtual TipoEquipo TipoEquipo { get; set; }

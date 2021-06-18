@@ -57,6 +57,7 @@
           <Property Name="marca" Type="varchar" MaxLength="50" />
           <Property Name="descripcion" Type="varchar" MaxLength="300" />
           <Property Name="imagen" Type="varchar(max)" />
+          <Property Name="costo" Type="int" />
           <Property Name="idTipoEquipo" Type="int" />
           <Property Name="idSucursal" Type="int" />
         </EntityType>
@@ -223,34 +224,11 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_inventario' no ti
           <Property Name="marca" Type="varchar" MaxLength="50" />
           <Property Name="descripcion" Type="varchar" MaxLength="300" />
           <Property Name="imagen" Type="varchar(max)" />
+          <Property Name="costo" Type="int" />
           <Property Name="idsucursal" Type="int" />
           <Property Name="tipoEquipo" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
-        <EntityType Name="tratamientos_asociados">
-          <Key>
-            <PropertyRef Name="cedula" />
-            <PropertyRef Name="email" />
-            <PropertyRef Name="contrasena" />
-            <PropertyRef Name="nombre" />
-          </Key>
-          <Property Name="cedula" Type="int" Nullable="false" />
-          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="contrasena" Type="varchar" MaxLength="1" Nullable="false" />
-          <Property Name="primer_apellido" Type="varchar" MaxLength="50" />
-          <Property Name="segundo_apellido" Type="varchar" MaxLength="50" />
-          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="distrito" Type="varchar" MaxLength="50" />
-          <Property Name="canton" Type="varchar" MaxLength="50" />
-          <Property Name="provincia" Type="varchar" MaxLength="50" />
-          <Property Name="salario" Type="int" />
-          <Property Name="puesto" Type="varchar" MaxLength="50" />
-          <Property Name="tipoPlanilla" Type="varchar" MaxLength="50" />
-          <Property Name="idSucursal" Type="int" />
-          <Property Name="nombreSucursal" Type="varchar" MaxLength="50" />
-        </EntityType>
-        <Association Name="FK__Clase__idEmplead__51851410">
+        <Association Name="FK__Clase__idEmplead__7E22B05D">
           <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
           <End Role="Clase" Type="Self.Clase" Multiplicity="*" />
           <ReferentialConstraint>
@@ -262,7 +240,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Clase__idServici__5090EFD7">
+        <Association Name="FK__Clase__idServici__7D2E8C24">
           <End Role="Servicio" Type="Self.Servicio" Multiplicity="1" />
           <End Role="Clase" Type="Self.Clase" Multiplicity="*" />
           <ReferentialConstraint>
@@ -274,7 +252,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ClaseClie__cedul__5555A4F4">
+        <Association Name="FK__ClaseClie__cedul__01F34141">
           <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
           <End Role="ClaseCliente" Type="Self.ClaseCliente" Multiplicity="*" />
           <ReferentialConstraint>
@@ -286,7 +264,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ClaseClie__idCla__546180BB">
+        <Association Name="FK__ClaseClie__idCla__00FF1D08">
           <End Role="Clase" Type="Self.Clase" Multiplicity="1" />
           <End Role="ClaseCliente" Type="Self.ClaseCliente" Multiplicity="*" />
           <ReferentialConstraint>
@@ -298,7 +276,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Empleado__idPlan__4CC05EF3">
+        <Association Name="FK__Empleado__idPlan__795DFB40">
           <End Role="Planilla" Type="Self.Planilla" Multiplicity="0..1" />
           <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
           <ReferentialConstraint>
@@ -310,7 +288,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Empleado__idPues__4BCC3ABA">
+        <Association Name="FK__Empleado__idPues__7869D707">
           <End Role="Puesto" Type="Self.Puesto" Multiplicity="0..1" />
           <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
           <ReferentialConstraint>
@@ -322,7 +300,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Empleado__idSucu__4AD81681">
+        <Association Name="FK__Empleado__idSucu__7775B2CE">
           <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="0..1" />
           <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
           <ReferentialConstraint>
@@ -334,7 +312,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Equipo__idSucurs__2A6B46EF">
+        <Association Name="FK__Equipo__idSucurs__5708E33C">
           <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="0..1" />
           <End Role="Equipo" Type="Self.Equipo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -346,7 +324,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Equipo__idTipoEq__297722B6">
+        <Association Name="FK__Equipo__idTipoEq__5614BF03">
           <End Role="TipoEquipo" Type="Self.TipoEquipo" Multiplicity="0..1" />
           <End Role="Equipo" Type="Self.Equipo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -358,7 +336,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ProductoS__codig__38B96646">
+        <Association Name="FK__ProductoS__codig__65570293">
           <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
           <End Role="ProductoSucursal" Type="Self.ProductoSucursal" Multiplicity="*" />
           <ReferentialConstraint>
@@ -370,7 +348,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ProductoS__idSuc__37C5420D">
+        <Association Name="FK__ProductoS__idSuc__6462DE5A">
           <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="1" />
           <End Role="ProductoSucursal" Type="Self.ProductoSucursal" Multiplicity="*" />
           <ReferentialConstraint>
@@ -382,7 +360,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PuestoPer__idPue__5C02A283">
+        <Association Name="FK__PuestoPer__idPue__08A03ED0">
           <End Role="Puesto" Type="Self.Puesto" Multiplicity="1" />
           <End Role="PuestoPermiso" Type="Self.PuestoPermiso" Multiplicity="*" />
           <ReferentialConstraint>
@@ -394,7 +372,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PuestoPer__nombr__5B0E7E4A">
+        <Association Name="FK__PuestoPer__nombr__07AC1A97">
           <End Role="Permiso" Type="Self.Permiso" Multiplicity="1" />
           <End Role="PuestoPermiso" Type="Self.PuestoPermiso" Multiplicity="*" />
           <ReferentialConstraint>
@@ -406,7 +384,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Servicio__idSucu__4336F4B9">
+        <Association Name="FK__Servicio__idSucu__6FD49106">
           <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="0..1" />
           <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
           <ReferentialConstraint>
@@ -418,7 +396,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Telefono__id__21D600EE">
+        <Association Name="FK__Telefono__id__4E739D3B">
           <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="1" />
           <End Role="Telefono" Type="Self.Telefono" Multiplicity="*" />
           <ReferentialConstraint>
@@ -430,7 +408,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Tratamien__idSuc__3118447E">
+        <Association Name="FK__Tratamien__idSuc__5DB5E0CB">
           <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="1" />
           <End Role="TratamientoSucursal" Type="Self.TratamientoSucursal" Multiplicity="*" />
           <ReferentialConstraint>
@@ -442,7 +420,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Tratamien__idTra__320C68B7">
+        <Association Name="FK__Tratamien__idTra__5EAA0504">
           <End Role="Tratamiento" Type="Self.Tratamiento" Multiplicity="1" />
           <End Role="TratamientoSucursal" Type="Self.TratamientoSucursal" Multiplicity="*" />
           <ReferentialConstraint>
@@ -553,93 +531,76 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
     [mostrar_inventario].[marca] AS [marca], 
     [mostrar_inventario].[descripcion] AS [descripcion], 
     [mostrar_inventario].[imagen] AS [imagen], 
+    [mostrar_inventario].[costo] AS [costo], 
     [mostrar_inventario].[idsucursal] AS [idsucursal], 
     [mostrar_inventario].[tipoEquipo] AS [tipoEquipo]
     FROM [dbo].[mostrar_inventario] AS [mostrar_inventario]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="tratamientos_asociados" EntityType="Self.tratamientos_asociados" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [tratamientos_asociados].[cedula] AS [cedula], 
-    [tratamientos_asociados].[email] AS [email], 
-    [tratamientos_asociados].[contrasena] AS [contrasena], 
-    [tratamientos_asociados].[primer_apellido] AS [primer_apellido], 
-    [tratamientos_asociados].[segundo_apellido] AS [segundo_apellido], 
-    [tratamientos_asociados].[nombre] AS [nombre], 
-    [tratamientos_asociados].[distrito] AS [distrito], 
-    [tratamientos_asociados].[canton] AS [canton], 
-    [tratamientos_asociados].[provincia] AS [provincia], 
-    [tratamientos_asociados].[salario] AS [salario], 
-    [tratamientos_asociados].[puesto] AS [puesto], 
-    [tratamientos_asociados].[tipoPlanilla] AS [tipoPlanilla], 
-    [tratamientos_asociados].[idSucursal] AS [idSucursal], 
-    [tratamientos_asociados].[nombreSucursal] AS [nombreSucursal]
-    FROM [dbo].[tratamientos_asociados] AS [tratamientos_asociados]</DefiningQuery>
-          </EntitySet>
-          <AssociationSet Name="FK__Clase__idEmplead__51851410" Association="Self.FK__Clase__idEmplead__51851410">
+          <AssociationSet Name="FK__Clase__idEmplead__7E22B05D" Association="Self.FK__Clase__idEmplead__7E22B05D">
             <End Role="Empleado" EntitySet="Empleado" />
             <End Role="Clase" EntitySet="Clase" />
           </AssociationSet>
-          <AssociationSet Name="FK__Clase__idServici__5090EFD7" Association="Self.FK__Clase__idServici__5090EFD7">
+          <AssociationSet Name="FK__Clase__idServici__7D2E8C24" Association="Self.FK__Clase__idServici__7D2E8C24">
             <End Role="Servicio" EntitySet="Servicio" />
             <End Role="Clase" EntitySet="Clase" />
           </AssociationSet>
-          <AssociationSet Name="FK__ClaseClie__cedul__5555A4F4" Association="Self.FK__ClaseClie__cedul__5555A4F4">
+          <AssociationSet Name="FK__ClaseClie__cedul__01F34141" Association="Self.FK__ClaseClie__cedul__01F34141">
             <End Role="Cliente" EntitySet="Cliente" />
             <End Role="ClaseCliente" EntitySet="ClaseCliente" />
           </AssociationSet>
-          <AssociationSet Name="FK__ClaseClie__idCla__546180BB" Association="Self.FK__ClaseClie__idCla__546180BB">
+          <AssociationSet Name="FK__ClaseClie__idCla__00FF1D08" Association="Self.FK__ClaseClie__idCla__00FF1D08">
             <End Role="Clase" EntitySet="Clase" />
             <End Role="ClaseCliente" EntitySet="ClaseCliente" />
           </AssociationSet>
-          <AssociationSet Name="FK__Empleado__idPlan__4CC05EF3" Association="Self.FK__Empleado__idPlan__4CC05EF3">
+          <AssociationSet Name="FK__Empleado__idPlan__795DFB40" Association="Self.FK__Empleado__idPlan__795DFB40">
             <End Role="Planilla" EntitySet="Planilla" />
             <End Role="Empleado" EntitySet="Empleado" />
           </AssociationSet>
-          <AssociationSet Name="FK__Empleado__idPues__4BCC3ABA" Association="Self.FK__Empleado__idPues__4BCC3ABA">
+          <AssociationSet Name="FK__Empleado__idPues__7869D707" Association="Self.FK__Empleado__idPues__7869D707">
             <End Role="Puesto" EntitySet="Puesto" />
             <End Role="Empleado" EntitySet="Empleado" />
           </AssociationSet>
-          <AssociationSet Name="FK__Empleado__idSucu__4AD81681" Association="Self.FK__Empleado__idSucu__4AD81681">
+          <AssociationSet Name="FK__Empleado__idSucu__7775B2CE" Association="Self.FK__Empleado__idSucu__7775B2CE">
             <End Role="Sucursal" EntitySet="Sucursal" />
             <End Role="Empleado" EntitySet="Empleado" />
           </AssociationSet>
-          <AssociationSet Name="FK__Equipo__idSucurs__2A6B46EF" Association="Self.FK__Equipo__idSucurs__2A6B46EF">
+          <AssociationSet Name="FK__Equipo__idSucurs__5708E33C" Association="Self.FK__Equipo__idSucurs__5708E33C">
             <End Role="Sucursal" EntitySet="Sucursal" />
             <End Role="Equipo" EntitySet="Equipo" />
           </AssociationSet>
-          <AssociationSet Name="FK__Equipo__idTipoEq__297722B6" Association="Self.FK__Equipo__idTipoEq__297722B6">
+          <AssociationSet Name="FK__Equipo__idTipoEq__5614BF03" Association="Self.FK__Equipo__idTipoEq__5614BF03">
             <End Role="TipoEquipo" EntitySet="TipoEquipo" />
             <End Role="Equipo" EntitySet="Equipo" />
           </AssociationSet>
-          <AssociationSet Name="FK__ProductoS__codig__38B96646" Association="Self.FK__ProductoS__codig__38B96646">
+          <AssociationSet Name="FK__ProductoS__codig__65570293" Association="Self.FK__ProductoS__codig__65570293">
             <End Role="Producto" EntitySet="Producto" />
             <End Role="ProductoSucursal" EntitySet="ProductoSucursal" />
           </AssociationSet>
-          <AssociationSet Name="FK__ProductoS__idSuc__37C5420D" Association="Self.FK__ProductoS__idSuc__37C5420D">
+          <AssociationSet Name="FK__ProductoS__idSuc__6462DE5A" Association="Self.FK__ProductoS__idSuc__6462DE5A">
             <End Role="Sucursal" EntitySet="Sucursal" />
             <End Role="ProductoSucursal" EntitySet="ProductoSucursal" />
           </AssociationSet>
-          <AssociationSet Name="FK__PuestoPer__idPue__5C02A283" Association="Self.FK__PuestoPer__idPue__5C02A283">
+          <AssociationSet Name="FK__PuestoPer__idPue__08A03ED0" Association="Self.FK__PuestoPer__idPue__08A03ED0">
             <End Role="Puesto" EntitySet="Puesto" />
             <End Role="PuestoPermiso" EntitySet="PuestoPermiso" />
           </AssociationSet>
-          <AssociationSet Name="FK__PuestoPer__nombr__5B0E7E4A" Association="Self.FK__PuestoPer__nombr__5B0E7E4A">
+          <AssociationSet Name="FK__PuestoPer__nombr__07AC1A97" Association="Self.FK__PuestoPer__nombr__07AC1A97">
             <End Role="Permiso" EntitySet="Permiso" />
             <End Role="PuestoPermiso" EntitySet="PuestoPermiso" />
           </AssociationSet>
-          <AssociationSet Name="FK__Servicio__idSucu__4336F4B9" Association="Self.FK__Servicio__idSucu__4336F4B9">
+          <AssociationSet Name="FK__Servicio__idSucu__6FD49106" Association="Self.FK__Servicio__idSucu__6FD49106">
             <End Role="Sucursal" EntitySet="Sucursal" />
             <End Role="Servicio" EntitySet="Servicio" />
           </AssociationSet>
-          <AssociationSet Name="FK__Telefono__id__21D600EE" Association="Self.FK__Telefono__id__21D600EE">
+          <AssociationSet Name="FK__Telefono__id__4E739D3B" Association="Self.FK__Telefono__id__4E739D3B">
             <End Role="Sucursal" EntitySet="Sucursal" />
             <End Role="Telefono" EntitySet="Telefono" />
           </AssociationSet>
-          <AssociationSet Name="FK__Tratamien__idSuc__3118447E" Association="Self.FK__Tratamien__idSuc__3118447E">
+          <AssociationSet Name="FK__Tratamien__idSuc__5DB5E0CB" Association="Self.FK__Tratamien__idSuc__5DB5E0CB">
             <End Role="Sucursal" EntitySet="Sucursal" />
             <End Role="TratamientoSucursal" EntitySet="TratamientoSucursal" />
           </AssociationSet>
-          <AssociationSet Name="FK__Tratamien__idTra__320C68B7" Association="Self.FK__Tratamien__idTra__320C68B7">
+          <AssociationSet Name="FK__Tratamien__idTra__5EAA0504" Association="Self.FK__Tratamien__idTra__5EAA0504">
             <End Role="Tratamiento" EntitySet="Tratamiento" />
             <End Role="TratamientoSucursal" EntitySet="TratamientoSucursal" />
           </AssociationSet>
@@ -704,6 +665,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
           <Property Name="idSucursal" Type="Int32" />
           <NavigationProperty Name="Sucursal" Relationship="Self.FK__Equipo__idSucurs__2A6B46EF" FromRole="Equipo" ToRole="Sucursal" />
           <NavigationProperty Name="TipoEquipo" Relationship="Self.FK__Equipo__idTipoEq__297722B6" FromRole="Equipo" ToRole="TipoEquipo" />
+          <Property Name="costo" Type="Int32" />
         </EntityType>
         <EntityType Name="Permiso">
           <Key>
@@ -834,28 +796,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
           <Property Name="imagen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="idsucursal" Type="Int32" />
           <Property Name="tipoEquipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-        </EntityType>
-        <EntityType Name="tratamientos_asociados">
-          <Key>
-            <PropertyRef Name="cedula" />
-            <PropertyRef Name="email" />
-            <PropertyRef Name="contrasena" />
-            <PropertyRef Name="nombre" />
-          </Key>
-          <Property Name="cedula" Type="Int32" Nullable="false" />
-          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="contrasena" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="primer_apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="segundo_apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="distrito" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="canton" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="provincia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="salario" Type="Int32" />
-          <Property Name="puesto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="tipoPlanilla" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="idSucursal" Type="Int32" />
-          <Property Name="nombreSucursal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="costo" Type="Int32" />
         </EntityType>
         <Association Name="FK__Clase__idEmplead__51851410">
           <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
@@ -997,7 +938,6 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
           <EntitySet Name="Tratamiento" EntityType="Self.Tratamiento" />
           <EntitySet Name="mostrar_clases" EntityType="Self.mostrar_clases" />
           <EntitySet Name="mostrar_inventario" EntityType="Self.mostrar_inventario" />
-          <EntitySet Name="tratamientos_asociados" EntityType="Self.tratamientos_asociados" />
           <AssociationSet Name="FK__Clase__idEmplead__51851410" Association="Self.FK__Clase__idEmplead__51851410">
             <End Role="Empleado" EntitySet="Empleado" />
             <End Role="Clase" EntitySet="Clase" />
@@ -1267,6 +1207,7 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
           <EntitySetMapping Name="Equipo">
             <EntityTypeMapping TypeName="gymtecdatabaseModel.Equipo">
               <MappingFragment StoreEntitySet="Equipo">
+                <ScalarProperty Name="costo" ColumnName="costo" />
                 <ScalarProperty Name="nSerie" ColumnName="nSerie" />
                 <ScalarProperty Name="marca" ColumnName="marca" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
@@ -1388,32 +1329,13 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.tratamientos_asociados' n
           <EntitySetMapping Name="mostrar_inventario">
             <EntityTypeMapping TypeName="gymtecdatabaseModel.mostrar_inventario">
               <MappingFragment StoreEntitySet="mostrar_inventario">
+                <ScalarProperty Name="costo" ColumnName="costo" />
                 <ScalarProperty Name="nserie" ColumnName="nserie" />
                 <ScalarProperty Name="marca" ColumnName="marca" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
                 <ScalarProperty Name="imagen" ColumnName="imagen" />
                 <ScalarProperty Name="idsucursal" ColumnName="idsucursal" />
                 <ScalarProperty Name="tipoEquipo" ColumnName="tipoEquipo" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tratamientos_asociados">
-            <EntityTypeMapping TypeName="gymtecdatabaseModel.tratamientos_asociados">
-              <MappingFragment StoreEntitySet="tratamientos_asociados">
-                <ScalarProperty Name="cedula" ColumnName="cedula" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
-                <ScalarProperty Name="primer_apellido" ColumnName="primer_apellido" />
-                <ScalarProperty Name="segundo_apellido" ColumnName="segundo_apellido" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="distrito" ColumnName="distrito" />
-                <ScalarProperty Name="canton" ColumnName="canton" />
-                <ScalarProperty Name="provincia" ColumnName="provincia" />
-                <ScalarProperty Name="salario" ColumnName="salario" />
-                <ScalarProperty Name="puesto" ColumnName="puesto" />
-                <ScalarProperty Name="tipoPlanilla" ColumnName="tipoPlanilla" />
-                <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
-                <ScalarProperty Name="nombreSucursal" ColumnName="nombreSucursal" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
