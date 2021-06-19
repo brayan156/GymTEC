@@ -430,6 +430,8 @@
     <Content Include="gymtecdatabaseDataSet.xss">
       <DependentUpon>gymtecdatabaseDataSet.xsd</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\apigymtec - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\apigymtec - Web Deploy1.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

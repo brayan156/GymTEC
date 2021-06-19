@@ -24,3 +24,15 @@ Backend/Gymtec_MongoAPI/MongoGymtecAPI/bin/Debug/net5.0/
 FrontEnd/.vs/FrontEnd/v16/
 
 FrontEnd/.vs/
+
+Backend/Gymtec_API/obj/Release/
+
+Backend/Gymtec_MongoAPI/MongoGymtecAPI/bin/Release/net5.0/
+
+Backend/Gymtec_MongoAPI/MongoGymtecAPI/obj/Release/net5.0/PubTmp/Out/
+
+Backend/Gymtec_MongoAPI/MongoGymtecAPI/obj/Release/net5.0/
+
+Backend/Gymtec_API/Properties/PublishProfiles/
+
+Backend/Gymtec_MongoAPI/MongoGymtecAPI/Properties/PublishProfiles/

@@ -653,7 +653,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>gymtecdatabaseDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\braya\Desktop\bases\Proyecto_2_github\GymTEC\Backend\Gymtec_API\gymtecdatabaseDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\braya\Desktop\Gymtec_API\gymtecdatabaseDataSet.xsd</rd:SchemaPath>
         <rd:TableName>generar_planilla</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

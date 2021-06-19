@@ -21,5 +21,6 @@ namespace Gymtec_API
         public Nullable<int> idsucursal { get; set; }
         public string tipoEquipo { get; set; }
         public Nullable<int> costo { get; set; }
+        public string nombreSucursal { get; set; }
     }
 }
