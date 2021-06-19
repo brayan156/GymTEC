@@ -18,6 +18,6 @@ namespace Gymtec_API
         public string imagen { get; set; }
         public int costo { get; set; }
         public string descripcion { get; set; }
-        public string Column1 { get; set; }
+        public string disponibilidad { get; set; }
     }
 }
