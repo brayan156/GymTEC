@@ -29,8 +29,8 @@ export class AsociacionInventarioComponent implements OnInit {
           console.log(inventario);
           this.superLista.push({
             sucursal: sucursal,
-            equipos: inventario.filter(t => t.column1 == 'asociado'),
-            equiposNo: inventario.filter(t => t.column1 == 'no asociado'),
+            equipos: inventario.filter(t => t.disponibilidad == 'asociado'),
+            equiposNo: inventario.filter(t => t.disponibilidad == 'no asociado'),
           })
         })
       })

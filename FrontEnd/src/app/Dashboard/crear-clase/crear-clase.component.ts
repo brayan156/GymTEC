@@ -12,9 +12,9 @@ import { ServiciosService } from 'src/app/servicios.service';
 })
 export class CrearClaseComponent implements OnInit {
 
-  tiposClase: Servicio[];
-  clase: Clase;
-  instructores: Empleado[];
+  tiposClase: Servicio[] = [];
+  clase: Clase = new Clase();
+  instructores: Empleado[] = [];
 
   constructor(private service:ServiciosService) { }
 

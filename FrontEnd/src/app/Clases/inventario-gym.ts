@@ -4,5 +4,5 @@ export class InventarioGym {
   descripcion: string;
   imagen: string;
   tipo: string;
-  column1: string;
+  disponibilidad: string;
 }

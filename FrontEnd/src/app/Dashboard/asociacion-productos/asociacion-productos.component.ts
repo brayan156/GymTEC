@@ -16,8 +16,8 @@ export class AsociacionProductosComponent implements OnInit {
 
   ListaSucursales: Sucursal[] = [];
   superLista: { Sucursal: Sucursal, productos: ProductoGym[], productosNo: ProductoGym[] }[] = [];
-  productoModal: ProductoGym;
-  sucursalModal: Sucursal;
+  productoModal: ProductoGym = new ProductoGym();
+  sucursalModal: Sucursal = new Sucursal();
 
   ngOnInit(): void {
     this.service.obtenerListasSucursal().subscribe(lista => {
@@ -27,8 +27,8 @@ export class AsociacionProductosComponent implements OnInit {
         this.service.getProductos_gimnasio(sucursal.id).subscribe(productos => {
           this.superLista.push({
             Sucursal: sucursal,
-            productos: productos.filter(t => t.column1 == 'asociado'),
-            productosNo: productos.filter(t => t.column1 == 'no asociado'),
+            productos: productos.filter(t => t.disponibilidad == 'asociado'),
+            productosNo: productos.filter(t => t.disponibilidad == 'no asociado'),
           })
         })
       })

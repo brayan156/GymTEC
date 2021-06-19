@@ -15,8 +15,8 @@ export class AsociacionTratamientosComponent implements OnInit {
   ListaSucursales: Sucursal[] = [];
   misTratamientos: TratamientosGym[] = [];
   superLista: { Sucursal: Sucursal, tratamientos: TratamientosGym[], tratamientoNo: TratamientosGym[] }[] = [];
-  tratamientoModal: TratamientosGym;
-  sucursalModal: Sucursal;
+  tratamientoModal: TratamientosGym = new TratamientosGym();
+  sucursalModal: Sucursal = new Sucursal();
 
   ngOnInit(): void {
     this.service.obtenerListasSucursal().subscribe(lista => {
@@ -26,8 +26,8 @@ export class AsociacionTratamientosComponent implements OnInit {
         this.service.getTratamientosGym(sucursal.id).subscribe(tratamientos => {
           this.superLista.push({
             Sucursal: sucursal,
-            tratamientos: tratamientos.filter(t => t.column1 == 'asociado'),
-            tratamientoNo: tratamientos.filter(t => t.column1 == 'no asociado'),
+            tratamientos: tratamientos.filter(t => t.disponibilidad == 'asociado'),
+            tratamientoNo: tratamientos.filter(t => t.disponibilidad == 'no asociado'),
           })
         })
       })

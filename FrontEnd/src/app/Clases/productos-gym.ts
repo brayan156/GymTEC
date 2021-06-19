@@ -4,5 +4,5 @@ export class ProductoGym {
   imagen: string;
   costo: number;
   descripcion: string;
-  column1: string;
+  disponibilidad: string;
 }

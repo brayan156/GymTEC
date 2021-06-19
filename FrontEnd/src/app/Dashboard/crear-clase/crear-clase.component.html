@@ -11,7 +11,7 @@
             <form id="form">
                 <div class="form-group">
                     
-                    <select class="form-select input-group" id="tipo" [(ngModel)]="clase.idServicio" name="tipo" required>
+                    <select class="form-select input-group" id="tipo" [(ngModel)]="clase.idServicio" [ngModelOptions]="{standalone: true}" name="tipo" required>
                         <!-- <optgroup label=""> -->
                         <option *ngFor="let tipo of tiposClase" value="{{tipo.id}}"> {{tipo.nombre}}</option>
                         <!-- </optgroup> -->
