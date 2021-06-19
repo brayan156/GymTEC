@@ -16,6 +16,6 @@ namespace Gymtec_API
         public int id { get; set; }
         public string nombre { get; set; }
         public string imagen { get; set; }
-        public string Column1 { get; set; }
+        public string disponibilidad { get; set; }
     }
 }

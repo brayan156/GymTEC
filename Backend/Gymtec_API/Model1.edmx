@@ -1084,7 +1084,7 @@ warning 6002: The table/view 'gymtecdatabase.dbo.mostrar_inventario' does not ha
           <Property Type="String" Name="descripcion" Nullable="true" MaxLength="300" />
           <Property Type="String" Name="imagen" Nullable="true" />
           <Property Type="String" Name="tipo" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Column1" Nullable="false" MaxLength="11" />
+          <Property Type="String" Name="disponibilidad" Nullable="false" MaxLength="11" />
         </ComplexType>
         <ComplexType Name="login_admin_Result">
           <Property Type="Int32" Name="cedula" Nullable="false" />
@@ -1131,7 +1131,7 @@ warning 6002: The table/view 'gymtecdatabase.dbo.mostrar_inventario' does not ha
           <Property Type="String" Name="imagen" Nullable="true" />
           <Property Type="Int32" Name="costo" Nullable="false" />
           <Property Type="String" Name="descripcion" Nullable="true" MaxLength="300" />
-          <Property Type="String" Name="Column1" Nullable="false" MaxLength="11" />
+          <Property Type="String" Name="disponibilidad" Nullable="false" MaxLength="11" />
         </ComplexType>
         <ComplexType Name="servicios_gimnasio_Result">
           <Property Type="Int32" Name="id" Nullable="false" />
@@ -1144,7 +1144,7 @@ warning 6002: The table/view 'gymtecdatabase.dbo.mostrar_inventario' does not ha
           <Property Type="Int32" Name="id" Nullable="false" />
           <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="imagen" Nullable="true" />
-          <Property Type="String" Name="Column1" Nullable="false" MaxLength="11" />
+          <Property Type="String" Name="disponibilidad" Nullable="false" MaxLength="11" />
         </ComplexType>
         <EntityType Name="mostrar_empleados">
           <Key>
@@ -1439,7 +1439,7 @@ warning 6002: The table/view 'gymtecdatabase.dbo.mostrar_inventario' does not ha
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
                 <ScalarProperty Name="imagen" ColumnName="imagen" />
                 <ScalarProperty Name="tipo" ColumnName="tipo" />
-                <ScalarProperty Name="Column1" ColumnName="Column1" />
+                <ScalarProperty Name="disponibilidad" ColumnName="disponibilidad" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -1486,7 +1486,7 @@ warning 6002: The table/view 'gymtecdatabase.dbo.mostrar_inventario' does not ha
                 <ScalarProperty Name="imagen" ColumnName="imagen" />
                 <ScalarProperty Name="costo" ColumnName="costo" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="Column1" ColumnName="Column1" />
+                <ScalarProperty Name="disponibilidad" ColumnName="disponibilidad" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -1507,7 +1507,7 @@ warning 6002: The table/view 'gymtecdatabase.dbo.mostrar_inventario' does not ha
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="imagen" ColumnName="imagen" />
-                <ScalarProperty Name="Column1" ColumnName="Column1" />
+                <ScalarProperty Name="disponibilidad" ColumnName="disponibilidad" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
