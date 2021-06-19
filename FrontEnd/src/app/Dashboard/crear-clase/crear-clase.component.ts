@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Clase } from 'src/app/Clases/clase';
+import { Empleado } from 'src/app/Clases/empleado';
+import { Puesto } from 'src/app/Clases/puesto';
+import { Servicio } from 'src/app/Clases/servicio';
+import { ServiciosService } from 'src/app/servicios.service';
 
 @Component({
   selector: 'app-crear-clase',
@@ -7,40 +12,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrearClaseComponent implements OnInit {
 
-  tiposClase = [
-    {
-      tipo: "Indoor Cycling"
-    },
-    {
-      tipo: "Pilates"
-    },
-    {
-      tipo: "Yoga"
-    },
-    {
-      tipo: "Zumba"
-    },
-    {
-      tipo: "Natación"
-    }
-  ];
+  tiposClase: Servicio[];
+  clase: Clase;
+  instructores: Empleado[];
 
-  clase = {
-    tipo: "",
-    instructor: "",
-    grupal: false,
-    capacidad: 0,
-    fecha: "",
-    inicio: "",
-    final: ""
-  };
-
-  constructor() { }
+  constructor(private service:ServiciosService) { }
 
   ngOnInit(): void {
+    this.service.obtenerListasServicio().subscribe(servicios => {
+      this.tiposClase = servicios;
+      this.service.obtenerListaEmpleados().subscribe(empleados => {
+        this.instructores = empleados.filter(p => p.idPuesto == 1);
+      })
+    })
   }
 
   crearClase() {
     console.log(this.clase);
+    this.service.agregarClase(this.clase);
   }
 }

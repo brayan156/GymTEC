@@ -18,6 +18,8 @@ import { FiltroClaseCliente } from './Clases/filtro_clase_cliente';
 import {MostrarEmpleado} from './Clases/mostrar-empleado';
 import {MostrarInventario} from './Clases/mostrar-inventario';
 import { TratamientosGym } from './Clases/tratamiento_gym';
+import { InventarioGym } from './Clases/inventario-gym';
+import { ProductoGym } from './Clases/productos-gym';
 
 @Injectable({
   providedIn: 'root'
@@ -48,6 +50,10 @@ export class ServiciosService {
   // tslint:disable-next-line:typedef
   public editarLaClase(id: number , clase: Clase){
     return this.htpp.put(this.Url + 'Clase/' + id , clase);
+  }
+
+  public agregarClase(clase: Clase){
+    return this.htpp.post(this.Url + 'Clase/', clase);
   }
 
   // DUDAS SOBRE ESTOS METODOS
@@ -325,7 +331,7 @@ export class ServiciosService {
   }
 
   public getProductos_gimnasio(idSucursal:number){
-    return this.htpp.get<Producto[]>(this.Url + 'api/StoreProcedures/productos_gimnasio/' + idSucursal);
+    return this.htpp.get<ProductoGym[]>(this.Url + 'api/StoreProcedures/productos_gimnasio/' + idSucursal);
   }
 
   public getClasesGym(idSucursal:number){
@@ -337,7 +343,7 @@ export class ServiciosService {
   }
 
   public getInventarioGym(idSucursal:number){
-    return this.htpp.get<Equipo[]>(this.Url + 'api/StoreProcedures/inventario_gimnasio/' + idSucursal);
+    return this.htpp.get<InventarioGym[]>(this.Url + 'api/StoreProcedures/inventario_gimnasio/' + idSucursal);
   }
 
   public generarPlanilla(idSucursal:number){
@@ -364,43 +370,20 @@ export class ServiciosService {
     return this.htpp.get<void>(this.Url + 'api/StoreProcedures/copiar_calendario/' + fechainicio + '/' + fechaFinal);
   }
 
-  // tslint:disable-next-line:typedef
-  public copiarGimnasio(sucursal: Sucursal){
-    return this.htpp.post(this.Url + '/StoreProcedures/copiar_gimnasio/', sucursal);
+  public postTratamientoSucursal(idSucursal: number, idTratamiento: number) {
+    return this.htpp.post(this.Url + "api/TratamientoSucursal/"+ idTratamiento, idSucursal);
   }
 
-  // Mostrar empleados
-
-  // tslint:disable-next-line:typedef
-  public obtenerMostrarEmpleado(id: number){
-    return this.htpp.get<MostrarEmpleado>(this.Url + 'mostrar_empleados/' + id);
+  public deleteTratamientoSucursal(idSucursal: number, idTratamiento: number) {
+    return this.htpp.delete(this.Url + "api/TratamientoSucursal/"+ idTratamiento +'/'+ idSucursal);
   }
 
-  // tslint:disable-next-line:typedef
-  public obtenerListasMostrarEmpleado(){
-    return this.htpp.get<MostrarEmpleado[]>(this.Url + 'mostrar_empleados');
+  public postProductoSucursal(idSucursal: number, idProducto: number) {
+    return this.htpp.post(this.Url + "api/ProductoSucursal/"+ idProducto, idSucursal);
   }
 
-  // tslint:disable-next-line:typedef
-  public agregarMostrarEmpleado(mostrarEmpleado: MostrarEmpleado){
-    return this.htpp.post(this.Url + 'mostrar_empleados', mostrarEmpleado);
-  }
-
-  // tslint:disable-next-line:typedef
-  public editarMostrarEmpleado(id: number, mostrarEmpleado: MostrarEmpleado){
-    return this.htpp.put(this.Url + 'mostrar_empleados/' + id, mostrarEmpleado);
-  }
-
-  // tslint:disable-next-line:typedef
-  public eliminarMostrarEmpleado(id: number){
-    return this.htpp.delete(this.Url + 'mostrar_empleados/' + id);
-  }
-
-  // Mostrar Inventario
-
-  // tslint:disable-next-line:typedef
-  public obtenerListaMostrarInventario(){
-    return this.htpp.get<MostrarInventario[]>(this.Url + 'mostrar_inventario/');
+  public deleteProductoSucursal(idSucursal: number, idProducto: number) {
+    return this.htpp.delete(this.Url + "api/ProductoSucursal/"+ idProducto +'/'+ idSucursal);
   }
 
 

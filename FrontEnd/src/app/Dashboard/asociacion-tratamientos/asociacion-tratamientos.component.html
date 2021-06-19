@@ -16,13 +16,13 @@
             </div>
             <div class="col-4">
 
-                <h2>Productos asociados</h2>
-                <div class="list-group" *ngFor="let producto of asociacion.productos">
+                <h2>Tratamientos asociados</h2>
+                <div class="list-group" *ngFor="let tratamiento of asociacion.tratamientos">
                     <a class="list-group-item list-group-item-action active">
                         <button href="#" type="button" class="btn" data-bs-toggle="modal"
-                        (click)="borrarProducto(producto, asociacion.Sucursal)"    
+                        (click)="borrarTratamiento(tratamiento, asociacion.Sucursal)"    
                         data-bs-target="#DesacocieModal">
-                            {{producto.nombre}}
+                            {{tratamiento.nombre}}
                         </button>
                     </a>
 
@@ -31,20 +31,20 @@
             </div>
             <div class="col-4">
 
-                <h2>Productos disponibles</h2>
+                <h2>Tratamientos disponibles</h2>
                 <div class="list-group">
                     <a class="list-group-item list-group-item-action active"
-                        *ngFor="let productoNo of asociacion.productosNo">
+                        *ngFor="let tratamientoNo of asociacion.tratamientoNo">
                         <button type="button" class="btn" data-bs-toggle="modal"
-                            (click)="agregarProducto(productoNo, asociacion.Sucursal)"
+                            (click)="agregarTratamiento(tratamientoNo, asociacion.Sucursal)"
                             data-bs-target="#AsocieModal">
-                            {{productoNo.nombre}}
+                            {{tratamientoNo.nombre}}
                         </button>
                     </a>
                 </div>
             </div>
         </div>
-</div>
+    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="DesacocieModal" tabindex="-1" aria-labelledby="eliminarFilaLabel" aria-hidden="true">
@@ -55,12 +55,12 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Se eliminará el tratamiento: {{this.productoModal.nombre}} de la sucursal
+                    <p>Se eliminará el tratamiento: {{this.tratamientoModal.nombre}} de la sucursal
                         {{this.sucursalModal.nombre}} ¿Deseas continuar?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="DesacocieProducto()">Aceptar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="DesacocieTratamiento()">Aceptar</button>
                 </div>
             </div>
         </div>
@@ -71,18 +71,17 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2 class="modal-title" id="eliminarFilaLabel">Asociar un Producto</h2>
+                    <h2 class="modal-title" id="eliminarFilaLabel">Asociar un Tratamiento</h2>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Se agregará el producto: {{this.productoModal.nombre}} a la sucursal
+                    <p>Se agregará el tratamiento: {{this.tratamientoModal.nombre}} a la sucursal
                         {{this.sucursalModal.nombre}} ¿Deseas continuar?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="asociarProducto()">Aceptar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="asociarTratamiento()">Aceptar</button>
                 </div>
             </div>
         </div>
     </div>
-

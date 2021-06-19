@@ -4,8 +4,7 @@
         <div class="row" *ngFor="let asociacion of superLista">
 
             <div class="col columna1">
-                <img
-                    src={{asociacion.Sucursal.imagen}}>
+                <img src={{asociacion.Sucursal.imagen}}>
             </div>
             <div class="col columna2">
                 <div class="row">
@@ -18,80 +17,51 @@
             <div class="col-4">
 
                 <h2>Equipos asociados</h2>
-                <div class="list-group">
+                <div class="list-group" *ngFor="let equipo of asociacion.equipos">
                     <a class="list-group-item list-group-item-action active">
                         <button href="#" type="button" class="btn" data-bs-toggle="modal"
-                            data-bs-target="#DesacocieModal">
-                            Equipos
+                        (click)="borrarInventario(equipo, asociacion.Sucursal)"    
+                        data-bs-target="#DesacocieModal">
+                            #{{equipo.nSerie}}: {{equipo.descripcion}} 
                         </button>
                     </a>
-                    <a class="list-group-item list-group-item-action active">
-                        <button href="#" type="button" class="btn" data-bs-toggle="modal"
-                            data-bs-target="#DesacocieModal">
-                            Equipos
-                        </button>
-                    </a>
-                    <a class="list-group-item list-group-item-action active">
-                        <button href="#" type="button" class="btn" data-bs-toggle="modal"
-                            data-bs-target="#DesacocieModal">
-                            Equipos
-                        </button>
-                    </a>
-                    <a class="list-group-item list-group-item-action active">
-                        <button href="#" type="button" class="btn" data-bs-toggle="modal"
-                            data-bs-target="#DesacocieModal">
-                            Equipos
-                        </button>
-                    </a>
+
                 </div>
 
             </div>
             <div class="col-4">
 
-                <h2>Equipos disponibles</h2>
+                <h2>Tratamientos disponibles</h2>
                 <div class="list-group">
-                    <a class="list-group-item list-group-item-action active">
-                        <button href="#" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#AsocieModal">
-                            Equipos
-                        </button>
-                    </a>
-                    <a class="list-group-item list-group-item-action active">
-                        <button href="#" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#AsocieModal">
-                            Equipos
-                        </button>
-                    </a>
-                    <a class="list-group-item list-group-item-action active">
-                        <button href="#" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#AsocieModal">
-                            Equipos
-                        </button>
-                    </a>
-                    <a class="list-group-item list-group-item-action active">
-                        <button href="#" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#AsocieModal">
-                            Equipos
+                    <a class="list-group-item list-group-item-action active"
+                        *ngFor="let equiposNo of asociacion.equiposNo">
+                        <button type="button" class="btn" data-bs-toggle="modal"
+                            (click)="agregarInventario(equiposNo, asociacion.Sucursal)"
+                            data-bs-target="#AsocieModal">
+                            #{{equiposNo.nSerie}}: {{equiposNo.descripcion}} 
                         </button>
                     </a>
                 </div>
-
-
             </div>
         </div>
 
     </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="DesacocieModal" tabindex="-1" aria-labelledby="eliminarFilaLabel" aria-hidden="true">
+     <!-- Modal -->
+     <div class="modal fade" id="DesacocieModal" tabindex="-1" aria-labelledby="eliminarFilaLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2 class="modal-title" id="eliminarFilaLabel">Desasociar un Tratamiento</h2>
+                    <h2 class="modal-title" id="eliminarFilaLabel">Desasociar un Equipo</h2>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <label>Se eliminira la fila del distribuidor</label>
+                    <p>Se eliminará el equipo: #{{this.inventariooModal.nSerie}} de la sucursal
+                        {{this.sucursalModal.nombre}} ¿Deseas continuar?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Aceptar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="DesacocieInventario()">Aceptar</button>
                 </div>
             </div>
         </div>
@@ -102,15 +72,16 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2 class="modal-title" id="eliminarFilaLabel">Asociar un Tratamiento</h2>
+                    <h2 class="modal-title" id="eliminarFilaLabel">Asociar un Equipo</h2>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <label>Se eliminira la fila del distribuidor</label>
+                    <p>Se agregará el equipo: #{{this.inventariooModal.nSerie}} de la sucursal
+                        {{this.sucursalModal.nombre}} ¿Deseas continuar?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Aceptar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="asociarInventario()">Aceptar</button>
                 </div>
             </div>
         </div>
