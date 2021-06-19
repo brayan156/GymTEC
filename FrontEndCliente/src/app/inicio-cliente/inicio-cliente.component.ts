@@ -37,13 +37,22 @@ export class InicioClienteComponent {
         this.ServiciosDisponibles = servicios;
         
         this.service.filtro_clases_cliente(this.service.user.cedula).subscribe(clases => {
+          console.log(clases);
+
           clases.forEach(clase => {
-            this.myEvents.push({
-              id: String(clase.id),
+            let date = new Date(clase.fecha);
+            date.setHours(clase.horaInicio);
+            let stringDate = date.getFullYear() + '-' + (date.getMonth() +1) + '-' + date.getDate() + 'T' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+
+            this.calendarOptions.events = [{
               title: clase.nombreServicio,
-              start: clase.fecha 
-            })
+              date: clase.fecha,
+              
+            }]
+
           })
+
+          
         })
       })
     });
@@ -116,15 +125,19 @@ export class InicioClienteComponent {
 
   buscarClase() {
     this.handleDateSelect.bind(this);
+    console.log(this.clase);
     this.service.filtro_clases(this.clase.idSucursal, this.clase.servicio, this.clase.inicio, this.clase.final).subscribe(resp => {
       this.clasesBusqueda = resp;
+      console.log(resp);
     })
   }
 
   todasClases() {
     this.handleDateSelect.bind(this);
-    this.service.filtro_clases(0, "", "", "").subscribe(resp => {
+    this.service.filtro_clases(0, "",null , null).subscribe(resp => {
       this.clasesBusqueda = resp;
+      console.log(resp);
+
     })
   }
 
@@ -136,6 +149,10 @@ export class InicioClienteComponent {
         title: clase.nombreServicio,
         date: clase.fecha
       }]
+
+      this.service.inscribirCliente(clase.id).subscribe(respo => {
+        console.log(respo);
+      });
     } else {
       //doSomething
     }

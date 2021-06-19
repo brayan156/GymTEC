@@ -14,6 +14,7 @@ import listPlugin from '@fullcalendar/list';
 import interactionPlugin from '@fullcalendar/interaction';
 import { AppComponent } from './app.component';
 import { RegistroComponent } from './Componentes/registro/registro.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -37,7 +38,8 @@ FullCalendarModule.registerPlugins([
     AppRoutingModule,
     FormsModule,
     NgbModule,
-    FullCalendarModule 
+    FullCalendarModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

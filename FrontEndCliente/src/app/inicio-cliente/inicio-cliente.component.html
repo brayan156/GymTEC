@@ -13,7 +13,7 @@
       <form>
         <div class="form-group">
           <select class="form-select input-group" id="servicio" [(ngModel)]="clase.servicio" name="servicio" required  [ngModelOptions]="{standalone: true}">
-            <option *ngFor="let servicio of ServiciosDisponibles" value="{{servicio.id}}"> {{servicio.nombre}}</option>
+            <option *ngFor="let servicio of ServiciosDisponibles" value="{{servicio.nombre}}"> {{servicio.nombre}}</option>
           </select>
         </div>
 
@@ -80,7 +80,8 @@
                 </div>
               </div>
               <h6 class="card-subtitle mb-2 text-muted">Horario: {{clase.horaInicio}} - {{clase.horaFin}}</h6>
-              <p class="card-text">Se impartirá el día {{clase.fecha}} con una capacidad máxima de {{clase.capacidad}}
+              <h6 class="card-subtitle mb-2 text-muted">Cupos: {{clase.Cupos}}</h6>
+              <p class="card-text">Se impartirá el día {{clase.fecha}} por {{clase.nombreInstructor}} {{clase.primer_apellido}}
                 en la sucursal de {{clase.nombreSucursal}}.</p>
 
             </div>
@@ -116,7 +117,8 @@
                 </div>
               </div>
               <h6 class="card-subtitle mb-2 text-muted">Horario: {{clase.horaInicio}} - {{clase.horaFin}}</h6>
-              <p class="card-text">Se impartirá el día {{clase.fecha}} con una capacidad máxima de {{clase.capacidad}}
+              <h6 class="card-subtitle mb-2 text-muted">Cupos: {{clase.Cupos}}</h6>
+              <p class="card-text">Se impartirá el día {{clase.fecha}} por {{clase.nombreInstructor}} {{clase.primer_apellido}}
                 en la sucursal de {{clase.nombreSucursal}}.</p>
 
             </div>

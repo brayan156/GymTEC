@@ -92,12 +92,15 @@ namespace Gymtec_API.Controllers
         }
 
 
-        [HttpGet]
-        [Route("api/StoreProcedures/filtro_clases")]
-        public IEnumerable<filtro_clases_Result> filtro_clases(dynamic datos)
+        [HttpPost]
+        [Route("api/StoreProcedures/filtro_clases/{fechainicio}/{fechafin}")]
+        public IEnumerable<filtro_clases_Result> filtro_clases(DateTime? fechainicio, DateTime? fechafin, dynamic datos)
         {
             Debug.WriteLine("en el store");
-            return db.filtro_clases(datos["idsucursal"],datos["nombre_servicio"],datos["fechainicio"],datos["fechafin"],datos["idcliente"]);
+            int idsucursal = datos["idsucursal"];
+            string nombre_servicio = datos["nombre_servicio"];
+            int idcliente = datos["idcliente"];
+            return db.filtro_clases(idsucursal,nombre_servicio,fechainicio,fechafin,idcliente);
         }
 
         [HttpGet]

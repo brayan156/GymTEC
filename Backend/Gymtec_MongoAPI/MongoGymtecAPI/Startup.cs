@@ -36,8 +36,16 @@ namespace MongoGymtecAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MongoGymtecAPI", Version = "v1" });
             });
-            
 
+            services.AddCors(options => {
+                options.AddPolicy(name: "MyCors", builder => {
+                    builder
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .SetIsOriginAllowed(origin => true) // allow any origin
+                    .AllowAnyOrigin();
+                });
+            });
         }
 
 
@@ -55,6 +63,11 @@ namespace MongoGymtecAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors(x => x
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true) // allow any origin
+                .AllowAnyOrigin()); // allow credentials
 
             app.UseAuthorization();
 

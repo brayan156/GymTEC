@@ -12,7 +12,7 @@ import { ClassElement } from 'typescript';
 })
 export class ClienteService {
 
-  UrlCliente = 'https://localhost:44328/api/Client';
+  UrlCliente = 'https://localhost:44328/api/Client/';
   Url = 'https://localhost:44388/api/';
   user: Cliente;
 
@@ -32,20 +32,25 @@ export class ClienteService {
   }
 
   public obtenerListasServicio(){
-    return this.htpp.get<Servicio[]>(this.Url + 'Servicio');
+    return this.htpp.get<Servicio[]>(this.Url + 'Servicios');
   }
 
   public filtro_clases_cliente(idCliente:number) {
-    return this.htpp.get<FiltroClaseCliente[]>(this.Url + 'api/StoreProcedures/filtro_clases_cliente/' + idCliente);
+    return this.htpp.get<FiltroClaseCliente[]>(this.Url + 'StoreProcedures/filtro_clases_cliente/' + idCliente);
   }
 
-  public filtro_clases(idsucursal: number, nombre_servicio: string, fechainicio: string, fechafin: string) {
+  public filtro_clases(idsucursal: number, nombre_servicio: string, fechainicio: string|null, fechafin: string|null) {
     let datos = {
-      "idSucursal": idsucursal,
+      "idsucursal": idsucursal,
       "nombre_servicio":nombre_servicio,
       "fechainicio":fechainicio,
-      "fechafin":fechafin
+      "fechafin": fechafin,
+      "idcliente": this.user.cedula
     }
-    return this.htpp.get<FiltroClase[]>(this.Url + 'api/StoreProcedures/filtro_clases/' + datos);
+    return this.htpp.post<FiltroClase[]>(this.Url + 'StoreProcedures/filtro_clases/' +fechainicio + '/' + fechafin, datos);
+  }
+
+  public inscribirCliente(idClase: number) {
+    return this.htpp.post(this.Url + 'ClaseCliente/' + idClase + '/' + this.user.cedula, "");
   }
 }

@@ -39,3 +39,5 @@ C:\Users\anom\Documents\GitHub\SmartHomeTEC\GymTEC\Backend\Gymtec_MongoAPI\Mongo
 C:\Users\anom\Documents\GitHub\SmartHomeTEC\GymTEC\Backend\Gymtec_MongoAPI\MongoGymtecAPI\obj\Debug\net5.0\ref\MongoGymtecAPI.dll
 C:\Users\anom\Documents\GitHub\SmartHomeTEC\GymTEC\Backend\Gymtec_MongoAPI\MongoGymtecAPI\obj\Debug\net5.0\MongoGymtecAPI.pdb
 C:\Users\anom\Documents\GitHub\SmartHomeTEC\GymTEC\Backend\Gymtec_MongoAPI\MongoGymtecAPI\obj\Debug\net5.0\MongoGymtecAPI.genruntimeconfig.cache
+C:\Users\anom\Documents\GitHub\SmartHomeTEC\GymTEC\Backend\Gymtec_MongoAPI\MongoGymtecAPI\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\anom\Documents\GitHub\SmartHomeTEC\GymTEC\Backend\Gymtec_MongoAPI\MongoGymtecAPI\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll

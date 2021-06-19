@@ -9,4 +9,5 @@ export class FiltroClase {
   primer_apellido: string;
   segundo_apellido: string;
   nombreSucursal: string;
+  nombreInstructor: string;
 }
