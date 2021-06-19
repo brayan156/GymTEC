@@ -1,18 +1,19 @@
 <button class="btn btn-dark largo" data-bs-toggle="modal" data-bs-target="#crearPlanilla">Generar un nuevo tipo de planilla</button>
-
-<div class="container row" *ngFor="let item of listaPlanilla">
-  <div class="col margnes">
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h2 class="card-title">Numero de Identificador: {{item.id}}</h2>
-        <label class="row letras">Descripcion {{item.descripcion}}</label>
-        <label class="row letras">Tipo Pago {{item.tipo}}</label>
-      </div>
-      <div class="card-footer">
-        <button class="btn btn-primary margen" data-bs-toggle="modal" data-bs-target="#editarPlanilla"
-                (click)="obtenerInformacionItem(item)">Editar</button>
-        <button class="btn btn-danger margen" data-bs-toggle="modal" data-bs-target="#eliminarPlanilla"
-                (click)="obtenerInformacionItem(item)">Eliminar</button>
+<div class="row">
+  <div class="container col" *ngFor="let item of listaPlanilla">
+    <div class="col margnes">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h2 class="card-title">Numero de Identificador: {{item.id}}</h2>
+          <label class="row letras">Tipo Pago {{item.Tipo}}</label>
+          <label class="row letras">Descripcion {{item.descripicion}}</label>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary margen" data-bs-toggle="modal" data-bs-target="#editarPlanilla"
+                  (click)="obtenerInformacionItem(item)">Editar</button>
+          <button class="btn btn-danger margen" data-bs-toggle="modal" data-bs-target="#eliminarPlanilla"
+                  (click)="obtenerInformacionItem(item)">Eliminar</button>
+        </div>
       </div>
     </div>
   </div>
@@ -31,19 +32,20 @@
         <div class="tamano3">
           <label>Tipo de Pago:</label>
           <input type="text" class="form-control" name="nombre" id="TipoPago" required=""
-                 #tipo="ngModel" [(ngModel)]="planilla.tipo">
+                 #tipo="ngModel" [(ngModel)]="planilla.Tipo">
         </div>
 
         <div class="tamano3">
           <label>Descripcion:</label>
           <input type="text" class="form-control" name="nombre" id="descripcion" required=""
-                 #descripcion="ngModel" [(ngModel)]="planilla.descripcion">
+                 #descripcion="ngModel" [(ngModel)]="planilla.descripicion">
         </div>
 
 
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" name="7" (click)="crearPlanilla(planilla)">Aceptar</button>
+        <button type="submit" class="btn btn-primary" name="7" data-bs-dismiss="modal"
+                (click)="crearPlanilla(planilla)">Aceptar</button>
 
         <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
       </div>
@@ -63,17 +65,18 @@
         <div class="tamano3">
           <label>Tipo de Pago:</label>
           <input type="text" class="form-control" name="nombre" required=""
-                 #tipo="ngModel" [(ngModel)]="planillaActual.tipo">
+                 #tipo="ngModel" [(ngModel)]="planillaActual.Tipo">
         </div>
         <div class="tamano3">
           <label>Descripcion:</label>
           <input type="text" class="form-control" name="nombre"  required=""
-                 #descripcion="ngModel" [(ngModel)]="planillaActual.descripcion">
+                 #descripcion="ngModel" [(ngModel)]="planillaActual.descripicion">
         </div>
 
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" name="7" (click)="crearPlanilla(planillaActual)">Aceptar</button>
+        <button type="submit" class="btn btn-primary" name="7"
+                data-bs-dismiss="modal" (click)="editarPlanilla(planillaActual)">Aceptar</button>
 
         <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
       </div>
@@ -85,12 +88,12 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 class="modal-title" id="eliminarPlanillaLabel">Esta Seguro que desea eliminar TIPO de pago: {{planillaActual.tipo}}
+        <h3 class="modal-title" id="eliminarPlanillaLabel">Esta Seguro que desea eliminar TIPO de pago: {{planillaActual.Tipo}}
           , Numero de identifiacador{{planillaActual.id}}</h3>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" name="7" (click)="eliminarPlanilla(planillaActual)">Aceptar</button>
+        <button type="submit" data-bs-dismiss="modal" class="btn btn-primary" name="7" (click)="eliminarPlanilla(planillaActual)">Aceptar</button>
 
         <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
       </div>

@@ -14,20 +14,21 @@ export class AsociacionInventarioComponent implements OnInit {
 
   constructor(private service: ServiciosService) { }
 
-  ListaSucursales: Sucursal[] = [];
-  superLista: { Sucursal: Sucursal, equipos: InventarioGym[], equiposNo: InventarioGym[] }[] = [];
-  inventariooModal: InventarioGym;
-  sucursalModal: Sucursal;
-  inventario: Equipo[];
+  ListaSucursales: Sucursal[] =[];
+  superLista: { sucursal: Sucursal, equipos: InventarioGym[], equiposNo: InventarioGym[] }[] =[];
+  inventariooModal: InventarioGym= new InventarioGym();
+  sucursalModal: Sucursal= new Sucursal();
+  inventario: Equipo[] = [];
 
   ngOnInit(): void {
     this.service.obtenerListasSucursal().subscribe(lista => {
       this.ListaSucursales = lista;
-      console.log(this.ListaSucursales);
+      console.log(lista);
       lista.forEach(sucursal => {
         this.service.getInventarioGym(sucursal.id).subscribe(inventario => {
+          console.log(inventario);
           this.superLista.push({
-            Sucursal: sucursal,
+            sucursal: sucursal,
             equipos: inventario.filter(t => t.column1 == 'asociado'),
             equiposNo: inventario.filter(t => t.column1 == 'no asociado'),
           })

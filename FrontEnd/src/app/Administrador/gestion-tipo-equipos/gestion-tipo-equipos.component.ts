@@ -25,21 +25,25 @@ export class GestionTipoEquiposComponent implements OnInit {
   }
 
   public creaTipoEquipo(tipoEquipo: TipoEquipo): void{
-    this.service.agregarTipoEquipo(tipoEquipo).subscribe(respuesta =>
-      console.log(respuesta));
-    this.ngOnInit();
+    this.service.agregarTipoEquipo(tipoEquipo).subscribe(respuesta => {
+      console.log(respuesta);
+      this.ngOnInit();
+    });
+
   }
 
   public editarTipoEquipo(tipoEquipo: TipoEquipo): void{
-    this.service.editarTipoEquipo(tipoEquipo.id , tipoEquipo).subscribe(a =>
-      console.log(a));
-    this.ngOnInit();
+    this.service.editarTipoEquipo(tipoEquipo.id , tipoEquipo).subscribe(respuesta => {
+      console.log(respuesta);
+      this.ngOnInit();
+    });
   }
 
-  public eliminartipoEquipo(tipoEquipo: TipoEquipo): void{
-    this.service.eliminarTipoEquipo(tipoEquipo.id).subscribe(a =>
-      console.log(a));
-    this.ngOnInit();
+  public eliminartipoEquipo(tipoEquipo: TipoEquipo): void {
+    this.service.eliminarTipoEquipo(tipoEquipo.id).subscribe(respuesta => {
+      console.log(respuesta);
+      this.ngOnInit();
+    });
   }
 
   public obtenerInformacionItem(tipoEquipo: TipoEquipo): void{

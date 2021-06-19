@@ -1,27 +1,25 @@
 <button class="btn btn-dark largo" data-bs-toggle="modal" data-bs-target="#crearMaquina">
   Agregar una maquina</button>
 
-<div class="container">
+<div class="container" *ngFor="let item of mostrarInventario">
   <div class="row">
-    <div class="col col1">
-      <img src="https://www.tiovivocreativo.com/wp-content/uploads/2020/02/interiorismo-dise%C3%B1o-gimnasios-planificar-espacios.jpg" alt="">
-    </div>
-
-
     <div class="col">
-      <div class="row"><h3><b>Numero de serie</b></h3></div>
-      <div class="row"><label>Nombre:</label></div>
-      <div class="row"><label>Tipo:</label></div>
-      <div class="row"><label>Marca:</label></div>
-      <div class="row"><label>Costo:</label></div>
-      <div class="row"><label>Sucursal:</label></div>
+      <img src="{{item.imagen}}}">
+    </div>
+    <div class="col">
+      <div class="row"><h3><b>Numero de serie: {{item.nserie}}</b></h3></div>
+      <div class="row"><label>Tipo: {{item.tipoEquipo}}</label></div>
+      <div class="row"><label>Marca: {{item.marca}}</label></div>
+      <div class="row"><label>Costo: {{item.costo}}</label></div>
+      <div class="row"><label>Sucursal: {{item.nombreSucursal}}</label></div>
 
     </div>
     <div class="col">
       <div class="row">
-        <div class="col"><button class="btn btn-primary btn1" data-bs-toggle="modal" data-bs-target="#editarMaquina">
-          Editar Maquina</button></div>
-        <div class="col"><button class="btn btn-danger btn2" data-bs-toggle="modal" data-bs-target="#eliminarMaquina">Eliminar Maquina</button></div>
+        <div class="col"><button class="btn btn-primary btn1" data-bs-toggle="modal" data-bs-target="#editarMaquina"
+                                 (click)="obtenerEquipo(item.nserie)">Editar Maquina</button></div>
+        <div class="col"><button class="btn btn-danger btn2" data-bs-toggle="modal" data-bs-target="#eliminarMaquina"
+                                 (click)="obtenerEquipo(item.nserie)">Eliminar Maquina</button></div>
       </div>
     </div>
 
@@ -39,47 +37,36 @@
         <form class="row">
 
           <div class="tamano3">
-            <label>Numero de serie:</label>
-            <input type="text" class="form-control" name="nombre" id="Numerodeserie:" required="">
-          </div>
-
-          <div class="tamano3">
-            <label>Nombre:</label>
-            <input type="text" class="form-control" name="nombre" id="Nombre" required="">
+            <label>Imagen:</label>
+            <input type="text" class="form-control" name="imagen" id="imagen:" required=""
+                   #nSerie="ngModel" [(ngModel)]="equipo.imagen">
           </div>
 
           <div class="row">
             <div class="col">
               <label>Marca:</label>
-              <input type="text" class="form-control" name="Marca" id="Marca" required="">
+              <input type="text" class="form-control" name="Marca" id="Marca" required=""
+                     #marca="ngModel" [(ngModel)]="equipo.marca">
             </div>
             <div class="col">
               <label>Costo:</label>
-              <input type="number" class="form-control" name="Costo" id="Costo" required="">
+              <input type="number" class="form-control" name="Costo" id="Costo" required=""
+                     #costo="ngModel" [(ngModel)]="equipo.costo">
             </div>
           </div>
 
           <div class="tamano3">
-            <label>Tipo de equipo:</label>
-            <select class="form-select" id="tipo" name="6" required="">
-              <optgroup label="">
-                <option> </option>
-              </optgroup>
+            <label>Tipo de Equipo:</label>
+            <select class="form-select input-group" id="tipo" [(ngModel)]='equipo.idTipoEquipo' name="tipo" required
+                    [ngModelOptions]="{standalone: true}">
+              <option *ngFor="let tipoEquipo of listaTiposEquipo" value="{{tipoEquipo.id}}"> {{tipoEquipo.nombre}}</option>
             </select>
           </div>
 
-          <div class="tamano3">
-            <label>Sucursal:</label>
-            <select class="form-select" id="sucursal" name="6" required="">
-              <optgroup label="">
-                <option> </option>
-              </optgroup>
-            </select>
-          </div>
 
           <div class="modal-footer">
 
-            <button type="submit" class="btn btn-primary" name="7">Aceptar</button>
+            <button type="submit" class="btn btn-primary" name="7" data-bs-dismiss="modal" (click)="crearEquipo(equipo)">Aceptar</button>
 
             <button class="btn btn-danger" name="7"  data-bs-dismiss="modal">Cancelar</button>
 
@@ -96,73 +83,69 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title" id="editarMaquinaLabel">Editar Empleado</h1>
+        <h1 class="modal-title" id="editarMaquinaLabel">Editar Maquina</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form class="row">
+
           <div class="tamano3">
-            <label>Nombre:</label>
-            <input type="text" class="form-control" name="nombre" id="EditarNombre" required="">
+            <label>Imagen:</label>
+            <input type="text" class="form-control" name="imagen" id="Eimagen:" required=""
+                   #nSerie="ngModel" [(ngModel)]="equipoActual.imagen">
           </div>
 
           <div class="row">
             <div class="col">
               <label>Marca:</label>
-              <input type="text" class="form-control" name="Marca" id="EditarMarca" required="">
+              <input type="text" class="form-control" name="Marca" id="EMarca" required=""
+                     #marca="ngModel" [(ngModel)]="equipoActual.marca">
             </div>
             <div class="col">
               <label>Costo:</label>
-              <input type="number" class="form-control" name="Costo" id="EditarCosto" required="">
+              <input type="number" class="form-control" name="Costo" id="ECosto" required=""
+                     #costo="ngModel" [(ngModel)]="equipoActual.costo">
             </div>
           </div>
 
           <div class="tamano3">
-            <label>Tipo de equipo:</label>
-            <select class="form-select" id="Editartipo" name="6" required="">
-              <optgroup label="">
-                <option> </option>
-              </optgroup>y
+            <label>Tipo de Equipo:</label>
+            <select class="form-select input-group" id="Etipo" [(ngModel)]='equipoActual.idTipoEquipo' name="tipo" required
+                    [ngModelOptions]="{standalone: true}">
+              <option *ngFor="let tipoEquipo of listaTiposEquipo" value="{{tipoEquipo.id}}"> {{tipoEquipo.nombre}}</option>
             </select>
           </div>
 
-          <div class="tamano3">
-            <label>Sucursal:</label>
-            <select class="form-select" id="Editarsucursal" name="6" required="">
-              <optgroup label="">
-                <option> </option>
-              </optgroup>
-            </select>
-          </div>
 
           <div class="modal-footer">
 
-            <button type="submit" class="btn btn-primary" name="7">Aceptar</button>
+            <button type="submit" class="btn btn-primary" name="7" data-bs-dismiss="modal" (click)="editarEquipo(equipoActual)">Aceptar</button>
 
             <button class="btn btn-danger" name="7"  data-bs-dismiss="modal">Cancelar</button>
 
           </div>
-        </form>
-      </div>
+
+      </form>
     </div>
   </div>
 </div>
-
+</div>
 
 
 <div class="modal fade" id="eliminarMaquina" tabindex="-1" aria-labelledby="eliminarMaquinaLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 class="modal-title" id="eliminarMaquinaLabel">Esta Seguro que desea eliminar la maquina: Numero de Serie , Nombre:</h3>
+        <h3 class="modal-title" id="eliminarMaquinaLabel">Esta Seguro que desea eliminar la maquina: Numero de Serie
+          {{equipoActual.nSerie}}</h3>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" name="7">Aceptar</button>
+        <button type="submit" class="btn btn-primary" name="7" data-bs-dismiss="modal"
+                (click)="eliminarEquipo(equipoActual)">Aceptar</button>
 
         <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
       </div>
     </div>
   </div>
 </div>
-

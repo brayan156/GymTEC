@@ -9,7 +9,7 @@
       <div class="col col2">
         <div class="row"><h3><b>Numero de indentificador:{{item.id}}</b></h3></div>
         <div class="row"><label>Texto: {{item.nombre}}</label></div>
-        <div class="row"><label>Descripcion:{{item.descripcion}}</label></div>
+        <div class="row"><label>Descripcion:{{item.descripicion}}</label></div>
         <div class="row btn2">
         <div class="col"><button class="btn btn-primary btn1" data-bs-toggle="modal" data-bs-target="#editarPuesto"
         (click)="obtenerInformacionItem(item)">Editar Puesto</button></div>
@@ -44,13 +44,13 @@
         <div class="tamano3">
           <label>Descripcion:</label>
           <input type="text" class="form-control" name="nombre" id="descripcionPuesto" required=""
-                 #descripcion="ngModel" [(ngModel)]="puesto.descripcion">
+                 #descripcion="ngModel" [(ngModel)]="puesto.descripicion">
         </div>
 
 
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" name="7" (click)="crearPuesto(puesto)">Aceptar</button>
+        <button data-bs-dismiss="modal" type="submit" class="btn btn-primary" name="7" (click)="crearPuesto(puesto)">Aceptar</button>
 
         <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
       </div>
@@ -76,18 +76,18 @@
       <div class="tamano3">
         <label>Nombre Del Puesto:</label>
         <input type="text" class="form-control" name="nombre" id="nombrePuesto1" required=""
-               #nombre="ngModel" [(ngModel)]="puestoActual.nombre">>
+               #nombre="ngModel" [(ngModel)]="puestoActual.nombre">
       </div>
 
       <div class="tamano3">
         <label>Descripcion:</label>
         <input type="text" class="form-control" name="nombre" id="descripcionPuesto1" required=""
-               #descripcion="ngModel" [(ngModel)]="puestoActual.descripcion">>
+               #descripcion="ngModel" [(ngModel)]="puestoActual.descripicion">
       </div>
 
     </div>
     <div class="modal-footer">
-      <button type="submit" class="btn btn-primary" name="7" (click)="editarPuesto(puestoActual)">Aceptar</button>
+      <button data-bs-dismiss="modal" type="submit" class="btn btn-primary" name="7" (click)="editarPuesto(puestoActual)">Aceptar</button>
 
       <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
     </div>
@@ -103,7 +103,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" name="7" (click)="eliminarPuesto(puestoActual)">Aceptar</button>
+        <button data-bs-dismiss="modal" type="submit" class="btn btn-primary" name="7" (click)="eliminarPuesto(puestoActual)">Aceptar</button>
 
         <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
       </div>

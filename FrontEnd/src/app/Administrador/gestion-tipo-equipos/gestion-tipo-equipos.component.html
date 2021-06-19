@@ -1,7 +1,8 @@
 <button class="btn btn-dark largo" data-bs-toggle="modal" data-bs-target="#crearEquipo">Generar un nuevo tipo de equipo</button>
 
-<div class="container row" *ngFor="let item of listatipoEquipo">
-  <div class="col margnes">
+
+<div class="container row" >
+  <div class="col margnes" *ngFor="let item of listatipoEquipo">
     <div class="card" style="width: 18rem;">
       <div class="card-body">
         <h2 class="card-title">Numero de Identificador: {{item.id}}</h2>
@@ -43,7 +44,8 @@
 
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" name="7" (click)="creaTipoEquipo(tipoEquipo)">Aceptar</button>
+        <button type="submit" class="btn btn-primary" name="7" data-bs-dismiss="modal"
+                (click)="creaTipoEquipo(tipoEquipo)">Aceptar</button>
 
         <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
       </div>
@@ -74,7 +76,8 @@
 
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" name="7" (click)="editarTipoEquipo(tipoEquipoActual)">Aceptar</button>
+        <button type="submit" class="btn btn-primary" name="7" data-bs-dismiss="modal"
+                (click)="editarTipoEquipo(tipoEquipoActual)">Aceptar</button>
 
         <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
       </div>
@@ -90,7 +93,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" name="7" (click)="eliminartipoEquipo(tipoEquipoActual)">Aceptar</button>
+        <button type="submit" class="btn btn-primary" name="7" data-bs-dismiss="modal"
+                (click)="eliminartipoEquipo(tipoEquipoActual)">Aceptar</button>
 
         <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
       </div>

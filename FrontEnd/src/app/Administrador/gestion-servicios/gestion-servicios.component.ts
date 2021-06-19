@@ -24,9 +24,10 @@ export class GestionServiciosComponent implements OnInit {
     });
   }
   public creaServicio(servicio: Servicio): void{
-    this.service.agregarServicio(servicio).subscribe(respuesta =>
-      console.log(respuesta));
-    this.ngOnInit();
+    this.service.agregarServicio(servicio).subscribe(respuesta => {
+      console.log(respuesta);
+      this.ngOnInit();
+    });
   }
 
   public editarServicio(servicio: Servicio): void{

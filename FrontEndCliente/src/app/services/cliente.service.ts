@@ -53,4 +53,6 @@ export class ClienteService {
   public inscribirCliente(idClase: number) {
     return this.htpp.post(this.Url + 'ClaseCliente/' + idClase + '/' + this.user.cedula, "");
   }
+
+
 }

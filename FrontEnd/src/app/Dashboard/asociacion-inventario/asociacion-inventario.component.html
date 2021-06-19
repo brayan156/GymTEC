@@ -4,14 +4,14 @@
         <div class="row" *ngFor="let asociacion of superLista">
 
             <div class="col columna1">
-                <img src={{asociacion.Sucursal.imagen}}>
+                <img src={{asociacion.sucursal.imagen}}>
             </div>
             <div class="col columna2">
                 <div class="row">
-                    <h2>Nombre de la sucursal: {{asociacion.Sucursal.nombre}}</h2>
+                    <h2>Nombre de la sucursal: {{asociacion.sucursal.nombre}}</h2>
                 </div>
-                <div class="row"><label>Dirección: {{asociacion.Sucursal.provincia}}, {{asociacion.Sucursal.canton}},
-                        {{asociacion.Sucursal.distrito}}</label></div>
+                <div class="row"><label>Dirección: {{asociacion.sucursal.provincia}}, {{asociacion.sucursal.canton}},
+                        {{asociacion.sucursal.distrito}}</label></div>
 
             </div>
             <div class="col-4">
@@ -20,7 +20,7 @@
                 <div class="list-group" *ngFor="let equipo of asociacion.equipos">
                     <a class="list-group-item list-group-item-action active">
                         <button href="#" type="button" class="btn" data-bs-toggle="modal"
-                        (click)="borrarInventario(equipo, asociacion.Sucursal)"    
+                        (click)="borrarInventario(equipo, asociacion.sucursal)"    
                         data-bs-target="#DesacocieModal">
                             #{{equipo.nSerie}}: {{equipo.descripcion}} 
                         </button>
@@ -36,7 +36,7 @@
                     <a class="list-group-item list-group-item-action active"
                         *ngFor="let equiposNo of asociacion.equiposNo">
                         <button type="button" class="btn" data-bs-toggle="modal"
-                            (click)="agregarInventario(equiposNo, asociacion.Sucursal)"
+                            (click)="agregarInventario(equiposNo, asociacion.sucursal)"
                             data-bs-target="#AsocieModal">
                             #{{equiposNo.nSerie}}: {{equiposNo.descripcion}} 
                         </button>

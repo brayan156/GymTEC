@@ -3,6 +3,7 @@ import {ServiciosService} from '../../servicios.service';
 import {Equipo} from '../../Clases/equipo';
 import {Sucursal} from '../../Clases/sucursal';
 import {TipoEquipo} from '../../Clases/tipo-equipo';
+import {MostrarInventario} from '../../Clases/mostrar-inventario';
 
 @Component({
   selector: 'app-gestion-inventario',
@@ -10,52 +11,56 @@ import {TipoEquipo} from '../../Clases/tipo-equipo';
   styleUrls: ['./gestion-inventario.component.css']
 })
 export class GestionInventarioComponent implements OnInit {
-
+  mostrarInventario: MostrarInventario[] = [];
   equipo: Equipo = new Equipo();
+  equipoActual: Equipo = new Equipo();
   listaDeEquipo: Equipo[] = [];
-  ActualEquipo: Equipo = new Equipo();
+
   listaSucursales: Sucursal[] = [];
   sucursal: Sucursal = new Sucursal();
+
   listaTiposEquipo: TipoEquipo[] = [];
   tipoEquipo: TipoEquipo = new TipoEquipo();
   constructor(private service: ServiciosService) {
   }
 
   ngOnInit(): void {
-    this.service.obtenerListaEquipo().subscribe(lista => {
-      this.listaDeEquipo = lista;
-      console.log(this.listaDeEquipo);
+    this.service.obtenerListaMostrarInventario().subscribe(listaMI => {
+      this.mostrarInventario = listaMI;
+      console.log(listaMI);
       this.service.obtenerListasSucursal().subscribe(lista2 => {
-      this.listaSucursales = lista2;
-      console.log(this.listaSucursales); });
+        this.listaSucursales = lista2;
+      });
       this.service.obtenerListasTipoEquipo().subscribe(lista3 => {
         this.listaTiposEquipo = lista3;
-        console.log(this.listaTiposEquipo); });
+      });
     });
   }
 
-  public obtenerTipo(tipoEquipo: TipoEquipo): void{
-    this.equipo.idTipoEquipo = tipoEquipo.id;
-  }
-
-  public obtenerSucursal(sucursal: Sucursal): void{
-    this.equipo.idSucursal = sucursal.id;
+  public obtenerEquipo(id: number): void{
+    this.service.obtenerEquipo(id).subscribe(respuesta => {
+      this.equipoActual = respuesta;
+      console.log(respuesta);
+    });
   }
   public crearEquipo(equipo: Equipo): void{
-    this.service.agregarEquipo(equipo).subscribe(respuesta =>
-      console.log(respuesta));
-    this.ngOnInit();
+    this.service.agregarEquipo(equipo).subscribe(respuesta => {
+      console.log(respuesta);
+      this.ngOnInit();
+    });
   }
 
   public editarEquipo(equipo: Equipo): void{
-    this.service.editarEquipo(equipo.nSerie , equipo).subscribe(a =>
-      console.log(a));
-    this.ngOnInit();
+    this.service.editarEquipo(equipo.nSerie , equipo).subscribe(respuesta => {
+      console.log(respuesta);
+      this.ngOnInit();
+    });
   }
 
   public eliminarEquipo(equipo: Equipo): void{
-    this.service.eliminaEquipo(equipo.nSerie).subscribe(a =>
-      console.log(a));
-    this.ngOnInit();
+    this.service.eliminaEquipo(equipo.nSerie).subscribe(respuesta => {
+      console.log(respuesta);
+      this.ngOnInit();
+    });
   }
 }

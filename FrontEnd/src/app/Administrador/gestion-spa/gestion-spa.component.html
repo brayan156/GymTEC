@@ -1,6 +1,5 @@
 <button class="btn btn-dark largo" data-bs-toggle="modal" data-bs-target="#crearTratamiento">Agregar un nuevo tratamiento al SPA</button>
 <div class="container row">
-
   <div class="col margnes" *ngFor="let item of listaTratamientos">
     <div class="card" style="width: 18rem;">
       <img src="{{item.imagen}}">
@@ -43,7 +42,8 @@
 
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" name="7" (click)="creaTratamiento(tratamiento)">Aceptar</button>
+        <button type="submit" class="btn btn-primary" name="7"
+                data-bs-dismiss="modal" (click)="creaTratamiento(tratamiento)">Aceptar</button>
 
         <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
       </div>
@@ -75,7 +75,8 @@
 
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" name="7" (click)="editarTratamiento(tratamientoActual)">Aceptar</button>
+        <button type="submit" class="btn btn-primary" name="7"
+                data-bs-dismiss="modal" (click)="editarTratamiento(tratamientoActual)">Aceptar</button>
 
         <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
       </div>
@@ -91,7 +92,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" name="7" (click)="eliminarTratamiento(tratamientoActual)">Aceptar</button>
+        <button type="submit" class="btn btn-primary" name="7" data-bs-dismiss="modal"
+                (click)="eliminarTratamiento(tratamientoActual)">Aceptar</button>
 
         <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
       </div>

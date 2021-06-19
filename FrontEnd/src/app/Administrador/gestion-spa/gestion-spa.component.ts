@@ -24,21 +24,24 @@ export class GestionSpaComponent implements OnInit {
   }
 
   public creaTratamiento(tratamiento: Tratamiento): void{
-    this.service.agregarTratamiento(tratamiento).subscribe(respuesta =>
-      console.log(respuesta));
-    this.ngOnInit();
+    this.service.agregarTratamiento(tratamiento).subscribe(respuesta => {
+      console.log(respuesta);
+      this.ngOnInit();
+    });
   }
 
   public editarTratamiento(tratamiento: Tratamiento): void{
-    this.service.editarTratamiento(tratamiento.id , tratamiento).subscribe(a =>
-      console.log(a));
-    this.ngOnInit();
+    this.service.editarTratamiento(tratamiento.id , tratamiento).subscribe(a =>{
+      console.log(a);
+      this.ngOnInit();
+    });
   }
 
   public eliminarTratamiento(tratamiento: Tratamiento): void{
-    this.service.eliminarTratamiento(tratamiento.id).subscribe(a =>
-      console.log(a));
-    this.ngOnInit();
+    this.service.eliminarTratamiento(tratamiento.id).subscribe(a =>{
+      console.log(a);
+      this.ngOnInit();
+    });
   }
   public obtenerInformacionItem(tratamiento: Tratamiento): void{
     this.tratamientoActual = tratamiento;

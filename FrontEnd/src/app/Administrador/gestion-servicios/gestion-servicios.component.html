@@ -8,7 +8,9 @@
     </div>
     <div class="col col2">
       <div class="row"><h3><b>Indentificador: {{item.id}}</b></h3></div>
-      <div class="row"><label>Descripcion: {{item.descripcion}}</label></div>
+      <div class="row"><label>Nombre: {{item.nombre}}</label></div>
+      <div class="row"><label>Descripcion: {{item.descripicion}}</label></div>
+      <div class="row"><label>ID Sucursal: {{item.idSucursal}}</label></div>
       <div class="row btn2">
         <div class="col"><button class="btn btn-primary btn1" data-bs-toggle="modal" data-bs-target="#editarServicio"
         (click)="obtenerInformacionItem(item)">Editar Servicio </button></div>
@@ -43,13 +45,20 @@
         <div class="tamano3">
           <label>Descripcion:</label>
           <input type="text" class="form-control" name="nombre" id="descripcionSerivicio" required=""
-                 #descripcion="ngModel" [(ngModel)]="servicio.descripcion">
+                 #descripcion="ngModel" [(ngModel)]="servicio.descripicion">
+        </div>
+
+        <div class="tamano3">
+          <label>ID Sucursal:</label>
+          <input type="number" class="form-control" name="id" id="IdServiso" required=""
+                 #idSucursal="ngModel" [(ngModel)]="servicio.idSucursal">
         </div>
 
 
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" name="7" (click)="creaServicio(servicio)">Aceptar</button>
+        <button data-bs-dismiss="modal" type="submit" class="btn btn-primary" name="7"
+                (click)="creaServicio(servicio)">Aceptar</button>
 
         <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
       </div>
@@ -75,12 +84,14 @@
         <div class="tamano3">
           <label>Descripcion:</label>
           <input type="text" class="form-control" name="nombre" id="descripcionServicio" required=""
-                 #descripacion="ngModel" [(ngModel)]="servicioActual.descripcion">
+                 #descripacion="ngModel" [(ngModel)]="servicioActual.descripicion">
         </div>
+
 
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" name="7" (click)="editarServicio(servicioActual)">Aceptar</button>
+        <button data-bs-dismiss="modal" type="submit" class="btn btn-primary" name="7" (click)="editarServicio(servicioActual)"
+                >Aceptar</button>
 
         <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
       </div>
@@ -96,7 +107,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" name="7" (click)="eliminarServicio(servicioActual)">Aceptar</button>
+        <button data-bs-dismiss="modal" type="submit" class="btn btn-primary"  (click)="eliminarServicio(servicioActual)"
+                >Aceptar</button>
 
         <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
       </div>

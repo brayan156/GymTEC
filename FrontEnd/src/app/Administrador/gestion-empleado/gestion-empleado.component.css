@@ -8,6 +8,8 @@
   margin-left: 10px;
 }
 .container{
+  margin-left: auto;
+  margin-right: auto;
   width: 100%;
   margin-top: 10px;
 }
@@ -19,7 +21,7 @@
 }
 
 .margnes{
-  margin-left: 5%;
+
   margin-top: 10px;
   border-radius: 50px;
 }
