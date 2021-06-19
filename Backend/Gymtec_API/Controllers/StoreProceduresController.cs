@@ -97,7 +97,7 @@ namespace Gymtec_API.Controllers
         public IEnumerable<filtro_clases_Result> filtro_clases(dynamic datos)
         {
             Debug.WriteLine("en el store");
-            return db.filtro_clases(datos["idsucursal"],datos["nombre_servicio"],datos["fechainicio"],datos["fechafin"]);
+            return db.filtro_clases(datos["idsucursal"],datos["nombre_servicio"],datos["fechainicio"],datos["fechafin"],datos["idcliente"]);
         }
 
         [HttpGet]

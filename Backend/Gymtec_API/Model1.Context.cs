@@ -42,7 +42,6 @@ namespace Gymtec_API
         public virtual DbSet<Tratamiento> Tratamiento { get; set; }
         public virtual DbSet<mostrar_clases> mostrar_clases { get; set; }
         public virtual DbSet<mostrar_inventario> mostrar_inventario { get; set; }
-        public virtual DbSet<tratamientos_asociados> tratamientos_asociados { get; set; }
         public virtual DbSet<mostrar_empleados> mostrar_empleados { get; set; }
     
         public virtual int copiar_calendario(Nullable<System.DateTime> fechainicio, Nullable<System.DateTime> fechanuevo)
@@ -96,7 +95,7 @@ namespace Gymtec_API
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<filtro_clase_cliente_Result>("filtro_clase_cliente", id_clienteParameter);
         }
     
-        public virtual ObjectResult<filtro_clases_Result> filtro_clases(Nullable<int> id_sucursal, string nombre_servicio, Nullable<System.DateTime> fechainicio, Nullable<System.DateTime> fechafin)
+        public virtual ObjectResult<filtro_clases_Result> filtro_clases(Nullable<int> id_sucursal, string nombre_servicio, Nullable<System.DateTime> fechainicio, Nullable<System.DateTime> fechafin, Nullable<int> id_cliente)
         {
             var id_sucursalParameter = id_sucursal.HasValue ?
                 new ObjectParameter("id_sucursal", id_sucursal) :
@@ -114,7 +113,11 @@ namespace Gymtec_API
                 new ObjectParameter("fechafin", fechafin) :
                 new ObjectParameter("fechafin", typeof(System.DateTime));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<filtro_clases_Result>("filtro_clases", id_sucursalParameter, nombre_servicioParameter, fechainicioParameter, fechafinParameter);
+            var id_clienteParameter = id_cliente.HasValue ?
+                new ObjectParameter("id_cliente", id_cliente) :
+                new ObjectParameter("id_cliente", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<filtro_clases_Result>("filtro_clases", id_sucursalParameter, nombre_servicioParameter, fechainicioParameter, fechafinParameter, id_clienteParameter);
         }
     
         public virtual ObjectResult<generar_planilla_Result> generar_planilla(Nullable<int> idsucursal)

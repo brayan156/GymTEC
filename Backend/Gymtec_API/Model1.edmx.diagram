@@ -20,7 +20,6 @@
         <EntityTypeShape EntityType="gymtecdatabaseModel.Tratamiento" Width="1.5" PointX="5.25" PointY="19.625" IsExpanded="true" />
         <EntityTypeShape EntityType="gymtecdatabaseModel.mostrar_clases" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="gymtecdatabaseModel.mostrar_inventario" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="gymtecdatabaseModel.tratamientos_asociados" Width="1.5" PointX="10.75" PointY="5.75" IsExpanded="true" />
         <AssociationConnector Association="gymtecdatabaseModel.FK__Clase__idEmplead__51851410" ManuallyRouted="false" />
         <AssociationConnector Association="gymtecdatabaseModel.FK__Clase__idServici__5090EFD7" ManuallyRouted="false" />
         <AssociationConnector Association="gymtecdatabaseModel.FK__Empleado__idPlan__4CC05EF3" ManuallyRouted="false" />

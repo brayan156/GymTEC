@@ -20,5 +20,6 @@ namespace Gymtec_API
         public string imagen { get; set; }
         public Nullable<int> idsucursal { get; set; }
         public string tipoEquipo { get; set; }
+        public Nullable<int> costo { get; set; }
     }
 }
