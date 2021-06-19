@@ -78,8 +78,18 @@ export class ServiciosService {
    * @param clase 
    * @returns 
    */
-  public agregarClase(clase: Clase){
-    return this.htpp.post(this.Url + 'Clase/', clase);
+  public agregarClase(clase: Clase) {
+    let claseAenviar = {
+      imagen: clase.imagen,
+      horaFin: clase.horaFin.hours ,
+      horaInicio: clase.horaInicio.hours ,
+      fecha: clase.fecha,
+      capacidad: clase.capacidad,
+      id: clase.id,
+      idServicio: clase.idServicio,
+      idEmpleado: clase.idEmpleado,
+    }
+    return this.htpp.post(this.Url + 'Clase', claseAenviar);
   }
 
   // tslint:disable-next-line:typedef
@@ -710,7 +720,7 @@ export class ServiciosService {
    * @returns 
    */
   public postTratamientoSucursal(idSucursal: number, idTratamiento: number) {
-    return this.htpp.post(this.Url + "TratamientoSucursal/"+ idTratamiento, idSucursal);
+    return this.htpp.post(this.Url + "TratamientoSucursal/"+ idTratamiento+'/'+ idSucursal, "");
   }
 
   /**
@@ -730,7 +740,7 @@ export class ServiciosService {
    * @returns 
    */
   public postProductoSucursal(idSucursal: number, idProducto: number) {
-    return this.htpp.post(this.Url + "ProductoSucursal/"+ idProducto, idSucursal);
+    return this.htpp.post(this.Url + "ProductoSucursal/"+ idProducto + '/' + idSucursal, "");
   }
 
   /**

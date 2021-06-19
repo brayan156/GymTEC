@@ -22,13 +22,26 @@ export class CrearClaseComponent implements OnInit {
     this.service.obtenerListasServicio().subscribe(servicios => {
       this.tiposClase = servicios;
       this.service.obtenerListaEmpleados().subscribe(empleados => {
-        this.instructores = empleados.filter(p => p.idPuesto == 1);
+        this.instructores = empleados.filter(p => p.idPuesto == 2);
       })
     })
   }
 
   crearClase() {
     console.log(this.clase);
-    this.service.agregarClase(this.clase);
+    // let tmpHour = new Date(this.clase.horaInicio);
+    // this.clase.horaInicio = String(tmpHour.getHours());
+
+    // tmpHour = new Date(this.clase.horaFin);
+    // this.clase.horaFin = String(tmpHour.getHours());
+    let tmpService = this.tiposClase.find(c => c.id == this.clase.idServicio);
+    let tmpInstruct = this.instructores.find(c => c.cedula == this.clase.idEmpleado);
+    if (tmpService?.idSucursal == tmpInstruct?.idSucursal) {
+      this.service.agregarClase(this.clase).subscribe(resp => {
+      });
+    } else {
+      alert("Las sucursales no corresponden.");
+    }
+
   }
 }

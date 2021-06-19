@@ -1,10 +1,12 @@
+import { Time } from "@angular/common";
+
 export class Clase {
   imagen: string;
-  horaFin: string;
-  horaInicio: string;
+  horaFin: Time ;
+  horaInicio: Time ;
   fecha: string;
   capacidad: number;
-  id: string;
-  idServicio: string;
-  idEmpleado: string;
+  id: number;
+  idServicio: number;
+  idEmpleado: number;
 }
