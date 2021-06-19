@@ -18,7 +18,7 @@ namespace Gymtec_API.Controllers
 
         private gymtecdatabaseEntities1 db = new gymtecdatabaseEntities1();
        
-        // GET: api/PDF/5
+        // GET: api/PDF/1
         [HttpGet]
         [Route("api/PDF/{idSucursal}")]
         public HttpResponseMessage GenerateReport(int idSucursal)
@@ -41,8 +41,6 @@ namespace Gymtec_API.Controllers
             Warning[] warnings;
             ReportParameter p = new ReportParameter("sucursal", db.Sucursal.Find(idSucursal).nombre);
             report.SetParameters(p);
-
-
             byte[] bytes = report.Render("PDF", "", out mimeType,
                 out encoding, out extension, out stream, out warnings);
             var result = new HttpResponseMessage(HttpStatusCode.OK)
@@ -52,7 +50,7 @@ namespace Gymtec_API.Controllers
             result.Content.Headers.ContentDisposition =
                 new System.Net.Http.Headers.ContentDispositionHeaderValue("attachment")
                 {
-                    FileName = "Report.pdf"
+                    FileName = "PlanillaGymTEC.pdf"
                 };
             result.Content.Headers.ContentType =
                 new System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");

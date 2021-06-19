@@ -52,6 +52,25 @@ namespace Gymtec_API.Controllers
                 return BadRequest();
             }
 
+            var ebase = db.Empleado.Find(id);
+
+
+
+            if (empleado.contrasena != ebase.contrasena)
+            {
+                string hash = "holanosoyelhash";
+                byte[] data = Encoding.UTF8.GetBytes(empleado.contrasena);
+                MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
+                TripleDESCryptoServiceProvider tripDES = new TripleDESCryptoServiceProvider();
+                tripDES.Key = md5.ComputeHash(Encoding.UTF8.GetBytes(hash));
+                tripDES.Mode = CipherMode.ECB;
+                ICryptoTransform transform = tripDES.CreateEncryptor();
+                byte[] result = transform.TransformFinalBlock(data, 0, data.Length);
+                var encriptado = Convert.ToBase64String(result);
+                empleado.contrasena = encriptado;
+
+            }
+
             db.Entry(empleado).State = EntityState.Modified;
 
             try

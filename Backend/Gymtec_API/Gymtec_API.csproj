@@ -369,9 +369,6 @@
     <Compile Include="Tratamiento.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="tratamientos_asociados.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="tratamientos_gimnasio_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

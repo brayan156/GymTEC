@@ -39,7 +39,7 @@ namespace Gymtec_API.Controllers
 
         [HttpGet]
         [Route("api/StoreProcedures/productos_gimnasio/{idsucursal}")]
-        public IEnumerable<productos_gimnasio_Result> productos_gimnasio (int idsucursal)
+        public IEnumerable<productos_gimnasio_Result> productos_gimnasio(int idsucursal)
         {
             Debug.WriteLine("en el store");
             return db.productos_gimnasio(idsucursal);
@@ -56,7 +56,7 @@ namespace Gymtec_API.Controllers
 
         [HttpGet]
         [Route("api/StoreProcedures/login_admin/{contrasena}/{correo}")]
-        public IEnumerable<login_admin_Result> login_admin(string contrasena,string correo)
+        public IEnumerable<login_admin_Result> login_admin(string contrasena, string correo)
         {
             Debug.WriteLine("en el store");
 
@@ -70,7 +70,7 @@ namespace Gymtec_API.Controllers
             byte[] result = transform.TransformFinalBlock(data, 0, data.Length);
             var encriptado = Convert.ToBase64String(result);
 
-            return db.login_admin(correo,encriptado);
+            return db.login_admin(correo, encriptado);
         }
 
 
@@ -92,12 +92,15 @@ namespace Gymtec_API.Controllers
         }
 
 
-        [HttpGet]
-        [Route("api/StoreProcedures/filtro_clases")]
-        public IEnumerable<filtro_clases_Result> filtro_clases(dynamic datos)
+        [HttpPost]
+        [Route("api/StoreProcedures/filtro_clases/{fechainicio}/{fechafin}")]
+        public IEnumerable<filtro_clases_Result> filtro_clases(DateTime? fechainicio, DateTime? fechafin, dynamic datos)
         {
             Debug.WriteLine("en el store");
-            return db.filtro_clases(datos["idsucursal"],datos["nombre_servicio"],datos["fechainicio"],datos["fechafin"]);
+            int idsucursal = datos["idsucursal"];
+            string nombre_servicio = datos["nombre_servicio"];
+            int idcliente = datos["idcliente"];
+            return db.filtro_clases(idsucursal, nombre_servicio, fechainicio, fechafin, idcliente);
         }
 
         [HttpGet]
