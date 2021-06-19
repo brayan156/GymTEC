@@ -18,7 +18,7 @@ namespace Gymtec_API.Controllers
 
         private gymtecdatabaseEntities1 db = new gymtecdatabaseEntities1();
        
-        // GET: api/PDF/5
+        // GET: api/PDF/1
         [HttpGet]
         [Route("api/PDF/{idSucursal}")]
         public HttpResponseMessage GenerateReport(int idSucursal)
@@ -48,7 +48,7 @@ namespace Gymtec_API.Controllers
             result.Content.Headers.ContentDisposition =
                 new System.Net.Http.Headers.ContentDispositionHeaderValue("attachment")
                 {
-                    FileName = "Report.pdf"
+                    FileName = "PlanillaGymTEC.pdf"
                 };
             result.Content.Headers.ContentType =
                 new System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
