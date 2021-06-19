@@ -29,11 +29,6 @@ export class CrearClaseComponent implements OnInit {
 
   crearClase() {
     console.log(this.clase);
-    // let tmpHour = new Date(this.clase.horaInicio);
-    // this.clase.horaInicio = String(tmpHour.getHours());
-
-    // tmpHour = new Date(this.clase.horaFin);
-    // this.clase.horaFin = String(tmpHour.getHours());
     let tmpService = this.tiposClase.find(c => c.id == this.clase.idServicio);
     let tmpInstruct = this.instructores.find(c => c.cedula == this.clase.idEmpleado);
     if (tmpService?.idSucursal == tmpInstruct?.idSucursal) {

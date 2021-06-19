@@ -56,12 +56,12 @@
 
                 <div class="form-group input-group">
                     <label for="inicio">Hora de inicio</label>
-                    <input type="time" step="3600" name="inicio" class="form-control" [(ngModel)]="clase.horaInicio" id="inicio"
+                    <input type="number" min="0" max="23" name="inicio" class="form-control" [(ngModel)]="clase.horaInicio" id="inicio"
                         placeholder="Inicio">
                 </div>
                 <div class="form-group input-group">
                     <label for="final">Hora final</label>
-                    <input type="time" step="3600" name="final" class="form-control" [(ngModel)]="clase.horaFin" id="final"
+                    <input type="number" min="0" max="23"  name="final" class="form-control" [(ngModel)]="clase.horaFin" id="final"
                         placeholder="Final">
                 </div>
 

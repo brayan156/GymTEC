@@ -79,17 +79,8 @@ export class ServiciosService {
    * @returns 
    */
   public agregarClase(clase: Clase) {
-    let claseAenviar = {
-      imagen: clase.imagen,
-      horaFin: clase.horaFin.hours ,
-      horaInicio: clase.horaInicio.hours ,
-      fecha: clase.fecha,
-      capacidad: clase.capacidad,
-      id: clase.id,
-      idServicio: clase.idServicio,
-      idEmpleado: clase.idEmpleado,
-    }
-    return this.htpp.post(this.Url + 'Clase', claseAenviar);
+    
+    return this.htpp.post(this.Url + 'Clase', clase);
   }
 
   // tslint:disable-next-line:typedef
