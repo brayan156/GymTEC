@@ -1,7 +1,10 @@
 export class MostrarInventario {
-  nSerie: number;
+  nserie: number;
   marca: string;
   descripcion: string;
-  idSucursal: number;
-  tipoEquio: string;
+  imagen: string;
+  idsucursal: number;
+  tipoEquipo: string;
+  costo: number;
+  nombreSucursal: string;
 }

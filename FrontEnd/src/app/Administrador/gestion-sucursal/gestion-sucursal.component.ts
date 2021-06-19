@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {ServiciosService} from '../../servicios.service';
 import {Sucursal} from '../../Clases/sucursal';
 import {Servicio} from '../../Clases/servicio';
+import {catchError} from 'rxjs/operators';
 
 @Component({
   selector: 'app-gestion-sucursal',
@@ -40,15 +41,20 @@ export class GestionSucursalComponent implements OnInit {
   }
 
   public eliminarSucursal(sucursal: Sucursal): void{
+    try{
     this.service.eliminarSucursal(sucursal.id).subscribe(a => {
       console.log(a);
       this.ngOnInit();
     });
+    }
+    catch (e) {
+      this.alerta();
+    }
   }
 
   public ActivarDesactivarSpa(sucursal: Sucursal): void{
     sucursal.spaActivo = !sucursal.spaActivo;
-    this.service.editarSucursal(sucursal.id , sucursal).subscribe(a =>{
+    this.service.editarSucursal(sucursal.id , sucursal).subscribe(a => {
       console.log(a);
       this.ngOnInit();
     });
@@ -63,10 +69,17 @@ export class GestionSucursalComponent implements OnInit {
   }
 
   public copiarSucursal(sucursal: Sucursal): void{
-    this.service.copiarGimnasio(sucursal).subscribe(respuesta =>
-    console.log(respuesta));
+    this.service.copiarGimnasio(sucursal).subscribe(respuesta => {
+      console.log(respuesta);
+      this.ngOnInit();
+    });
   }
+
   public obtenerInformacionItem(sucursal: Sucursal): void{
     this.sucursalActual = sucursal;
+  }
+
+  public alerta(): void{
+    alert('Error favor desligar todos los servicios,Empleados,Equipos de esta sucursal');
   }
 }

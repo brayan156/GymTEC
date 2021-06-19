@@ -39,6 +39,10 @@ namespace Gymtec_API.Controllers
             string encoding;
             string[] stream;
             Warning[] warnings;
+            ReportParameter p = new ReportParameter("sucursal", db.Sucursal.Find(idSucursal).nombre);
+            report.SetParameters(p);
+
+
             byte[] bytes = report.Render("PDF", "", out mimeType,
                 out encoding, out extension, out stream, out warnings);
             var result = new HttpResponseMessage(HttpStatusCode.OK)

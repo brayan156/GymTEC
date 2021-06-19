@@ -5,6 +5,7 @@ import {Empleado} from '../../Clases/empleado';
 import {MostrarEmpleado} from '../../Clases/mostrar-empleado';
 import {Sucursal} from '../../Clases/sucursal';
 import {Puesto} from '../../Clases/puesto';
+import {toNumbers} from '@angular/compiler-cli/src/diagnostics/typescript_version';
 
 @Component({
   selector: 'app-gestion-empleado',
@@ -13,45 +14,75 @@ import {Puesto} from '../../Clases/puesto';
 })
 export class GestionEmpleadoComponent implements OnInit {
 
+  constructor(private service: ServiciosService) { }
+
+
+
   listaEmpleado: MostrarEmpleado[] = [];
   EmpleadoActual: Empleado = new Empleado();
+
   empleado: Empleado = new Empleado();
+  empleadoActual: Empleado = new Empleado();
 
   listaSucursal: Sucursal[] = [];
   sucursalEmpleado: Sucursal = new Sucursal();
 
-  ListaPuesto: Puesto[] = [];
+  listaPuesto: Puesto[] = [];
   puestoEmpleado: Puesto = new Puesto();
 
-  ListaPlanillas: Planilla[] = [];
+  listaPlanillas: Planilla[] = [];
   planillaEmpleado: Planilla = new Planilla();
-
-  constructor(private service: ServiciosService) { }
-
+  aux: number;
 
   ngOnInit(): void {
     this.service.obtenerListasMostrarEmpleado().subscribe(lista => {
       this.listaEmpleado = lista;
       console.log(this.listaEmpleado);
+      this.service.obtenerListasSucursal().subscribe(lista2 =>{
+        this.listaSucursal = lista2;
+        console.log(lista2);
+      });
+      this.service.obtenerListasPlanillas().subscribe(lista3 => {
+        this.listaPlanillas = lista3;
+        console.log(lista3);
+      });
+      this.service.obtenerListasPuesto().subscribe(lista4 => {
+        this.listaPuesto = lista4;
+        console.log(this.listaPuesto);
+      });
     });
   }
-  
+  // tslint:disable-next-line:ban-types
+  public obtenerId(): void{
+    console.log(this.empleado);
+  }
+
+  public obtenerEmpleado(id: number): void{
+    this.service.obtenerEmpleado(id).subscribe(emple => {
+      this.empleadoActual = emple;
+    });
+  }
   public crearEmpleado(empleado: Empleado): void{
-    this.service.agregarEmpleado(empleado).subscribe(respuesta =>
-      console.log(respuesta));
-    this.ngOnInit();
+    this.obtenerId();
+    this.service.agregarEmpleado(empleado).subscribe(respuesta => {
+      console.log(respuesta);
+      this.ngOnInit();
+    });
   }
 
   public editarEmpleado(empleado: Empleado): void{
-    this.service.editarEmpleado(empleado.cedula , empleado).subscribe(respuesta =>
-      console.log(respuesta));
-    this.ngOnInit();
+    this.service.editarEmpleado(empleado.cedula , empleado).subscribe(respuesta => {
+      console.log(respuesta);
+      this.ngOnInit();
+    });
+
   }
 
   public eliminarEmpleado(empleado: Empleado): void{
-    this.service.eliminaEmpleado(empleado.cedula).subscribe(respuesta =>
-      console.log(respuesta));
-    this.ngOnInit();
+    this.service.eliminaEmpleado(empleado.cedula).subscribe(respuesta =>{
+      console.log(respuesta);
+      this.ngOnInit();
+    });
   }
 
 

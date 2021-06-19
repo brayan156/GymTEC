@@ -2,13 +2,15 @@ export class Empleado {
   cedula: number;
   email: string;
   contrasena: string;
-  primerApellido: string;
-  segudoApellido: string;
+  // tslint:disable-next-line:variable-name
+  primer_apellido: string;
+  // tslint:disable-next-line:variable-name
+  segundo_apellido: string;
   nombre: string;
   distrito: string;
   canton: string;
-  provinvia: string;
   salario: number;
+  provincia: string;
   idSucursal: number;
   idPuesto: number;
   idPlanilla: number;

@@ -15,9 +15,9 @@
       </div>
       <div class="card-footer">
         <button class="btn btn-primary margen"  data-bs-toggle="modal" data-bs-target="#editarEmpleado"
-        >Editar</button>
+        (click)="obtenerEmpleado(item.cedula)">Editar</button>
         <button class="btn btn-danger margen"  data-bs-toggle="modal" data-bs-target="#eliminarEmpleado"
-        >Eliminar</button>
+                (click)="obtenerEmpleado(item.cedula)">Despedir</button>
       </div>
     </div>
   </div>
@@ -32,86 +32,99 @@
     </div>
     <div class="modal-body">
       <form class="row">
-
         <div class="tamano3">
-          <label>Nombre Completo:</label>
-          <input type="text" class="form-control" name="nombre" id="Nombre de empleado" required="">
+          <label>Cedula:</label>
+          <input type="number" class="form-control" name="nombre" id="EcedulaEmpleado" required="" #cedula="ngModel"
+                 [(ngModel)]="empleado.cedula">
         </div>
 
         <div class="tamano3">
-          <label>Numero de cedula:</label>
-          <input type="text" class="form-control" name="nombre" id="cedula" required="">
+          <label>Nombre:</label>
+          <input type="text" class="form-control" name="nombre" id="ENombredeempleado" required="" #nombre="ngModel"
+                 [(ngModel)]="empleado.nombre">
         </div>
 
+        <div class="tamano3">
+          <label>Primer Apellido:</label>
+          <input type="text" class="form-control" name="nombre" id="EApellido1deempleado" required=""
+                 #primerApellidp="ngModel"  [(ngModel)]="empleado.primer_apellido">
+        </div>
+
+        <div class="tamano3">
+          <label>Segundo Apellido:</label>
+          <input type="text" class="form-control" name="nombre" id="EApellido2deempleado" required=""
+                 #segundoApellido="ngModel" [(ngModel)]="empleado.segundo_apellido">
+        </div>
 
         <div class="tamano3">
           <label>Correo Electronico:</label>
-          <input type="email" class="form-control" name="nombre" id="correoEmpleado" required="">
+          <input type="email" class="form-control" name="correo" id="EcorreoEmpleado" required=""
+                 #correo="ngModel" [(ngModel)]="empleado.email">
         </div>
 
 
         <div class="tamano3">
           <label>Password:</label>
-          <input type="password" class="form-control" name="nombre" id="passwordEmpleadp" required="">
+          <input type="password" class="form-control" name="contrasena" id="EpasswordEmpleadp" required=""
+                 #contrasena="ngModel" [(ngModel)]="empleado.contrasena">
         </div>
 
         <div class="row">
           <label>Dirrecion del Empleado:</label>
           <div class="col">
             <label>Provincia:</label>
-            <input type="text" class="form-control" name="pronvincia" id="pronvincia" required="">
+            <input type="text" class="form-control" name="pronvincia" id="Epronvincia" required=""
+                   #provinvia="ngModel" [(ngModel)]="empleado.provincia">
           </div>
           <div class="col">
             <label>Canton:</label>
-            <input type="text" class="form-control" name="canton" id="canton" required="">
+            <input type="text" class="form-control" name="canton" id="Ecanton" required=""
+                   #canton="ngModel" [(ngModel)]="empleado.canton">
           </div>
           <div class="col">
             <label>Distrito:</label>
-            <input type="text" class="form-control" name="distrito" id="distrito" required="">
+            <input type="text" class="form-control" name="distrito" id="Edistrito" required=""
+                   #distrito="ngModel" [(ngModel)]="empleado.distrito">
           </div>
         </div>
 
-        <div>
+        <div class="form-group">
           <label>Puesto:</label>
-          <select class="form-select" id="puesto" name="6" required="">
-            <optgroup label="">
-              <option> </option>
-            </optgroup>
+          <select class="form-select input-group" id="puesto" [(ngModel)]='empleado.idPuesto' name="puesto" required
+                  [ngModelOptions]="{standalone: true}">
+            <option *ngFor="let puesto of listaPuesto" value="{{puesto.id}}"> {{puesto.nombre}}</option>
           </select>
         </div>
 
-        <div class="tamano3">
+        <div class="form-group">
           <label>Sucursal:</label>
-          <select class="form-select" id="sucursal" name="6" required="">
-            <optgroup label="">
-              <option> </option>
-            </optgroup>
+          <select class="form-select input-group" id="sucursal" [(ngModel)]='empleado.idSucursal' name="sucursal" required
+                  [ngModelOptions]="{standalone: true}">
+            <option *ngFor="let sucursalSele of listaSucursal" value="{{sucursalSele.id}}"> {{sucursalSele.nombre}}</option>
           </select>
         </div>
 
-        <div class="row">
-          <div class="col">
-            <label>Tipo de planilla:</label>
-            <select class="form-select" id="planilla" name="6" required="">
-              <optgroup label="">
-                <option> </option>
-              </optgroup>
-            </select>
-          </div>
-
-          <div class="col">
-            <label>Salario:</label>
-            <input type="number" class="form-control" name="distrito" id="salario" required="">
-          </div>
-
-          <div class="modal-footer">
-
-            <button type="submit" class="btn btn-primary" name="7">Aceptar</button>
-
-            <button class="btn btn-danger" name="7"  data-bs-dismiss="modal">Cancelar</button>
-
-          </div>
+        <div class="form-group">
+          <label>Planilla:</label>
+          <select class="form-select input-group" id="planilla" [(ngModel)]='empleado.idPlanilla' name="planilla" required
+                  [ngModelOptions]="{standalone: true}">
+            <option *ngFor="let planilla of listaPlanillas" value="{{planilla.id}}"> {{planilla.Tipo}}</option>
+          </select>
         </div>
+
+        <div class="col">
+          <label>Salario:</label>
+          <input type="number" class="form-control" name="salario" id="salario" required="" #salario="ngModel"
+                 [(ngModel)]="empleado.salario">
+        </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" name="7" data-bs-dismiss="modal"
+                  (click)="crearEmpleado(empleado)">Aceptar</button>
+
+          <button class="btn btn-danger" name="7"  data-bs-dismiss="modal">Cancelar</button>
+        </div>
+
 
       </form>
     </div>
@@ -132,69 +145,75 @@
 
           <div class="tamano3">
             <label>Correo Electronico:</label>
-            <input type="email" class="form-control" name="nombre" id="EditarimagenSucursal" required="">
+            <input type="email" class="form-control" name="correo" id="correoEmpleado" required=""
+                   #correo="ngModel" [(ngModel)]="empleadoActual.email">
           </div>
+
 
           <div class="tamano3">
             <label>Password:</label>
-            <input type="password" class="form-control" name="nombre" id="EditarpasswordEmpleado" required="">
+            <input type="password" class="form-control" name="contrasena" id="passwordEmpleadp" required=""
+                   #contrasena="ngModel" [(ngModel)]="empleadoActual.contrasena">
           </div>
-
 
           <div class="row">
             <label>Dirrecion del Empleado:</label>
             <div class="col">
               <label>Provincia:</label>
-              <input type="text" class="form-control" name="pronvincia" id="Editarpronvincia" required="">
+              <input type="text" class="form-control" name="pronvincia" id="pronvincia" required=""
+                     #provinvia="ngModel" [(ngModel)]="empleadoActual.provincia">
             </div>
             <div class="col">
               <label>Canton:</label>
-              <input type="text" class="form-control" name="canton" id="Editarcanton" required="">
+              <input type="text" class="form-control" name="canton" id="canton" required=""
+                     #canton="ngModel" [(ngModel)]="empleadoActual.canton">
             </div>
             <div class="col">
               <label>Distrito:</label>
-              <input type="text" class="form-control" name="distrito" id="Editardistrito" required="">
+              <input type="text" class="form-control" name="distrito" id="distrito" required=""
+                     #distrito="ngModel" [(ngModel)]="empleadoActual.distrito">
             </div>
           </div>
 
-          <div>
+          <div class="form-group">
             <label>Puesto:</label>
-            <select class="form-select" id="Editarpuesto" name="6" required="">
-              <optgroup label="">
-                <option> </option>
-              </optgroup>
+            <select class="form-select input-group" id="Epuesto" [(ngModel)]='empleadoActual.idPuesto' name="puesto" required
+                    [ngModelOptions]="{standalone: true}">
+              <option *ngFor="let puesto of listaPuesto" value="{{puesto.id}}"> {{puesto.nombre}}</option>
             </select>
           </div>
 
-          <div class="tamano3">
+          <div class="form-group">
             <label>Sucursal:</label>
-            <select class="form-select" id="editarsucursal" name="6" required="">
-              <optgroup label="">
-                <option> </option>
-              </optgroup>
+            <select class="form-select input-group" id="Esucursal" [(ngModel)]='empleadoActual.idSucursal' name="sucursal" required
+                    [ngModelOptions]="{standalone: true}">
+              <option *ngFor="let sucursalSele of listaSucursal" value="{{sucursalSele.id}}"> {{sucursalSele.nombre}}</option>
             </select>
           </div>
 
-          <div class="row">
-            <div class="col">
-              <label>Tipo de planilla:</label>
-              <select class="form-select" id="editarlanilla" name="6" required="">
-                <optgroup label="">
-                  <option> </option>
-                </optgroup>
-              </select>
-            </div>
+          <div class="form-group">
+            <label>Planilla:</label>
+            <select class="form-select input-group" id="Eplanilla" [(ngModel)]='empleadoActual.idPlanilla' name="planilla" required
+                    [ngModelOptions]="{standalone: true}">
+              <option *ngFor="let planilla of listaPlanillas" value="{{planilla.id}}"> {{planilla.Tipo}}</option>
+            </select>
+          </div>
 
-            <div class="col">
-              <label>Salario:</label>
-              <input type="number" class="form-control" name="distrito" id="Editarsalario" required="">
-            </div>
+          <div class="col">
+            <label>Salario:</label>
+            <input type="number" class="form-control" name="salario" id="Esalario" required="" #salario="ngModel"
+                   [(ngModel)]="empleadoActual.salario">
+          </div>
+
           <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" name="7">Aceptar</button>
+
+            <button type="submit" class="btn btn-primary" name="7" data-bs-dismiss="modal"
+                    (click)="editarEmpleado(empleadoActual)">Aceptar</button>
 
             <button class="btn btn-danger" name="7"  data-bs-dismiss="modal">Cancelar</button>
+
           </div>
-          </div>
+
         </form>
       </div>
     </div>
@@ -222,11 +241,12 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 class="modal-title" id="eliminarPuestoLabel">Esta Seguro que desea eliminar el Empleado: Numero de cedula, Nombre:</h3>
+        <h3 class="modal-title" id="eliminarPuestoLabel">Esta Seguro que desea despedir al Empleado: {{empleadoActual.cedula}}
+          , {{empleadoActual.nombre}}</h3>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" name="7">Aceptar</button>
+        <button type="submit" class="btn btn-primary" name="7" data-bs-dismiss="modal" (click)="eliminarEmpleado(empleadoActual)">Aceptar</button>
 
         <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
       </div>

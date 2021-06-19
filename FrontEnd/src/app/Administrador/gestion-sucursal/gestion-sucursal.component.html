@@ -38,7 +38,7 @@
           <div class="row">
             <button class="btn btn-dark btn2" data-bs-toggle="modal" data-bs-target="#CopiarSucursal"
                     (click)="obtenerInformacionItem(item)">Copiar Sucursal</button>
-            <button class="btn btn-dark btn3" data-bs-toggle="modal" data-bs-target="#CopiarSucursal">Eliminar Sucursal</button>
+            <button class="btn btn-dark btn3" (click)="eliminarSucursal(item)">Eliminar Sucursal</button>
           </div>
         </div>
       </div>
@@ -210,7 +210,7 @@
 
 
           <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="creaSucursal(sucursalActual)">
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="editarSucursal(sucursalActual)">
               Aceptar</button>
 
             <button class="btn btn-danger" name="7"  data-bs-dismiss="modal">Cancelar</button>
@@ -256,16 +256,9 @@
           </div>
 
 
-          <div class="tamano3">
-            <label>Fecha de apertura:</label>
-            <input type="date" class="form-control" name="fechaA" id="Cofecha"#fechaA="ngModel"
-                   [(ngModel)]="sucursalActual.fechaApertura" >
-          </div>
-
-
 
           <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" name="7" (click)="copiarSucursal(sucursalActual)">Aceptar</button>
+            <button type="submit" class="btn btn-primary" name="7" data-bs-dismiss="modal" (click)="copiarSucursal(sucursalActual)">Aceptar</button>
 
             <button data-bs-dismiss="modal" class="btn btn-danger" name="7">Cancelar</button>
           </div>

@@ -5,6 +5,6 @@ export class Clase {
   fecha: string;
   capacidad: number;
   id: string;
-  idServicio: number;
+  idServicio: string;
   idEmpleado: string;
 }

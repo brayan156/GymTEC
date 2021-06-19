@@ -13,27 +13,39 @@ import {ServiciosService} from '../../servicios.service';
 export class GestionProductosComponent implements OnInit {
   producto: Producto = new Producto();
   listaDeProductos: Producto[] = [];
-  ActualProducto: Producto = new Producto();
+  actualProducto: Producto = new Producto();
   constructor(private service: ServiciosService) { }
 
   ngOnInit(): void {
+    this.service.obtenerListasProducto().subscribe(lista => {
+    this.listaDeProductos = lista;
+    console.log(this.listaDeProductos);
+    });
   }
 
   public crearProducto(producto: Producto): void{
-    this.service.agregarProducto(producto).subscribe(respuesta =>
-      console.log(respuesta));
-    this.ngOnInit();
+    this.service.agregarProducto(producto).subscribe(respuesta => {
+      console.log(respuesta);
+      this.ngOnInit();
+    });
   }
 
   public editarProducto(producto: Producto): void{
-    this.service.editarProducto(producto.codigoBarras , producto).subscribe(a =>
-      console.log(a));
-    this.ngOnInit();
+    this.service.editarProducto(producto.codigoBarras , producto).subscribe(a => {
+      console.log(a);
+      this.ngOnInit();
+    });
   }
 
   public eliminarProducto(producto: Producto): void{
-    this.service.eliminarProducto(producto.codigoBarras).subscribe(a =>
-      console.log(a));
-    this.ngOnInit();
+    this.service.eliminarProducto(producto.codigoBarras).subscribe(a => {
+      console.log(a);
+      this.ngOnInit();
+    });
+
+  }
+
+  public obtenerInformacionItem(producto: Producto): void{
+    this.actualProducto = producto;
   }
 }
