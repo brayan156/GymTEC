@@ -15,6 +15,8 @@ import {Tratamiento} from './Clases/tratamiento';
 import { GenerarPlanilla } from './Clases/generar_planilla';
 import { FiltroClase } from './Clases/filtro_clase';
 import { FiltroClaseCliente } from './Clases/filtro_clase_cliente';
+import {MostrarEmpleado} from './Clases/mostrar-empleado';
+import {MostrarInventario} from './Clases/mostrar-inventario';
 import { TratamientosGym } from './Clases/tratamiento_gym';
 import { InventarioGym } from './Clases/inventario-gym';
 import { ProductoGym } from './Clases/productos-gym';
@@ -753,6 +755,10 @@ export class ServiciosService {
     return this.htpp.get<MostrarEmpleado>(this.Url + 'mostrar_empleados/' + id);
   }
 
+  // tslint:disable-next-line:typedef
+  public obtenerListaMostrarInventario(){
+    return this.htpp.get<MostrarInventario[]>(this.Url + 'mostrar_inventario/');
+  }
 
   /**
    * Obtiene la lista de MostrarEmpleado

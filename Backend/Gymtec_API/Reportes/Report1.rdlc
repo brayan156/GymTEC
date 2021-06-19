@@ -64,8 +64,6 @@
             <Source>Embedded</Source>
             <Value>Planilla11</Value>
             <Sizing>Fit</Sizing>
-            <Top>0cm</Top>
-            <Left>0cm</Left>
             <Height>29.7cm</Height>
             <Width>21cm</Width>
             <Style>
@@ -384,7 +382,7 @@
             <Top>13.7914cm</Top>
             <Left>0.90287cm</Left>
             <Height>0.6cm</Height>
-            <Width>18.94304cm</Width>
+            <Width>18.94303cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -410,7 +408,7 @@
             <Top>9.0156cm</Top>
             <Left>3.24711cm</Left>
             <Height>0.74432cm</Height>
-            <Width>3.90769cm</Width>
+            <Width>4.67498cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -437,10 +435,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>10.09952cm</Top>
+            <Top>9.90103cm</Top>
             <Left>3.75883cm</Left>
             <Height>0.74432cm</Height>
-            <Width>3.76813cm</Width>
+            <Width>4.16326cm</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>

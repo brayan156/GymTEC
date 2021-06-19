@@ -12,10 +12,6 @@ import { GestionDePuestosComponent } from './Administrador/gestion-de-puestos/ge
 import { GestionTipoPlanillaComponent } from './Administrador/gestion-tipo-planilla/gestion-tipo-planilla.component';
 import { GestionEmpleadoComponent } from './Administrador/gestion-empleado/gestion-empleado.component';
 import { GeneracionPlanillaComponent } from './Administrador/generacion-planilla/generacion-planilla.component';
-import { AsociacionTratamientosComponent } from './Dashboard/asociacion-tratamientos/asociacion-tratamientos.component';
-import { AsociacionProductosComponent } from './Dashboard/asociacion-productos/asociacion-productos.component';
-import { AsociacionInventarioComponent } from './Dashboard/asociacion-inventario/asociacion-inventario.component';
-import { CrearClaseComponent } from './Dashboard/crear-clase/crear-clase.component';
 import { FormsModule } from '@angular/forms';
 import { GestionTipoEquiposComponent } from './Administrador/gestion-tipo-equipos/gestion-tipo-equipos.component';
 import { GestionServiciosComponent } from './Administrador/gestion-servicios/gestion-servicios.component';
@@ -33,10 +29,7 @@ import { GestionProductosComponent } from './Administrador/gestion-productos/ges
     GestionTipoPlanillaComponent,
     GestionEmpleadoComponent,
     GeneracionPlanillaComponent,
-    AsociacionTratamientosComponent,
-    AsociacionProductosComponent,
-    AsociacionInventarioComponent,
-    CrearClaseComponent,
+
     GestionTipoEquiposComponent,
     GestionServiciosComponent,
     GestionInventarioComponent,

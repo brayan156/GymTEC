@@ -170,8 +170,8 @@
           <Property Name="idSucursal" Type="int" Nullable="false" />
           <Property Name="idTratamiento" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_clases' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'gymtecdatabase.dbo.mostrar_clases' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="mostrar_clases">
           <Key>
             <PropertyRef Name="id" />
@@ -189,8 +189,8 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_clases' no tiene 
           <Property Name="segundo_apellido" Type="varchar" MaxLength="50" />
           <Property Name="nombreSucursal" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_empleados' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'gymtecdatabase.dbo.mostrar_empleados' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="mostrar_empleados">
           <Key>
             <PropertyRef Name="cedula" />
@@ -215,8 +215,8 @@ advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_empleados' no tie
           <Property Name="idSucursal" Type="int" />
           <Property Name="nombreSucursal" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'gymtecdatabase.dbo.mostrar_inventario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'gymtecdatabase.dbo.mostrar_inventario' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="mostrar_inventario">
           <Key>
             <PropertyRef Name="nserie" />

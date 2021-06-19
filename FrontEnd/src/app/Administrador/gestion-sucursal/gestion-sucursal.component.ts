@@ -69,7 +69,7 @@ export class GestionSucursalComponent implements OnInit {
   }
 
   public copiarSucursal(sucursal: Sucursal): void{
-    this.service.copiar_gimnasio(sucursal).subscribe(respuesta => {
+    this.service.copiarGimnasio(sucursal).subscribe(respuesta => {
       console.log(respuesta);
       this.ngOnInit();
     });

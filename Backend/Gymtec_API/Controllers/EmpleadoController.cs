@@ -52,7 +52,6 @@ namespace Gymtec_API.Controllers
                 return BadRequest();
             }
 
-
             var ebase = db.Empleado.Find(id);
 
 
@@ -71,7 +70,6 @@ namespace Gymtec_API.Controllers
                 empleado.contrasena = encriptado;
 
             }
-
 
             db.Entry(empleado).State = EntityState.Modified;
 
