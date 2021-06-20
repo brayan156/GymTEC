@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EventInput, CalendarOptions, EventApi, DateSelectArg, EventClickArg } from '@fullcalendar/angular';
+import { EventInput, CalendarOptions, EventApi, DateSelectArg, EventClickArg, EventSourceInput } from '@fullcalendar/angular';
 import { FiltroClase } from 'src/app/Clases/filtro_clase';
 import { FiltroClaseCliente } from 'src/app/Clases/filtro_clase_cliente';
 import { Servicio } from 'src/app/Clases/servicio';
@@ -35,6 +35,23 @@ export class CalendarioComponent implements OnInit {
       this.SucursalesDisponibles = sucursales;
       this.service.obtenerListasServicio().subscribe(servicios => {
         this.ServiciosDisponibles = servicios;
+        this.service.mostrarClases().subscribe(resp => {
+          this.misClases = resp;
+          console.log(resp);
+
+          let tmp: { title: string, date: string }[] = [];
+            resp.forEach(clase => {
+              let date = new Date(clase.fecha);
+              date.setHours(clase.horaInicio);
+              let stringDate = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + 'T' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+
+              tmp.push({
+                title: clase.nombreServicio + ": " + clase.horaInicio + '-' + clase.horaFin,
+                date: clase.fecha
+              })
+            })
+          this.calendarOptions.events = tmp;
+        })
       });
     });
   }
@@ -104,12 +121,9 @@ export class CalendarioComponent implements OnInit {
     this.currentEvents = events;
   }
 
-  buscarClase() {
-    this.handleDateSelect.bind(this);
-    console.log(this.clase);
-    this.service.filtro_clases(this.clase.idSucursal, this.clase.servicio, this.clase.inicio, this.clase.final).subscribe(resp => {
-      this.clasesBusqueda = resp;
-      console.log(resp);
+  copiarCalendario() {
+    this.service.copiar_calendario(this.clase.inicio, this.clase.final).subscribe(data => {
+      this.ngOnInit();
     })
   }
 
