@@ -1,0 +1,81 @@
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+</head>
+
+<html>
+
+<body>
+    <div class="container">
+        <div class="LoginForm">
+            <h2>Crear una clase</h2>
+            <form id="form">
+                <div class="form-group">
+                    
+                    <select class="form-select input-group" id="tipo" [(ngModel)]="clase.idServicio" [ngModelOptions]="{standalone: true}" name="tipo" required>
+                        <!-- <optgroup label=""> -->
+                        <option *ngFor="let tipo of tiposClase" value="{{tipo.id}}"> {{tipo.nombre}} - Sucursal {{tipo.idSucursal}} </option>
+                        <!-- </optgroup> -->
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <select class="form-select input-group" id="instructor" [(ngModel)]="clase.idEmpleado" name="instructor" required>
+                        <!-- <optgroup label=""> -->
+                        <option *ngFor="let instructor of instructores" value="{{instructor.cedula}}"> {{instructor.nombre}} - Sucursal {{instructor.idSucursal}}</option>
+                        <!-- </optgroup> -->
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <select class="form-select input-group" id="grupal"  name="grupal" required>
+                        <!-- <optgroup label=""> -->
+                        <option value="true"> Grupal</option>
+                        <option value="false"> Individual</option>
+                        <!-- </optgroup> -->
+                    </select>
+                </div>
+                <!-- <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Individual
+                    </label>
+                </div> -->
+
+                <div class="form-group input-group">
+                    <label for="capacidad">Capacidad</label>
+                    <input type="number" min="0" name="capacidad" class="form-control" [(ngModel)]="clase.capacidad"
+                        id="capacidad" placeholder="Capacidad">
+                </div>
+
+                <div class="form-group input-group">
+                    <label for="fecha">Fecha</label>
+                    <input type="date" name="fecha" class="form-control" [(ngModel)]="clase.fecha" id="fecha"
+                        placeholder="Fecha">
+                </div>
+
+                <div class="form-group input-group">
+                    <label for="inicio">Hora de inicio</label>
+                    <input type="number" min="0" max="23" name="inicio" class="form-control" [(ngModel)]="clase.horaInicio" id="inicio"
+                        placeholder="Inicio">
+                </div>
+                <div class="form-group input-group">
+                    <label for="final">Hora final</label>
+                    <input type="number" min="0" max="23"  name="final" class="form-control" [(ngModel)]="clase.horaFin" id="final"
+                        placeholder="Final">
+                </div>
+
+                <button type="submit" (click)="this.crearClase()" class="btn btn-primary">Crear</button>
+            </form>
+        </div>
+    </div>
+
+    
+
+</body>
+
+</html>
+
+<script>
+
+</script>

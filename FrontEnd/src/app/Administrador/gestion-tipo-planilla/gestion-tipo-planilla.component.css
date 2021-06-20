@@ -1,0 +1,30 @@
+.largo{
+  width: 70%;
+  margin-left: 15%;
+  margin-top: 10px;
+  border-radius: 20px;
+}
+.letras{
+  margin-left: 10px;
+}
+.container{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+.margen{
+  margin-top: 10px;
+  margin-left: 30px;
+  width: 200px;
+}
+
+.margnes{
+  margin-left: 100px;
+  margin-right: auto;
+  margin-top: 10px;
+  border-radius: 50px;
+}
+.modal{
+  background: linear-gradient(65deg, #000000, #641303);
+}

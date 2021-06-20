@@ -1,3 +1,271 @@
 <div class="contenedorPantalla">
-  <p>gestion-sucursal works!</p>
+  <button class="btn btn-dark largo" data-bs-toggle="modal" data-bs-target="#CrearSucursal">Crear una nueva sucursal</button>
+
+
+  <div class="container" *ngFor="let item of ListaSucursales">
+      <div class="row">
+        <div class="col columna1">
+          <img src="{{item.imagen}}">
+        </div>
+        <div class="col columna2">
+          <div class="row"><h3>Nombre de la sucursal: {{item.nombre}}</h3></div>
+          <div class="row"><label>Dirrecion: {{item.provincia}}, {{item.canton}}, {{item.distrito}}</label></div>
+          <div class="row"><label>Fecha de Apertura {{item.fechaApertura}}</label></div>
+          <div class="row"><label>Horario de Atencion {{item.horaInicio}}: 00 / {{item.horaFinal}}: 00</label></div>
+
+        </div>
+        <div class="col">
+          <div class="row"><label>Capacidad Maxima: {{item.capacidad}}</label></div>
+
+        </div>
+        <div class="col columna4">
+          <mat-slide-toggle class="row" [(ngModel)]="item.spaActivo" (click)="ActivarDesactivarSpa(item)">SPA</mat-slide-toggle>
+        </div>
+
+        <div class="col columna4">
+          <mat-slide-toggle class="row" [(ngModel)]="item.tiendaActiva" (click)="ActivarDesactivarTienda(item)">Tienda</mat-slide-toggle>
+        </div>
+
+        <div class="col">
+          <div class="row tamano">
+            <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#EditarSucursal"  (click)="obtenerInformacionItem(item)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+                <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+                <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
+              </svg>
+            </button>
+          </div>
+          <div class="row">
+            <button class="btn btn-dark btn2" data-bs-toggle="modal" data-bs-target="#CopiarSucursal"
+                    (click)="obtenerInformacionItem(item)">Copiar Sucursal</button>
+            <button class="btn btn-dark btn3" (click)="eliminarSucursal(item)">Eliminar Sucursal</button>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
+
+
+<div class="modal fade" id="CrearSucursal" tabindex="-1" aria-labelledby="CrearSucursalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLabel">Nueva Sucursal</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="row">
+
+          <div class="tamano3">
+            <label>Nombre de la Sucursal:</label>
+            <input type="text" class="form-control" name="nombre" id="nombreSucursal" required="" #nombre="ngModel"
+                   [(ngModel)]="sucursal.nombre">
+          </div>
+
+          <div class="tamano3">
+            <label>Imagen de la Sucursal:</label>
+            <input type="text" class="form-control" name="nombre" id="imagenSucursal" required="" #imagen="ngModel"
+                   [(ngModel)]="sucursal.imagen">
+          </div>
+
+          <div class="row">
+            <label>Dirrecion de sucursal:</label>
+            <div class="col">
+              <input type="text" class="form-control" name="pronvincia" id="pronvincia" required="" #provinca="ngModel"
+                     [(ngModel)]="sucursal.provincia">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" name="canton" id="canton" required="" #canton="ngModel"
+                     [(ngModel)]="sucursal.canton">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" name="distrito" id="distrito" required="" #distrito="ngModel"
+                     [(ngModel)]="sucursal.distrito">
+            </div>
+          </div>
+
+
+
+          <div class="tamano3">
+            <label>Fecha de apertura:</label>
+            <input type="text" class="form-control" name="fechaA" id="fechaA"#fechaA="ngModel"
+                   [(ngModel)]="sucursal.fechaApertura" >
+          </div>
+
+          <label>Horario de atencion:</label>
+          <div class="tamano3 row">
+            <div class="col">
+              <label>Abrimos:</label>
+              <input type="text" class="form-control"  name="horaI" id="horaI" #horaI="ngModel"
+                     [(ngModel)]="sucursal.horaInicio">
+            </div>
+            <div class="col">
+              <label>Cerramos:</label>
+              <input type="text" class="form-control" name="horaF" id="horaF" #horaF="ngModel"
+                     [(ngModel)]="sucursal.horaFinal">
+            </div>
+          </div>
+
+          <div class="tamano3">
+            <label>Empleado Administrador:</label>
+            <input type="text" class="form-control" name="empleadoA" id="empleadoA" #empleadoA="ngModel"
+                   [(ngModel)]="sucursal.nombreAdministrador" >
+          </div>
+
+          <div class="tamano3">
+            <label>Capacidad maxima:</label>
+            <input type="number" class="form-control" name="capacidad" id="capacidad" #capacidad="ngModel"
+                   [(ngModel)]="sucursal.capacidad">
+          </div>
+
+
+
+
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="creaSucursal(sucursal)">Aceptar</button>
+
+            <button class="btn btn-danger" name="7"  data-bs-dismiss="modal">Cancelar</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="EditarSucursal" tabindex="-1" aria-labelledby="EditarSucursalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="EditarSucursalLabel">Editar Sucursal</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="row">
+
+          <div class="tamano3">
+            <label>Nombre de la Sucursal:</label>
+            <input type="text" class="form-control" name="nombre" id="EdnombreSucursal" required="" #nombre="ngModel"
+                   [(ngModel)]="sucursalActual.nombre">
+          </div>
+
+          <div class="tamano3">
+            <label>Imagen de la Sucursal:</label>
+            <input type="text" class="form-control" name="imagen" id="EdimagenSucursal" required="" #imagen="ngModel"
+                   [(ngModel)]="sucursalActual.imagen">
+          </div>
+
+          <div class="row">
+            <label>Dirrecion de sucursal:</label>
+            <div class="col">
+              <input type="text" class="form-control" name="pronvincia" id="Edpronvincia" required="" #provinca="ngModel"
+                     [(ngModel)]="sucursalActual.provincia">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" name="canton" id="Edcanton" required="" #canton="ngModel"
+                     [(ngModel)]="sucursalActual.canton">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" name="distrito" id="Eddistrito" required="" #distrito="ngModel"
+                     [(ngModel)]="sucursalActual.distrito">
+            </div>
+          </div>
+
+
+
+          <div class="tamano3">
+            <label>Fecha de apertura:</label>
+            <input type="text" class="form-control" name="fechaA" id="EdfechaA"#fechaA="ngModel"
+                   [(ngModel)]="sucursalActual.fechaApertura" >
+          </div>
+
+          <label>Horario de atencion:</label>
+          <div class="tamano3 row">
+            <div class="col">
+              <label>Abrimos:</label>
+              <input type="text" class="form-control"  name="horaI" id="EdhoraI" #horaI="ngModel"
+                     [(ngModel)]="sucursalActual.horaInicio">
+            </div>
+            <div class="col">
+              <label>Cerramos:</label>
+              <input type="text" class="form-control" name="horaF" id="EdhoraF" #horaF="ngModel"
+                     [(ngModel)]="sucursalActual.horaFinal">
+            </div>
+          </div>
+
+          <div class="tamano3">
+            <label>Empleado Administrador:</label>
+            <input type="text" class="form-control" name="empleadoA" id="EdempleadoA" #empleadoA="ngModel"
+                   [(ngModel)]="sucursalActual.nombreAdministrador" >
+          </div>
+
+          <div class="tamano3">
+            <label>Capacidad maxima:</label>
+            <input type="number" class="form-control" name="capacidad" id="Edcapacidad" #capacidad="ngModel"
+                   [(ngModel)]="sucursalActual.capacidad">
+          </div>
+
+
+
+
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="editarSucursal(sucursalActual)">
+              Aceptar</button>
+
+            <button class="btn btn-danger" name="7"  data-bs-dismiss="modal">Cancelar</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="CopiarSucursal" tabindex="-1" aria-labelledby="CopiarSucursalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="CopiarSucursalLabel">Copiar Sucursal</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="row">
+          <div class="row">
+
+            <div class="tamano3">
+              <label>Nombre de la Sucursal:</label>
+              <input type="text" class="form-control" name="nombre" id="ConombreSucursal" required="" #nombre="ngModel"
+                     [(ngModel)]="sucursalActual.nombre">
+            </div>
+
+            <label>Dirrecion de sucursal:</label>
+            <div class="col">
+              <input type="text" class="form-control" name="pronvincia" id="Copronvincia" required="" #provinca="ngModel"
+                     [(ngModel)]="sucursalActual.provincia">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" name="canton" id="Cocanton" required="" #canton="ngModel"
+                     [(ngModel)]="sucursalActual.canton">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" name="distrito" id="Codistrito" required="" #distrito="ngModel"
+                     [(ngModel)]="sucursalActual.distrito">
+            </div>
+          </div>
+
+
+
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" name="7" data-bs-dismiss="modal" (click)="copiarSucursal(sucursalActual)">Aceptar</button>
+
+            <button data-bs-dismiss="modal" class="btn btn-danger" name="7">Cancelar</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

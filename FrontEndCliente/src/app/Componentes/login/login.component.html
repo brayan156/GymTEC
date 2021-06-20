@@ -1,0 +1,60 @@
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+</head>
+
+<html>
+
+<body>
+  <div class="container">
+    <div class="row">
+
+      <div class="col-sm">
+        <div class="header-text">
+          <h2>Bienvenido</h2>
+          
+        </div>
+        <div class="LoginForm">
+          <form id="form">
+            <div class="form-group input-group">
+              <span class="marginLeft">
+                <i class="bi bi-envelope"></i>
+              </span>
+              <input type="email" name="email" class="form-control" [(ngModel)]="usuario.correo" id="myEmail"
+                placeholder="E-mail">
+            </div>
+            <div class="form-group input-group">
+              <span class="marginLeft">
+                <i class="bi bi-file-lock2-fill"></i> </span>
+              <input type="password" #myPassword name="password" class="form-control" [(ngModel)]="usuario.password"
+                id="myPassword" placeholder="Contraseña">
+              <span class="marginRight">
+                <i (click)="this.showPassword()" class="bi bi-eye"></i>
+              </span>
+            </div>
+            <button type="submit" (click)="this.login()" class="btn btn-primary">Entrar</button>
+          </form>
+          <small>Si no tienes una cuenta <a href="/register">registrate</a>.</small>
+
+        </div>
+
+      </div>
+
+      <div class="col-sm">
+        <div class="InfoContainer">
+          <img class="logo" src="/assets/Asset 5@4x-8.png">
+          <p>¿Estás listo para sentir tu cuerpo arder y renacer de las cenizas? Tenemos las actividades, los
+            entrenadores y todos los recursos necesarios para mejorar tu vida al máximo.</p>
+
+          
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+
+</html>
+
+<script>
+
+</script>

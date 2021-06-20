@@ -1,0 +1,102 @@
+<button class="btn btn-dark largo" data-bs-toggle="modal" data-bs-target="#crearTratamiento">Agregar un nuevo tratamiento al SPA</button>
+<div class="container row">
+  <div class="col margnes" *ngFor="let item of listaTratamientos">
+    <div class="card" style="width: 18rem;">
+      <img src="{{item.imagen}}">
+      <div class="card-body">
+        <h2 class="card-title">Nombre: {{item.nombre}}</h2>
+        <label class="row letras">Identificador {{item.id}}</label>
+      </div>
+      <div class="card-footer">
+
+        <button class="btn btn-primary margen" data-bs-toggle="modal" data-bs-target="#editarTratamiento"
+                (click)="obtenerInformacionItem(item)">Editar</button>
+        <button class="btn btn-danger margen" data-bs-toggle="modal" data-bs-target="#eliminarTratamiento"
+                (click)="obtenerInformacionItem(item)">Eliminar</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="modal fade" id="crearTratamiento" tabindex="-1" aria-labelledby="crearTratamientoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">Agregar Tratamiento</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="tamano3">
+          <label>Imagen del Tratamiento:</label>
+          <input type="text" class="form-control" name="nombre" id="imageTratamiento" required=""
+                 #imagen="ngModel" [(ngModel)]="tratamiento.imagen">
+        </div>
+
+        <div class="tamano3">
+          <label>Nombre Tratamiento:</label>
+          <input type="text" class="form-control" name="nombre" id="imagenSucursal1" required=""
+                 #nombre="ngModel" [(ngModel)]="tratamiento.nombre">
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" name="7"
+                data-bs-dismiss="modal" (click)="creaTratamiento(tratamiento)">Aceptar</button>
+
+        <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="editarTratamiento" tabindex="-1" aria-labelledby="editarTratamientoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="editarTratamientoLabel">Editar Tratamiento</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="tamano3">
+          <label>Imagen del Tratamiento:</label>
+          <input type="text" class="form-control" name="nombre" id="EditarimageTratamiento" required=""
+                 #imagen="ngModel" [(ngModel)]="tratamientoActual.imagen">
+        </div>
+
+        <div class="tamano3">
+          <label>Nombre Tratamiento:</label>
+          <input type="text" class="form-control" name="nombre" id="EditarimagenSucursal1" required=""
+                 #nombre="ngModel" [(ngModel)]="tratamientoActual.nombre">
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" name="7"
+                data-bs-dismiss="modal" (click)="editarTratamiento(tratamientoActual)">Aceptar</button>
+
+        <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="eliminarTratamiento" tabindex="-1" aria-labelledby="eliminarTratamientoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="eliminarTratamientoLabel">Esta Seguro que desea eliminar el tratamiento: {{tratamientoActual.nombre}}</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" name="7" data-bs-dismiss="modal"
+                (click)="eliminarTratamiento(tratamientoActual)">Aceptar</button>
+
+        <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>

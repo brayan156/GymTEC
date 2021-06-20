@@ -1,0 +1,151 @@
+<button class="btn btn-dark largo" data-bs-toggle="modal" data-bs-target="#crearMaquina">
+  Agregar una maquina</button>
+
+<div class="container" *ngFor="let item of mostrarInventario">
+  <div class="row">
+    <div class="col">
+      <img src="{{item.imagen}}}">
+    </div>
+    <div class="col">
+      <div class="row"><h3><b>Numero de serie: {{item.nserie}}</b></h3></div>
+      <div class="row"><label>Tipo: {{item.tipoEquipo}}</label></div>
+      <div class="row"><label>Marca: {{item.marca}}</label></div>
+      <div class="row"><label>Costo: {{item.costo}}</label></div>
+      <div class="row"><label>Sucursal: {{item.nombreSucursal}}</label></div>
+
+    </div>
+    <div class="col">
+      <div class="row">
+        <div class="col"><button class="btn btn-primary btn1" data-bs-toggle="modal" data-bs-target="#editarMaquina"
+                                 (click)="obtenerEquipo(item.nserie)">Editar Maquina</button></div>
+        <div class="col"><button class="btn btn-danger btn2" data-bs-toggle="modal" data-bs-target="#eliminarMaquina"
+                                 (click)="obtenerEquipo(item.nserie)">Eliminar Maquina</button></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="modal fade" id="crearMaquina" tabindex="-1" aria-labelledby="crearMaquinaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="crearMaquinaLabel">Nueva Maquina</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="row">
+
+          <div class="tamano3">
+            <label>Imagen:</label>
+            <input type="text" class="form-control" name="imagen" id="imagen:" required=""
+                   #nSerie="ngModel" [(ngModel)]="equipo.imagen">
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <label>Marca:</label>
+              <input type="text" class="form-control" name="Marca" id="Marca" required=""
+                     #marca="ngModel" [(ngModel)]="equipo.marca">
+            </div>
+            <div class="col">
+              <label>Costo:</label>
+              <input type="number" class="form-control" name="Costo" id="Costo" required=""
+                     #costo="ngModel" [(ngModel)]="equipo.costo">
+            </div>
+          </div>
+
+          <div class="tamano3">
+            <label>Tipo de Equipo:</label>
+            <select class="form-select input-group" id="tipo" [(ngModel)]='equipo.idTipoEquipo' name="tipo" required
+                    [ngModelOptions]="{standalone: true}">
+              <option *ngFor="let tipoEquipo of listaTiposEquipo" value="{{tipoEquipo.id}}"> {{tipoEquipo.nombre}}</option>
+            </select>
+          </div>
+
+
+          <div class="modal-footer">
+
+            <button type="submit" class="btn btn-primary" name="7" data-bs-dismiss="modal" (click)="crearEquipo(equipo)">Aceptar</button>
+
+            <button class="btn btn-danger" name="7"  data-bs-dismiss="modal">Cancelar</button>
+
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="editarMaquina" tabindex="-1" aria-labelledby="editarMaquinaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="editarMaquinaLabel">Editar Maquina</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="row">
+
+          <div class="tamano3">
+            <label>Imagen:</label>
+            <input type="text" class="form-control" name="imagen" id="Eimagen:" required=""
+                   #nSerie="ngModel" [(ngModel)]="equipoActual.imagen">
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <label>Marca:</label>
+              <input type="text" class="form-control" name="Marca" id="EMarca" required=""
+                     #marca="ngModel" [(ngModel)]="equipoActual.marca">
+            </div>
+            <div class="col">
+              <label>Costo:</label>
+              <input type="number" class="form-control" name="Costo" id="ECosto" required=""
+                     #costo="ngModel" [(ngModel)]="equipoActual.costo">
+            </div>
+          </div>
+
+          <div class="tamano3">
+            <label>Tipo de Equipo:</label>
+            <select class="form-select input-group" id="Etipo" [(ngModel)]='equipoActual.idTipoEquipo' name="tipo" required
+                    [ngModelOptions]="{standalone: true}">
+              <option *ngFor="let tipoEquipo of listaTiposEquipo" value="{{tipoEquipo.id}}"> {{tipoEquipo.nombre}}</option>
+            </select>
+          </div>
+
+
+          <div class="modal-footer">
+
+            <button type="submit" class="btn btn-primary" name="7" data-bs-dismiss="modal" (click)="editarEquipo(equipoActual)">Aceptar</button>
+
+            <button class="btn btn-danger" name="7"  data-bs-dismiss="modal">Cancelar</button>
+
+          </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="modal fade" id="eliminarMaquina" tabindex="-1" aria-labelledby="eliminarMaquinaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="eliminarMaquinaLabel">Esta Seguro que desea eliminar la maquina: Numero de Serie
+          {{equipoActual.nSerie}}</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" name="7" data-bs-dismiss="modal"
+                (click)="eliminarEquipo(equipoActual)">Aceptar</button>
+
+        <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>

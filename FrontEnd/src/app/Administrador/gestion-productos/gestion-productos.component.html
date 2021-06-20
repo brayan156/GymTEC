@@ -1,0 +1,148 @@
+<button class="btn btn-dark largo" data-bs-toggle="modal" data-bs-target="#crearProducto">
+  Agregar un Producto</button>
+
+<div class="container" *ngFor="let item of listaDeProductos">
+  <div class="row">
+    <div class="col col1" >
+      <img src="{{item.imagen}}" alt="">
+    </div>
+
+
+    <div class="col">
+      <div class="row"><label><h2>CodigoBarras: {{item.codigoBarras}}</h2></label></div>
+      <div class="row"><label>Nombre: {{item.nombre}}</label></div>
+      <div class="row"><label>Costo: {{item.costo}}</label></div>
+      <div class="row"><label>Descripcion: {{item.descripcion}}</label></div>
+
+    </div>
+    <div class="col">
+      <div class="row">
+        <div class="col"><button class="btn btn-primary btn1" data-bs-toggle="modal" data-bs-target="#editarProducto"
+                                 (click)="obtenerInformacionItem(item)">Editar Producto</button></div>
+        <div class="col"><button class="btn btn-danger btn2" data-bs-toggle="modal" data-bs-target="#eliminarProducto"
+                                 (click)="obtenerInformacionItem(item)">Eliminar Producto</button></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="modal fade" id="crearProducto" tabindex="-1" aria-labelledby="crearMaquinaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="crearMaquinaLabel">Nuevo Producto</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="row">
+
+
+          <div class="tamano3">
+            <label>Imagen:</label>
+            <input type="text" class="form-control" name="nombre" id="imagen" required=""
+                   #imagen="ngModel" [(ngModel)]="producto.imagen">
+          </div>
+
+          <div class="tamano3">
+            <label>Nombre:</label>
+            <input type="text" class="form-control" name="nombre" id="Enombre" required=""
+                   #nombre="ngModel" [(ngModel)]="producto.nombre">
+          </div>
+
+          <div class="row">
+
+            <div class="col">
+              <label>Descripcion:</label>
+              <input type="text" class="form-control" name="descrip" id="descrip" required=""
+                     #descrip="ngModel" [(ngModel)]="producto.descripcion">
+            </div>
+
+            <div class="col">
+              <label>Costo:</label>
+              <input type="text" class="form-control" name="costo" id="costo" required=""
+                     #costo="ngModel" [(ngModel)]="producto.costo">
+            </div>
+
+          </div>
+
+
+
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" name="7" data-bs-dismiss="modal"
+            (click)="crearProducto(producto)">Aceptar</button>
+            <button class="btn btn-danger" name="7"  data-bs-dismiss="modal">Cancelar</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="editarProducto" tabindex="-1" aria-labelledby="editarMaquinaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="editarMaquinaLabel">Editar Producto</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="row">
+          <div class="tamano3">
+            <label>Imagen:</label>
+            <input type="text" class="form-control" name="nombre" id="Eimagen" required=""
+                   #imagen="ngModel" [(ngModel)]="actualProducto.imagen">
+          </div>
+
+          <div class="tamano3">
+            <label>Nombre:</label>
+            <input type="text" class="form-control" name="nombre" id="EEnombre" required=""
+                   #nombre="ngModel" [(ngModel)]="actualProducto.nombre">
+          </div>
+
+          <div class="row">
+
+            <div class="col">
+              <label>Descripcion:</label>
+              <input type="text" class="form-control" name="descrip" id="Edescrip" required=""
+                     #descrip="ngModel" [(ngModel)]="actualProducto.descripcion">
+            </div>
+
+            <div class="col">
+              <label>Costo:</label>
+              <input type="text" class="form-control" name="costo" id="Ecosto" required=""
+                     #costo="ngModel" [(ngModel)]="actualProducto.costo">
+            </div>
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" name="7" (click)="editarProducto(actualProducto)">Aceptar</button>
+            <button class="btn btn-danger" name="7"  data-bs-dismiss="modal">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="eliminarProducto" tabindex="-1" aria-labelledby="eliminarMaquinaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="eliminarMaquinaLabel">Esta Seguro que desea eliminar el producto: {{actualProducto.nombre}}:</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary"  name="7" data-bs-dismiss="modal"
+        (click)="eliminarProducto(actualProducto)">Aceptar</button>
+
+        <button data-bs-dismiss="modal" class="btn btn-danger" name="8">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>

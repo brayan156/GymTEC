@@ -1,0 +1,136 @@
+<html>
+
+<body>
+
+
+  <div class='demo-app'>
+
+    <div class='demo-app-sidebar'>
+      <h2>Instrucciones</h2>
+      <p>Selecciona una fecha para crear un evento. Puedes crear un evento de cualquier tipo personal o no.</p>
+      <p>Da click a un evento para eliminarlo.</p>
+
+      <form>
+        <div class="form-group">
+          <select class="form-select input-group" id="servicio" [(ngModel)]="clase.servicio" name="servicio" required  [ngModelOptions]="{standalone: true}">
+            <option *ngFor="let servicio of ServiciosDisponibles" value="{{servicio.nombre}}"> {{servicio.nombre}}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <select class="form-select input-group" [(ngModel)]="clase.idSucursal"  [ngModelOptions]="{standalone: true}" id="exampleFormControlSelect1">
+            <option *ngFor="let sucursal of this.SucursalesDisponibles" value="{{sucursal.id}}">{{sucursal.nombre}}</option>
+          </select>
+        </div>
+
+        <div class="form-group input-group">
+          <label for="inicio">Fecha inicial</label>
+          <input type="date" name="inicio" class="form-control" [(ngModel)]="clase.inicio" id="inicio"  [ngModelOptions]="{standalone: true}"
+            placeholder="Inicial">
+        </div>
+
+        <div class="form-group input-group">
+          <label for="final">Fecha final</label>
+          <input type="date" name="final" class="form-control" [(ngModel)]="clase.final" id="final"  [ngModelOptions]="{standalone: true}" placeholder="Final">
+        </div>
+
+        <button type="submit" (click)="this.buscarClase()" data-bs-toggle="modal"
+        data-bs-target="#BuscarClase" class="btn btn-primary">Buscar</button>
+
+      </form>
+
+      <button type="button" (click)="this.todasClases()" class="btn secondary" data-bs-toggle="modal"
+        data-bs-target="#MostrarClases">Todas las clases</button>
+
+
+      <label>
+        <input type='checkbox' [checked]='calendarOptions.weekends' (change)='handleWeekendsToggle()' />
+        Ver fines de semana.
+      </label>
+
+
+    </div>
+
+    <div class='demo-app-main'>
+      <full-calendar *ngIf='calendarVisible' [options]='calendarOptions'></full-calendar>
+    </div>
+  </div>
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="MostrarClases" tabindex="-1" aria-labelledby="eliminarFilaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="eliminarFilaLabel">Todas las clases disponibles</h2>
+
+        </div>
+        <div class="modal-body">
+          <div class="card" *ngFor="let clase of this.clasesBusqueda">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title">{{clase.nombreServicio}}</h5>
+
+                </div>
+                <div class="col">
+                  <button type="button" class="btn card-button" data-bs-dismiss="modal"
+                    (click)="inscribirme(clase)">Inscribirme</button>
+                </div>
+              </div>
+              <h6 class="card-subtitle mb-2 text-muted">Horario: {{clase.horaInicio}} - {{clase.horaFin}}</h6>
+              <h6 class="card-subtitle mb-2 text-muted">Cupos: {{clase.Cupos}}</h6>
+              <p class="card-text">Se impartirá el día {{clase.fecha}} por {{clase.nombreInstructor}} {{clase.primer_apellido}}
+                en la sucursal de {{clase.nombreSucursal}}.</p>
+
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn tertiary" data-bs-dismiss="modal">Cancelar</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <!-- Modal -->
+   <div class="modal fade" id="BuscarClase" tabindex="-1" aria-labelledby="eliminarFilaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="eliminarFilaLabel">Resultado de la búsqueda</h2>
+
+        </div>
+        <div class="modal-body">
+          <div class="card" *ngFor="let clase of this.clasesBusqueda">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title">{{clase.nombreServicio}}</h5>
+
+                </div>
+                <div class="col">
+                  <button type="button" class="btn card-button" data-bs-dismiss="modal"
+                    (click)="inscribirme(clase)">Inscribirme</button>
+                </div>
+              </div>
+              <h6 class="card-subtitle mb-2 text-muted">Horario: {{clase.horaInicio}} - {{clase.horaFin}}</h6>
+              <h6 class="card-subtitle mb-2 text-muted">Cupos: {{clase.Cupos}}</h6>
+              <p class="card-text">Se impartirá el día {{clase.fecha}} por {{clase.nombreInstructor}} {{clase.primer_apellido}}
+                en la sucursal de {{clase.nombreSucursal}}.</p>
+
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn tertiary" data-bs-dismiss="modal">Cancelar</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,1559 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="gymtecdatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Clase">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="horaInicio" Type="int" />
+          <Property Name="horaFin" Type="int" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="capacidad" Type="int" />
+          <Property Name="idServicio" Type="int" Nullable="false" />
+          <Property Name="idEmpleado" Type="int" />
+        </EntityType>
+        <EntityType Name="ClaseCliente">
+          <Key>
+            <PropertyRef Name="idClase" />
+            <PropertyRef Name="cedulaCliente" />
+          </Key>
+          <Property Name="idClase" Type="int" Nullable="false" />
+          <Property Name="cedulaCliente" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="cedula" />
+          </Key>
+          <Property Name="cedula" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Empleado">
+          <Key>
+            <PropertyRef Name="cedula" />
+          </Key>
+          <Property Name="cedula" Type="int" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="contrasena" Type="varchar(max)" Nullable="false" />
+          <Property Name="primer_apellido" Type="varchar" MaxLength="50" />
+          <Property Name="segundo_apellido" Type="varchar" MaxLength="50" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="distrito" Type="varchar" MaxLength="50" />
+          <Property Name="canton" Type="varchar" MaxLength="50" />
+          <Property Name="provincia" Type="varchar" MaxLength="50" />
+          <Property Name="salario" Type="int" />
+          <Property Name="idSucursal" Type="int" />
+          <Property Name="idPuesto" Type="int" />
+          <Property Name="idPlanilla" Type="int" />
+        </EntityType>
+        <EntityType Name="Equipo">
+          <Key>
+            <PropertyRef Name="nSerie" />
+          </Key>
+          <Property Name="nSerie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="marca" Type="varchar" MaxLength="50" />
+          <Property Name="descripcion" Type="varchar" MaxLength="300" />
+          <Property Name="imagen" Type="varchar(max)" />
+          <Property Name="costo" Type="int" />
+          <Property Name="idTipoEquipo" Type="int" />
+          <Property Name="idSucursal" Type="int" />
+        </EntityType>
+        <EntityType Name="Permiso">
+          <Key>
+            <PropertyRef Name="nombre" />
+          </Key>
+          <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Planilla">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tipo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripicion" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="codigoBarras" />
+          </Key>
+          <Property Name="codigoBarras" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="imagen" Type="varchar(max)" />
+          <Property Name="costo" Type="int" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="ProductoSucursal">
+          <Key>
+            <PropertyRef Name="idSucursal" />
+            <PropertyRef Name="codigoBarras" />
+          </Key>
+          <Property Name="idSucursal" Type="int" Nullable="false" />
+          <Property Name="codigoBarras" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Puesto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripicion" Type="varchar" MaxLength="300" />
+          <Property Name="imagen" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="PuestoPermiso">
+          <Key>
+            <PropertyRef Name="nombrePermiso" />
+            <PropertyRef Name="idPuesto" />
+          </Key>
+          <Property Name="nombrePermiso" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="idPuesto" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Servicio">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripicion" Type="varchar" MaxLength="300" />
+          <Property Name="imagen" Type="varchar(max)" />
+          <Property Name="idSucursal" Type="int" />
+        </EntityType>
+        <EntityType Name="Sucursal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="horaInicio" Type="int" />
+          <Property Name="horaFinal" Type="int" />
+          <Property Name="imagen" Type="varchar(max)" />
+          <Property Name="capacidad" Type="int" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="fechaApertura" Type="date" />
+          <Property Name="distrito" Type="varchar" MaxLength="50" />
+          <Property Name="canton" Type="varchar" MaxLength="50" />
+          <Property Name="provincia" Type="varchar" MaxLength="50" />
+          <Property Name="spaActivo" Type="bit" />
+          <Property Name="tiendaActiva" Type="bit" />
+        </EntityType>
+        <EntityType Name="Telefono">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="telefono" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="telefono" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoEquipo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="300" />
+          <Property Name="imagen" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Tratamiento">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="imagen" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="TratamientoSucursal">
+          <Key>
+            <PropertyRef Name="idSucursal" />
+            <PropertyRef Name="idTratamiento" />
+          </Key>
+          <Property Name="idSucursal" Type="int" Nullable="false" />
+          <Property Name="idTratamiento" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'gymtecdatabase.dbo.mostrar_clases' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="mostrar_clases">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="nombreServicio" />
+            <PropertyRef Name="nombreInstructor" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="horaInicio" Type="int" />
+          <Property Name="horaFin" Type="int" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="capacidad" Type="int" />
+          <Property Name="nombreServicio" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nombreInstructor" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="primer_apellido" Type="varchar" MaxLength="50" />
+          <Property Name="segundo_apellido" Type="varchar" MaxLength="50" />
+          <Property Name="nombreSucursal" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'gymtecdatabase.dbo.mostrar_empleados' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="mostrar_empleados">
+          <Key>
+            <PropertyRef Name="cedula" />
+            <PropertyRef Name="email" />
+            <PropertyRef Name="contrasena" />
+            <PropertyRef Name="nombre" />
+          </Key>
+          <Property Name="cedula" Type="int" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="contrasena" Type="varchar(max)" Nullable="false" />
+          <Property Name="primer_apellido" Type="varchar" MaxLength="50" />
+          <Property Name="segundo_apellido" Type="varchar" MaxLength="50" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="distrito" Type="varchar" MaxLength="50" />
+          <Property Name="canton" Type="varchar" MaxLength="50" />
+          <Property Name="provincia" Type="varchar" MaxLength="50" />
+          <Property Name="salario" Type="int" />
+          <Property Name="idPuesto" Type="int" />
+          <Property Name="puesto" Type="varchar" MaxLength="50" />
+          <Property Name="idPlanilla" Type="int" />
+          <Property Name="tipoPlanilla" Type="varchar" MaxLength="50" />
+          <Property Name="idSucursal" Type="int" />
+          <Property Name="nombreSucursal" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'gymtecdatabase.dbo.mostrar_inventario' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="mostrar_inventario">
+          <Key>
+            <PropertyRef Name="nserie" />
+            <PropertyRef Name="tipoEquipo" />
+          </Key>
+          <Property Name="nserie" Type="int" Nullable="false" />
+          <Property Name="marca" Type="varchar" MaxLength="50" />
+          <Property Name="descripcion" Type="varchar" MaxLength="300" />
+          <Property Name="imagen" Type="varchar(max)" />
+          <Property Name="costo" Type="int" />
+          <Property Name="idsucursal" Type="int" />
+          <Property Name="nombreSucursal" Type="varchar" MaxLength="50" />
+          <Property Name="tipoEquipo" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Clase__idEmplead__123EB7A3">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+          <End Role="Clase" Type="Self.Clase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="cedula" />
+            </Principal>
+            <Dependent Role="Clase">
+              <PropertyRef Name="idEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Clase__idServici__114A936A">
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="1" />
+          <End Role="Clase" Type="Self.Clase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicio">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Clase">
+              <PropertyRef Name="idServicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ClaseClie__cedul__160F4887">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="ClaseCliente" Type="Self.ClaseCliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="cedula" />
+            </Principal>
+            <Dependent Role="ClaseCliente">
+              <PropertyRef Name="cedulaCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ClaseClie__idCla__151B244E">
+          <End Role="Clase" Type="Self.Clase" Multiplicity="1" />
+          <End Role="ClaseCliente" Type="Self.ClaseCliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clase">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ClaseCliente">
+              <PropertyRef Name="idClase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Empleado__idPlan__0D7A0286">
+          <End Role="Planilla" Type="Self.Planilla" Multiplicity="0..1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Planilla">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="idPlanilla" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Empleado__idPues__0C85DE4D">
+          <End Role="Puesto" Type="Self.Puesto" Multiplicity="0..1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Puesto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="idPuesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Empleado__idSucu__0B91BA14">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="0..1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="idSucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Equipo__idSucurs__6B24EA82">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="0..1" />
+          <End Role="Equipo" Type="Self.Equipo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Equipo">
+              <PropertyRef Name="idSucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Equipo__idTipoEq__6A30C649">
+          <End Role="TipoEquipo" Type="Self.TipoEquipo" Multiplicity="0..1" />
+          <End Role="Equipo" Type="Self.Equipo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoEquipo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Equipo">
+              <PropertyRef Name="idTipoEquipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductoS__codig__797309D9">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+          <End Role="ProductoSucursal" Type="Self.ProductoSucursal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="codigoBarras" />
+            </Principal>
+            <Dependent Role="ProductoSucursal">
+              <PropertyRef Name="codigoBarras" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductoS__idSuc__787EE5A0">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="1" />
+          <End Role="ProductoSucursal" Type="Self.ProductoSucursal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ProductoSucursal">
+              <PropertyRef Name="idSucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PuestoPer__idPue__1CBC4616">
+          <End Role="Puesto" Type="Self.Puesto" Multiplicity="1" />
+          <End Role="PuestoPermiso" Type="Self.PuestoPermiso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Puesto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PuestoPermiso">
+              <PropertyRef Name="idPuesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PuestoPer__nombr__1BC821DD">
+          <End Role="Permiso" Type="Self.Permiso" Multiplicity="1" />
+          <End Role="PuestoPermiso" Type="Self.PuestoPermiso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permiso">
+              <PropertyRef Name="nombre" />
+            </Principal>
+            <Dependent Role="PuestoPermiso">
+              <PropertyRef Name="nombrePermiso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Servicio__idSucu__03F0984C">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="0..1" />
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="idSucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Telefono__id__628FA481">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="1" />
+          <End Role="Telefono" Type="Self.Telefono" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Telefono">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tratamien__idSuc__71D1E811">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="1" />
+          <End Role="TratamientoSucursal" Type="Self.TratamientoSucursal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TratamientoSucursal">
+              <PropertyRef Name="idSucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tratamien__idTra__72C60C4A">
+          <End Role="Tratamiento" Type="Self.Tratamiento" Multiplicity="1" />
+          <End Role="TratamientoSucursal" Type="Self.TratamientoSucursal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tratamiento">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TratamientoSucursal">
+              <PropertyRef Name="idTratamiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="copiar_calendario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fechainicio" Type="date" Mode="In" />
+          <Parameter Name="fechanuevo" Type="date" Mode="In" />
+        </Function>
+        <Function Name="copiar_gimnasio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idsucursal" Type="int" Mode="In" />
+          <Parameter Name="imagen" Type="varchar(max)" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="distrito" Type="varchar" Mode="In" />
+          <Parameter Name="canton" Type="varchar" Mode="In" />
+          <Parameter Name="provincia" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="filtro_clase_cliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_cliente" Type="int" Mode="In" />
+        </Function>
+        <Function Name="filtro_clases" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_sucursal" Type="int" Mode="In" />
+          <Parameter Name="nombre_servicio" Type="varchar" Mode="In" />
+          <Parameter Name="fechainicio" Type="date" Mode="In" />
+          <Parameter Name="fechafin" Type="date" Mode="In" />
+          <Parameter Name="id_cliente" Type="int" Mode="In" />
+        </Function>
+        <Function Name="generar_planilla" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idsucursal" Type="int" Mode="In" />
+        </Function>
+        <Function Name="inventario_gimnasio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_sucursal" Type="int" Mode="In" />
+        </Function>
+        <Function Name="login_admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="email" Type="varchar" Mode="In" />
+          <Parameter Name="contrasena" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="mostrar_clases_gimnasio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_sucursal" Type="int" Mode="In" />
+        </Function>
+        <Function Name="productos_gimnasio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_sucursal" Type="int" Mode="In" />
+        </Function>
+        <Function Name="servicios_gimnasio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_sucursal" Type="int" Mode="In" />
+        </Function>
+        <Function Name="tratamientos_gimnasio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_sucursal" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="gymtecdatabaseModelStoreContainer">
+          <EntitySet Name="Clase" EntityType="Self.Clase" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClaseCliente" EntityType="Self.ClaseCliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Equipo" EntityType="Self.Equipo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Permiso" EntityType="Self.Permiso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Planilla" EntityType="Self.Planilla" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductoSucursal" EntityType="Self.ProductoSucursal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Puesto" EntityType="Self.Puesto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PuestoPermiso" EntityType="Self.PuestoPermiso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Servicio" EntityType="Self.Servicio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sucursal" EntityType="Self.Sucursal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Telefono" EntityType="Self.Telefono" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoEquipo" EntityType="Self.TipoEquipo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tratamiento" EntityType="Self.Tratamiento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TratamientoSucursal" EntityType="Self.TratamientoSucursal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mostrar_clases" EntityType="Self.mostrar_clases" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [mostrar_clases].[id] AS [id], 
+    [mostrar_clases].[horaInicio] AS [horaInicio], 
+    [mostrar_clases].[horaFin] AS [horaFin], 
+    [mostrar_clases].[fecha] AS [fecha], 
+    [mostrar_clases].[capacidad] AS [capacidad], 
+    [mostrar_clases].[nombreServicio] AS [nombreServicio], 
+    [mostrar_clases].[nombreInstructor] AS [nombreInstructor], 
+    [mostrar_clases].[primer_apellido] AS [primer_apellido], 
+    [mostrar_clases].[segundo_apellido] AS [segundo_apellido], 
+    [mostrar_clases].[nombreSucursal] AS [nombreSucursal]
+    FROM [dbo].[mostrar_clases] AS [mostrar_clases]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="mostrar_empleados" EntityType="Self.mostrar_empleados" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [mostrar_empleados].[cedula] AS [cedula], 
+    [mostrar_empleados].[email] AS [email], 
+    [mostrar_empleados].[contrasena] AS [contrasena], 
+    [mostrar_empleados].[primer_apellido] AS [primer_apellido], 
+    [mostrar_empleados].[segundo_apellido] AS [segundo_apellido], 
+    [mostrar_empleados].[nombre] AS [nombre], 
+    [mostrar_empleados].[distrito] AS [distrito], 
+    [mostrar_empleados].[canton] AS [canton], 
+    [mostrar_empleados].[provincia] AS [provincia], 
+    [mostrar_empleados].[salario] AS [salario], 
+    [mostrar_empleados].[idPuesto] AS [idPuesto], 
+    [mostrar_empleados].[puesto] AS [puesto], 
+    [mostrar_empleados].[idPlanilla] AS [idPlanilla], 
+    [mostrar_empleados].[tipoPlanilla] AS [tipoPlanilla], 
+    [mostrar_empleados].[idSucursal] AS [idSucursal], 
+    [mostrar_empleados].[nombreSucursal] AS [nombreSucursal]
+    FROM [dbo].[mostrar_empleados] AS [mostrar_empleados]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="mostrar_inventario" EntityType="Self.mostrar_inventario" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [mostrar_inventario].[nserie] AS [nserie], 
+    [mostrar_inventario].[marca] AS [marca], 
+    [mostrar_inventario].[descripcion] AS [descripcion], 
+    [mostrar_inventario].[imagen] AS [imagen], 
+    [mostrar_inventario].[costo] AS [costo], 
+    [mostrar_inventario].[idsucursal] AS [idsucursal], 
+    [mostrar_inventario].[nombreSucursal] AS [nombreSucursal], 
+    [mostrar_inventario].[tipoEquipo] AS [tipoEquipo]
+    FROM [dbo].[mostrar_inventario] AS [mostrar_inventario]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__Clase__idEmplead__123EB7A3" Association="Self.FK__Clase__idEmplead__123EB7A3">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Clase" EntitySet="Clase" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Clase__idServici__114A936A" Association="Self.FK__Clase__idServici__114A936A">
+            <End Role="Servicio" EntitySet="Servicio" />
+            <End Role="Clase" EntitySet="Clase" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ClaseClie__cedul__160F4887" Association="Self.FK__ClaseClie__cedul__160F4887">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="ClaseCliente" EntitySet="ClaseCliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ClaseClie__idCla__151B244E" Association="Self.FK__ClaseClie__idCla__151B244E">
+            <End Role="Clase" EntitySet="Clase" />
+            <End Role="ClaseCliente" EntitySet="ClaseCliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Empleado__idPlan__0D7A0286" Association="Self.FK__Empleado__idPlan__0D7A0286">
+            <End Role="Planilla" EntitySet="Planilla" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Empleado__idPues__0C85DE4D" Association="Self.FK__Empleado__idPues__0C85DE4D">
+            <End Role="Puesto" EntitySet="Puesto" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Empleado__idSucu__0B91BA14" Association="Self.FK__Empleado__idSucu__0B91BA14">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Equipo__idSucurs__6B24EA82" Association="Self.FK__Equipo__idSucurs__6B24EA82">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Equipo" EntitySet="Equipo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Equipo__idTipoEq__6A30C649" Association="Self.FK__Equipo__idTipoEq__6A30C649">
+            <End Role="TipoEquipo" EntitySet="TipoEquipo" />
+            <End Role="Equipo" EntitySet="Equipo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductoS__codig__797309D9" Association="Self.FK__ProductoS__codig__797309D9">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="ProductoSucursal" EntitySet="ProductoSucursal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductoS__idSuc__787EE5A0" Association="Self.FK__ProductoS__idSuc__787EE5A0">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="ProductoSucursal" EntitySet="ProductoSucursal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PuestoPer__idPue__1CBC4616" Association="Self.FK__PuestoPer__idPue__1CBC4616">
+            <End Role="Puesto" EntitySet="Puesto" />
+            <End Role="PuestoPermiso" EntitySet="PuestoPermiso" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PuestoPer__nombr__1BC821DD" Association="Self.FK__PuestoPer__nombr__1BC821DD">
+            <End Role="Permiso" EntitySet="Permiso" />
+            <End Role="PuestoPermiso" EntitySet="PuestoPermiso" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Servicio__idSucu__03F0984C" Association="Self.FK__Servicio__idSucu__03F0984C">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Telefono__id__628FA481" Association="Self.FK__Telefono__id__628FA481">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Telefono" EntitySet="Telefono" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tratamien__idSuc__71D1E811" Association="Self.FK__Tratamien__idSuc__71D1E811">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="TratamientoSucursal" EntitySet="TratamientoSucursal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tratamien__idTra__72C60C4A" Association="Self.FK__Tratamien__idTra__72C60C4A">
+            <End Role="Tratamiento" EntitySet="Tratamiento" />
+            <End Role="TratamientoSucursal" EntitySet="TratamientoSucursal" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="gymtecdatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Clase">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="horaInicio" Type="Int32" />
+          <Property Name="horaFin" Type="Int32" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="capacidad" Type="Int32" />
+          <Property Name="idServicio" Type="Int32" Nullable="false" />
+          <Property Name="idEmpleado" Type="Int32" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK__Clase__idEmplead__51851410" FromRole="Clase" ToRole="Empleado" />
+          <NavigationProperty Name="Servicio" Relationship="Self.FK__Clase__idServici__5090EFD7" FromRole="Clase" ToRole="Servicio" />
+          <NavigationProperty Name="Cliente" Relationship="Self.ClaseCliente" FromRole="Clase" ToRole="Cliente" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="cedula" />
+          </Key>
+          <Property Name="cedula" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Clase" Relationship="Self.ClaseCliente" FromRole="Cliente" ToRole="Clase" />
+        </EntityType>
+        <EntityType Name="Empleado">
+          <Key>
+            <PropertyRef Name="cedula" />
+          </Key>
+          <Property Name="cedula" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contrasena" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="primer_apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="segundo_apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="distrito" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="canton" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="provincia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="salario" Type="Int32" />
+          <Property Name="idSucursal" Type="Int32" />
+          <Property Name="idPuesto" Type="Int32" />
+          <Property Name="idPlanilla" Type="Int32" />
+          <NavigationProperty Name="Clase" Relationship="Self.FK__Clase__idEmplead__51851410" FromRole="Empleado" ToRole="Clase" />
+          <NavigationProperty Name="Planilla" Relationship="Self.FK__Empleado__idPlan__4CC05EF3" FromRole="Empleado" ToRole="Planilla" />
+          <NavigationProperty Name="Puesto" Relationship="Self.FK__Empleado__idPues__4BCC3ABA" FromRole="Empleado" ToRole="Puesto" />
+          <NavigationProperty Name="Sucursal" Relationship="Self.FK__Empleado__idSucu__4AD81681" FromRole="Empleado" ToRole="Sucursal" />
+        </EntityType>
+        <EntityType Name="Equipo">
+          <Key>
+            <PropertyRef Name="nSerie" />
+          </Key>
+          <Property Name="nSerie" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="marca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="imagen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="idTipoEquipo" Type="Int32" />
+          <Property Name="idSucursal" Type="Int32" />
+          <NavigationProperty Name="Sucursal" Relationship="Self.FK__Equipo__idSucurs__2A6B46EF" FromRole="Equipo" ToRole="Sucursal" />
+          <NavigationProperty Name="TipoEquipo" Relationship="Self.FK__Equipo__idTipoEq__297722B6" FromRole="Equipo" ToRole="TipoEquipo" />
+          <Property Name="costo" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Permiso">
+          <Key>
+            <PropertyRef Name="nombre" />
+          </Key>
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Puesto" Relationship="Self.PuestoPermiso" FromRole="Permiso" ToRole="Puesto" />
+        </EntityType>
+        <EntityType Name="Planilla">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripicion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK__Empleado__idPlan__4CC05EF3" FromRole="Planilla" ToRole="Empleado" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="codigoBarras" />
+          </Key>
+          <Property Name="codigoBarras" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="imagen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="costo" Type="Int32" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Sucursal" Relationship="Self.ProductoSucursal" FromRole="Producto" ToRole="Sucursal" />
+        </EntityType>
+        <EntityType Name="Puesto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripicion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="imagen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK__Empleado__idPues__4BCC3ABA" FromRole="Puesto" ToRole="Empleado" />
+          <NavigationProperty Name="Permiso" Relationship="Self.PuestoPermiso" FromRole="Puesto" ToRole="Permiso" />
+        </EntityType>
+        <EntityType Name="Servicio">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripicion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="imagen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="idSucursal" Type="Int32" />
+          <NavigationProperty Name="Clase" Relationship="Self.FK__Clase__idServici__5090EFD7" FromRole="Servicio" ToRole="Clase" />
+          <NavigationProperty Name="Sucursal" Relationship="Self.FK__Servicio__idSucu__4336F4B9" FromRole="Servicio" ToRole="Sucursal" />
+        </EntityType>
+        <EntityType Name="Sucursal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="horaInicio" Type="Int32" />
+          <Property Name="horaFinal" Type="Int32" />
+          <Property Name="imagen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="capacidad" Type="Int32" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fechaApertura" Type="DateTime" Precision="0" />
+          <Property Name="distrito" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="canton" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="provincia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="spaActivo" Type="Boolean" />
+          <Property Name="tiendaActiva" Type="Boolean" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK__Empleado__idSucu__4AD81681" FromRole="Sucursal" ToRole="Empleado" />
+          <NavigationProperty Name="Equipo" Relationship="Self.FK__Equipo__idSucurs__2A6B46EF" FromRole="Sucursal" ToRole="Equipo" />
+          <NavigationProperty Name="Servicio" Relationship="Self.FK__Servicio__idSucu__4336F4B9" FromRole="Sucursal" ToRole="Servicio" />
+          <NavigationProperty Name="Telefono" Relationship="Self.FK__Telefono__id__21D600EE" FromRole="Sucursal" ToRole="Telefono" />
+          <NavigationProperty Name="Producto" Relationship="Self.ProductoSucursal" FromRole="Sucursal" ToRole="Producto" />
+          <NavigationProperty Name="Tratamiento" Relationship="Self.TratamientoSucursal" FromRole="Sucursal" ToRole="Tratamiento" />
+        </EntityType>
+        <EntityType Name="Telefono">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="telefono1" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="telefono1" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Sucursal" Relationship="Self.FK__Telefono__id__21D600EE" FromRole="Telefono" ToRole="Sucursal" />
+        </EntityType>
+        <EntityType Name="TipoEquipo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="imagen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Equipo" Relationship="Self.FK__Equipo__idTipoEq__297722B6" FromRole="TipoEquipo" ToRole="Equipo" />
+        </EntityType>
+        <EntityType Name="Tratamiento">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="imagen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Sucursal" Relationship="Self.TratamientoSucursal" FromRole="Tratamiento" ToRole="Sucursal" />
+        </EntityType>
+        <EntityType Name="mostrar_clases">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="nombreServicio" />
+            <PropertyRef Name="nombreInstructor" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="horaInicio" Type="Int32" />
+          <Property Name="horaFin" Type="Int32" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="capacidad" Type="Int32" />
+          <Property Name="nombreServicio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombreInstructor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="primer_apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="segundo_apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombreSucursal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="mostrar_inventario">
+          <Key>
+            <PropertyRef Name="nserie" />
+            <PropertyRef Name="tipoEquipo" />
+          </Key>
+          <Property Name="nserie" Type="Int32" Nullable="false" />
+          <Property Name="marca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="imagen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="idsucursal" Type="Int32" />
+          <Property Name="tipoEquipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="costo" Type="Int32" />
+          <Property Name="nombreSucursal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK__Clase__idEmplead__51851410">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+          <End Role="Clase" Type="Self.Clase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="cedula" />
+            </Principal>
+            <Dependent Role="Clase">
+              <PropertyRef Name="idEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Clase__idServici__5090EFD7">
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="1" />
+          <End Role="Clase" Type="Self.Clase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicio">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Clase">
+              <PropertyRef Name="idServicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Empleado__idPlan__4CC05EF3">
+          <End Role="Planilla" Type="Self.Planilla" Multiplicity="0..1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Planilla">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="idPlanilla" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Empleado__idPues__4BCC3ABA">
+          <End Role="Puesto" Type="Self.Puesto" Multiplicity="0..1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Puesto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="idPuesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Empleado__idSucu__4AD81681">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="0..1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="idSucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Equipo__idSucurs__2A6B46EF">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="0..1" />
+          <End Role="Equipo" Type="Self.Equipo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Equipo">
+              <PropertyRef Name="idSucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Equipo__idTipoEq__297722B6">
+          <End Role="TipoEquipo" Type="Self.TipoEquipo" Multiplicity="0..1" />
+          <End Role="Equipo" Type="Self.Equipo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoEquipo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Equipo">
+              <PropertyRef Name="idTipoEquipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Servicio__idSucu__4336F4B9">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="0..1" />
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="idSucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Telefono__id__21D600EE">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="1" />
+          <End Role="Telefono" Type="Self.Telefono" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Telefono">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ClaseCliente">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+          <End Role="Clase" Type="Self.Clase" Multiplicity="*" />
+        </Association>
+        <Association Name="ProductoSucursal">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="*" />
+        </Association>
+        <Association Name="PuestoPermiso">
+          <End Role="Puesto" Type="Self.Puesto" Multiplicity="*" />
+          <End Role="Permiso" Type="Self.Permiso" Multiplicity="*" />
+        </Association>
+        <Association Name="TratamientoSucursal">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="*" />
+          <End Role="Tratamiento" Type="Self.Tratamiento" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="gymtecdatabaseEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Clase" EntityType="Self.Clase" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+          <EntitySet Name="Empleado" EntityType="Self.Empleado" />
+          <EntitySet Name="Equipo" EntityType="Self.Equipo" />
+          <EntitySet Name="Permiso" EntityType="Self.Permiso" />
+          <EntitySet Name="Planilla" EntityType="Self.Planilla" />
+          <EntitySet Name="Producto" EntityType="Self.Producto" />
+          <EntitySet Name="Puesto" EntityType="Self.Puesto" />
+          <EntitySet Name="Servicio" EntityType="Self.Servicio" />
+          <EntitySet Name="Sucursal" EntityType="Self.Sucursal" />
+          <EntitySet Name="Telefono" EntityType="Self.Telefono" />
+          <EntitySet Name="TipoEquipo" EntityType="Self.TipoEquipo" />
+          <EntitySet Name="Tratamiento" EntityType="Self.Tratamiento" />
+          <EntitySet Name="mostrar_clases" EntityType="Self.mostrar_clases" />
+          <EntitySet Name="mostrar_inventario" EntityType="Self.mostrar_inventario" />
+          <AssociationSet Name="FK__Clase__idEmplead__51851410" Association="Self.FK__Clase__idEmplead__51851410">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Clase" EntitySet="Clase" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Clase__idServici__5090EFD7" Association="Self.FK__Clase__idServici__5090EFD7">
+            <End Role="Servicio" EntitySet="Servicio" />
+            <End Role="Clase" EntitySet="Clase" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Empleado__idPlan__4CC05EF3" Association="Self.FK__Empleado__idPlan__4CC05EF3">
+            <End Role="Planilla" EntitySet="Planilla" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Empleado__idPues__4BCC3ABA" Association="Self.FK__Empleado__idPues__4BCC3ABA">
+            <End Role="Puesto" EntitySet="Puesto" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Empleado__idSucu__4AD81681" Association="Self.FK__Empleado__idSucu__4AD81681">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Equipo__idSucurs__2A6B46EF" Association="Self.FK__Equipo__idSucurs__2A6B46EF">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Equipo" EntitySet="Equipo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Equipo__idTipoEq__297722B6" Association="Self.FK__Equipo__idTipoEq__297722B6">
+            <End Role="TipoEquipo" EntitySet="TipoEquipo" />
+            <End Role="Equipo" EntitySet="Equipo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Servicio__idSucu__4336F4B9" Association="Self.FK__Servicio__idSucu__4336F4B9">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Telefono__id__21D600EE" Association="Self.FK__Telefono__id__21D600EE">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Telefono" EntitySet="Telefono" />
+          </AssociationSet>
+          <AssociationSet Name="ClaseCliente" Association="Self.ClaseCliente">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Clase" EntitySet="Clase" />
+          </AssociationSet>
+          <AssociationSet Name="ProductoSucursal" Association="Self.ProductoSucursal">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="Sucursal" EntitySet="Sucursal" />
+          </AssociationSet>
+          <AssociationSet Name="PuestoPermiso" Association="Self.PuestoPermiso">
+            <End Role="Puesto" EntitySet="Puesto" />
+            <End Role="Permiso" EntitySet="Permiso" />
+          </AssociationSet>
+          <AssociationSet Name="TratamientoSucursal" Association="Self.TratamientoSucursal">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Tratamiento" EntitySet="Tratamiento" />
+          </AssociationSet>
+          <FunctionImport Name="copiar_calendario">
+            <Parameter Name="fechainicio" Mode="In" Type="DateTime" />
+            <Parameter Name="fechanuevo" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="copiar_gimnasio">
+            <Parameter Name="idsucursal" Mode="In" Type="Int32" />
+            <Parameter Name="imagen" Mode="In" Type="String" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="distrito" Mode="In" Type="String" />
+            <Parameter Name="canton" Mode="In" Type="String" />
+            <Parameter Name="provincia" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="filtro_clase_cliente" ReturnType="Collection(gymtecdatabaseModel.filtro_clase_cliente_Result)">
+          <Parameter Name="id_cliente" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="filtro_clases" ReturnType="Collection(gymtecdatabaseModel.filtro_clases_Result)">
+            <Parameter Name="id_sucursal" Mode="In" Type="Int32" />
+            <Parameter Name="nombre_servicio" Mode="In" Type="String" />
+            <Parameter Name="fechainicio" Mode="In" Type="DateTime" />
+            <Parameter Name="fechafin" Mode="In" Type="DateTime" />
+            <Parameter Name="id_cliente" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="generar_planilla" ReturnType="Collection(gymtecdatabaseModel.generar_planilla_Result)">
+          <Parameter Name="idsucursal" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="inventario_gimnasio" ReturnType="Collection(gymtecdatabaseModel.inventario_gimnasio_Result)">
+          <Parameter Name="id_sucursal" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="login_admin" ReturnType="Collection(gymtecdatabaseModel.login_admin_Result)">
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="contrasena" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="mostrar_clases_gimnasio" ReturnType="Collection(gymtecdatabaseModel.mostrar_clases_gimnasio_Result)">
+          <Parameter Name="id_sucursal" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="productos_gimnasio" ReturnType="Collection(gymtecdatabaseModel.productos_gimnasio_Result)">
+          <Parameter Name="id_sucursal" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="servicios_gimnasio" ReturnType="Collection(gymtecdatabaseModel.servicios_gimnasio_Result)">
+          <Parameter Name="id_sucursal" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="tratamientos_gimnasio" ReturnType="Collection(gymtecdatabaseModel.tratamientos_gimnasio_Result)">
+          <Parameter Name="id_sucursal" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="mostrar_empleados" EntityType="gymtecdatabaseModel.mostrar_empleados" />
+        </EntityContainer>
+        <ComplexType Name="filtro_clase_cliente_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="horaInicio" Nullable="true" />
+          <Property Type="Int32" Name="horaFin" Nullable="true" />
+          <Property Type="DateTime" Name="fecha" Nullable="true" />
+          <Property Type="String" Name="nombreServicio" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="nombreInstructor" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="primer_apellido" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="segundo_apellido" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="nombreSucursal" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="filtro_clases_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="horaInicio" Nullable="true" />
+          <Property Type="Int32" Name="horaFin" Nullable="true" />
+          <Property Type="DateTime" Name="fecha" Nullable="true" />
+          <Property Type="Int32" Name="capacidad" Nullable="true" />
+          <Property Type="Int32" Name="Cupos" Nullable="true" />
+          <Property Type="String" Name="nombreServicio" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="nombreInstructor" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="primer_apellido" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="segundo_apellido" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="nombreSucursal" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="generar_planilla_Result">
+          <Property Type="Int32" Name="cedula" Nullable="false" />
+          <Property Type="String" Name="primer_apellido" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="segundo_apellido" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="idPlanilla" Nullable="true" />
+          <Property Type="Int32" Name="cantidad" Nullable="true" />
+          <Property Type="Int32" Name="pago" Nullable="true" />
+          <Property Type="String" Name="Tipo_de_pago" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="inventario_gimnasio_Result">
+          <Property Type="Int32" Name="nSerie" Nullable="false" />
+          <Property Type="String" Name="marca" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="descripcion" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="imagen" Nullable="true" />
+          <Property Type="String" Name="tipo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="disponibilidad" Nullable="false" MaxLength="11" />
+        </ComplexType>
+        <ComplexType Name="login_admin_Result">
+          <Property Type="Int32" Name="cedula" Nullable="false" />
+          <Property Type="String" Name="email" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="contrasena" Nullable="false" />
+          <Property Type="String" Name="primer_apellido" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="segundo_apellido" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="distrito" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="canton" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="provincia" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="salario" Nullable="true" />
+          <Property Type="Int32" Name="idSucursal" Nullable="true" />
+          <Property Type="Int32" Name="idPuesto" Nullable="true" />
+          <Property Type="Int32" Name="idPlanilla" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="mostrar_clases_gimnacio_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="horaInicio" Nullable="true" />
+          <Property Type="Int32" Name="horaFin" Nullable="true" />
+          <Property Type="DateTime" Name="fecha" Nullable="true" />
+          <Property Type="Int32" Name="capacidad" Nullable="true" />
+          <Property Type="String" Name="nombreServicio" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="nombreInstructor" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="primer_apellido" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="segundo_apellido" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="nombreSucursal" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="mostrar_clases_gimnasio_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="horaInicio" Nullable="true" />
+          <Property Type="Int32" Name="horaFin" Nullable="true" />
+          <Property Type="DateTime" Name="fecha" Nullable="true" />
+          <Property Type="Int32" Name="capacidad" Nullable="true" />
+          <Property Type="String" Name="nombreServicio" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="nombreInstructor" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="primer_apellido" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="segundo_apellido" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="nombreSucursal" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="productos_gimnasio_Result">
+          <Property Type="Int32" Name="codigoBarras" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="imagen" Nullable="true" />
+          <Property Type="Int32" Name="costo" Nullable="false" />
+          <Property Type="String" Name="descripcion" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="disponibilidad" Nullable="false" MaxLength="11" />
+        </ComplexType>
+        <ComplexType Name="servicios_gimnasio_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="descripicion" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="imagen" Nullable="true" />
+          <Property Type="Int32" Name="idSucursal" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="tratamientos_gimnasio_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="imagen" Nullable="true" />
+          <Property Type="String" Name="disponibilidad" Nullable="false" MaxLength="11" />
+        </ComplexType>
+        <EntityType Name="mostrar_empleados">
+          <Key>
+            <PropertyRef Name="cedula" />
+            <PropertyRef Name="email" />
+            <PropertyRef Name="contrasena" />
+            <PropertyRef Name="nombre" />
+          </Key>
+          <Property Name="cedula" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="contrasena" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="primer_apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="segundo_apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="distrito" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="canton" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="provincia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="salario" Type="Int32" />
+          <Property Name="puesto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tipoPlanilla" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idSucursal" Type="Int32" />
+          <Property Name="nombreSucursal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idPuesto" Type="Int32" />
+          <Property Name="idPlanilla" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="gymtecdatabaseModelStoreContainer" CdmEntityContainer="gymtecdatabaseEntities1">
+          <EntitySetMapping Name="Clase">
+            <EntityTypeMapping TypeName="gymtecdatabaseModel.Clase">
+              <MappingFragment StoreEntitySet="Clase">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="horaInicio" ColumnName="horaInicio" />
+                <ScalarProperty Name="horaFin" ColumnName="horaFin" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="capacidad" ColumnName="capacidad" />
+                <ScalarProperty Name="idServicio" ColumnName="idServicio" />
+                <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="gymtecdatabaseModel.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="cedula" ColumnName="cedula" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empleado">
+            <EntityTypeMapping TypeName="gymtecdatabaseModel.Empleado">
+              <MappingFragment StoreEntitySet="Empleado">
+                <ScalarProperty Name="cedula" ColumnName="cedula" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+                <ScalarProperty Name="primer_apellido" ColumnName="primer_apellido" />
+                <ScalarProperty Name="segundo_apellido" ColumnName="segundo_apellido" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="distrito" ColumnName="distrito" />
+                <ScalarProperty Name="canton" ColumnName="canton" />
+                <ScalarProperty Name="provincia" ColumnName="provincia" />
+                <ScalarProperty Name="salario" ColumnName="salario" />
+                <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
+                <ScalarProperty Name="idPuesto" ColumnName="idPuesto" />
+                <ScalarProperty Name="idPlanilla" ColumnName="idPlanilla" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Equipo">
+            <EntityTypeMapping TypeName="gymtecdatabaseModel.Equipo">
+              <MappingFragment StoreEntitySet="Equipo">
+                <ScalarProperty Name="costo" ColumnName="costo" />
+                <ScalarProperty Name="nSerie" ColumnName="nSerie" />
+                <ScalarProperty Name="marca" ColumnName="marca" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+                <ScalarProperty Name="idTipoEquipo" ColumnName="idTipoEquipo" />
+                <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Permiso">
+            <EntityTypeMapping TypeName="gymtecdatabaseModel.Permiso">
+              <MappingFragment StoreEntitySet="Permiso">
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Planilla">
+            <EntityTypeMapping TypeName="gymtecdatabaseModel.Planilla">
+              <MappingFragment StoreEntitySet="Planilla">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="descripicion" ColumnName="descripicion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Producto">
+            <EntityTypeMapping TypeName="gymtecdatabaseModel.Producto">
+              <MappingFragment StoreEntitySet="Producto">
+                <ScalarProperty Name="codigoBarras" ColumnName="codigoBarras" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+                <ScalarProperty Name="costo" ColumnName="costo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Puesto">
+            <EntityTypeMapping TypeName="gymtecdatabaseModel.Puesto">
+              <MappingFragment StoreEntitySet="Puesto">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripicion" ColumnName="descripicion" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Servicio">
+            <EntityTypeMapping TypeName="gymtecdatabaseModel.Servicio">
+              <MappingFragment StoreEntitySet="Servicio">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripicion" ColumnName="descripicion" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+                <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sucursal">
+            <EntityTypeMapping TypeName="gymtecdatabaseModel.Sucursal">
+              <MappingFragment StoreEntitySet="Sucursal">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="horaInicio" ColumnName="horaInicio" />
+                <ScalarProperty Name="horaFinal" ColumnName="horaFinal" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+                <ScalarProperty Name="capacidad" ColumnName="capacidad" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="fechaApertura" ColumnName="fechaApertura" />
+                <ScalarProperty Name="distrito" ColumnName="distrito" />
+                <ScalarProperty Name="canton" ColumnName="canton" />
+                <ScalarProperty Name="provincia" ColumnName="provincia" />
+                <ScalarProperty Name="spaActivo" ColumnName="spaActivo" />
+                <ScalarProperty Name="tiendaActiva" ColumnName="tiendaActiva" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Telefono">
+            <EntityTypeMapping TypeName="gymtecdatabaseModel.Telefono">
+              <MappingFragment StoreEntitySet="Telefono">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="telefono1" ColumnName="telefono" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoEquipo">
+            <EntityTypeMapping TypeName="gymtecdatabaseModel.TipoEquipo">
+              <MappingFragment StoreEntitySet="TipoEquipo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tratamiento">
+            <EntityTypeMapping TypeName="gymtecdatabaseModel.Tratamiento">
+              <MappingFragment StoreEntitySet="Tratamiento">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mostrar_clases">
+            <EntityTypeMapping TypeName="gymtecdatabaseModel.mostrar_clases">
+              <MappingFragment StoreEntitySet="mostrar_clases">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="horaInicio" ColumnName="horaInicio" />
+                <ScalarProperty Name="horaFin" ColumnName="horaFin" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="capacidad" ColumnName="capacidad" />
+                <ScalarProperty Name="nombreServicio" ColumnName="nombreServicio" />
+                <ScalarProperty Name="nombreInstructor" ColumnName="nombreInstructor" />
+                <ScalarProperty Name="primer_apellido" ColumnName="primer_apellido" />
+                <ScalarProperty Name="segundo_apellido" ColumnName="segundo_apellido" />
+                <ScalarProperty Name="nombreSucursal" ColumnName="nombreSucursal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mostrar_inventario">
+            <EntityTypeMapping TypeName="gymtecdatabaseModel.mostrar_inventario">
+              <MappingFragment StoreEntitySet="mostrar_inventario">
+                <ScalarProperty Name="nombreSucursal" ColumnName="nombreSucursal" />
+                <ScalarProperty Name="costo" ColumnName="costo" />
+                <ScalarProperty Name="nserie" ColumnName="nserie" />
+                <ScalarProperty Name="marca" ColumnName="marca" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+                <ScalarProperty Name="idsucursal" ColumnName="idsucursal" />
+                <ScalarProperty Name="tipoEquipo" ColumnName="tipoEquipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="ClaseCliente" TypeName="gymtecdatabaseModel.ClaseCliente" StoreEntitySet="ClaseCliente">
+            <EndProperty Name="Cliente">
+              <ScalarProperty Name="cedula" ColumnName="cedulaCliente" />
+            </EndProperty>
+            <EndProperty Name="Clase">
+              <ScalarProperty Name="id" ColumnName="idClase" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="ProductoSucursal" TypeName="gymtecdatabaseModel.ProductoSucursal" StoreEntitySet="ProductoSucursal">
+            <EndProperty Name="Producto">
+              <ScalarProperty Name="codigoBarras" ColumnName="codigoBarras" />
+            </EndProperty>
+            <EndProperty Name="Sucursal">
+              <ScalarProperty Name="id" ColumnName="idSucursal" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="PuestoPermiso" TypeName="gymtecdatabaseModel.PuestoPermiso" StoreEntitySet="PuestoPermiso">
+            <EndProperty Name="Puesto">
+              <ScalarProperty Name="id" ColumnName="idPuesto" />
+            </EndProperty>
+            <EndProperty Name="Permiso">
+              <ScalarProperty Name="nombre" ColumnName="nombrePermiso" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="TratamientoSucursal" TypeName="gymtecdatabaseModel.TratamientoSucursal" StoreEntitySet="TratamientoSucursal">
+            <EndProperty Name="Sucursal">
+              <ScalarProperty Name="id" ColumnName="idSucursal" />
+            </EndProperty>
+            <EndProperty Name="Tratamiento">
+              <ScalarProperty Name="id" ColumnName="idTratamiento" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="copiar_calendario" FunctionName="gymtecdatabaseModel.Store.copiar_calendario" />
+          <FunctionImportMapping FunctionImportName="copiar_gimnasio" FunctionName="gymtecdatabaseModel.Store.copiar_gimnasio" />
+          <FunctionImportMapping FunctionImportName="filtro_clase_cliente" FunctionName="gymtecdatabaseModel.Store.filtro_clase_cliente">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="gymtecdatabaseModel.filtro_clase_cliente_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="horaInicio" ColumnName="horaInicio" />
+                <ScalarProperty Name="horaFin" ColumnName="horaFin" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="nombreServicio" ColumnName="nombreServicio" />
+                <ScalarProperty Name="nombreInstructor" ColumnName="nombreInstructor" />
+                <ScalarProperty Name="primer_apellido" ColumnName="primer_apellido" />
+                <ScalarProperty Name="segundo_apellido" ColumnName="segundo_apellido" />
+                <ScalarProperty Name="nombreSucursal" ColumnName="nombreSucursal" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="filtro_clases" FunctionName="gymtecdatabaseModel.Store.filtro_clases">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="gymtecdatabaseModel.filtro_clases_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="horaInicio" ColumnName="horaInicio" />
+                <ScalarProperty Name="horaFin" ColumnName="horaFin" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="capacidad" ColumnName="capacidad" />
+                <ScalarProperty Name="Cupos" ColumnName="Cupos" />
+                <ScalarProperty Name="nombreServicio" ColumnName="nombreServicio" />
+                <ScalarProperty Name="nombreInstructor" ColumnName="nombreInstructor" />
+                <ScalarProperty Name="primer_apellido" ColumnName="primer_apellido" />
+                <ScalarProperty Name="segundo_apellido" ColumnName="segundo_apellido" />
+                <ScalarProperty Name="nombreSucursal" ColumnName="nombreSucursal" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="generar_planilla" FunctionName="gymtecdatabaseModel.Store.generar_planilla">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="gymtecdatabaseModel.generar_planilla_Result">
+                <ScalarProperty Name="cedula" ColumnName="cedula" />
+                <ScalarProperty Name="primer_apellido" ColumnName="primer_apellido" />
+                <ScalarProperty Name="segundo_apellido" ColumnName="segundo_apellido" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idPlanilla" ColumnName="idPlanilla" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="pago" ColumnName="pago" />
+                <ScalarProperty Name="Tipo_de_pago" ColumnName="Tipo_de_pago" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="inventario_gimnasio" FunctionName="gymtecdatabaseModel.Store.inventario_gimnasio">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="gymtecdatabaseModel.inventario_gimnasio_Result">
+                <ScalarProperty Name="nSerie" ColumnName="nSerie" />
+                <ScalarProperty Name="marca" ColumnName="marca" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="disponibilidad" ColumnName="disponibilidad" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="login_admin" FunctionName="gymtecdatabaseModel.Store.login_admin">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="gymtecdatabaseModel.login_admin_Result">
+                <ScalarProperty Name="cedula" ColumnName="cedula" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+                <ScalarProperty Name="primer_apellido" ColumnName="primer_apellido" />
+                <ScalarProperty Name="segundo_apellido" ColumnName="segundo_apellido" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="distrito" ColumnName="distrito" />
+                <ScalarProperty Name="canton" ColumnName="canton" />
+                <ScalarProperty Name="provincia" ColumnName="provincia" />
+                <ScalarProperty Name="salario" ColumnName="salario" />
+                <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
+                <ScalarProperty Name="idPuesto" ColumnName="idPuesto" />
+                <ScalarProperty Name="idPlanilla" ColumnName="idPlanilla" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="mostrar_clases_gimnasio" FunctionName="gymtecdatabaseModel.Store.mostrar_clases_gimnasio">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="gymtecdatabaseModel.mostrar_clases_gimnasio_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="horaInicio" ColumnName="horaInicio" />
+                <ScalarProperty Name="horaFin" ColumnName="horaFin" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="capacidad" ColumnName="capacidad" />
+                <ScalarProperty Name="nombreServicio" ColumnName="nombreServicio" />
+                <ScalarProperty Name="nombreInstructor" ColumnName="nombreInstructor" />
+                <ScalarProperty Name="primer_apellido" ColumnName="primer_apellido" />
+                <ScalarProperty Name="segundo_apellido" ColumnName="segundo_apellido" />
+                <ScalarProperty Name="nombreSucursal" ColumnName="nombreSucursal" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="productos_gimnasio" FunctionName="gymtecdatabaseModel.Store.productos_gimnasio">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="gymtecdatabaseModel.productos_gimnasio_Result">
+                <ScalarProperty Name="codigoBarras" ColumnName="codigoBarras" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+                <ScalarProperty Name="costo" ColumnName="costo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="disponibilidad" ColumnName="disponibilidad" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="servicios_gimnasio" FunctionName="gymtecdatabaseModel.Store.servicios_gimnasio">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="gymtecdatabaseModel.servicios_gimnasio_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripicion" ColumnName="descripicion" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+                <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="tratamientos_gimnasio" FunctionName="gymtecdatabaseModel.Store.tratamientos_gimnasio">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="gymtecdatabaseModel.tratamientos_gimnasio_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+                <ScalarProperty Name="disponibilidad" ColumnName="disponibilidad" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="mostrar_empleados">
+            <EntityTypeMapping TypeName="gymtecdatabaseModel.mostrar_empleados">
+              <MappingFragment StoreEntitySet="mostrar_empleados">
+                <ScalarProperty Name="idPlanilla" ColumnName="idPlanilla" />
+                <ScalarProperty Name="idPuesto" ColumnName="idPuesto" />
+                <ScalarProperty Name="nombreSucursal" ColumnName="nombreSucursal" />
+                <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
+                <ScalarProperty Name="tipoPlanilla" ColumnName="tipoPlanilla" />
+                <ScalarProperty Name="puesto" ColumnName="puesto" />
+                <ScalarProperty Name="salario" ColumnName="salario" />
+                <ScalarProperty Name="provincia" ColumnName="provincia" />
+                <ScalarProperty Name="canton" ColumnName="canton" />
+                <ScalarProperty Name="distrito" ColumnName="distrito" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="segundo_apellido" ColumnName="segundo_apellido" />
+                <ScalarProperty Name="primer_apellido" ColumnName="primer_apellido" />
+                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="cedula" ColumnName="cedula" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
