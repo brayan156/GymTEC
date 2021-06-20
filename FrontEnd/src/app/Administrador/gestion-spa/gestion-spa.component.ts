@@ -16,6 +16,9 @@ export class GestionSpaComponent implements OnInit {
   constructor(private service: ServiciosService) {
   }
 
+  /**
+   * Incializa las variables a mostrar en la vista de gestion de spa
+   */
   ngOnInit(): void {
     this.service.obtenerListasTratamiento().subscribe(lista => {
       this.listaTratamientos = lista;
@@ -23,6 +26,10 @@ export class GestionSpaComponent implements OnInit {
     });
   }
 
+  /**
+   * Crea un nuevo tratamiento
+   * @param tratamiento tratamien a crear
+   */
   public creaTratamiento(tratamiento: Tratamiento): void{
     this.service.agregarTratamiento(tratamiento).subscribe(respuesta => {
       console.log(respuesta);
@@ -30,19 +37,32 @@ export class GestionSpaComponent implements OnInit {
     });
   }
 
+  /**
+   * Edita un tratamiento especifico
+   * @param tratamiento tratamiento a editar
+   */
   public editarTratamiento(tratamiento: Tratamiento): void{
-    this.service.editarTratamiento(tratamiento.id , tratamiento).subscribe(a =>{
+    this.service.editarTratamiento(tratamiento.id , tratamiento).subscribe(a => {
       console.log(a);
       this.ngOnInit();
     });
   }
 
+  /**
+   * Eliminar un tratamiento especifico
+   * @param tratamiento tratamiento a eliminar
+   */
   public eliminarTratamiento(tratamiento: Tratamiento): void{
-    this.service.eliminarTratamiento(tratamiento.id).subscribe(a =>{
+    this.service.eliminarTratamiento(tratamiento.id).subscribe(a => {
       console.log(a);
       this.ngOnInit();
     });
   }
+
+  /**
+   * Obtiene informacion de un item
+   * @param tratamiento item del cual quiero obtener la informacion
+   */
   public obtenerInformacionItem(tratamiento: Tratamiento): void{
     this.tratamientoActual = tratamiento;
   }

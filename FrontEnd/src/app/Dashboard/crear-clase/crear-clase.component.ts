@@ -18,6 +18,9 @@ export class CrearClaseComponent implements OnInit {
 
   constructor(private service:ServiciosService) { }
 
+  /**
+   * Inicializa las variables para la vista de crear clase
+   */
   ngOnInit(): void {
     this.service.obtenerListasServicio().subscribe(servicios => {
       this.tiposClase = servicios;
@@ -27,6 +30,9 @@ export class CrearClaseComponent implements OnInit {
     })
   }
 
+  /**
+   * Crea una nueva clase en la sucursal
+   */
   crearClase() {
     console.log(this.clase);
     let tmpService = this.tiposClase.find(c => c.id == this.clase.idServicio);

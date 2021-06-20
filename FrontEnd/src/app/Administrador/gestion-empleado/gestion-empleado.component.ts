@@ -19,7 +19,6 @@ export class GestionEmpleadoComponent implements OnInit {
 
 
   listaEmpleado: MostrarEmpleado[] = [];
-  EmpleadoActual: Empleado = new Empleado();
 
   empleado: Empleado = new Empleado();
   empleadoActual: Empleado = new Empleado();
@@ -34,6 +33,10 @@ export class GestionEmpleadoComponent implements OnInit {
   planillaEmpleado: Planilla = new Planilla();
   aux: number;
 
+  /**
+   * Incialisa la gestion de de empleados y muestra los servicios para que
+   * este se muestre
+   */
   ngOnInit(): void {
     this.service.obtenerListasMostrarEmpleado().subscribe(lista => {
       this.listaEmpleado = lista;
@@ -52,16 +55,29 @@ export class GestionEmpleadoComponent implements OnInit {
       });
     });
   }
+
+  /**
+   * Obtiene el id del empleado
+   */
   // tslint:disable-next-line:ban-types
   public obtenerId(): void{
     console.log(this.empleado);
   }
 
+  /**
+   * Obtien un empelado de la base de datos segun su id
+   * @param id numero id del empleado
+   */
   public obtenerEmpleado(id: number): void{
     this.service.obtenerEmpleado(id).subscribe(emple => {
       this.empleadoActual = emple;
     });
   }
+
+  /**
+   * Crea un nuevo empleado
+   * @param empleado empleado a crear
+   */
   public crearEmpleado(empleado: Empleado): void{
     this.obtenerId();
     this.service.agregarEmpleado(empleado).subscribe(respuesta => {
@@ -70,14 +86,21 @@ export class GestionEmpleadoComponent implements OnInit {
     });
   }
 
+  /**
+   * Edita un empleado
+   * @param empleado a editar
+   */
   public editarEmpleado(empleado: Empleado): void{
     this.service.editarEmpleado(empleado.cedula , empleado).subscribe(respuesta => {
       console.log(respuesta);
       this.ngOnInit();
     });
-
   }
 
+  /**
+   * Emina un empleado especifico
+   * @param empleado empleado a eliminar
+   */
   public eliminarEmpleado(empleado: Empleado): void{
     this.service.eliminaEmpleado(empleado.cedula).subscribe(respuesta =>{
       console.log(respuesta);
@@ -93,6 +116,10 @@ export class GestionEmpleadoComponent implements OnInit {
     });
   }
 
+  /**
+   * Obtiene informacion de un puesto especifico
+   * @param puesto a obtner informacion
+   */
   public obtenerInformacionPuesto(puesto: Puesto): void{
     this.service.obtenerPuesto(puesto.id).subscribe(a => {
       this.puestoEmpleado = a;
@@ -100,6 +127,10 @@ export class GestionEmpleadoComponent implements OnInit {
     });
   }
 
+  /**
+   * Obtiene informacion de una sucursal
+   * @param sucursal a la cual se va a obtener la informacion
+   */
   public obtenerSucursal(sucursal: Sucursal): void{
     this.service.obtenerSucursal(sucursal.id).subscribe(a => {
       this.sucursalEmpleado = a;

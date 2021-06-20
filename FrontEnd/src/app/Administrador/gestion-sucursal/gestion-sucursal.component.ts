@@ -19,6 +19,9 @@ export class GestionSucursalComponent implements OnInit {
   sucusalEditar: Sucursal = new  Sucursal();
   constructor(private service: ServiciosService) { }
 
+  /**
+   * Inicialisa las varibles para ls vista de gestion de sucursal
+   */
   ngOnInit(): void {
     this.service.obtenerListasSucursal().subscribe(lista => {
       this.ListaSucursales = lista;
@@ -26,6 +29,10 @@ export class GestionSucursalComponent implements OnInit {
     });
   }
 
+  /**
+   * Crea una nueva sucursal
+   * @param sucursal sucursal a crear
+   */
   public creaSucursal(sucursal: Sucursal): void{
     this.service.agregarSucursal(sucursal).subscribe(respuesta => {
       console.log(respuesta);
@@ -33,6 +40,10 @@ export class GestionSucursalComponent implements OnInit {
     });
   }
 
+  /**
+   * Edita una sucursal especifica
+   * @param sucursal a editar
+   */
   public editarSucursal(sucursal: Sucursal): void{
     this.service.editarSucursal(this.sucursalActual.id , sucursal).subscribe(a => {
       console.log(a);
@@ -40,6 +51,10 @@ export class GestionSucursalComponent implements OnInit {
     });
   }
 
+  /**
+   * Elimina  una sucursal especfica
+   * @param sucursal a eliminar
+   */
   public eliminarSucursal(sucursal: Sucursal): void{
     try{
     this.service.eliminarSucursal(sucursal.id).subscribe(a => {
@@ -52,6 +67,11 @@ export class GestionSucursalComponent implements OnInit {
     }
   }
 
+  /**
+   * Funcion para activar o desactivar el SPA
+   * @param sucursal sucursal a la cual deseo desactivar/activar el spa
+   * @constructor
+   */
   public ActivarDesactivarSpa(sucursal: Sucursal): void{
     sucursal.spaActivo = !sucursal.spaActivo;
     this.service.editarSucursal(sucursal.id , sucursal).subscribe(a => {
@@ -59,7 +79,11 @@ export class GestionSucursalComponent implements OnInit {
       this.ngOnInit();
     });
   }
-
+  /**
+   * Funcion para activar o desactivar la tienda
+   * @param sucursal sucursal a la cual deseo desactivar/activar la tienda
+   * @constructor
+   */
   public ActivarDesactivarTienda(sucursal: Sucursal): void{
     sucursal.tiendaActiva = !sucursal.tiendaActiva;
     this.service.editarSucursal(sucursal.id , sucursal).subscribe(a => {

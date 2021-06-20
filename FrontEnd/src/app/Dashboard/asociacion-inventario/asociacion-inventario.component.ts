@@ -20,6 +20,9 @@ export class AsociacionInventarioComponent implements OnInit {
   sucursalModal: Sucursal= new Sucursal();
   inventario: Equipo[] = [];
 
+  /**
+   * Inicialza las variablles para inicalizar la asociasion de inventario
+   */
   ngOnInit(): void {
     this.service.obtenerListasSucursal().subscribe(lista => {
       this.ListaSucursales = lista;
@@ -37,11 +40,19 @@ export class AsociacionInventarioComponent implements OnInit {
     });
   }
 
+  /**
+   * Agrega un inventario especifico a una surursal especificia
+   * @param inventario a agregar en susucursal
+   * @param sucursal que recibe el inventarion
+   */
   agregarInventario(inventario: InventarioGym, sucursal: Sucursal) {
     this.inventariooModal = inventario;
     this.sucursalModal = sucursal;
   }
 
+  /**
+   * Asociar inventario a la sucursal
+   */
   asociarInventario() {
     this.service.obtenerListaEquipo().subscribe(inventarios => {
      let  equipo = inventarios.find(e => e.nSerie == this.inventariooModal.nSerie);
@@ -53,11 +64,20 @@ export class AsociacionInventarioComponent implements OnInit {
     })
   }
 
+  /**
+   * Elimina el inventario de la sucursal
+   * @param inventario a eliminar
+   * @param sucursal sucursla a la que se le desea eliminar
+   */
   borrarInventario(inventario: InventarioGym, sucursal: Sucursal) {
     this.inventariooModal = inventario;
     this.sucursalModal = sucursal;
   }
 
+  /**
+   * Desasosia inventario de las sucursales
+   * @constructor
+   */
   DesacocieInventario() {
     this.service.obtenerListaEquipo().subscribe(inventarios => {
       let  equipo = inventarios.find(e => e.nSerie == this.inventariooModal.nSerie);

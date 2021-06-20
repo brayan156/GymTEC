@@ -19,6 +19,9 @@ export class AsociacionProductosComponent implements OnInit {
   productoModal: ProductoGym = new ProductoGym();
   sucursalModal: Sucursal = new Sucursal();
 
+  /**
+   * Inisializa las variables para la vista de asociasion de productos
+   */
   ngOnInit(): void {
     this.service.obtenerListasSucursal().subscribe(lista => {
       this.ListaSucursales = lista;
@@ -35,11 +38,19 @@ export class AsociacionProductosComponent implements OnInit {
     });
   }
 
+  /**
+   * Agrega un producro
+   * @param producto producto a agrgaer
+   * @param sucursal a la que se le desea agregar el prodcuto
+   */
   agregarProducto(producto: ProductoGym, sucursal: Sucursal) {
     this.productoModal = producto;
     this.sucursalModal = sucursal;
   }
 
+  /**
+   * Asocia un producto especifico
+   */
   asociarProducto() {
     this.service.postProductoSucursal(this.sucursalModal.id, this.productoModal.codigoBarras).subscribe(() => {
       this.sucursalModal = new Sucursal();
@@ -47,11 +58,20 @@ export class AsociacionProductosComponent implements OnInit {
     });
   }
 
+  /**
+   * Borra un producto en una sucursal
+   * @param producto a ser agregado
+   * @param sucursal a la cual se le desea agregar el producto
+   */
   borrarProducto(producto: ProductoGym, sucursal: Sucursal) {
     this.productoModal = producto;
     this.sucursalModal = sucursal;
   }
 
+  /**
+   * Desasociar un producto
+   * @constructor
+   */
   DesacocieProducto() {
     this.service.deleteProductoSucursal(this.sucursalModal.id, this.productoModal.codigoBarras).subscribe(() => {
       this.sucursalModal = new Sucursal();

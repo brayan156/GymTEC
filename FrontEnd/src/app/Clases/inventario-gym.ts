@@ -1,3 +1,6 @@
+/**
+ * Varaibales untilizadas para gestion datos de esta calse en el html
+ */
 export class InventarioGym {
   nSerie: number;
   marca: string;

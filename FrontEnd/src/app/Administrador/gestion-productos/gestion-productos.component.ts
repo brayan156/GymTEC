@@ -16,6 +16,9 @@ export class GestionProductosComponent implements OnInit {
   actualProducto: Producto = new Producto();
   constructor(private service: ServiciosService) { }
 
+  /**
+   * Incializa la vista gestion de productos
+   */
   ngOnInit(): void {
     this.service.obtenerListasProducto().subscribe(lista => {
     this.listaDeProductos = lista;
@@ -23,6 +26,10 @@ export class GestionProductosComponent implements OnInit {
     });
   }
 
+  /**
+   * Crea un nuevo producto
+   * @param producto producto a crear
+   */
   public crearProducto(producto: Producto): void{
     this.service.agregarProducto(producto).subscribe(respuesta => {
       console.log(respuesta);
@@ -30,6 +37,10 @@ export class GestionProductosComponent implements OnInit {
     });
   }
 
+  /**
+   * Editar un producto especifico
+   * @param producto a editar
+   */
   public editarProducto(producto: Producto): void{
     this.service.editarProducto(producto.codigoBarras , producto).subscribe(a => {
       console.log(a);
@@ -37,6 +48,10 @@ export class GestionProductosComponent implements OnInit {
     });
   }
 
+  /**
+   * Eliminar un nuevo producto
+   * @param producto a editar
+   */
   public eliminarProducto(producto: Producto): void{
     this.service.eliminarProducto(producto.codigoBarras).subscribe(a => {
       console.log(a);
@@ -45,6 +60,10 @@ export class GestionProductosComponent implements OnInit {
 
   }
 
+  /**
+   * Obtener informacion de un producto especifico
+   * @param producto actual
+   */
   public obtenerInformacionItem(producto: Producto): void{
     this.actualProducto = producto;
   }

@@ -19,11 +19,19 @@ export class NavbarComponent implements OnInit {
 
   }
 
+  /**
+   * Navega dentro de la pagina web
+   * @param url especifica a que parte de la web se quiere dirigir
+   */
   public navigate(url: string): void {
     this.empleado = this.service.empleado;
     this.puesto = this.service.puesto;
     this.router.navigateByUrl('/administrador/'.concat(url));
   }
+
+  /**
+   * Vueve al meno de login
+   */
   public salrir(): void{
     this.router.navigateByUrl('');
   }

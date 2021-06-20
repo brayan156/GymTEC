@@ -10,13 +10,19 @@ import {GenerarPlanilla} from '../../Clases/generar_planilla';
   styleUrls: ['./generacion-planilla.component.css']
 })
 export class GeneracionPlanillaComponent implements OnInit {
+  /**
+   * Construtctor del la vista genertaricon de de palnilla
+   * @param service recisive un servicio para hacer las consultas
+   */
   constructor(private service: ServiciosService) { }
 
   listaSucursales: Sucursal[] = [];
   sucursal: Sucursal = new Sucursal();
   mostrarHTML: GenerarPlanilla[] = [];
 
-
+  /**
+   * Incicializa los valores a mostrar
+   */
   ngOnInit(): void {
     this.service.obtenerListasSucursal().subscribe(lista => {
       this.listaSucursales = lista;
@@ -24,6 +30,10 @@ export class GeneracionPlanillaComponent implements OnInit {
     });
   }
 
+  /**
+   * Llama al Store procedure para generar la planilla y mostrar en pantalla
+   * @param id
+   */
   public generarPlanilla(id: number): void{
     this.service.generarPlanilla(id).subscribe(lista =>
     this.mostrarHTML = lista);

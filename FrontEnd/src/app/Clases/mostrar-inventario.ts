@@ -1,3 +1,6 @@
+/**
+ * Varaibales untilizadas para gestion datos de esta calse en el html
+ */
 export class MostrarInventario {
   nserie: number;
   marca: string;

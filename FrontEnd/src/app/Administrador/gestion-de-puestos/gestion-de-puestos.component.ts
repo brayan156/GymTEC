@@ -16,13 +16,20 @@ export class GestionDePuestosComponent implements OnInit {
 
   constructor(private service: ServiciosService) { }
 
-
+  /**
+   * Inicializa las variales para mostrar las lista puestos
+   */
   ngOnInit(): void {
     this.service.obtenerListasPuesto().subscribe(lista => {
       this.listaPuesto = lista;
       console.log(this.listaPuesto);
     });
   }
+
+  /**
+   * Crea un nuevo puesto
+   * @param puesto el puesto a crear
+   */
   public crearPuesto(puesto: Puesto): void{
     this.service.agregarPuesto(puesto).subscribe(respuesta => {
       console.log(respuesta);
@@ -30,6 +37,10 @@ export class GestionDePuestosComponent implements OnInit {
     });
   }
 
+  /**
+   * Edita un puesto especifico
+   * @param puesto el puesto a editar
+   */
   public editarPuesto(puesto: Puesto): void{
     this.service.editarPuesto(puesto.id , puesto).subscribe(a => {
       console.log(a);
@@ -37,6 +48,10 @@ export class GestionDePuestosComponent implements OnInit {
     });
   }
 
+  /**
+   * Eliminar un puesto especifico
+   * @param puesto el puesto a eliminar
+   */
   public eliminarPuesto(puesto: Puesto): void{
     this.service.eliminarPuesto(puesto.id).subscribe(a => {
       console.log(a);
@@ -44,6 +59,10 @@ export class GestionDePuestosComponent implements OnInit {
     });
   }
 
+  /**
+   * obtiene informacion de un puesto espesifico
+   * @param puesto
+   */
   public obtenerInformacionItem(puesto: Puesto): void{
     this.puestoActual = puesto;
   }
