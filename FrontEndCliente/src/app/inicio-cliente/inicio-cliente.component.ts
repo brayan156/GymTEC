@@ -38,18 +38,19 @@ export class InicioClienteComponent {
         
         this.service.filtro_clases_cliente(this.service.user.cedula).subscribe(clases => {
           console.log(clases);
+          let tmp: { title: string, date: string }[] = [];
 
           clases.forEach(clase => {
             let date = new Date(clase.fecha);
             date.setHours(clase.horaInicio);
             let stringDate = date.getFullYear() + '-' + (date.getMonth() +1) + '-' + date.getDate() + 'T' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
 
-            this.calendarOptions.events = [{
+            tmp.push({
               title: clase.nombreServicio,
-              date: clase.fecha,
-              
-            }]
-          })          
+              date: clase.fecha
+            })
+          })
+        this.calendarOptions.events = tmp;
         })
       })
     });

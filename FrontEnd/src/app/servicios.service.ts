@@ -797,4 +797,8 @@ export class ServiciosService {
     return this.htpp.get<MostrarInventario[]>(this.Url + 'mostrar_inventario/');
   }
 
+  public mostrarClases() {
+    return this.htpp.get<FiltroClaseCliente[]>(this.Url + 'mostrar_clases');
+  }
+
 }
