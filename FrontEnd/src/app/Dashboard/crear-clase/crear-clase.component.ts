@@ -12,23 +12,37 @@ import { ServiciosService } from 'src/app/servicios.service';
 })
 export class CrearClaseComponent implements OnInit {
 
-  tiposClase: Servicio[];
-  clase: Clase;
-  instructores: Empleado[];
+  tiposClase: Servicio[] = [];
+  clase: Clase = new Clase();
+  instructores: Empleado[] = [];
 
   constructor(private service:ServiciosService) { }
 
+  /**
+   * Inicializa las variables para la vista de crear clase
+   */
   ngOnInit(): void {
     this.service.obtenerListasServicio().subscribe(servicios => {
       this.tiposClase = servicios;
       this.service.obtenerListaEmpleados().subscribe(empleados => {
-        this.instructores = empleados.filter(p => p.idPuesto == 1);
+        this.instructores = empleados.filter(p => p.idPuesto == 2);
       })
     })
   }
 
+  /**
+   * Crea una nueva clase en la sucursal
+   */
   crearClase() {
     console.log(this.clase);
-    this.service.agregarClase(this.clase);
+    let tmpService = this.tiposClase.find(c => c.id == this.clase.idServicio);
+    let tmpInstruct = this.instructores.find(c => c.cedula == this.clase.idEmpleado);
+    if (tmpService?.idSucursal == tmpInstruct?.idSucursal) {
+      this.service.agregarClase(this.clase).subscribe(resp => {
+      });
+    } else {
+      alert("Las sucursales no corresponden.");
+    }
+
   }
 }

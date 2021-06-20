@@ -24,6 +24,9 @@ export class GestionInventarioComponent implements OnInit {
   constructor(private service: ServiciosService) {
   }
 
+  /**
+   * Inicializa la lista para mostra la vista de gestion de inventario
+   */
   ngOnInit(): void {
     this.service.obtenerListaMostrarInventario().subscribe(listaMI => {
       this.mostrarInventario = listaMI;
@@ -37,12 +40,21 @@ export class GestionInventarioComponent implements OnInit {
     });
   }
 
+  /**
+   * Obtiene informacion del equipo
+   * @param id del equipo que se desea a obtener
+   */
   public obtenerEquipo(id: number): void{
     this.service.obtenerEquipo(id).subscribe(respuesta => {
       this.equipoActual = respuesta;
       console.log(respuesta);
     });
   }
+
+  /**
+   * Crea un nuevo equipo
+   * @param equipo que se va a crear
+   */
   public crearEquipo(equipo: Equipo): void{
     this.service.agregarEquipo(equipo).subscribe(respuesta => {
       console.log(respuesta);
@@ -50,6 +62,10 @@ export class GestionInventarioComponent implements OnInit {
     });
   }
 
+  /**
+   * Edita un equipo especifico
+   * @param equipo equipo que se va a editar
+   */
   public editarEquipo(equipo: Equipo): void{
     this.service.editarEquipo(equipo.nSerie , equipo).subscribe(respuesta => {
       console.log(respuesta);
@@ -57,6 +73,10 @@ export class GestionInventarioComponent implements OnInit {
     });
   }
 
+  /**
+   * Elimina un equipo especifico
+   * @param equipo a eliminar
+   */
   public eliminarEquipo(equipo: Equipo): void{
     this.service.eliminaEquipo(equipo.nSerie).subscribe(respuesta => {
       console.log(respuesta);

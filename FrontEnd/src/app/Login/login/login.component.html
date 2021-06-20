@@ -10,15 +10,15 @@
             <div class="entradas">
               <div class="row">
                 <input type="email" name="email" class="email_From" id="InputEmail1" placeholder="Correo Electronico"
-                       aria-label="CorreoElectronico" required="">
+                       aria-label="CorreoElectronico" required="" #correo="ngModel" [(ngModel)]="empleado.email">
               </div>
               <div class="row">
                 <input type="password" name="password" class="pasword_Emanil" id="InputPassword" placeholder="Contraseña"
-                       aria-label="contraseña" required="">
+                       aria-label="contraseña" required="" #password="ngModel" [(ngModel)]="empleado.contrasena">
             </div>
             </div>
             <div class="row" class="button">
-              <button type="submit" class="btn" (click)="navegation()">Entrar</button>
+              <button type="submit" class="btn" (click)="login()">Entrar</button>
             </div>
           </form>
         </div>

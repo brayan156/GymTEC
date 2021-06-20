@@ -89,13 +89,13 @@ create or alter procedure generar_planilla @idsucursal int as begin
     exec generar_planilla 1
 GO
 
-create or alter procedure filtro_clases @id_sucursal int,@nombre_servicio varchar(50), @fechainicio date, @fechafin date as begin
+create or alter procedure filtro_clases @id_sucursal int,@nombre_servicio varchar(50), @fechainicio date, @fechafin  date,@id_cliente int as begin
     select Clase.id, Clase.horaInicio, Clase.horaFin, fecha, Clase.capacidad, Clase.capacidad-COUNT(CC.idClase) as Cupos,S3.nombre as nombreServicio, E.nombre as nombreInstructor,E.primer_apellido,E.segundo_apellido,S2.nombre as nombreSucursal from Clase
     join Empleado E on Clase.idEmpleado = E.cedula
     join Sucursal S2 on E.idSucursal = S2.id
     join Servicio S3 on Clase.idServicio = S3.id
     left join ClaseCliente CC on Clase.id = CC.idClase
-    where (S2.id=@id_sucursal or @id_sucursal=0) and (S3.nombre=@nombre_servicio or @nombre_servicio is null) and (Clase.fecha>=@fechainicio or @fechainicio IS NULL) and (Clase.fecha<=@fechafin or @fechafin is null) and Clase.fecha>=getdate()
+    where (S2.id=@id_sucursal or @id_sucursal=0) and (S3.nombre=@nombre_servicio or @nombre_servicio ='') and (Clase.fecha>=@fechainicio or @fechainicio = '') and (Clase.fecha<=@fechafin or @fechafin ='') and Clase.fecha>=getdate() and @id_cliente!=CC.cedulaCliente
     group by Clase.id, Clase.horaInicio, Clase.horaFin, fecha, Clase.capacidad, S3.nombre, E.nombre, E.primer_apellido, E.segundo_apellido,S2.nombre
     end;
 GO
@@ -122,7 +122,7 @@ end
 GO
 
 create or alter procedure tratamientos_gimnasio @id_sucursal int as begin
-    select Tratamiento.id, Tratamiento.nombre,Tratamiento.imagen, iif(Ts.idSucursal is not null,'asociado','no asociado') from Tratamiento
+    select Tratamiento.id, Tratamiento.nombre,Tratamiento.imagen, iif(Ts.idSucursal is not null or Ts.idSucursal!=0,'asociado','no asociado') from Tratamiento
     cross join Sucursal
     left join TratamientoSucursal TS on Sucursal.id = TS.idSucursal and Tratamiento.id=Ts.idTratamiento
     where @id_sucursal=Sucursal.id
@@ -130,7 +130,7 @@ create or alter procedure tratamientos_gimnasio @id_sucursal int as begin
 GO
 
  create or alter procedure productos_gimnasio @id_sucursal int as begin
-    select Producto.codigoBarras, Producto.nombre, Producto.imagen, costo, descripcion, iif(PS.idSucursal is not null,'asociado','no asociado') from Producto
+    select Producto.codigoBarras, Producto.nombre, Producto.imagen, costo, descripcion, iif(PS.idSucursal is not null or PS.idSucursal!=0,'asociado','no asociado') from Producto
     cross join Sucursal
     left join ProductoSucursal PS on Sucursal.id = PS.idSucursal and Producto.codigoBarras=PS.codigoBarras
     where @id_sucursal=Sucursal.id
@@ -138,7 +138,7 @@ GO
 GO
 
  create or alter procedure inventario_gimnasio @id_sucursal int as begin
-    select nSerie, marca, Equipo.descripcion, Equipo.imagen, TE.nombre as tipo, iif(Equipo.idSucursal is not null,'asociado','no asociado') from Equipo
+    select nSerie, marca, Equipo.descripcion, Equipo.imagen, TE.nombre as tipo, iif(Equipo.idSucursal is not null or Equipo.idSucursal!=0,'asociado','no asociado') from Equipo
     join TipoEquipo TE on TE.id = Equipo.idTipoEquipo
     where @id_sucursal=Equipo.idSucursal or Equipo.idSucursal is null
     end

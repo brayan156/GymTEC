@@ -17,6 +17,9 @@ export class GestionTipoEquiposComponent implements OnInit {
   constructor(private service: ServiciosService) {
   }
 
+  /**
+   * Inicializa las variables para que se muestren en la vista de gestion de tipo de equipo
+   */
   ngOnInit(): void {
     this.service.obtenerListasTipoEquipo().subscribe(lista => {
       this.listatipoEquipo = lista;
@@ -24,6 +27,10 @@ export class GestionTipoEquiposComponent implements OnInit {
     });
   }
 
+  /**
+   * Crea un nuevo tipo de equipo
+   * @param tipoEquipo tipo de equipo a crear
+   */
   public creaTipoEquipo(tipoEquipo: TipoEquipo): void{
     this.service.agregarTipoEquipo(tipoEquipo).subscribe(respuesta => {
       console.log(respuesta);
@@ -32,6 +39,10 @@ export class GestionTipoEquiposComponent implements OnInit {
 
   }
 
+  /**
+   * Editar tipo de equipo especifico
+   * @param tipoEquipo tipo de equipo a editar
+   */
   public editarTipoEquipo(tipoEquipo: TipoEquipo): void{
     this.service.editarTipoEquipo(tipoEquipo.id , tipoEquipo).subscribe(respuesta => {
       console.log(respuesta);
@@ -39,6 +50,10 @@ export class GestionTipoEquiposComponent implements OnInit {
     });
   }
 
+  /**
+   * Elimina un tipo de equipo especifico
+   * @param tipoEquipo tipo de equipo a eliminar
+   */
   public eliminartipoEquipo(tipoEquipo: TipoEquipo): void {
     this.service.eliminarTipoEquipo(tipoEquipo.id).subscribe(respuesta => {
       console.log(respuesta);
@@ -46,6 +61,10 @@ export class GestionTipoEquiposComponent implements OnInit {
     });
   }
 
+  /**
+   * Obtiene informacion especficia de un item, tipo de equipo
+   * @param tipoEquipo informacion entrante
+   */
   public obtenerInformacionItem(tipoEquipo: TipoEquipo): void{
     this.tipoEquipoActual = tipoEquipo;
   }
