@@ -17,6 +17,20 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public login(): void{
+    this.servicio.loginAdmin(this.empleado.contrasena, this.empleado.email).subscribe(resp => {
+      console.log(resp);
+      if (resp.length !== 0){
+        this.servicio.empleado = resp[0];
+        this.servicio.obtenerPuesto(this.servicio.empleado.idPuesto).subscribe(a =>
+          this.servicio.puesto = a);
+        this.navegation();
+      }else {
+        alert('Gullipollas');
+      }
+
+    });
+  }
   public navegation(): void{
     this.router.navigate(['/administrador']);
   }
