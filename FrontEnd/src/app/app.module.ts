@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { GestionTipoEquiposComponent } from './Administrador/gestion-tipo-equipos/gestion-tipo-equipos.component';
 import { GestionServiciosComponent } from './Administrador/gestion-servicios/gestion-servicios.component';
 import { GestionInventarioComponent } from './Administrador/gestion-inventario/gestion-inventario.component';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 import { GestionProductosComponent } from './Administrador/gestion-productos/gestion-productos.component';
 import { GestionTipoPlanillaComponent } from './Administrador/gestion-tipo-planilla/gestion-tipo-planilla.component';
 import { AsociacionInventarioComponent } from './Dashboard/asociacion-inventario/asociacion-inventario.component';
@@ -25,15 +25,10 @@ import { CrearClaseComponent } from './Dashboard/crear-clase/crear-clase.compone
 import { CalendarioComponent } from './Dashboard/calendario/calendario.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import timeGridPlugin from '@fullcalendar/timegrid';
-import listPlugin from '@fullcalendar/list';
-import interactionPlugin from '@fullcalendar/interaction';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
-  timeGridPlugin,
-  listPlugin,
-  interactionPlugin
+
 ])
 
 @NgModule({
