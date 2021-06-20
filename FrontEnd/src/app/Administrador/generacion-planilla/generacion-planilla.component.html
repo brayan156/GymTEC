@@ -1,29 +1,17 @@
-<div class="container">
-  <h1>Nombre de la Sucursal</h1>
-
-  <button class="btn btn-dark">Generar Planilla</button>
-  <table class="table">
-    <thead>
-    <tr>
-      <th scope="col">Nombre</th>
-      <th scope="col">Numero de Cedula</th>
-      <th scope="col">Numeo de Clases Impartidas/Horas Laboradas</th>
-      <th scope="col">Pago</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <th scope="row">Juan</th>
-      <td>305230522</td>
-      <td>25 clases/ 50H</td>
-      <td>₡ 250 000</td>
-    </tr>
-    </tbody>
-  </table>
+<div class="row container">
+  <div class="form-group col aux">
+    <label><h2>Seleciones una sucursal:</h2></label>
+    <button class="btn btn-dark" (click)="generarPlanilla(sucursal.id)">Buscar</button>
+    <select class="form-select input-group" id="id" [(ngModel)]='sucursal.id' name="id" required
+            [ngModelOptions]="{standalone: true}">
+      <option *ngFor="let sucursalAux of listaSucursales" value="{{sucursalAux.id}}"> {{sucursalAux.nombre}}</option>
+    </select>
+  </div>
 </div>
 
+
 <div class="container">
-  <h1>Nombre de la Sucursal</h1>
+  <h1>Nombre de la Sucursal: {{sucursal.nombre}}</h1>
 
   <button class="btn btn-dark">Generar Planilla</button>
   <table class="table">
@@ -32,39 +20,17 @@
       <th scope="col">Nombre</th>
       <th scope="col">Numero de Cedula</th>
       <th scope="col">Numeo de Clases Impartidas/Horas Laboradas</th>
+      <th scope="col">id Planilla</th>
       <th scope="col">Pago</th>
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <th scope="row">Juan</th>
-      <td>305230522</td>
-      <td>25 clases/ 50H</td>
-      <td>₡ 250 000</td>
-    </tr>
-    </tbody>
-  </table>
-</div>
-
-<div class="container">
-  <h1>Nombre de la Sucursal</h1>
-
-  <button class="btn btn-dark">Generar Planilla</button>
-  <table class="table">
-    <thead>
-    <tr>
-      <th scope="col">Nombre</th>
-      <th scope="col">Numero de Cedula</th>
-      <th scope="col">Numeo de Clases Impartidas/Horas Laboradas</th>
-      <th scope="col">Pago</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <th scope="row">Juan</th>
-      <td>305230522</td>
-      <td>25 clases/ 50H</td>
-      <td>₡ 250 000</td>
+    <tr *ngFor="let item of mostrarHTML">
+      <th scope="row">{{item.nombre}} {{item.primer_apellido}} {{item.segundo_apellido}}</th>
+      <td>{{item.cedula}}</td>
+      <td>{{item.Tipo_de_pago}}/ {{item.cantidad}}</td>
+      <td>{{item.idPlanilla}}</td>
+      <td>{{item.pago}}</td>
     </tr>
     </tbody>
   </table>

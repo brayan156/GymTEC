@@ -14,6 +14,7 @@ import { createEventId } from './event-utils';
   styleUrls: ['./calendario.component.css']
 })
 export class CalendarioComponent implements OnInit {
+  clasesActuales: FiltroClase[];
   SucursalesDisponibles: Sucursal[];
   ServiciosDisponibles: Servicio[];
   clasesBusqueda: FiltroClase[];
@@ -34,9 +35,7 @@ export class CalendarioComponent implements OnInit {
       this.SucursalesDisponibles = sucursales;
       this.service.obtenerListasServicio().subscribe(servicios => {
         this.ServiciosDisponibles = servicios;
-        
-
-      })
+      });
     });
   }
 
@@ -116,7 +115,7 @@ export class CalendarioComponent implements OnInit {
 
   todasClases() {
     this.handleDateSelect.bind(this);
-    
+
   }
 
   inscribirme(clase: FiltroClase) {

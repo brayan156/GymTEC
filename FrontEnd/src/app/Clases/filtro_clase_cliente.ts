@@ -3,6 +3,7 @@ export class FiltroClaseCliente {
   horaInicio: number;
   horaFin: number;
   fecha: string;
+  capacidad: number;
   nombreServicio: string;
   nombreInstructor: string;
   primer_apellido: string;
