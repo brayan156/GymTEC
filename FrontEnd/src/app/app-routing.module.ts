@@ -18,6 +18,7 @@ import { AsociacionInventarioComponent } from './Dashboard/asociacion-inventario
 import { CrearClaseComponent } from './Dashboard/crear-clase/crear-clase.component';
 import { GestionTipoPlanillaComponent } from './Administrador/gestion-tipo-planilla/gestion-tipo-planilla.component';
 import { FormsModule } from '@angular/forms';
+import {CalendarioComponent} from './Dashboard/calendario/calendario.component';
 
 const routes: Routes = [{path: '', component: LoginComponent},
   { path: 'administrador', component: NavbarComponent,
@@ -26,13 +27,12 @@ const routes: Routes = [{path: '', component: LoginComponent},
       {path: 'GestionPuestos' , component: GestionDePuestosComponent},
       {path: 'GestionPlanilla' , component: GestionTipoPlanillaComponent},
       {path: 'GestionEmpleados' , component: GestionEmpleadoComponent},
-
       {path: 'GeneracionPlanilla' , component: GeneracionPlanillaComponent},
       {path: 'GestionServicios' , component: GestionServiciosComponent},
       {path: 'TipoEquipo' , component: GestionTipoEquiposComponent},
       {path: 'GestionInventario' , component: GestionInventarioComponent},
       { path: 'GestionProductos', component: GestionProductosComponent },
-      
+      { path: 'Calendario', component: CalendarioComponent },
       { path: 'AsociacionTratamientos', component: AsociacionTratamientosComponent },
       { path: 'AsociacionProductos', component: AsociacionProductosComponent },
       { path: 'AsociacionInventario', component: AsociacionInventarioComponent },

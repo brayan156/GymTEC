@@ -22,6 +22,7 @@ import { AsociacionInventarioComponent } from './Dashboard/asociacion-inventario
 import { AsociacionProductosComponent } from './Dashboard/asociacion-productos/asociacion-productos.component';
 import { AsociacionTratamientosComponent } from './Dashboard/asociacion-tratamientos/asociacion-tratamientos.component';
 import { CrearClaseComponent } from './Dashboard/crear-clase/crear-clase.component';
+import { CalendarioComponent } from './Dashboard/calendario/calendario.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,8 @@ import { CrearClaseComponent } from './Dashboard/crear-clase/crear-clase.compone
     AsociacionInventarioComponent,
     AsociacionProductosComponent,
     AsociacionTratamientosComponent,
-    CrearClaseComponent
+    CrearClaseComponent,
+    CalendarioComponent
   ],
     imports: [
       BrowserModule,
