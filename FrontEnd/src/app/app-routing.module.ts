@@ -19,6 +19,7 @@ import { CrearClaseComponent } from './Dashboard/crear-clase/crear-clase.compone
 import { GestionTipoPlanillaComponent } from './Administrador/gestion-tipo-planilla/gestion-tipo-planilla.component';
 import { FormsModule } from '@angular/forms';
 import {CalendarioComponent} from './Dashboard/calendario/calendario.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 const routes: Routes = [{path: '', component: LoginComponent},
   { path: 'administrador', component: NavbarComponent,
@@ -42,6 +43,6 @@ const routes: Routes = [{path: '', component: LoginComponent},
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule, FormsModule  ]
+  exports: [RouterModule, FormsModule ]
 })
 export class AppRoutingModule { }

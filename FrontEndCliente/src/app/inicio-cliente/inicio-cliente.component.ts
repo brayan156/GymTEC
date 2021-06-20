@@ -49,10 +49,7 @@ export class InicioClienteComponent {
               date: clase.fecha,
               
             }]
-
-          })
-
-          
+          })          
         })
       })
     });

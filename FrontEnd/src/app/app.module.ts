@@ -23,6 +23,19 @@ import { AsociacionProductosComponent } from './Dashboard/asociacion-productos/a
 import { AsociacionTratamientosComponent } from './Dashboard/asociacion-tratamientos/asociacion-tratamientos.component';
 import { CrearClaseComponent } from './Dashboard/crear-clase/crear-clase.component';
 import { CalendarioComponent } from './Dashboard/calendario/calendario.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import listPlugin from '@fullcalendar/list';
+import interactionPlugin from '@fullcalendar/interaction';
+
+FullCalendarModule.registerPlugins([
+  dayGridPlugin,
+  timeGridPlugin,
+  listPlugin,
+  interactionPlugin
+])
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +66,7 @@ import { CalendarioComponent } from './Dashboard/calendario/calendario.component
       MatSlideToggleModule,
       HttpClientModule,
       FormsModule,
+      FullCalendarModule
     ],
   providers: [],
   bootstrap: [AppComponent]
