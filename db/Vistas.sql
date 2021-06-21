@@ -6,8 +6,9 @@ create or alter view mostrar_empleados as
 go
 
 create or alter view mostrar_inventario as
-    select Equipo.nserie, Equipo.marca, Equipo.descripcion, Equipo.imagen, Equipo.costo,Equipo.idsucursal, TE.nombre as tipoEquipo from Equipo
+    select Equipo.nserie, Equipo.marca, Equipo.descripcion, Equipo.imagen, Equipo.costo,Equipo.idsucursal, S.nombre as nombreSucursal ,TE.nombre as tipoEquipo from Equipo
     join TipoEquipo TE on TE.id = Equipo.idTipoEquipo
+    left join Sucursal S on Equipo.idSucursal = S.id
 go
 
 create or alter view mostrar_clases as

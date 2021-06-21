@@ -1,4 +1,7 @@
-
+SP_CONFIGURE 'nested_triggers',1
+GO
+RECONFIGURE
+GO
 
 
 

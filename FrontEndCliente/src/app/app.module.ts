@@ -9,9 +9,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // import interactionPlugin from '@fullcalendar/interaction'; // a plugin
 import { FullCalendarModule } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import timeGridPlugin from '@fullcalendar/timegrid';
-import listPlugin from '@fullcalendar/list';
-import interactionPlugin from '@fullcalendar/interaction';
 import { AppComponent } from './app.component';
 import { RegistroComponent } from './Componentes/registro/registro.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,9 +17,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
-  timeGridPlugin,
-  listPlugin,
-  interactionPlugin
 ])
 
 

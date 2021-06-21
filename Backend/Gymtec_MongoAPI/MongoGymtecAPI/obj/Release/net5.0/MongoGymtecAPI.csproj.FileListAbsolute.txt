@@ -38,3 +38,6 @@ C:\Users\braya\Desktop\bases\Proyecto_2_github\GymTEC\Backend\Gymtec_MongoAPI\Mo
 C:\Users\braya\Desktop\bases\Proyecto_2_github\GymTEC\Backend\Gymtec_MongoAPI\MongoGymtecAPI\obj\Release\net5.0\ref\MongoGymtecAPI.dll
 C:\Users\braya\Desktop\bases\Proyecto_2_github\GymTEC\Backend\Gymtec_MongoAPI\MongoGymtecAPI\obj\Release\net5.0\MongoGymtecAPI.pdb
 C:\Users\braya\Desktop\bases\Proyecto_2_github\GymTEC\Backend\Gymtec_MongoAPI\MongoGymtecAPI\obj\Release\net5.0\MongoGymtecAPI.genruntimeconfig.cache
+C:\Users\braya\Desktop\bases\Proyecto_2_github\GymTEC\Backend\Gymtec_MongoAPI\MongoGymtecAPI\bin\Release\net5.0\Newtonsoft.Json.dll
+C:\Users\braya\Desktop\bases\Proyecto_2_github\GymTEC\Backend\Gymtec_MongoAPI\MongoGymtecAPI\bin\Release\net5.0\Newtonsoft.Json.Bson.dll
+C:\Users\braya\Desktop\bases\Proyecto_2_github\GymTEC\Backend\Gymtec_MongoAPI\MongoGymtecAPI\obj\Release\net5.0\MongoGymtecAPI.csprojAssemblyReference.cache

@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
           this.servicio.puesto = a);
         this.navegation();
       }else {
-        alert('Gullipollas');
+        alert('Informacion invalida');
       }
 
     });

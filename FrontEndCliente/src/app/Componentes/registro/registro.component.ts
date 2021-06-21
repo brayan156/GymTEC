@@ -22,7 +22,11 @@ export class RegistroComponent implements OnInit {
 
   register() {
     console.log(this.cliente)
-    this.service.register(this.cliente).subscribe(() => { alert("Sus datos han sido registrados."); this.router.navigateByUrl(""); });
+    this.service.register(this.cliente).subscribe(() => {
+      this.service.registerAPi(this.cliente).subscribe(() => {
+        alert("Sus datos han sido registrados."); this.router.navigateByUrl("");
+      })
+    });
   }
 
 

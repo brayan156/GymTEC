@@ -26,4 +26,4 @@ insert into TipoEquipo (nombre, descripcion, imagen) values
                                                             ('Pesas','pesos de varias formas y tipos','https://th.bing.com/th/id/OIP.hlr0DonKR8gI1Kp82dLa8AHaFL?w=227&h=180&c=7&o=5&pid=1.7');
 
 insert into Empleado (cedula, email, contrasena, primer_apellido, segundo_apellido, nombre, distrito, canton, provincia, salario, idSucursal, idPuesto, idPlanilla) values
-(1234,'admin@gmail.com',1234,'leon','urbina','brayan','Centro','San Ramon','Aljuela',200,1,1,1)
+(1234,'admin@gmail.com','OIg9xx6YMyY=','leon','urbina','brayan','Centro','San Ramon','Aljuela',200,1,1,1)

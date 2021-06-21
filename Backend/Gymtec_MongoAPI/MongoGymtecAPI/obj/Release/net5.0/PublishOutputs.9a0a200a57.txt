@@ -11,6 +11,8 @@ C:\Users\braya\Desktop\bases\Proyecto_2_github\GymTEC\Backend\Gymtec_MongoAPI\Mo
 C:\Users\braya\Desktop\bases\Proyecto_2_github\GymTEC\Backend\Gymtec_MongoAPI\MongoGymtecAPI\obj\Release\net5.0\PubTmp\Out\MongoDB.Driver.dll
 C:\Users\braya\Desktop\bases\Proyecto_2_github\GymTEC\Backend\Gymtec_MongoAPI\MongoGymtecAPI\obj\Release\net5.0\PubTmp\Out\MongoDB.Driver.Core.dll
 C:\Users\braya\Desktop\bases\Proyecto_2_github\GymTEC\Backend\Gymtec_MongoAPI\MongoGymtecAPI\obj\Release\net5.0\PubTmp\Out\MongoDB.Libmongocrypt.dll
+C:\Users\braya\Desktop\bases\Proyecto_2_github\GymTEC\Backend\Gymtec_MongoAPI\MongoGymtecAPI\obj\Release\net5.0\PubTmp\Out\Newtonsoft.Json.dll
+C:\Users\braya\Desktop\bases\Proyecto_2_github\GymTEC\Backend\Gymtec_MongoAPI\MongoGymtecAPI\obj\Release\net5.0\PubTmp\Out\Newtonsoft.Json.Bson.dll
 C:\Users\braya\Desktop\bases\Proyecto_2_github\GymTEC\Backend\Gymtec_MongoAPI\MongoGymtecAPI\obj\Release\net5.0\PubTmp\Out\SharpCompress.dll
 C:\Users\braya\Desktop\bases\Proyecto_2_github\GymTEC\Backend\Gymtec_MongoAPI\MongoGymtecAPI\obj\Release\net5.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\braya\Desktop\bases\Proyecto_2_github\GymTEC\Backend\Gymtec_MongoAPI\MongoGymtecAPI\obj\Release\net5.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll

@@ -25,7 +25,7 @@ import { MostrarInventario } from './Clases/mostrar-inventario';
   providedIn: 'root'
 })
 export class ServiciosService {
-  Url = 'https://localhost:44388/api/';
+  Url = 'https://apigymtec.azurewebsites.net/api/';
   private valores = new BehaviorSubject('');
   public valoresActuales = this.valores.asObservable();
   empleado: Empleado = new Empleado();

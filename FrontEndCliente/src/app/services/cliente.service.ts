@@ -12,8 +12,8 @@ import { ClassElement } from 'typescript';
 })
 export class ClienteService {
 
-  UrlCliente = 'https://localhost:44328/api/Client/';
-  Url = 'https://localhost:44388/api/';
+  UrlCliente = 'https://mongogymtecapi20210618162014.azurewebsites.net/api/Client/';
+  Url = 'https://apigymtec.azurewebsites.net/api/';
   user: Cliente;
 
   constructor(private htpp: HttpClient) {
@@ -25,6 +25,11 @@ export class ClienteService {
 
   register(cliente:Cliente) {
     return this.htpp.post(this.UrlCliente, cliente);
+  }
+
+
+  registerAPi(cliente: Cliente) {
+    return this.htpp.post(this.Url+"Cliente", cliente);
   }
 
   public obtenerListasSucursal(){

@@ -3,7 +3,7 @@ export class Cliente {
   peso: number;
   imc: number;
   contrasena: string;
-  email: string;
+  correo: string;
   edad: number;
   nombre: string;
   distrito: string;
