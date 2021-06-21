@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
           this.servicio.puesto = a);
         this.navegation();
       }else {
-        alert('Gullipollas');
+        alert('Error al ingresar,Favor revisar el correo electronico y contraseña');
       }
 
     });
